@@ -1019,3 +1019,14 @@ pre .prepro { color: #a33243; }
   text-shadow: -1px -1px #000, 1px -1px #000, -1px 1px #000, 1px 1px #000;
   position: absolute;
 }
+
+.nav-lang {
+  text-align: center;
+  padding: 0 10px 0.4em;
+  font-size: 0.85em;
+}
+
+.nav-lang a {
+  color: var(--link-colour);
+  font-weight: bold;
+}

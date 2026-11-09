@@ -333,13 +333,14 @@ function renderNav(page) {
   return `<nav id="nav">
   <button id="nav-reveal" type="button" aria-label="${copy.site}">☰</button>
   <h1><a href="${BASE}${homepage.replace(/^\//, '')}"><img src="${BASE}${ccLogo.replace(/^\//, '')}" alt="CC: Tweaked for TerraFirmaGreg" /></a></h1>
+  <div class="nav-lang"><a href="${switchHref}" data-lang="${LOCALES[locale].other === 'zh_cn' ? 'zh' : 'en'}">${escapeHtml(other.label)}</a></div>
   <div class="nav-links">
     ${tocBlock}
     ${page.url.startsWith('/tfgm') ? `${siteGroups}${renderCcGroups(page)}` : `${renderCcGroups(page)}${siteGroups}`}
     <h2 tabindex="0">${copy.upstream}</h2>
     <ul>${upstream}</ul>
     <h2 tabindex="0">${copy.language}</h2>
-    <ul><li><a href="${switchHref}" class="sidebar-link" data-lang="${other === 'zh_cn' ? 'zh' : 'en'}">${escapeHtml(other.label)}</a></li></ul>
+    <ul><li><a href="${switchHref}" class="sidebar-link" data-lang="${LOCALES[locale].other === 'zh_cn' ? 'zh' : 'en'}">${escapeHtml(other.label)}</a></li></ul>
   </div>
 </nav>`;
 }
