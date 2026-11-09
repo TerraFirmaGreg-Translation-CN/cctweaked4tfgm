@@ -42,6 +42,7 @@ tab, quest chapter and item names around it. The delta is collected under [Terra
 <tr><th><a href="/tfgm/turtle-upgrades/">Turtle upgrades</a></th><td>20 GregTech materials × 5 tool types = 73 <code>computercraft:tool</code> upgrades.</td></tr>
 <tr><th><a href="/tfgm/quests/">Quest chapter</a></th><td>The 55-quest ComputerCraft chapter with its dependency graph.</td></tr>
 <tr><th><a href="/tfgm/api/">Lua index</a></th><td>A searchable index of the CC:T 1.121.0 symbol surface, linked to these pages.</td></tr>
+<tr><th><a href="/tfgm/integrations/">Integrations</a></th><td>Controlling GregTech machines, Create and Advanced Peripherals from Lua.</td></tr>
 </tbody>
 </table>
 

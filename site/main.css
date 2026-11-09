@@ -141,8 +141,9 @@ h1.home-logo {
 }
 
 h1.home-logo img {
-  width: 96px;
-  height: auto;
+  width: auto;
+  height: 64px;
+  max-width: 100%;
 }
 
 h2, h3, h4 {

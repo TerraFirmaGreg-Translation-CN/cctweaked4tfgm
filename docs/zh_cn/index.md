@@ -18,28 +18,32 @@ CC: Tweaked 是一个为 Minecraft 加入可编程计算机、海龟与大量外
 CC: Tweaked 的计算机使用 [Lua 语言](https://www.lua.org/)编程，提供编写代码和自动化 Minecraft 世界所需的全部工具。
 [全局函数](/module/_G/) 一节记录了计算机可用的全部 API（英文原文）。
 
-<img src="/basic-terminal-45a33440.png" alt="一台打开的 ComputerCraft 终端" class="big-image" />
+<img src="/basic-terminal-45a33440.png" alt="一台打开的 ComputerCraft 终端，准备好编写程序。" class="big-image" />
 
-计算机虽然强大，却不能移动。*海龟* 解决了这一点：它们可以移动、破坏和放置方块、挥剑，或者执行你编写的任何逻辑。
-详见 [`turtle` API](/module/turtle/)（英文原文）。
+计算机虽然强大，却不能移动。*海龟* 解决了这一点：它们可以移动、破坏和放置方块、挥剑保护你免受僵尸伤害，或者执行你编写的任何逻辑。详见 [`turtle` API](/module/turtle/)（英文原文）。
 
-计算机还可以连接大量 [外设](/peripheral/computer/)：用 [扬声器](/peripheral/speaker/) 演奏音乐，在
-[显示器](/peripheral/monitor/) 上显示文字或图像，用 [调制解调器](/peripheral/modem/) 把计算机连成网络。
-此外，计算机可以读写箱子等容器，从而搭建物品管理系统；这组通用能力记录在
-[通用外设](/generic_peripheral/inventory/) 中。
+<img src="/turtle-1b1e3370.png" alt="一只正在 Minecraft 中挖掘隧道的海龟。" class="big-image" />
 
-## 群峦格雷的改动
+并非所有问题都能用镐解决，所以 CC: Tweaked 还提供了大量 [外设](/peripheral/computer/)：用 [扬声器](/peripheral/speaker/) 演奏音乐，
+在 [显示器](/peripheral/monitor/) 上显示文字或图像，用 [调制解调器](/peripheral/modem/) 把计算机连成网络，等等。
 
-群峦格雷并没有 fork CC: Tweaked，而是把上游 JAR 作为依赖，并重写它周围的配方、进度门槛、创造模式物品栏、任务章节和物品名。
-全部差异收在 [TerraFirmaGreg](/zh_cn/tfgm/) 下：
+计算机还可以与箱子等容器交互，让你搭建物品与库存管理系统。
+
+<img src="/peripherals-d5df11cc.png" alt="计算机读取箱子内容并显示在显示器上。" class="big-image" />
+
+## TerraFirmaGreg
+
+本参考副本锁定到 **TFGM 0.13.18** 与 CC: Tweaked 1.121.0。群峦格雷围绕上游模组重写了配方、进度门槛，并加入自己的外设；
+这些差异记录在 [TerraFirmaGreg](/zh_cn/tfgm/) 下。
 
 <table class="definition-list">
 <tbody>
-<tr><th><a href="/zh_cn/tfgm/differences/">改了什么</a></th><td>逐文件列出所有修改，以及被替换掉的上游行为。</td></tr>
-<tr><th><a href="/zh_cn/tfgm/recipes/">配方</a></th><td>删除 CC:T 的全部配方，改用格雷机器重写（MV → LuV），并在站内直接渲染发行版的 EMI 布局。</td></tr>
-<tr><th><a href="/zh_cn/tfgm/turtle-upgrades/">海龟升级</a></th><td>20 种格雷材料 × 5 种工具 = 73 个 <code>computercraft:tool</code> 升级。</td></tr>
+<tr><th><a href="/zh_cn/tfgm/differences/">群峦格雷改了什么</a></th><td>配方、创造模式物品栏、任务章节、语言覆盖，以及两处上游 API 变更。</td></tr>
+<tr><th><a href="/zh_cn/tfgm/recipes/">配方表</a></th><td>全部 54 个 CC / AP 配方，直接使用发行版的 EMI 布局渲染。</td></tr>
+<tr><th><a href="/zh_cn/tfgm/turtle-upgrades/">海龟升级</a></th><td>20 种材料 × 5 种工具，共 73 个格雷工具升级。</td></tr>
 <tr><th><a href="/zh_cn/tfgm/quests/">任务章节</a></th><td>55 个 ComputerCraft 任务及其依赖图。</td></tr>
 <tr><th><a href="/zh_cn/tfgm/api/">Lua 索引</a></th><td>CC:T 1.121.0 全部符号的可搜索索引，指向本机镜像的文档页。</td></tr>
+<tr><th><a href="/zh_cn/tfgm/integrations/">整合包联动</a></th><td>用 Lua 控制格雷机器、机械动力方块与高级外设。</td></tr>
 </tbody>
 </table>
 
@@ -61,8 +65,22 @@ CC: Tweaked 的计算机使用 [Lua 语言](https://www.lua.org/)编程，提供
 
 ## 入门
 
-如果从没用过 ComputerCraft，先从 [<code>_G</code> 索引](/module/_G/) 和 [`turtle` API](/module/turtle/) 看起。
-上游还保留了 [Direwolf20 的教程](https://www.youtube.com/watch?v=wrUHUhfCY5A) 与
-[Sethbling 的系列](https://www.youtube.com/watch?v=DSsx4VSe-Uk)。
+虽然 ComputerCraft 对经验丰富的程序员和新手都很友好，但入门仍可能让人望而生畏。幸好有不少优秀的教程：
 
-在合成第一台计算机之前，先读[群峦格雷改了什么](/zh_cn/tfgm/differences/)和[配方表](/zh_cn/tfgm/recipes/)。
+- [Direwolf20 的 ComputerCraft 教程](https://www.youtube.com/watch?v=wrUHUhfCY5A)
+- [Sethbling 的 ComputerCraft 系列](https://www.youtube.com/watch?v=DSsx4VSe-Uk)
+- [Lyqyd 的 Computer Basics I](https://ccf.squiddev.cc/forums2/index.php?/topic/15033-computer-basics-i/)
+
+熟悉模组之后，侧栏和[文档](/module/_G/)提供了各个 API 与外设的详细说明。在合成第一台计算机之前，先读
+[群峦格雷改了什么](/zh_cn/tfgm/differences/)和[配方表](/zh_cn/tfgm/recipes/)。
+
+## 社区
+
+如果你需要帮助、想展示最新作品，或者只是想聊聊 ComputerCraft，可以访问 GitHub discussions，或加入 EsperNet 上的
+`#computercraft` IRC 频道。
+
+## 参与
+
+CC: Tweaked 托管在 [GitHub](https://github.com/cc-tweaked/CC-Tweaked/) 上。有想法、反馈或 bug，请
+[创建 issue](https://github.com/cc-tweaked/CC-Tweaked/issues/new/choose)。本站的镜像与群峦格雷改动则维护在
+[cctweaked4tfgm](https://github.com/TerraFirmaGreg-Translation-CN/cctweaked4tfgm)。

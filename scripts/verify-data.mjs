@@ -299,6 +299,28 @@ if (ccDocs) {
   const zhSet = new Set(zh);
   for (const page of en) if (!zhSet.has(page)) fail(`docs/zh_cn/${page} is missing`);
   for (const page of zh) if (!enSet.has(page)) fail(`docs/${page} is missing (zh_cn has it)`);
+
+  // Link parity: translated pages must point at the same internal pages.
+  const linksOf = (text) => {
+    const found = new Set();
+    for (const match of text.matchAll(/\]\(([^)\s]+)/g)) found.add(match[1]);
+    for (const match of text.matchAll(/href="([^"]+)"/g)) found.add(match[1]);
+    const out = new Set();
+    for (let url of found) {
+      if (!url.startsWith('/')) continue;
+      url = url.split('#')[0].replace(/\/+$/, '');
+      if (url.startsWith('/zh_cn')) url = url.slice('/zh_cn'.length) || '/';
+      out.add(url || '/');
+    }
+    return out;
+  };
+  for (const page of en) {
+    if (!zhSet.has(page)) continue;
+    const enLinks = linksOf(readFileSync(resolve(root, 'docs', page), 'utf8'));
+    const zhLinks = linksOf(readFileSync(resolve(root, 'docs/zh_cn', page), 'utf8'));
+    for (const link of enLinks) if (!zhLinks.has(link)) fail(`docs/zh_cn/${page} is missing link ${link}`);
+    for (const link of zhLinks) if (!enLinks.has(link)) fail(`docs/${page} has no matching link for zh_cn ${link}`);
+  }
 }
 
 // --- report ----------------------------------------------------------------
