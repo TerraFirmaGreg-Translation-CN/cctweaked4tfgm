@@ -1,0 +1,2492 @@
+[
+  {
+    "index": 0,
+    "kind": "gtceu.assembler",
+    "id": "computercraft:cable",
+    "machine": "assembler",
+    "tier": "MV",
+    "euPerTick": 120,
+    "duration": 80,
+    "circuit": null,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "tag",
+        "id": "forge:rods/quartzite",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "ae2:quartz_fiber",
+        "amount": 2
+      },
+      {
+        "type": "fluid",
+        "id": "gtceu:redstone",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:cable",
+        "amount": 2
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 15
+    }
+  },
+  {
+    "index": 1,
+    "kind": "gtceu.shaped",
+    "id": "tfg:crafting/wireless_modem_normal",
+    "machine": "crafting",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": " A /BCB/ D ",
+    "inputs": [
+      {
+        "type": "item",
+        "id": "gtceu:hv_sensor",
+        "amount": 1,
+        "key": "A"
+      },
+      {
+        "type": "item",
+        "id": "ae2:calculation_processor",
+        "amount": 1,
+        "key": "B"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/hv",
+        "amount": 1,
+        "key": "C"
+      },
+      {
+        "type": "item",
+        "id": "computercraft:cable",
+        "amount": 1,
+        "key": "D"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wireless_modem_normal",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 24
+    }
+  },
+  {
+    "index": 2,
+    "kind": "gtceu.shaped",
+    "id": "tfg:crafting/wireless_modem_advanced",
+    "machine": "crafting",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": " A /BCB/ D ",
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:wireless_receiver",
+        "amount": 1,
+        "key": "A"
+      },
+      {
+        "type": "item",
+        "id": "ae2:calculation_processor",
+        "amount": 1,
+        "key": "B"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/hv",
+        "amount": 1,
+        "key": "C"
+      },
+      {
+        "type": "item",
+        "id": "computercraft:cable",
+        "amount": 1,
+        "key": "D"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wireless_modem_advanced",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 36
+    }
+  },
+  {
+    "index": 3,
+    "kind": "gtceu.shaped",
+    "id": "tfg:crafting/monitor_normal",
+    "machine": "crafting",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": "ABA/CDC/EFE",
+    "inputs": [
+      {
+        "type": "item",
+        "id": "gtceu:magnesium_diboride_single_wire",
+        "amount": 1,
+        "key": "A"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:computer_monitor_cover",
+        "amount": 1,
+        "key": "B"
+      },
+      {
+        "type": "item",
+        "id": "ae2:calculation_processor",
+        "amount": 1,
+        "key": "C"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_machine_casing",
+        "amount": 1,
+        "key": "D"
+      },
+      {
+        "type": "item",
+        "id": "computercraft:cable",
+        "amount": 1,
+        "key": "E"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/mv",
+        "amount": 1,
+        "key": "F"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:monitor_normal",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 48
+    }
+  },
+  {
+    "index": 4,
+    "kind": "gtceu.shaped",
+    "id": "tfg:crafting/monitor_advanced",
+    "machine": "crafting",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": "ABA/CDC/EFE",
+    "inputs": [
+      {
+        "type": "item",
+        "id": "gtceu:mercury_barium_calcium_cuprate_single_wire",
+        "amount": 1,
+        "key": "A"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:computer_monitor_cover",
+        "amount": 1,
+        "key": "B"
+      },
+      {
+        "type": "item",
+        "id": "ae2:calculation_processor",
+        "amount": 1,
+        "key": "C"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_machine_casing",
+        "amount": 1,
+        "key": "D"
+      },
+      {
+        "type": "item",
+        "id": "computercraft:cable",
+        "amount": 1,
+        "key": "E"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/hv",
+        "amount": 1,
+        "key": "F"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:monitor_advanced",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 62
+    }
+  },
+  {
+    "index": 5,
+    "kind": "gtceu.shaped",
+    "id": "tfg:crafting/disk_drive",
+    "machine": "crafting",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": "ABA/CDC/AEA",
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:cable",
+        "amount": 1,
+        "key": "A"
+      },
+      {
+        "type": "item",
+        "id": "ae2:drive",
+        "amount": 1,
+        "key": "B"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/mv",
+        "amount": 1,
+        "key": "C"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_machine_casing",
+        "amount": 1,
+        "key": "D"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_sensor",
+        "amount": 1,
+        "key": "E"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk_drive",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 76
+    }
+  },
+  {
+    "index": 6,
+    "kind": "gtceu.shaped",
+    "id": "tfg:crafting/speaker",
+    "machine": "crafting",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": " A /BCB/ D ",
+    "inputs": [
+      {
+        "type": "item",
+        "id": "minecraft:note_block",
+        "amount": 1,
+        "key": "A"
+      },
+      {
+        "type": "item",
+        "id": "computercraft:cable",
+        "amount": 1,
+        "key": "B"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_machine_casing",
+        "amount": 1,
+        "key": "C"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/mv",
+        "amount": 1,
+        "key": "D"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:speaker",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 89
+    }
+  },
+  {
+    "index": 7,
+    "kind": "gtceu.shaped",
+    "id": "tfg:crafting/printer",
+    "machine": "crafting",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": "ABC/DED/FBF",
+    "inputs": [
+      {
+        "type": "item",
+        "id": "gtceu:mv_electric_motor",
+        "amount": 1,
+        "key": "A"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/mv",
+        "amount": 1,
+        "key": "B"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_robot_arm",
+        "amount": 1,
+        "key": "C"
+      },
+      {
+        "type": "item",
+        "id": "computercraft:cable",
+        "amount": 1,
+        "key": "D"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_machine_casing",
+        "amount": 1,
+        "key": "E"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_conveyor_module",
+        "amount": 1,
+        "key": "F"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:printer",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 101
+    }
+  },
+  {
+    "index": 8,
+    "kind": "gtceu.shaped",
+    "id": "tfg:crafting/wired_modem",
+    "machine": "crafting",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": " A /BCB/BDB",
+    "inputs": [
+      {
+        "type": "item",
+        "id": "gtceu:mv_sensor",
+        "amount": 1,
+        "key": "A"
+      },
+      {
+        "type": "item",
+        "id": "computercraft:cable",
+        "amount": 1,
+        "key": "B"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/mv",
+        "amount": 1,
+        "key": "C"
+      },
+      {
+        "type": "item",
+        "id": "ae2:calculation_processor",
+        "amount": 1,
+        "key": "D"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 115
+    }
+  },
+  {
+    "index": 9,
+    "kind": "shapeless",
+    "id": "tfg:crafting/wired_modem_shapeless",
+    "machine": "shapeless",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem_full",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 126
+    }
+  },
+  {
+    "index": 10,
+    "kind": "shapeless",
+    "id": "tfg:crafting/wired_modem_full_shapeless",
+    "machine": "shapeless",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem_full",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 129
+    }
+  },
+  {
+    "index": 11,
+    "kind": "gtceu.assembler",
+    "id": "computercraft:assembler/computer_normal",
+    "machine": "assembler",
+    "tier": "MV",
+    "euPerTick": 120,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "gtceu:mv_machine_casing",
+        "amount": 1
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/hv",
+        "amount": 2
+      },
+      {
+        "type": "tag",
+        "id": "forge:double_wires/magnesium_diboride",
+        "amount": 3
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:batteries/mv",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "computercraft:cable",
+        "amount": 4
+      },
+      {
+        "type": "item",
+        "id": "gtceu:cpu_chip",
+        "amount": 8
+      },
+      {
+        "type": "item",
+        "id": "gtceu:computer_monitor_cover",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:computer_normal",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 133
+    }
+  },
+  {
+    "index": 12,
+    "kind": "gtceu.assembler",
+    "id": "computercraft:assembler/computer_advanced",
+    "machine": "assembler",
+    "tier": "HV",
+    "euPerTick": 480,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "gtceu:hv_machine_casing",
+        "amount": 1
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/ev",
+        "amount": 2
+      },
+      {
+        "type": "tag",
+        "id": "forge:double_wires/mercury_barium_calcium_cuprate",
+        "amount": 3
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:batteries/hv",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "computercraft:cable",
+        "amount": 4
+      },
+      {
+        "type": "item",
+        "id": "gtceu:soc",
+        "amount": 12
+      },
+      {
+        "type": "item",
+        "id": "gtceu:computer_monitor_cover",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:computer_advanced",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 142
+    }
+  },
+  {
+    "index": 13,
+    "kind": "gtceu.assembler",
+    "id": "computercraft:assembler/turtle_normal",
+    "machine": "assembler",
+    "tier": "HV",
+    "euPerTick": 480,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:computer_normal",
+        "amount": 1
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/ev",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "gtceu:steel_crate",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_conveyor_module",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_robot_arm",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_emitter",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_sensor",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_fluid_regulator",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:turtle_normal",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 151
+    }
+  },
+  {
+    "index": 14,
+    "kind": "gtceu.assembler",
+    "id": "computercraft:assembler/turtle_advanced",
+    "machine": "assembler",
+    "tier": "EV",
+    "euPerTick": 1920,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:computer_advanced",
+        "amount": 1
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/iv",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "gtceu:aluminium_crate",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:ev_conveyor_module",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "gtceu:ev_robot_arm",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "gtceu:ev_emitter",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:ev_sensor",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:ev_fluid_regulator",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:turtle_advanced",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 160
+    }
+  },
+  {
+    "index": 15,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_white",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:white_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:15790320}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 16,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_orange",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:orange_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:15905331}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 17,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_magenta",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:magenta_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:15040472}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 18,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_light_blue",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:light_blue_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:10072818}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 19,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_yellow",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:yellow_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:14605932}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 20,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_lime",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:lime_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:8375321}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 21,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_pink",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:pink_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:15905484}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 22,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_gray",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:gray_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:5000268}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 23,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_light_gray",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:light_gray_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:10066329}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 24,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_cyan",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:cyan_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:5020082}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 25,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_purple",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:purple_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:11691749}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 26,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_blue",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:blue_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:3368652}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 27,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_brown",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:brown_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:8349260}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 28,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_green",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:green_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:5744206}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 29,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_red",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:red_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:13388876}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 30,
+    "kind": "gtceu.chemical_bath",
+    "id": "computercraft:disk_black",
+    "machine": "chemical_bath",
+    "tier": "ULV",
+    "euPerTick": 7,
+    "duration": 20,
+    "circuit": null,
+    "category": "gtceu:chem_dyes",
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:blank_pattern",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "tfc:black_dye",
+        "amount": 288
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "nbt": "{Color:1118481}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 170
+    }
+  },
+  {
+    "index": 31,
+    "kind": "gtceu.shaped",
+    "id": "tfg:crafting/pocket_computer_normal",
+    "machine": "crafting",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": "ABA/CDE/FGF",
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:wireless_receiver",
+        "amount": 1,
+        "key": "A"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mercury_barium_calcium_cuprate_single_wire",
+        "amount": 1,
+        "key": "B"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:batteries/hv",
+        "amount": 1,
+        "key": "C"
+      },
+      {
+        "type": "item",
+        "id": "ae2:terminal",
+        "amount": 1,
+        "key": "D"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_emitter",
+        "amount": 1,
+        "key": "E"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/ev",
+        "amount": 1,
+        "key": "F"
+      },
+      {
+        "type": "tag",
+        "id": "forge:plates/titanium",
+        "amount": 1,
+        "key": "G"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_normal",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 181
+    }
+  },
+  {
+    "index": 32,
+    "kind": "shapeless",
+    "id": "computercraft:ender_pocket_computer_normal_shapless",
+    "machine": "shapeless",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_normal",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "computercraft:wireless_modem_advanced",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_normal",
+        "nbt": "{Upgrade:\"computercraft:wireless_modem_advanced\"}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 196
+    }
+  },
+  {
+    "index": 33,
+    "kind": "shapeless",
+    "id": "computercraft:wireless_pocket_computer_normal_shapless",
+    "machine": "shapeless",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_normal",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "computercraft:wireless_modem_normal",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_normal",
+        "nbt": "{Upgrade:\"computercraft:wireless_modem_normal\"}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 202
+    }
+  },
+  {
+    "index": 34,
+    "kind": "shapeless",
+    "id": "computercraft:noisy_pocket_computer_normal_shapless",
+    "machine": "shapeless",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_normal",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "computercraft:speaker",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_normal",
+        "nbt": "{Upgrade:\"computercraft:speaker\"}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 208
+    }
+  },
+  {
+    "index": 35,
+    "kind": "gtceu.shaped",
+    "id": "tfg:crafting/pocket_computer_advanced",
+    "machine": "crafting",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": "ABA/CDE/FGF",
+    "inputs": [
+      {
+        "type": "item",
+        "id": "ae2:wireless_receiver",
+        "amount": 1,
+        "key": "A"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:uranium_triplatinum_single_wire",
+        "amount": 1,
+        "key": "B"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:batteries/ev",
+        "amount": 1,
+        "key": "C"
+      },
+      {
+        "type": "item",
+        "id": "ae2:terminal",
+        "amount": 1,
+        "key": "D"
+      },
+      {
+        "type": "item",
+        "id": "gtceu:ev_emitter",
+        "amount": 1,
+        "key": "E"
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/iv",
+        "amount": 1,
+        "key": "F"
+      },
+      {
+        "type": "tag",
+        "id": "forge:plates/tungsten_steel",
+        "amount": 1,
+        "key": "G"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_advanced",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 215
+    }
+  },
+  {
+    "index": 36,
+    "kind": "shapeless",
+    "id": "computercraft:ender_pocket_computer_advanced_shapless",
+    "machine": "shapeless",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_advanced",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "computercraft:wireless_modem_advanced",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_advanced",
+        "nbt": "{Upgrade:\"computercraft:wireless_modem_advanced\"}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 230
+    }
+  },
+  {
+    "index": 37,
+    "kind": "shapeless",
+    "id": "computercraft:wireless_pocket_computer_advanced_shapless",
+    "machine": "shapeless",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_advanced",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "computercraft:wireless_modem_normal",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_advanced",
+        "nbt": "{Upgrade:\"computercraft:wireless_modem_normal\"}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 236
+    }
+  },
+  {
+    "index": 38,
+    "kind": "shapeless",
+    "id": "computercraft:noisy_pocket_computer_advanced_shapless",
+    "machine": "shapeless",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_advanced",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "computercraft:speaker",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:pocket_computer_advanced",
+        "nbt": "{Upgrade:\"computercraft:speaker\"}"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 242
+    }
+  },
+  {
+    "index": 39,
+    "kind": "gtceu.assembler",
+    "id": "computercraft:assembler/redstone_relay",
+    "machine": "assembler",
+    "tier": "MV",
+    "euPerTick": 120,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_machine_casing",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "vintageimprovements:redstone_module",
+        "amount": 10
+      },
+      {
+        "type": "item",
+        "id": "ae2:redstone_card",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:transistor",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_emitter",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "computercraft:redstone_relay",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 248
+    }
+  },
+  {
+    "index": 40,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/chat_box",
+    "machine": "assembler",
+    "tier": "MV",
+    "euPerTick": 120,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_machine_casing",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "computercraft:monitor_normal",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_sensor",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_emitter",
+        "amount": 2
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/hv",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:chat_box",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 9
+    }
+  },
+  {
+    "index": 41,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/player_detector",
+    "machine": "assembler",
+    "tier": "HV",
+    "euPerTick": 480,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_machine_casing",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_field_generator",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_robot_arm",
+        "amount": 4
+      },
+      {
+        "type": "item",
+        "id": "gtceu:soc",
+        "amount": 6
+      },
+      {
+        "type": "item",
+        "id": "gtceu:face_mask",
+        "nbt": "{Damage:0}"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:player_detector",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 18
+    }
+  },
+  {
+    "index": 42,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/me_bridge",
+    "machine": "assembler",
+    "tier": "HV",
+    "euPerTick": 480,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_machine_casing",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "ae2:interface",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "ae2:fluix_smart_cable",
+        "amount": 15
+      },
+      {
+        "type": "item",
+        "id": "ae2:engineering_processor",
+        "amount": 4
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/ev",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:me_bridge",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 27
+    }
+  },
+  {
+    "index": 43,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/environment_detector",
+    "machine": "assembler",
+    "tier": "HV",
+    "euPerTick": 480,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_machine_casing",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_sensor",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_emitter",
+        "amount": 2
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/ev",
+        "amount": 1
+      },
+      {
+        "type": "fluid",
+        "id": "gtceu:biomass",
+        "amount": 2000
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:environment_detector",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 36
+    }
+  },
+  {
+    "index": 44,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/inventory_manager",
+    "machine": "assembler",
+    "tier": "LuV",
+    "euPerTick": 30720,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:luv_machine_casing",
+        "amount": 1
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/luv",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "gtceu:luv_sensor",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "ae2:export_bus",
+        "amount": 2
+      },
+      {
+        "type": "item",
+        "id": "ae2:equal_distribution_card",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:inventory_manager",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 46
+    }
+  },
+  {
+    "index": 45,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/block_reader",
+    "machine": "assembler",
+    "tier": "MV",
+    "euPerTick": 120,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_machine_casing",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:lv_scanner",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_sensor",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:mv_emitter",
+        "amount": 1
+      },
+      {
+        "type": "tag",
+        "id": "forge:lenses/amethyst",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:block_reader",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 55
+    }
+  },
+  {
+    "index": 46,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/geo_scanner",
+    "machine": "assembler",
+    "tier": "HV",
+    "euPerTick": 480,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_machine_casing",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:prospector.hv",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_sensor",
+        "amount": 2
+      },
+      {
+        "type": "tag",
+        "id": "forge:propick_heads/red_steel",
+        "amount": 1
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/ev",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:geo_scanner",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 64
+    }
+  },
+  {
+    "index": 47,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/nbt_storage",
+    "machine": "assembler",
+    "tier": "HV",
+    "euPerTick": 480,
+    "duration": 1200,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_machine_casing",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "computercraft:disk_drive",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:item_smart_filter",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:ram_chip",
+        "amount": 16
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/ev",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:nbt_storage",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 73
+    }
+  },
+  {
+    "index": 48,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/end_automata_core",
+    "machine": "assembler",
+    "tier": "LuV",
+    "euPerTick": 30720,
+    "duration": 2400,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "tag",
+        "id": "forge:lenses/nether_star",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:quantum_eye",
+        "amount": 4
+      },
+      {
+        "type": "material",
+        "id": "gtceu:hsss_gear",
+        "amount": 4
+      },
+      {
+        "type": "item",
+        "id": "gtceu:luv_robot_arm",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:end_automata_core",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 82
+    }
+  },
+  {
+    "index": 49,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/husbandry_automata_core",
+    "machine": "assembler",
+    "tier": "HV",
+    "euPerTick": 480,
+    "duration": 2400,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "tfcgroomer:blue_steel_grooming_station",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "tfcgroomer:red_steel_grooming_station",
+        "amount": 1
+      },
+      {
+        "type": "material",
+        "id": "gtceu:stainlesssteel_gear",
+        "amount": 4
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_robot_arm",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:husbandry_automata_core",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 90
+    }
+  },
+  {
+    "index": 50,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/weak_automata_core",
+    "machine": "assembler",
+    "tier": "HV",
+    "euPerTick": 480,
+    "duration": 2400,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "computercraft:wired_modem",
+        "amount": 1
+      },
+      {
+        "type": "item",
+        "id": "gtceu:cpu_chip",
+        "amount": 64
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_conveyor_module",
+        "amount": 4
+      },
+      {
+        "type": "material",
+        "id": "gtceu:stainlesssteel_gear",
+        "amount": 4
+      },
+      {
+        "type": "item",
+        "id": "gtceu:hv_robot_arm",
+        "amount": 1
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:weak_automata_core",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 99
+    }
+  },
+  {
+    "index": 51,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/overpowered_husbandry_automata_core",
+    "machine": "assembler",
+    "tier": "IV",
+    "euPerTick": 7680,
+    "duration": 2400,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:husbandry_automata_core",
+        "amount": 1
+      },
+      {
+        "type": "material",
+        "id": "gtceu:hsss_gear",
+        "amount": 4
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/iv",
+        "amount": 6
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:overpowered_husbandry_automata_core",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 108
+    }
+  },
+  {
+    "index": 52,
+    "kind": "gtceu.assembler",
+    "id": "advancedperipherals:assembler/overpowered_weak_automata_core",
+    "machine": "assembler",
+    "tier": "IV",
+    "euPerTick": 7680,
+    "duration": 2400,
+    "circuit": 4,
+    "category": null,
+    "pattern": null,
+    "inputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:weak_automata_core",
+        "amount": 1
+      },
+      {
+        "type": "material",
+        "id": "gtceu:hsss_gear",
+        "amount": 4
+      },
+      {
+        "type": "tag",
+        "id": "gtceu:circuits/iv",
+        "amount": 6
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:overpowered_weak_automata_core",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 117
+    }
+  },
+  {
+    "index": 53,
+    "kind": "gtceu.shaped",
+    "id": "advancedperipherals:shaped/memory_card",
+    "machine": "crafting",
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": "A/B/C",
+    "inputs": [
+      {
+        "type": "material",
+        "id": "gtceu:polyethylene_plate",
+        "amount": 1,
+        "key": "A"
+      },
+      {
+        "type": "item",
+        "id": "computercraft:disk",
+        "amount": 1,
+        "key": "B"
+      },
+      {
+        "type": "material",
+        "id": "gtceu:gold_double_plate",
+        "amount": 1,
+        "key": "C"
+      }
+    ],
+    "outputs": [
+      {
+        "type": "item",
+        "id": "advancedperipherals:memory_card",
+        "amount": 1
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/advancedperipherals/recipes.js",
+      "line": 126
+    }
+  },
+  {
+    "index": 54,
+    "kind": "remove",
+    "id": "tfgm:computercraft-removals",
+    "machine": null,
+    "tier": null,
+    "euPerTick": null,
+    "duration": null,
+    "circuit": null,
+    "category": null,
+    "pattern": null,
+    "inputs": [],
+    "outputs": [],
+    "removal": [
+      {
+        "not": [
+          {
+            "id": "computercraft:printed_pages"
+          },
+          {
+            "id": "computercraft:printed_book"
+          }
+        ],
+        "mod": "computercraft"
+      },
+      {
+        "mod": "advancedperipherals"
+      }
+    ],
+    "source": {
+      "file": "kubejs/server_scripts/computer_craft/recipes.js",
+      "line": 7
+    }
+  }
+]

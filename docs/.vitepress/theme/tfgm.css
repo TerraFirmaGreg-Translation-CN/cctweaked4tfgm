@@ -1,0 +1,173 @@
+/*
+ * Palette mirrors jmecn/RecipeBook-React src/styles/viewer-theme.css so the CC
+ * pages, the recipe book and the quest book read as one site family.
+ * --tfg-primary is the TerraFirmaGreg brand red.
+ */
+
+:root {
+  --tfg-primary: #ff0e0b;
+  --tfg-primary-rgb: 255, 14, 11;
+  --tfg-font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+
+  --vp-c-brand-1: #cc0b09;
+  --vp-c-brand-2: #ff3e3c;
+  --vp-c-brand-3: #ff6e6d;
+  --vp-c-brand-soft: rgba(var(--tfg-primary-rgb), 0.14);
+}
+
+.dark {
+  --vp-c-brand-1: #ff6e6d;
+  --vp-c-brand-2: #ff3e3c;
+  --vp-c-brand-3: #ff0e0b;
+
+  --vp-c-bg: #151515;
+  --vp-c-bg-alt: #1b1c20;
+  --vp-c-bg-elv: #292c31;
+  --vp-c-bg-soft: #23262b;
+  --vp-c-border: #2a3442;
+  --vp-c-divider: #2a3442;
+  --vp-c-gutter: #14161a;
+  --vp-c-text-1: #e8eef5;
+  --vp-c-text-2: #c3cdd9;
+  --vp-c-text-3: #9ca9ba;
+}
+
+/* GT voltage tiers: matches GTValues.VC (1.20.1 GregTech Modern). */
+:root {
+  --gt-ulv: #c80000;
+  --gt-lv: #dcdcdc;
+  --gt-mv: #ff6400;
+  --gt-hv: #ffff1e;
+  --gt-ev: #808080;
+  --gt-iv: #f0f0f5;
+  --gt-luv: #e99797;
+  --gt-zpm: #7ec3c4;
+  --gt-uv: #7eb07e;
+  --gt-uhv: #bf74c0;
+}
+
+.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25em;
+  padding: 0 0.45em;
+  border-radius: 4px;
+  border: 1px solid color-mix(in srgb, var(--tier-colour) 55%, transparent);
+  background: color-mix(in srgb, var(--tier-colour) 14%, transparent);
+  color: var(--tier-colour);
+  font-family: var(--tfg-font-mono);
+  font-size: 0.78em;
+  font-weight: 600;
+  line-height: 1.7;
+  white-space: nowrap;
+}
+
+.tier-badge--none {
+  --tier-colour: var(--vp-c-text-3);
+  border-style: dashed;
+}
+
+.tfgm-card {
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 8px;
+  background: var(--vp-c-bg-soft);
+  padding: 12px 14px;
+}
+
+.tfgm-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 0 10px;
+}
+
+.tfgm-toolbar input,
+.tfgm-toolbar select {
+  padding: 5px 9px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 6px;
+  background: var(--vp-c-bg);
+  color: var(--vp-c-text-1);
+  font: inherit;
+  font-size: 0.86rem;
+}
+
+.tfgm-toolbar input {
+  min-width: 240px;
+  flex: 1 1 240px;
+}
+
+.tfgm-count {
+  color: var(--vp-c-text-3);
+  font-size: 0.82rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.tfgm-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.86rem;
+}
+
+.tfgm-table th,
+.tfgm-table td {
+  border-bottom: 1px solid var(--vp-c-divider);
+  padding: 6px 8px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.tfgm-table th {
+  color: var(--vp-c-text-2);
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.tfgm-table code {
+  font-size: 0.82em;
+}
+
+.tfgm-table tr:last-child td {
+  border-bottom: none;
+}
+
+.tfgm-mono {
+  font-family: var(--tfg-font-mono);
+}
+
+.tfgm-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.tfgm-muted {
+  color: var(--vp-c-text-3);
+}
+
+.tfgm-tag {
+  display: inline-block;
+  padding: 0 0.4em;
+  border-radius: 4px;
+  background: var(--vp-c-bg-elv);
+  border: 1px solid var(--vp-c-divider);
+  font-family: var(--tfg-font-mono);
+  font-size: 0.78em;
+  white-space: nowrap;
+}
+
+.tfgm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 10px;
+  margin: 12px 0;
+}
+
+.tfgm-swatch {
+  display: inline-block;
+  width: 0.85em;
+  height: 0.85em;
+  border-radius: 2px;
+  vertical-align: -0.1em;
+  border: 1px solid var(--vp-c-divider);
+}

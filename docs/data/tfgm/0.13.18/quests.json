@@ -1,0 +1,959 @@
+[
+  {
+    "id": "5F2D9F4908401D0D",
+    "titleKey": "quests.computer.welcome.title",
+    "title": {
+      "zh_cn": "欢迎来到 ComputerCraft！",
+      "en_us": "Welcome to ComputerCraft!"
+    },
+    "subtitle": {
+      "zh_cn": "你遇见了 Luna。准备好迎接 Lua。",
+      "en_us": "You've met Luna. Prepare for Lua."
+    },
+    "dependencies": [],
+    "tasks": [
+      "computercraft:computer_normal"
+    ]
+  },
+  {
+    "id": "791B05ACA5FD85FC",
+    "titleKey": "quests.computer.advanced_computers.title",
+    "title": {
+      "zh_cn": "高级变体",
+      "en_us": "Advanced Variants"
+    },
+    "subtitle": {
+      "zh_cn": "更胜从前！",
+      "en_us": "Better than ever!"
+    },
+    "dependencies": [
+      "5F2D9F4908401D0D"
+    ],
+    "tasks": [
+      "computercraft:computer_advanced",
+      "computercraft:turtle_advanced",
+      "computercraft:pocket_computer_advanced",
+      "computercraft:monitor_advanced"
+    ]
+  },
+  {
+    "id": "4CD956A0E923C1B6",
+    "titleKey": "quests.computer.pocket.title",
+    "title": {
+      "zh_cn": "口袋计算机",
+      "en_us": "Pocket Computers"
+    },
+    "subtitle": {
+      "zh_cn": "iPad 宝宝",
+      "en_us": "Ipad Baby"
+    },
+    "dependencies": [
+      "5F2D9F4908401D0D"
+    ],
+    "tasks": [
+      "computercraft:pocket_computer_normal"
+    ]
+  },
+  {
+    "id": "3C6A84E06D46CD0F",
+    "titleKey": "quests.computer.turtles.title",
+    "title": {
+      "zh_cn": "海龟",
+      "en_us": "Turtles"
+    },
+    "subtitle": {
+      "zh_cn": "阿西莫夫会感到担忧",
+      "en_us": "Asimov would be concerned"
+    },
+    "dependencies": [
+      "5F2D9F4908401D0D"
+    ],
+    "tasks": [
+      "computercraft:turtle_normal"
+    ]
+  },
+  {
+    "id": "0B29A2BF94C63336",
+    "titleKey": "quests.computer.monitor.title",
+    "title": {
+      "zh_cn": "显示器",
+      "en_us": "Monitor"
+    },
+    "subtitle": {
+      "zh_cn": "看，妈！我上电视了！",
+      "en_us": "Look ma! I'm on TV!"
+    },
+    "dependencies": [
+      "160EC57392A6C5D5"
+    ],
+    "tasks": [
+      "computercraft:monitor_normal"
+    ]
+  },
+  {
+    "id": "1BBFCD620C85DB80",
+    "titleKey": "quests.computer.speaker.title",
+    "title": {
+      "zh_cn": "扬声器",
+      "en_us": "Speaker"
+    },
+    "subtitle": {
+      "zh_cn": "来自远方的笛子、长号和萨克斯",
+      "en_us": "Flutes and trombones and saxes from beyond"
+    },
+    "dependencies": [
+      "160EC57392A6C5D5"
+    ],
+    "tasks": [
+      "computercraft:speaker"
+    ]
+  },
+  {
+    "id": "5B1A8D8CC62FC5B1",
+    "titleKey": "quests.computer.disk_drive.title",
+    "title": {
+      "zh_cn": "磁盘驱动器",
+      "en_us": "Disk Drive"
+    },
+    "subtitle": {
+      "zh_cn": "为什么保存图标是自动售货机？",
+      "en_us": "Why is the save icon a vending machine?"
+    },
+    "dependencies": [
+      "160EC57392A6C5D5"
+    ],
+    "tasks": [
+      "computercraft:disk_drive"
+    ]
+  },
+  {
+    "id": "21EAABD0D38C744D",
+    "titleKey": "quests.computer.computer_peripheral.title",
+    "title": {
+      "zh_cn": "计算机",
+      "en_us": "Computers"
+    },
+    "subtitle": {
+      "zh_cn": "真是套娃！",
+      "en_us": "How recursive!"
+    },
+    "dependencies": [
+      "160EC57392A6C5D5"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "029B6ECECAE729D8",
+    "titleKey": "quests.computer.wireless_modem.title",
+    "title": {
+      "zh_cn": "无线和末影调制解调器",
+      "en_us": "Wireless and Ender Modems"
+    },
+    "subtitle": {
+      "zh_cn": "远程代码执行器",
+      "en_us": "RCE Machines"
+    },
+    "dependencies": [
+      "160EC57392A6C5D5"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "47D9E37D0E20B6F5",
+    "titleKey": "quests.computer.wired_modem.title",
+    "title": {
+      "zh_cn": "有线调制解调器和网络线缆",
+      "en_us": "Wired Modem and Network Cables"
+    },
+    "subtitle": {
+      "zh_cn": "AE2在角落里哭",
+      "en_us": "AE2 is crying in the corner"
+    },
+    "dependencies": [
+      "160EC57392A6C5D5"
+    ],
+    "tasks": [
+      "computercraft:wired_modem",
+      "computercraft:cable"
+    ]
+  },
+  {
+    "id": "7DC9A7FA540C670C",
+    "titleKey": "quests.computer.printer.title",
+    "title": {
+      "zh_cn": "打印机",
+      "en_us": "Printers"
+    },
+    "subtitle": {
+      "zh_cn": "打印机",
+      "en_us": "Printers"
+    },
+    "dependencies": [
+      "160EC57392A6C5D5"
+    ],
+    "tasks": [
+      "computercraft:printer"
+    ]
+  },
+  {
+    "id": "08C8C4E751DF5CBA",
+    "titleKey": "quests.computer.redstone_relay.title",
+    "title": {
+      "zh_cn": "红石中继器",
+      "en_us": "Redstone Relay"
+    },
+    "subtitle": {
+      "zh_cn": "当6个面不够用时",
+      "en_us": "When 6 faces aren't enough"
+    },
+    "dependencies": [
+      "160EC57392A6C5D5"
+    ],
+    "tasks": [
+      "computercraft:redstone_relay"
+    ]
+  },
+  {
+    "id": "366B73FA1A626DBD",
+    "titleKey": "quests.computer.environment_detector.title",
+    "title": {
+      "zh_cn": "环境监测仪",
+      "en_us": "Environment Detector"
+    },
+    "subtitle": {
+      "zh_cn": "气候科学？？？在我的格雷科技里？！",
+      "en_us": "Climate Science??? In MY GregTech?!"
+    },
+    "dependencies": [
+      "3058785E70954678"
+    ],
+    "tasks": [
+      "advancedperipherals:environment_detector"
+    ]
+  },
+  {
+    "id": "780995E2158D5314",
+    "titleKey": "quests.computer.chat_box.title",
+    "title": {
+      "zh_cn": "聊天方块",
+      "en_us": "Chat Box"
+    },
+    "subtitle": {
+      "zh_cn": "末日级的话痨",
+      "en_us": "Apocalyptic amounts of yapping"
+    },
+    "dependencies": [
+      "3058785E70954678"
+    ],
+    "tasks": [
+      "advancedperipherals:chat_box"
+    ]
+  },
+  {
+    "id": "2421D1ADA60C3BB3",
+    "titleKey": "quests.computer.player_detector.title",
+    "title": {
+      "zh_cn": "玩家检测器",
+      "en_us": "Player Detector"
+    },
+    "subtitle": {
+      "zh_cn": "一体式监控状态",
+      "en_us": "All-in-one surveillance state"
+    },
+    "dependencies": [
+      "3058785E70954678"
+    ],
+    "tasks": [
+      "advancedperipherals:player_detector"
+    ]
+  },
+  {
+    "id": "01950B026EAAECE2",
+    "titleKey": "quests.computer.me_bridge.title",
+    "title": {
+      "zh_cn": "ME网关",
+      "en_us": "ME Bridge"
+    },
+    "subtitle": {
+      "zh_cn": "在外星计算机上运行DOOM",
+      "en_us": "Running DOOM on alien computers"
+    },
+    "dependencies": [
+      "3058785E70954678"
+    ],
+    "tasks": [
+      "advancedperipherals:me_bridge"
+    ]
+  },
+  {
+    "id": "562C44506B8D6B5B",
+    "titleKey": "quests.computer.inventory_manager.title",
+    "title": {
+      "zh_cn": "库存管理器",
+      "en_us": "Inventory Manager"
+    },
+    "subtitle": {
+      "zh_cn": "导致卡死的第一步",
+      "en_us": "Step 1 of getting softlocked"
+    },
+    "dependencies": [
+      "3058785E70954678"
+    ],
+    "tasks": [
+      "advancedperipherals:inventory_manager"
+    ]
+  },
+  {
+    "id": "4DE6ED0D9603524C",
+    "titleKey": "quests.computer.block_reader.title",
+    "title": {
+      "zh_cn": "方块读取器",
+      "en_us": "Block Reader"
+    },
+    "subtitle": {
+      "zh_cn": "最聪明的观察者",
+      "en_us": "Smartest Observer"
+    },
+    "dependencies": [
+      "3058785E70954678"
+    ],
+    "tasks": [
+      "advancedperipherals:block_reader"
+    ]
+  },
+  {
+    "id": "5F5865233C224165",
+    "titleKey": "quests.computer.nbt_storage.title",
+    "title": {
+      "zh_cn": "NBT存储器",
+      "en_us": "NBT Storage"
+    },
+    "subtitle": {
+      "zh_cn": "数据中心的开端",
+      "en_us": "The start of a datacenter"
+    },
+    "dependencies": [
+      "3058785E70954678"
+    ],
+    "tasks": [
+      "advancedperipherals:nbt_storage"
+    ]
+  },
+  {
+    "id": "191EEC093AC4E4D4",
+    "titleKey": "quests.computer.automata_core.title",
+    "title": {
+      "zh_cn": "弱自动化核心",
+      "en_us": "Weak Automata Core"
+    },
+    "subtitle": {
+      "zh_cn": "这应该直接包含在原版模组中",
+      "en_us": "This should just be in the base mod"
+    },
+    "dependencies": [
+      "3058785E70954678",
+      "3C6A84E06D46CD0F"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "44948F5DD2BA92E6",
+    "titleKey": "quests.computer.husbandry_core.title",
+    "title": {
+      "zh_cn": "畜牧自动化核心",
+      "en_us": "Husbandry Automata Core"
+    },
+    "subtitle": {
+      "zh_cn": "掀翻奶牛并拐走",
+      "en_us": "Cow tipping and kidnapping"
+    },
+    "dependencies": [
+      "3058785E70954678",
+      "3C6A84E06D46CD0F"
+    ],
+    "tasks": [
+      "advancedperipherals:husbandry_automata_core"
+    ]
+  },
+  {
+    "id": "30AC05ADD73C548C",
+    "titleKey": "quests.computer.ender_core.title",
+    "title": {
+      "zh_cn": "末地牌自动化核心",
+      "en_us": "End Automata Core"
+    },
+    "subtitle": {
+      "zh_cn": "瞬间往返",
+      "en_us": "There and back in an instant"
+    },
+    "dependencies": [
+      "3058785E70954678",
+      "3C6A84E06D46CD0F"
+    ],
+    "tasks": [
+      "advancedperipherals:end_automata_core"
+    ]
+  },
+  {
+    "id": "1F08650436F72A14",
+    "titleKey": "quests.computer.geo_scanner.title",
+    "title": {
+      "zh_cn": "地理扫描仪",
+      "en_us": "Geo Scanner"
+    },
+    "subtitle": {
+      "zh_cn": "迈向数字采矿机的一半",
+      "en_us": "Halfway to a digital miner"
+    },
+    "dependencies": [
+      "3058785E70954678"
+    ],
+    "tasks": [
+      "advancedperipherals:geo_scanner"
+    ]
+  },
+  {
+    "id": "4C206263E6B050FD",
+    "titleKey": "quests.computer.sticker.title",
+    "title": {
+      "zh_cn": "黏着器",
+      "en_us": "Sticker"
+    },
+    "subtitle": {
+      "zh_cn": "何必呢？",
+      "en_us": "Why though?"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "create:sticker"
+    ]
+  },
+  {
+    "id": "27B1F8D84A175533",
+    "titleKey": "quests.computer.nixie_tube.title",
+    "title": {
+      "zh_cn": "辉光管",
+      "en_us": "Nixie Tube"
+    },
+    "subtitle": {
+      "zh_cn": "比告示牌更优雅",
+      "en_us": "Classier Signs"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "create:nixie_tube"
+    ]
+  },
+  {
+    "id": "1A762A3711D318C2",
+    "titleKey": "quests.computer.speed_and_stress_meters.title",
+    "title": {
+      "zh_cn": "速度计和应力计",
+      "en_us": "Speedometer and Stressometer"
+    },
+    "subtitle": {
+      "zh_cn": "在航空动力学中可能更有用",
+      "en_us": "Might be more useful in Aeronautics"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "713468372470E589",
+    "titleKey": "quests.computer.rotation_speed_controller.title",
+    "title": {
+      "zh_cn": "转速控制器",
+      "en_us": "Rotation Speed Controller"
+    },
+    "subtitle": {
+      "zh_cn": "工程师们恨透了它！",
+      "en_us": "Engineers REALLY hate him!"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "create:rotation_speed_controller"
+    ]
+  },
+  {
+    "id": "1843BA5ED0802687",
+    "titleKey": "quests.computer.sequenced_gearshift.title",
+    "title": {
+      "zh_cn": "可编程齿轮箱",
+      "en_us": "Sequenced Gearshift"
+    },
+    "subtitle": {
+      "zh_cn": "《Opus Magnum》可能适合你",
+      "en_us": "Opus Magnum might be for you"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "create:sequenced_gearshift"
+    ]
+  },
+  {
+    "id": "5675D8377D055291",
+    "titleKey": "quests.computer.electric_motor.title",
+    "title": {
+      "zh_cn": "电动马达",
+      "en_us": "Electric Motor"
+    },
+    "subtitle": {
+      "zh_cn": "我们已经解锁了步进电机",
+      "en_us": "We've unlocked stepper motors"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "createaddition:electric_motor"
+    ]
+  },
+  {
+    "id": "28D25C4245AEBFA5",
+    "titleKey": "quests.computer.display_link.title",
+    "title": {
+      "zh_cn": "显示链接器",
+      "en_us": "Display Link"
+    },
+    "subtitle": {
+      "zh_cn": "小脚本，大屏幕",
+      "en_us": "Big Data when Small Logic walks in"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "create:display_link"
+    ]
+  },
+  {
+    "id": "6F907DA4DEF43EEF",
+    "titleKey": "quests.computer.train_station.title",
+    "title": {
+      "zh_cn": "列车站点",
+      "en_us": "Train Station"
+    },
+    "subtitle": {
+      "zh_cn": "出发地",
+      "en_us": "Point of Departure"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "create:track_station"
+    ]
+  },
+  {
+    "id": "3DE09E83BF456B89",
+    "titleKey": "quests.computer.train_signal.title",
+    "title": {
+      "zh_cn": "列车信号机",
+      "en_us": "Train Signal"
+    },
+    "subtitle": {
+      "zh_cn": "当红绿灯不够用时",
+      "en_us": "When stop signs aren't enough"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "create:track_signal"
+    ]
+  },
+  {
+    "id": "0A1E9AC6454093B7",
+    "titleKey": "quests.computer.train_observer.title",
+    "title": {
+      "zh_cn": "列车侦测器",
+      "en_us": "Train Observer"
+    },
+    "subtitle": {
+      "zh_cn": "到站收费",
+      "en_us": "Toll by plate"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "create:track_observer"
+    ]
+  },
+  {
+    "id": "62DD9C3DFD21CBE9",
+    "titleKey": "quests.computer.stock_ticker.title",
+    "title": {
+      "zh_cn": "仓储发报机",
+      "en_us": "Stock Ticker"
+    },
+    "subtitle": {
+      "zh_cn": "商店与终端",
+      "en_us": "Shop and Terminal"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "create:stock_ticker"
+    ]
+  },
+  {
+    "id": "4F89686AA5873267",
+    "titleKey": "quests.computer.packager.title",
+    "title": {
+      "zh_cn": "打包机",
+      "en_us": "Packagers"
+    },
+    "subtitle": {
+      "zh_cn": "纸板能自我复制吗？",
+      "en_us": "Is cardboard self-replicating?"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "7D6913812D5323AC",
+    "titleKey": "quests.computer.frogport.title",
+    "title": {
+      "zh_cn": "蛙港",
+      "en_us": "Frogports"
+    },
+    "subtitle": {
+      "zh_cn": "让包裹堆得更乱一些！",
+      "en_us": "Lets make package pileups WORSE!"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "create:package_frogport"
+    ]
+  },
+  {
+    "id": "1BAAC23D8E7EB515",
+    "titleKey": "quests.computer.redstone_requester.title",
+    "title": {
+      "zh_cn": "红石请求器",
+      "en_us": "Redstone Requester"
+    },
+    "subtitle": {
+      "zh_cn": "谁需要工厂仪表？",
+      "en_us": "Who needs Factory Gauges?"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": [
+      "create:redstone_requester"
+    ]
+  },
+  {
+    "id": "4CDA6CC955EFFCA2",
+    "titleKey": "quests.computer.table_cover.title",
+    "title": {
+      "zh_cn": "商店桌",
+      "en_us": "Shop Tables"
+    },
+    "subtitle": {
+      "zh_cn": "我们从沃尔玛发展到了eBay。",
+      "en_us": "We've gone from Walmart to Ebay."
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "782E097F31659E4D",
+    "titleKey": "quests.computer.postbox.title",
+    "title": {
+      "zh_cn": "邮箱",
+      "en_us": "Postboxes"
+    },
+    "subtitle": {
+      "zh_cn": "查看邮箱中的验证码",
+      "en_us": "Check your email for a verification code"
+    },
+    "dependencies": [
+      "6226DDF4F16D439B"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "160EC57392A6C5D5",
+    "titleKey": "quests.computer.cc_peripherals.title",
+    "title": {
+      "zh_cn": "基础 CC 外设",
+      "en_us": "Base CC Peripherals"
+    },
+    "subtitle": {
+      "zh_cn": "",
+      "en_us": ""
+    },
+    "dependencies": [
+      "0B55AC33D41FED67"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "3058785E70954678",
+    "titleKey": "quests.computer.ap_peripherals.title",
+    "title": {
+      "zh_cn": "高级外设",
+      "en_us": "Advanced Peripherals"
+    },
+    "subtitle": {
+      "zh_cn": "",
+      "en_us": ""
+    },
+    "dependencies": [
+      "0B55AC33D41FED67"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "6226DDF4F16D439B",
+    "titleKey": "quests.computer.create_peripherals.title",
+    "title": {
+      "zh_cn": "机械动力外设",
+      "en_us": "Create Peripherals"
+    },
+    "subtitle": {
+      "zh_cn": "",
+      "en_us": ""
+    },
+    "dependencies": [
+      "0B55AC33D41FED67"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "0B55AC33D41FED67",
+    "titleKey": "quests.computer.peripherals.title",
+    "title": {
+      "zh_cn": "外设",
+      "en_us": "Peripherals"
+    },
+    "subtitle": {
+      "zh_cn": "物联网",
+      "en_us": "Internet of Things"
+    },
+    "dependencies": [
+      "5F2D9F4908401D0D"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "0E61A782522AC382",
+    "titleKey": "quests.computer.bundled_cable.title",
+    "title": {
+      "zh_cn": "束线缆",
+      "en_us": "Bundled Cables"
+    },
+    "subtitle": {
+      "zh_cn": "严格来说不是外设",
+      "en_us": "Technically not a peripheral"
+    },
+    "dependencies": [
+      "160EC57392A6C5D5"
+    ],
+    "tasks": [
+      "morered:bundled_network_cable"
+    ]
+  },
+  {
+    "id": "23EA0D95CDFF4B01",
+    "titleKey": "quests.computer.overpowered_cores.title",
+    "title": {
+      "zh_cn": "超强核心",
+      "en_us": "Overpowered Cores"
+    },
+    "subtitle": {
+      "zh_cn": "这个模组中唯一会损坏的东西",
+      "en_us": "The only things that can break in this mod"
+    },
+    "dependencies": [
+      "30AC05ADD73C548C",
+      "44948F5DD2BA92E6",
+      "191EEC093AC4E4D4"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "7054CE9765DA69A5",
+    "titleKey": "quests.computer.inventory.title",
+    "title": {
+      "zh_cn": "物品栏",
+      "en_us": "Inventory"
+    },
+    "subtitle": {
+      "zh_cn": "",
+      "en_us": ""
+    },
+    "dependencies": [
+      "7D22D66DC480F2A7"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "1D2BD01EDABD6532",
+    "titleKey": "quests.computer.tank.title",
+    "title": {
+      "zh_cn": "流体储罐",
+      "en_us": "Fluid Tank"
+    },
+    "subtitle": {
+      "zh_cn": "",
+      "en_us": ""
+    },
+    "dependencies": [
+      "7D22D66DC480F2A7"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "0E956D64BA615466",
+    "titleKey": "quests.computer.battery.title",
+    "title": {
+      "zh_cn": "电池",
+      "en_us": "Batteries"
+    },
+    "subtitle": {
+      "zh_cn": "",
+      "en_us": ""
+    },
+    "dependencies": [
+      "7D22D66DC480F2A7"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "7D22D66DC480F2A7",
+    "titleKey": "quests.computer.generic_peripherals.title",
+    "title": {
+      "zh_cn": "通用外设",
+      "en_us": "Generic Peripherals"
+    },
+    "subtitle": {
+      "zh_cn": "一切都有硬件端口！",
+      "en_us": "Everything has hardware ports!"
+    },
+    "dependencies": [
+      "0B55AC33D41FED67"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "3F927702B5072A68",
+    "titleKey": "quests.computer.gregtech_peripherals.title",
+    "title": {
+      "zh_cn": "格雷科技外设",
+      "en_us": "GregTech Peripherals"
+    },
+    "subtitle": {
+      "zh_cn": "",
+      "en_us": ""
+    },
+    "dependencies": [
+      "0B55AC33D41FED67"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "10F49D1DCE7E102C",
+    "titleKey": "quests.computer.central_monitor.title",
+    "title": {
+      "zh_cn": "中央监控器",
+      "en_us": "Central Monitor"
+    },
+    "subtitle": {
+      "zh_cn": "家里有电脑了",
+      "en_us": "We have ComputerCraft at home"
+    },
+    "dependencies": [
+      "3F927702B5072A68"
+    ],
+    "tasks": [
+      "gtceu:central_monitor"
+    ]
+  },
+  {
+    "id": "21C7AC26BC3FD4E7",
+    "titleKey": "quests.computer.computer_monitor_cover.title",
+    "title": {
+      "zh_cn": "电脑屏幕覆盖板",
+      "en_us": "Computer Monitor Cover"
+    },
+    "subtitle": {
+      "zh_cn": "作为覆盖板的中央监控器",
+      "en_us": "Central Monitor as a Cover"
+    },
+    "dependencies": [
+      "3F927702B5072A68"
+    ],
+    "tasks": [
+      "gtceu:computer_monitor_cover"
+    ]
+  },
+  {
+    "id": "736CDF6EAD05B3AE",
+    "titleKey": "quests.computer.large_turbine.title",
+    "title": {
+      "zh_cn": "大型涡轮机",
+      "en_us": "Large Turbine"
+    },
+    "subtitle": {
+      "zh_cn": "始终全速运转",
+      "en_us": "Always running at full throttle"
+    },
+    "dependencies": [
+      "3F927702B5072A68"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "5ACB5F66D7A324A3",
+    "titleKey": "quests.computer.gregtech_machine.title",
+    "title": {
+      "zh_cn": "任意格雷机器",
+      "en_us": "Any GregTech machine"
+    },
+    "subtitle": {
+      "zh_cn": "只要能运行，就能被包装",
+      "en_us": "If it works, it can be wrapped"
+    },
+    "dependencies": [
+      "3F927702B5072A68"
+    ],
+    "tasks": []
+  },
+  {
+    "id": "272A44B5D037B0F4",
+    "titleKey": "quests.computer.energy_storage.title",
+    "title": {
+      "zh_cn": "任意能量存储",
+      "en_us": "Any Energy Storage"
+    },
+    "subtitle": {
+      "zh_cn": "我充满电了！",
+      "en_us": "I am fully charged!"
+    },
+    "dependencies": [
+      "3F927702B5072A68"
+    ],
+    "tasks": []
+  }
+]

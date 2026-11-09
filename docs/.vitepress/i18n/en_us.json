@@ -1,0 +1,50 @@
+{
+  "label": "English",
+  "lang": "en-US",
+  "nav": {
+    "guide": "Guide",
+    "recipes": "Recipes",
+    "quests": "Quests",
+    "api": "Lua API",
+    "upstream": "Upstream"
+  },
+  "special": {
+    "version": "TFGM version",
+    "comingSoon": "This section is being written."
+  },
+  "recipeBook": "Open in recipe book",
+  "questBook": "Open in quest book",
+  "upstreamDocs": "CC: Tweaked docs",
+  "editLink": "Edit this page on GitHub",
+  "outline": "On this page",
+  "docFooter": {
+    "prev": "Previous",
+    "next": "Next"
+  },
+  "lastUpdated": "Last updated",
+  "darkModeSwitchLabel": "Theme",
+  "sidebarMenuLabel": "Menu",
+  "returnToTopLabel": "Back to top",
+  "langMenuLabel": "Change language",
+  "search": {
+    "button": {
+      "buttonText": "Search",
+      "buttonAriaLabel": "Search docs"
+    },
+    "modal": {
+      "displayDetails": "Display detailed list",
+      "resetButtonTitle": "Reset search",
+      "backButtonTitle": "Close search",
+      "noResultsText": "No results for",
+      "footer": {
+        "selectText": "to select",
+        "selectKeyAriaLabel": "Enter",
+        "navigateText": "to navigate",
+        "navigateUpKeyAriaLabel": "Up arrow",
+        "navigateDownKeyAriaLabel": "Down arrow",
+        "closeText": "to close",
+        "closeKeyAriaLabel": "Escape"
+      }
+    }
+  }
+}

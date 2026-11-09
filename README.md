@@ -1,0 +1,63 @@
+# cctweaked4tfgm
+
+CC: Tweaked reference for **TerraFirmaGreg Modern** — the computers that the modpack actually ships, with every TerraFirmaGreg modification documented and version-locked to a release.
+
+Documentation site: <https://terrafirmagreg-translation-cn.github.io/cctweaked4tfgm/>
+
+This is not a fork of CC: Tweaked. It contains no Minecraft code, no mixins and no recipe scripts — those live in [Modpack-Modern](https://github.com/TerraFirmaGreg-Team/Modpack-Modern) and [Core-Modern](https://github.com/TerraFirmaGreg-Team/Core-Modern). This repository **describes** them, in the same family as:
+
+| Repository | Exports | Answers |
+| --- | --- | --- |
+| [QuestBook-Modern](https://github.com/TerraFirmaGreg-Team/QuestBook-Modern) | FTB Quests data | what does the pack ask me to do? |
+| [Field-Guide-Modern](https://github.com/TerraFirmaGreg-Team/Field-Guide-Modern) | Patchouli field guide | how does this mechanic work? |
+| [RecipeBook-Modern](https://github.com/TerraFirmaGreg-Team/RecipeBook-Modern) | EMI recipe bundle | how do I craft it? |
+| **cctweaked4tfgm** | CC:T surface + TFGM deltas | what did TerraFirmaGreg change about computers? |
+
+## What it covers
+
+- **Recipes** — every CC:T recipe is deleted and rebuilt on GregTech machines (MV → LuV). Searchable, with links into the exported EMI bundle for the rendered card.
+- **Turtle upgrades** — 20 GregTech materials × tool types = 73 `computercraft:tool` upgrades, derived from the shipped item registry.
+- **Quest mapping** — the 55-quest ComputerCraft chapter with its dependency graph.
+- **Configuration** — the shipped CC:T config diffed against upstream defaults (currently: no overrides).
+- **Language** — the 18 bundled locale overrides and the `cc_utf8_compat` patch.
+- **Lua API** — the full CC:T 1.121.0 symbol index, pinned to the version in the pack.
+- **Upstream** — how CC:T relates to ComputerCraft, its release cadence, and the two API breaks TerraFirmaGreg had to absorb.
+
+## How the data is produced
+
+Nothing on the site is transcribed by hand. `scripts/extract-tfgm.mjs` takes a Modpack-Modern release and **executes** its KubeJS recipe scripts against a recording mock of the recipe DSL, then reads the quest chapter, config files, lang files and EMI item registry from the same release.
+
+```bash
+npm ci
+
+# cache upstream inputs (items index, CC:T lang, API index) for a release
+node scripts/fetch-item-index.mjs --modpack-tag 0.13.18 --cc-version 1.121.0
+node scripts/build-cc-index.mjs --cc-version 1.121.0
+
+# regenerate docs/data/ from a checkout (or pass a tag to clone it)
+node scripts/extract-tfgm.mjs --modpack .cache/modpack-0.13.18
+
+# gate + build
+npm run verify-data
+npm run build && npm run preview
+```
+
+`verify-data.mjs` fails the build when the generated data contradicts a claim the docs make: a recipe whose tier disagrees with its EU/t, a quest depending on a missing id, a turtle upgrade whose tool does not exist in the release, a config key unknown to the upstream default table, or a CC:T version mismatch between `cc-index.json` and `meta.json`.
+
+## CI
+
+`.github/workflows/build.yml` runs nightly and on push:
+
+1. resolve the latest Modpack-Modern release tag,
+2. refresh upstream inputs and regenerate `docs/data/`,
+3. verify, build and deploy to GitHub Pages,
+4. commit regenerated data back to `main` when it changed.
+
+## Licensing
+
+- CC: Tweaked documentation and code: MPL-2.0 (`cc-tweaked/CC-Tweaked`).
+- ComputerCraft: `LicenseRef-CCPL` (`dan200/ComputerCraft`).
+- TerraFirmaGreg pack content (recipes, quests, lang): governed by Modpack-Modern's licence.
+- This repository's scripts and prose: MIT.
+
+See [NOTICE.md](NOTICE.md) for the per-source breakdown.

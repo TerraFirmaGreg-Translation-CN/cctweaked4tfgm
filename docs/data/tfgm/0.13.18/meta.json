@@ -1,0 +1,106 @@
+{
+  "schema": 1,
+  "generatedAt": "2026-11-09T03:42:33.075Z",
+  "generator": "cctweaked4tfgm/scripts/extract-tfgm.mjs",
+  "modpack": {
+    "tag": "0.13.18",
+    "commit": "a51824514af63ada07fcfd162ef85b3b9840c103",
+    "released": "2026-11-08",
+    "url": "https://github.com/TerraFirmaGreg-Team/Modpack-Modern/releases/tag/0.13.18"
+  },
+  "ccTweaked": {
+    "slug": "cc-tweaked",
+    "name": "CC: Tweaked",
+    "type": "MOD",
+    "side": "BOTH",
+    "file": "cc-tweaked-1.20.1-forge-1.121.0.jar",
+    "url": "https://cdn.modrinth.com/data/gu7yAYhd/versions/Qm9iIIEY/cc-tweaked-1.20.1-forge-1.121.0.jar",
+    "sha1": "739e77a2b60d727d8dcf7874188edf683683329d",
+    "sha512": "6ebe4c1e8e6165cb97f071a5a54acd942c234ae62d36330369fdae4bf720a93e99b84e833385f0f103e8fb03425ed20c9f9122411f0008e8ac9efa24b719522d",
+    "published": "2026-11-03T21:05:12.091480Z",
+    "version": "1.121.0"
+  },
+  "core": {
+    "name": "TerraFirmaGreg-Core",
+    "version": "0.9.34",
+    "file": "TerraFirmaGreg-Core-Modern-0.9.34.jar",
+    "url": "https://cdn.modrinth.com/data/lNttW2Xl/versions/U3YTPchH/TerraFirmaGreg-Core-Modern-0.9.34.jar"
+  },
+  "dependencies": [
+    {
+      "slug": "advancedperipherals",
+      "name": "Advanced Peripherals",
+      "type": "MOD",
+      "side": "BOTH",
+      "file": "AdvancedPeripherals-1.20.1-0.7.48r.jar",
+      "url": "https://cdn.modrinth.com/data/SOw6jD6x/versions/mIP0ApJY/AdvancedPeripherals-1.20.1-0.7.48r.jar",
+      "sha1": "c93aa2998b54775dc4859f00530d04965b5c5dd1",
+      "sha512": "6f47380de6a74625045630e366a1d6b51a251621e98fdb78c165bdd7e0f9abc443935102d83184ff2e18ae4d018d6d8518a0eb6174cfcdb4f9b28f8dab2ee65f",
+      "published": "2026-06-10T20:40:40.180838Z",
+      "version": "1.20.1-0.7.48r"
+    },
+    {
+      "slug": "cc-utf-8-compat",
+      "name": "CC UTF-8 Compat",
+      "type": "MOD",
+      "side": "BOTH",
+      "file": "cc_utf8_compat-1.1.0-beta.1.jar",
+      "url": "https://edge.forgecdn.net/files/9483/415/cc_utf8_compat-1.1.0-beta.1.jar",
+      "sha1": "ab13ddbb9beaca991cbc19f1671eccdf4238f29b",
+      "sha512": "",
+      "published": "2026-11-06T23:34:51.373Z",
+      "version": "1.1.0-beta.1"
+    },
+    {
+      "slug": "cc-tweaked",
+      "name": "CC: Tweaked",
+      "type": "MOD",
+      "side": "BOTH",
+      "file": "cc-tweaked-1.20.1-forge-1.121.0.jar",
+      "url": "https://cdn.modrinth.com/data/gu7yAYhd/versions/Qm9iIIEY/cc-tweaked-1.20.1-forge-1.121.0.jar",
+      "sha1": "739e77a2b60d727d8dcf7874188edf683683329d",
+      "sha512": "6ebe4c1e8e6165cb97f071a5a54acd942c234ae62d36330369fdae4bf720a93e99b84e833385f0f103e8fb03425ed20c9f9122411f0008e8ac9efa24b719522d",
+      "published": "2026-11-03T21:05:12.091480Z",
+      "version": "1.121.0"
+    },
+    {
+      "slug": "computercraft-greg-flavored",
+      "name": "ComputerCraft: Greg Flavored",
+      "type": "RESOURCE_PACK",
+      "side": "CLIENT",
+      "file": "ComputerCraft Greg Refreshed 1.1 - 1.20.1.zip",
+      "url": "https://edge.forgecdn.net/files/5560/613/ComputerCraft Greg Refreshed 1.1 - 1.20.1.zip",
+      "sha1": "6d1d3642537c40ea813507379941773a49c62f28",
+      "sha512": "",
+      "published": "2024-07-24T09:35:57.853Z"
+    },
+    {
+      "slug": "more-red",
+      "name": "More Red",
+      "type": "MOD",
+      "side": "BOTH",
+      "file": "morered-1.20.1-4.0.0.4.jar",
+      "url": "https://edge.forgecdn.net/files/4691/333/morered-1.20.1-4.0.0.4.jar",
+      "sha1": "1e49a2fca02e1059bf6c94f6292463ed6e4f6122",
+      "sha512": "",
+      "published": "2023-08-09T22:13:16.500Z"
+    },
+    {
+      "slug": "more-red-x-cc-tweaked-compat",
+      "name": "More Red x CC:Tweaked Compat",
+      "type": "MOD",
+      "side": "BOTH",
+      "file": "MoreRed-CCT-Compat-1.20.1-1.0.0.jar",
+      "url": "https://edge.forgecdn.net/files/4650/653/MoreRed-CCT-Compat-1.20.1-1.0.0.jar",
+      "sha1": "ed57300c9b6e335af2a6a386fc2d373b4b5daaf4",
+      "sha512": "",
+      "published": "2023-07-18T02:23:23.550Z"
+    }
+  ],
+  "counts": {
+    "recipes": 54,
+    "turtleUpgrades": 73,
+    "turtleMaterials": 20,
+    "quests": 55
+  }
+}

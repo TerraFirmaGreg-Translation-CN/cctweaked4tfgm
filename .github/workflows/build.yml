@@ -1,0 +1,167 @@
+name: Build site
+
+on:
+  schedule:
+    # Follow the Modpack-Modern release stream.
+    - cron: "0 3 * * *"
+  push:
+    branches: ["main"]
+    paths:
+      - "ci/**"
+      - "scripts/**"
+      - "docs/**"
+      - "docs/data/**"
+      - "package.json"
+      - "package-lock.json"
+      - ".github/workflows/build.yml"
+  pull_request:
+    paths:
+      - "ci/**"
+      - "scripts/**"
+      - "docs/**"
+      - "package.json"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+    inputs:
+      modpack_tag:
+        description: Modpack-Modern release tag (empty = latest)
+        required: false
+        default: ""
+      cc_version:
+        description: CC:Tweaked version (empty = from pakku-lock.json)
+        required: false
+        default: ""
+
+concurrency:
+  group: cctweaked4tfgm-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
+jobs:
+  data:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    outputs:
+      changed: ${{ steps.diff.outputs.changed }}
+      tag: ${{ steps.resolve.outputs.tag }}
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Resolve release
+        id: resolve
+        env:
+          MODPACK_TAG: ${{ github.event.inputs.modpack_tag }}
+        run: bash ci/run.sh resolve
+
+      - name: Refresh upstream inputs
+        run: bash ci/run.sh fetch-inputs
+
+      - name: Extract release data
+        run: bash ci/run.sh extract
+
+      - name: Build the CC:T API index
+        run: bash ci/run.sh api-index
+
+      - name: Verify generated data
+        run: bash ci/run.sh verify
+
+      - name: Detect data changes
+        id: diff
+        run: bash ci/run.sh diff
+
+      - name: Upload generated data
+        uses: actions/upload-artifact@v4
+        with:
+          name: tfgm-data
+          path: |
+            docs/data/
+            .cache/upstream/
+          if-no-files-found: error
+
+  site:
+    needs: data
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: bash ci/run.sh install
+
+      - name: Restore generated data
+        uses: actions/download-artifact@v5
+        with:
+          name: tfgm-data
+
+      - name: Verify generated data
+        run: bash ci/run.sh verify
+
+      - name: Build site
+        run: bash ci/run.sh build
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: docs/.vitepress/dist
+
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  commit-data:
+    needs: [data, site]
+    if: >-
+      github.event_name != 'pull_request' &&
+      needs.data.outputs.changed == 'true' &&
+      needs.site.result == 'success'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Restore generated data
+        uses: actions/download-artifact@v5
+        with:
+          name: tfgm-data
+
+      - name: Commit regenerated data
+        env:
+          TAG: ${{ needs.data.outputs.tag }}
+        run: bash ci/run.sh commit-data
