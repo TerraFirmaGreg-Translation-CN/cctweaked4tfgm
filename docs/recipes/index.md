@@ -7,18 +7,18 @@ order: 10
 
 <VersionPill show-core />
 
-Searchable index of every CC/AP recipe the release defines. Click a row for raw ingredient ids, then follow the link into the recipe book for the rendered EMI card.
+Searchable index of every CC/AP recipe the release defines. Each card is rendered here from the release's own EMI layout; expand *Raw data* for exact ingredient ids and the KubeJS source line.
 
-<RecipeBrowser :show-removals="true" />
+<RecipeBrowser show-removals />
 
 ## By machine
 
-<RecipeBrowser :machines="['assembler']" />
+<RecipeBrowser machines="assembler" />
 
 ## Disks
 
-<RecipeBrowser :machines="['chemical_bath']" />
+<RecipeBrowser machines="chemical_bath" />
 
 ## GT shaped and shapeless
 
-<RecipeBrowser :machines="['crafting', 'shapeless']" />
+<RecipeBrowser machines="crafting shapeless" />

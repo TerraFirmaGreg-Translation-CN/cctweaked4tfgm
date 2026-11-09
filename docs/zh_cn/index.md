@@ -1,56 +1,46 @@
 ---
-layout: home
-hero:
-  name: 'TerraFirmaGreg 的 CC: Tweaked'
-  text: '格雷科技整合包里的可编程计算机'
-  tagline: '群峦格雷现代版随身携带的 CC: Tweaked —— 版本锁定的配方、海龟升级、任务映射与 Lua 接口索引。'
-  actions:
-    - theme: brand
-      text: 阅读指南
-      link: /zh_cn/guide/
-    - theme: alt
-      text: 配方表
-      link: /zh_cn/recipes/
-    - theme: alt
-      text: 上游文档
-      link: https://tweaked.cc/
-features:
-  - title: 群峦格雷改了什么
-    details: 删除 CC:T 的全部配方，改用格雷机器重写，门槛从 MV 一直到 LuV。海龟仍可合成，但从创造模式物品栏中隐藏。
-    link: /zh_cn/guide/differences
-    linkText: 与上游对比
-  - title: 配方参考
-    details: 本版本全部 54 个 CC / AP 食谱，可搜索；每行都链接到导出的 EMI bundle 查看渲染图。
-    link: /zh_cn/recipes/
-    linkText: 浏览配方
-  - title: 海龟升级
-    details: 20 种格雷材料 × 5 种工具 = 73 个工具升级，直接从实际注册的物品推导。
-    link: /zh_cn/guide/turtle-upgrades
-    linkText: 查看矩阵
-  - title: Lua 接口索引
-    details: CC:T 1.121.0 的全局函数、API、外设与事件，全部指向 tweaked.cc 对应版本的页面。
-    link: /zh_cn/api/
-    linkText: 打开索引
+title: 群峦格雷的 CC: Tweaked
+order: 0
 ---
+
+<h1 class="home-logo"><img src="/cctweaked4tfgm/logo.png" alt="群峦格雷的 CC: Tweaked" /></h1>
+
+**群峦格雷的 CC: Tweaked** 记录的是[群峦格雷现代版](https://github.com/TerraFirmaGreg-Team/Modpack-Modern)实际携带的计算机、海龟与外设。
+模组本身是原样的 CC: Tweaked JAR；本站记录整合包在它周围改了什么，并提供与之匹配的 Lua 接口索引。
 
 <VersionPill show-core />
 
-## 这是什么仓库
+它不是 CC: Tweaked 的分支：这里没有 Minecraft 代码、没有 mixin、也没有配方脚本。它与其它群峦格雷数据项目同属一族：
 
-`cctweaked4tfgm` 记录的是**群峦格雷现代版实际使用的 CC: Tweaked**。它不是 CC:T 的分支，也不包含任何 Minecraft 代码，而是一个与
-[QuestBook-Modern](https://github.com/TerraFirmaGreg-Team/QuestBook-Modern)、
-[Field-Guide-Modern](https://github.com/TerraFirmaGreg-Team/Field-Guide-Modern)、
-[RecipeBook-Modern](https://github.com/TerraFirmaGreg-Team/RecipeBook-Modern) 同族的文档与数据站点：
+<table class="definition-list">
+<tbody>
+<tr><th><a href="https://github.com/TerraFirmaGreg-Team/QuestBook-Modern">QuestBook-Modern</a></th><td>FTB 任务章节 —— <em>整合包要我做什么？</em></td></tr>
+<tr><th><a href="https://github.com/TerraFirmaGreg-Team/Field-Guide-Modern">Field-Guide-Modern</a></th><td>Patchouli 野外手册 —— <em>这个机制怎么运作？</em></td></tr>
+<tr><th><a href="https://github.com/TerraFirmaGreg-Team/RecipeBook-Modern">RecipeBook-Modern</a></th><td>EMI 配方 bundle —— <em>这东西怎么合成？</em></td></tr>
+<tr><th>cctweaked4tfgm</th><td>CC:T 全貌 + 群峦格雷改动 —— <em>计算机被改成了什么样？</em></td></tr>
+</tbody>
+</table>
 
-| 仓库 | 导出内容 | 回答的问题 |
-| --- | --- | --- |
-| QuestBook-Modern | FTB 任务章节 | *整合包要我做什么？* |
-| Field-Guide-Modern | Patchouli 野外手册 | *这个机制怎么运作？* |
-| RecipeBook-Modern | EMI 配方 bundle | *这东西怎么合成？* |
-| **cctweaked4tfgm** | CC:T 全貌 + 群峦格雷改动 | *计算机被改成了什么样？* |
+## 本版本包含
 
-数据层由发行版本身生成（见[数据流水线](/zh_cn/guide/data-pipeline)），所以群峦格雷升级 CC:T 时，这里的表格会自动跟着变。
+<table class="definition-list">
+<tbody>
+<tr><th><a href="/zh_cn/recipes/">配方</a></th><td>删除 CC:T 的全部配方，改用格雷机器重写（MV → LuV）。全部 54 个配方布局都直接从同一发行版导出的 EMI bundle 渲染，不再跳到别的项目。</td></tr>
+<tr><th><a href="/zh_cn/guide/turtle-upgrades">海龟升级</a></th><td>20 种格雷材料 × 5 种工具 = 73 个 <code>computercraft:tool</code> 升级，直接从实际注册的物品推导。</td></tr>
+<tr><th><a href="/zh_cn/quests/">任务映射</a></th><td>55 个 ComputerCraft 任务及其依赖图与所需物品。</td></tr>
+<tr><th><a href="/zh_cn/api/">Lua 接口</a></th><td>CC:T 1.121.0 的完整符号索引，锁定整合包内的版本，并链接到 tweaked.cc 对应页面。</td></tr>
+<tr><th><a href="/zh_cn/guide/">指南</a></th><td>逐项列出群峦格雷的改动：配方、进度、语言、配置、高级外设与版本历史。</td></tr>
+</tbody>
+</table>
 
-## 本版本的全部配方
+## 配方一览
 
-<RecipeBrowser :show-removals="true" />
+<RecipeBrowser show-removals />
+
+## 数据从哪来
+
+本站没有一条数据是手抄的。`scripts/extract-tfgm.mjs` 把 Modpack-Modern 的 KubeJS 配方脚本放到一个会记录调用的配方 DSL mock 上执行，
+再从同一发行版读取任务章节、配置和语言文件，写入 `docs/data/`。随后 `scripts/fetch-emi-bundle.mjs` 从已发布的群峦格雷配方书
+bundle 中抽取对应的 EMI 布局与图标图集，所以这里的配方卡是游戏自己渲染的结果，而不是仿画。
+
+完整流程与发布前的校验见[数据流水线](/zh_cn/guide/data-pipeline)。

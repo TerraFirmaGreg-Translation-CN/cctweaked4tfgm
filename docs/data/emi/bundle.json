@@ -1,0 +1,14 @@
+{
+  "schema": 2,
+  "imageScale": 2,
+  "recipeImageFormat": "png",
+  "recipeCount": 54,
+  "languages": [
+    "en_us",
+    "zh_cn"
+  ],
+  "missingIconId": "minecraft_web_export:missing_icon",
+  "profile": "cctweaked4tfgm-subset",
+  "generatedBy": "cctweaked4tfgm/scripts/fetch-emi-bundle.mjs",
+  "generatedFrom": "https://wiki.terrafirmagreg.team/modern/recipe-book/bundles/tfg-0.13.18"
+}

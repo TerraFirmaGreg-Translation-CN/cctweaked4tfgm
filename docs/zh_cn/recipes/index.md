@@ -7,18 +7,18 @@ order: 10
 
 <VersionPill show-core />
 
-本版本定义的全部 CC / AP 配方索引。点击行查看原始原料 id，再点进配方书查看渲染后的 EMI 卡片。
+本版本定义的全部 CC / AP 配方索引。每张配方卡都由发行版自己的 EMI 布局在此渲染；展开“原始数据”可查看准确的原料 id 与 KubeJS 来源行。
 
-<RecipeBrowser :show-removals="true" />
+<RecipeBrowser show-removals />
 
 ## 按机器
 
-<RecipeBrowser :machines="['assembler']" />
+<RecipeBrowser machines="assembler" />
 
 ## 软盘
 
-<RecipeBrowser :machines="['chemical_bath']" />
+<RecipeBrowser machines="chemical_bath" />
 
 ## 格雷工作台合成
 
-<RecipeBrowser :machines="['crafting', 'shapeless']" />
+<RecipeBrowser machines="crafting shapeless" />

@@ -13,8 +13,14 @@ graph LR
   C["EMI bundle<br/>items/index.json"] --> B
   D["CC:T lang 文件<br/>锁定标签"] --> B
   B --> E["docs/data/tfgm/&lt;tag&gt;/*.json"]
-  E --> F["VitePress 组件"]
   E --> G["verify-data.mjs"]
+  E --> H["scripts/fetch-emi-bundle.mjs"]
+  I["已发布的配方书 bundle"] --> H
+  H --> J["docs/data/emi/"]
+  J --> G
+  E --> F["scripts/build-site.mjs"]
+  J --> F
+  F --> K["dist/"]
 ```
 
 ## 提取器做了什么
@@ -64,6 +70,12 @@ event.recipes.gtceu.assembler('computercraft:assembler/computer_normal')
 
 群峦格雷没有列出材料，而是 `forEachMaterial(material => …)` 遍历。为了知道格雷实际注册了哪些材料，提取器读取同一版本已发布 EMI bundle 中的 `items/index.json`，保留 `*_<工具类型>` 的 id。这就是为什么结果反映的是整合包真实材料集（20 种材料、73 个升级），而不是猜的列表。
 
+## EMI 布局与图标
+
+`scripts/fetch-emi-bundle.mjs` 从 `recipes.json` 取出 CC/AP 配方行，在已发布的群峦格雷配方书 bundle（`bundles/tfg-<tag>/items/`）里查找每个产物对应的 EMI 布局并复制过来。它还会把这些布局可能显示的 32×32 图标格打包成本地图集、裁剪标签与物品名表，写出 `docs/data/emi/` 和 `docs/data/emi-map.json`。
+
+因此本站通过 `emi-recipe-renderer` 渲染游戏自己的配方卡，不跳转到别的项目，而提交进仓库的 bundle 只有约 1.4 MB。
+
 ## 构建前的校验
 
 `scripts/verify-data.mjs` 在每次构建前运行，以下情况判定失败：
@@ -73,8 +85,9 @@ event.recipes.gtceu.assembler('computercraft:assembler/computer_normal')
 - 某个海龟升级的工具物品没有对应材料或类型
 - 某个任务的依赖 id 不在章节内
 - TFGM 配置里出现上游默认表中没有的键
+- 某个配方没有 EMI 映射，或 `docs/data/emi/` 里缺少对应卡片图
 
-最后一条是“零覆盖”这个结论的保险：如果有人加了配置覆盖却没让提取器知道，构建会失败。
+配置检查是“零覆盖”这个结论的保险：如果有人加了覆盖却没让提取器知道，构建会失败。
 
 ## 重新生成
 
@@ -85,8 +98,11 @@ node scripts/fetch-item-index.mjs --modpack-tag 0.13.18 --cc-version 1.121.0
 # 2. 指向检出目录（或直接传标签让它克隆）
 node scripts/extract-tfgm.mjs --modpack .cache/modpack-0.13.18
 
-# 3. 构建站点
+# 3. 抽取对应的 EMI 布局与图标
+node scripts/fetch-emi-bundle.mjs
+
+# 4. 校验并构建
 npm run build
 ```
 
-CI 会按计划对最新的 Modpack-Modern 发行标签执行同样三步。
+CI 会按计划对最新的 Modpack-Modern 发行标签执行同样四步。

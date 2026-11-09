@@ -9,7 +9,7 @@ order: 3
 
 整合包里每个 CC:T 配方都是格雷配方。核心部件（线缆、计算机、海龟）走组装机；外设是格雷工作台合成；软盘来自化学浸洗机，16 种染料各有一种。
 
-<RecipeBrowser :show-removals="true" />
+<RecipeBrowser show-removals />
 
 ## 电压对应
 

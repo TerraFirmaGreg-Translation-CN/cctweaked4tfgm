@@ -11,7 +11,7 @@ order: 7
 
 ## 重建的配方
 
-<RecipeBrowser :machines="['assembler']" />
+<RecipeBrowser machines="assembler" />
 
 上面只显示 AP 的组装机配方。完整列表（含工作台合成的记忆卡）见[配方页](/zh_cn/guide/recipes)。
 

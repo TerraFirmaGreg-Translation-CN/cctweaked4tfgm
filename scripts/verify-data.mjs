@@ -229,6 +229,32 @@ if (labels) {
   if (missing.length) fail(`labels.json zh_cn misses ${missing.length} ids (e.g. ${missing[0]})`);
 }
 
+// --- EMI recipe bundle ------------------------------------------------------
+
+const emiMap = read('emi-map.json');
+const emiBundle = read('emi/bundle.json');
+if (emiMap) {
+  const rows = emiMap.recipes || [];
+  const craftRecipes = recipes.filter((r) => r.kind !== 'remove');
+  for (const recipe of craftRecipes) {
+    const row = rows.find((entry) => entry.index === recipe.index);
+    if (!row) {
+      fail(`emi-map.json has no row for recipe ${recipe.id}`);
+      continue;
+    }
+    if (!row.emi) fail(`recipe ${recipe.id} has no EMI layout`);
+    if (row.image && !existsSync(resolve(dataRoot, 'emi', row.image))) {
+      fail(`missing EMI card image for ${recipe.id}: ${row.image}`);
+    }
+  }
+  if (emiBundle && emiBundle.recipeCount !== rows.filter((row) => row.emi).length) {
+    fail('emi/bundle.json recipeCount disagrees with emi-map.json');
+  }
+  if (!existsSync(resolve(dataRoot, 'emi/icons/index.json'))) {
+    fail('emi/icons/index.json is missing');
+  }
+}
+
 // --- docs ------------------------------------------------------------------
 
 // Locale parity: every English page needs a Chinese counterpart, or the user
@@ -237,7 +263,7 @@ if (labels) {
   const { readdirSync } = await import('node:fs');
   const walk = (dir, out = []) => {
     for (const entry of readdirSync(dir, { withFileTypes: true })) {
-      if (['.vitepress', 'public', 'data', 'node_modules'].includes(entry.name)) continue;
+      if (['public', 'data', 'node_modules'].includes(entry.name)) continue;
       const path = resolve(dir, entry.name);
       if (entry.isDirectory()) walk(path, out);
       else if (entry.name.endsWith('.md')) out.push(path.slice(resolve(root, 'docs').length + 1));

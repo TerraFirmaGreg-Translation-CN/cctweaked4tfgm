@@ -11,7 +11,7 @@ Advanced Peripherals (AP) is the CC addon TFGM keeps. Its recipes are rebuilt th
 
 ## Rebuilt recipes
 
-<RecipeBrowser :machines="['assembler']" />
+<RecipeBrowser machines="assembler" />
 
 Only the AP assembler recipes are shown above. The full list, including the shaped memory card, is on the [recipes page](/guide/recipes).
 

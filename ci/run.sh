@@ -98,6 +98,11 @@ api_index() {
   node "$ROOT/scripts/build-cc-index.mjs" --cc-version "$cc"
 }
 
+emi_bundle() {
+  local tag="${MODPACK_TAG:-$(latest_modpack_tag)}"
+  node "$ROOT/scripts/fetch-emi-bundle.mjs" --tag "$tag"
+}
+
 verify() {
   node "$ROOT/scripts/verify-data.mjs"
 }
@@ -147,6 +152,7 @@ Usage: bash ci/run.sh <command>
   fetch-inputs   clone the modpack and cache upstream inputs (items index, lang)
   extract        regenerate data/ from the checkout
   api-index      rebuild data/cc-index.json for the pinned CC:T
+  emi            extract the CC/AP EMI recipe subset into data/emi
   verify         run the data gate
   diff           report whether data/ changed
   install        npm ci
@@ -160,6 +166,7 @@ case "${1:-}" in
   fetch-inputs) fetch_inputs ;;
   extract) extract ;;
   api-index) api_index ;;
+  emi) emi_bundle ;;
   verify) verify ;;
   diff) diff ;;
   install) install ;;

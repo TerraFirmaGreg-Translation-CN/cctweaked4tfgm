@@ -13,8 +13,14 @@ graph LR
   C["EMI bundle<br/>items/index.json"] --> B
   D["CC:T lang files<br/>pinned tag"] --> B
   B --> E["docs/data/tfgm/&lt;tag&gt;/*.json"]
-  E --> F["VitePress components"]
   E --> G["verify-data.mjs"]
+  E --> H["scripts/fetch-emi-bundle.mjs"]
+  I["published recipe-book bundle"] --> H
+  H --> J["docs/data/emi/"]
+  J --> G
+  E --> F["scripts/build-site.mjs"]
+  J --> F
+  F --> K["dist/"]
 ```
 
 ## What the extractor does
@@ -64,6 +70,12 @@ The tier is derived from `EUt` against `GTValues.VA`, so a tier constant change 
 
 TFGM does not list its materials; it iterates `forEachMaterial(material => …)`. To know which materials GT actually registered, the extractor reads `items/index.json` from the published EMI bundle of the same release and keeps the `*_<toolType>` ids. That is why the result tracks the pack's real material set (20 materials, 73 upgrades) instead of a guessed list.
 
+## EMI layouts and icons
+
+`scripts/fetch-emi-bundle.mjs` takes the CC/AP rows from `recipes.json`, looks up each output item in the published TerraFirmaGreg recipe-book bundle (`bundles/tfg-<tag>/items/`), and copies the matching EMI layouts. It also packs only the 32×32 icon cells those layouts can show into one local atlas, prunes the tag and item-label tables, and writes `docs/data/emi/` plus `docs/data/emi-map.json`.
+
+The site therefore renders the game's own recipe cards through `emi-recipe-renderer`, with no link to another project, while the committed bundle stays around 1.4 MB.
+
 ## Verification gate
 
 `scripts/verify-data.mjs` runs before every build and fails on:
@@ -73,8 +85,9 @@ TFGM does not list its materials; it iterates `forEachMaterial(material => …)`
 - a turtle upgrade whose tool item has no material or type
 - a quest whose dependency id is not in the chapter
 - a config key present in TFGM but absent from the upstream default table
+- a recipe with no EMI mapping, or a missing card image in `docs/data/emi/`
 
-That last check is what keeps the "no overrides" claim honest: add a config override without teaching the extractor about it, and the build fails.
+The config check is what keeps the "no overrides" claim honest: add an override without teaching the extractor about it, and the build fails.
 
 ## Regenerating
 
@@ -85,8 +98,11 @@ node scripts/fetch-item-index.mjs --modpack-tag 0.13.18 --cc-version 1.121.0
 # 2. point the extractor at a checkout (or pass a tag to clone it)
 node scripts/extract-tfgm.mjs --modpack .cache/modpack-0.13.18
 
-# 3. build the site
+# 3. extract the matching EMI layouts and icons
+node scripts/fetch-emi-bundle.mjs
+
+# 4. verify and build
 npm run build
 ```
 
-CI runs the same three steps against the latest Modpack-Modern release tag on a schedule.
+CI runs the same four steps against the latest Modpack-Modern release tag on a schedule.

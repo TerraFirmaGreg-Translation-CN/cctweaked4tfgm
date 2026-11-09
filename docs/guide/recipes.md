@@ -9,7 +9,7 @@ order: 3
 
 Every CC:T recipe in the pack is a GregTech recipe. Core components (cable, computers, turtles) are assembled; peripherals are shaped GT recipes; disks come out of a chemical bath in all 16 dye colours.
 
-<RecipeBrowser :show-removals="true" />
+<RecipeBrowser show-removals />
 
 ## Voltage map
 

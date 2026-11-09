@@ -1,7 +1,7 @@
 {
   "name": "cctweaked4tfgm",
   "private": true,
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "CC: Tweaked reference and recipe book for TerraFirmaGreg Modern",
   "type": "module",
   "engines": {
@@ -11,13 +11,17 @@
     "data": "node scripts/extract-tfgm.mjs",
     "data:fetch": "node scripts/fetch-item-index.mjs",
     "data:api": "node scripts/build-cc-index.mjs",
+    "data:emi": "node scripts/fetch-emi-bundle.mjs",
     "verify-data": "node scripts/verify-data.mjs",
-    "dev": "vitepress dev docs",
-    "build": "npm run verify-data && vitepress build docs",
-    "preview": "vitepress preview docs"
+    "validate:emi": "node scripts/verify-emi.mjs",
+    "dev": "node scripts/build-site.mjs --serve",
+    "build": "npm run verify-data && npm run validate:emi && node scripts/build-site.mjs",
+    "preview": "node scripts/build-site.mjs --serve"
   },
   "devDependencies": {
-    "vitepress": "^1.6.4",
-    "vue": "^3.5.45"
+    "emi-recipe-renderer": "0.6.6",
+    "highlight.js": "^11.11.1",
+    "marked": "^16.4.2",
+    "sharp": "^0.34.5"
   }
 }
