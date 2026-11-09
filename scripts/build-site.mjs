@@ -339,7 +339,7 @@ function renderNav(page) {
     <h2 tabindex="0">${copy.upstream}</h2>
     <ul>${upstream}</ul>
     <h2 tabindex="0">${copy.language}</h2>
-    <ul><li><a href="${switchHref}" class="sidebar-link">${escapeHtml(other.label)}</a></li></ul>
+    <ul><li><a href="${switchHref}" class="sidebar-link" data-lang="${other === 'zh_cn' ? 'zh' : 'en'}">${escapeHtml(other.label)}</a></li></ul>
   </div>
 </nav>`;
 }
@@ -380,6 +380,27 @@ function renderLayout(page, content) {
       : 'The CC: Tweaked that TerraFirmaGreg Modern actually ships: versioned recipes, turtle upgrades, quest mapping and the Lua API index.');
   const siteName = locale === 'zh_cn' ? '群峦格雷 CC: Tweaked' : 'CC: Tweaked for TerraFirmaGreg';
   const title = page.title === siteName ? escapeHtml(page.title) : `${escapeHtml(page.title)} · ${siteName}`;
+  let zhUrl = '';
+  if (locale === 'en_us' && page.url !== '/404/') {
+    const base = page.cc ? page.baseUrl : page.url;
+    zhUrl = `${BASE}zh_cn${base === '/' ? '/' : base}`;
+  }
+  const localeRedirect = zhUrl
+    ? `<script>window.__CCT_ZH_URL__=${JSON.stringify(zhUrl)};</script>
+<script>
+(function () {
+  try {
+    if (!window.__CCT_ZH_URL__) return;
+    var preference = localStorage.getItem('cct-lang');
+    if (preference === 'en') return;
+    var languages = navigator.languages || [navigator.language || ''];
+    var wantsChinese = preference === 'zh' || languages.some(function (lang) { return /^zh/i.test(lang); });
+    if (!wantsChinese) return;
+    location.replace(window.__CCT_ZH_URL__ + location.search + location.hash);
+  } catch (error) {}
+})();
+</script>`
+    : '';
 
   return `<!doctype html>
 <html lang="${LOCALES[locale].lang}">
@@ -397,6 +418,8 @@ function renderLayout(page, content) {
 <link rel="icon" type="image/png" href="${BASE}favicon.png" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/emi-recipe-renderer@0.6.6/dist/emi.min.css" crossorigin="anonymous" />
 <link rel="stylesheet" href="${BASE}main.css?v=${cssVersion}" />
+${zhUrl ? `<link rel="alternate" hreflang="zh-CN" href="${zhUrl}" />` : ''}
+${localeRedirect}
 <script defer src="https://cdn.jsdelivr.net/npm/emi-recipe-renderer@0.6.6/dist/emi.min.js" crossorigin="anonymous"></script>
 <script defer src="${BASE}app.js?v=${jsVersion}"></script>
 </head>

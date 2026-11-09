@@ -4,6 +4,14 @@
 (() => {
   const body = document.body;
 
+  for (const link of document.querySelectorAll('[data-lang]')) {
+    link.addEventListener('click', () => {
+      try {
+        localStorage.setItem('cct-lang', link.dataset.lang);
+      } catch (error) {}
+    });
+  }
+
   // --- sidebar -------------------------------------------------------------
   const nav = document.getElementById('nav');
   document.getElementById('nav-reveal')?.addEventListener('click', () => {
