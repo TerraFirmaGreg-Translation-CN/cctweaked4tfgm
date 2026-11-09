@@ -229,6 +229,30 @@ if (labels) {
   if (missing.length) fail(`labels.json zh_cn misses ${missing.length} ids (e.g. ${missing[0]})`);
 }
 
+// --- docs ------------------------------------------------------------------
+
+// Locale parity: every English page needs a Chinese counterpart, or the user
+// silently drops to English mid-site.
+{
+  const { readdirSync } = await import('node:fs');
+  const walk = (dir, out = []) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (['.vitepress', 'public', 'data', 'node_modules'].includes(entry.name)) continue;
+      const path = resolve(dir, entry.name);
+      if (entry.isDirectory()) walk(path, out);
+      else if (entry.name.endsWith('.md')) out.push(path.slice(resolve(root, 'docs').length + 1));
+    }
+    return out;
+  };
+  const all = walk(resolve(root, 'docs'));
+  const en = all.filter((p) => !p.startsWith('zh_cn/'));
+  const zh = all.filter((p) => p.startsWith('zh_cn/')).map((p) => p.slice('zh_cn/'.length));
+  const enSet = new Set(en);
+  const zhSet = new Set(zh);
+  for (const page of en) if (!zhSet.has(page)) fail(`docs/zh_cn/${page} is missing`);
+  for (const page of zh) if (!enSet.has(page)) fail(`docs/${page} is missing (zh_cn has it)`);
+}
+
 // --- report ----------------------------------------------------------------
 
 if (errors.length) {
