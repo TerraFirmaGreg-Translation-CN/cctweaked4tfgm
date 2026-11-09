@@ -3,7 +3,7 @@ title: 群峦格雷的 CC: Tweaked
 order: 0
 ---
 
-<h1 class="home-logo"><img src="/cctweaked4tfgm/logo.png" alt="群峦格雷的 CC: Tweaked" /></h1>
+<h1 class="home-logo"><picture><source media="(prefers-color-scheme: dark)" srcset="/logo-darkmode-d172fd76.png" /><source media="(prefers-color-scheme: light)" srcset="/logo-42c40e20.png" /><img src="/logo-42c40e20.png" alt="CC: Tweaked" /></picture></h1>
 
 CC: Tweaked 是一个为 Minecraft 加入可编程计算机、海龟与大量外设的模组。它继承自广受喜爱的
 [ComputerCraft](https://github.com/dan200/ComputerCraft)，并在性能、稳定性与新功能上继续发展。
@@ -17,6 +17,8 @@ CC: Tweaked 是一个为 Minecraft 加入可编程计算机、海龟与大量外
 
 CC: Tweaked 的计算机使用 [Lua 语言](https://www.lua.org/)编程，提供编写代码和自动化 Minecraft 世界所需的全部工具。
 [全局函数](/module/_G/) 一节记录了计算机可用的全部 API（英文原文）。
+
+<img src="/basic-terminal-45a33440.png" alt="一台打开的 ComputerCraft 终端" class="big-image" />
 
 计算机虽然强大，却不能移动。*海龟* 解决了这一点：它们可以移动、破坏和放置方块、挥剑，或者执行你编写的任何逻辑。
 详见 [`turtle` API](/module/turtle/)（英文原文）。

@@ -1,6 +1,12 @@
 {
   "version": "1.121.0",
   "source": "https://tweaked.cc/mc-1.20.x",
+  "logo": "/pack-26318f36.png",
+  "home": {
+    "file": "home.html",
+    "title": "CC: Tweaked",
+    "description": "Documentation index for CC: Tweaked"
+  },
   "groups": [
     {
       "title": "Globals",

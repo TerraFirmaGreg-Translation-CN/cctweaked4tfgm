@@ -19,6 +19,7 @@ This is not a fork of CC: Tweaked. It contains no Minecraft code, no mixins and 
 - **Recipes** — every CC:T recipe is deleted and rebuilt on GregTech machines (MV → LuV). Searchable, and rendered in place from a CC/AP-only EMI bundle extracted from the release.
 - **Turtle upgrades** — 20 GregTech materials × tool types = 73 `computercraft:tool` upgrades, derived from the shipped item registry.
 - **Quest mapping** — the 55-quest ComputerCraft chapter with its dependency graph.
+- **Integrations** — practical Lua guides for GregTech machinery, Create kinetics/trains/logistics and Advanced Peripherals.
 - **Configuration** — the shipped CC:T config diffed against upstream defaults (currently: no overrides).
 - **Language** — the 18 bundled locale overrides and the `cc_utf8_compat` patch.
 - **Lua API** — the full CC:T 1.121.0 symbol index, pinned to the version in the pack.

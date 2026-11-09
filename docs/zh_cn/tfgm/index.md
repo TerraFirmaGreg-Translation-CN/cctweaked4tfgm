@@ -17,6 +17,7 @@ order: 1
 - [高级外设](/zh_cn/tfgm/advanced-peripherals) —— 群峦格雷保留的 CC 附属，以及被移除的部分。
 - [上游与版本](/zh_cn/tfgm/upstream) —— CC:T 的发布节奏与群峦格雷的位置。
 - [数据流水线](/zh_cn/tfgm/data-pipeline) —— 本站的数据怎么生成。
+- [整合包联动](/zh_cn/tfgm/integrations) —— 用 Lua 控制格雷机器、机械动力方块与高级外设。
 
 ::: tip 从哪里开始
 如果你从没用过 ComputerCraft，先读本站镜像的 [CC:T 参考文档](/module/_G/)（英文原文）。本节只记录群峦格雷对它的**改动**。

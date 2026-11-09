@@ -151,9 +151,15 @@ async function main() {
     if (url.hostname === 'tweaked.cc') {
       let path = url.pathname;
       if (path.startsWith('/mc-1.20.x/')) path = path.slice('/mc-1.20.x/'.length);
-      else if (path.startsWith('/images/') || path.startsWith('/pack-') || path === '/') {
-        if (path.startsWith('/images/')) imageUrls.add(url.origin + path);
-        if (path === '/') return `/${search}${hash}`;
+      else if (path === '/') {
+        return `/${search}${hash}`;
+      }
+      if (path.startsWith('/mc-1.20.x/')) path = path.slice('/mc-1.20.x'.length);
+      if (/\.(?:png|jpe?g|gif|svg|webp)$/i.test(path)) {
+        imageUrls.add(url.origin + url.pathname);
+        return `/${path.replace(/^\/+/, '')}${search}${hash}`;
+      }
+      if (path.startsWith('/images/') || path.startsWith('/pack-')) {
         return `${path}${search}${hash}`;
       }
       const key = path.replace(/^\/+/, '');
@@ -181,17 +187,51 @@ async function main() {
     });
   }
 
+  const home = {
+    key: 'index.html',
+    title: 'CC: Tweaked',
+    description: meta(homeHtml, 'description'),
+    content: unwrap(homeHtml),
+    toc: [],
+    url: '/',
+  };
+  pages.set(home.key, home);
+  home.content = home.content.replace(/\b(href|src)="([^"]+)"/g, (match, attr, raw) => {
+    return `${attr}="${rewriteUrl(raw, home)}"`;
+  });
+  home.content = home.content.replace(/srcset="([^"]+)"/g, (match, value) => {
+    const rewritten = value
+      .split(',')
+      .map((part) => {
+        const [url, descriptor] = part.trim().split(/\s+/, 2);
+        return `${rewriteUrl(url, home)}${descriptor ? ` ${descriptor}` : ''}`;
+      })
+      .join(', ');
+    return `srcset="${rewritten}"`;
+  });
+  writeFileSync(join(OUT, 'home.html'), home.content);
+
+  const iconUrl = meta(homeHtml, 'og:image');
+  let logoPath = '/logo.png';
+  if (iconUrl) {
+    const logoUrl = new URL(iconUrl);
+    logoPath = logoUrl.pathname;
+    writeFileSync(join(PUBLIC, logoPath), await fetchBinary(iconUrl));
+  }
+
   for (const url of imageUrls) {
-    const path = new URL(url).pathname;
+    let path = new URL(url).pathname;
+    if (path.startsWith('/mc-1.20.x/')) path = path.slice('/mc-1.20.x'.length);
     const bytes = await fetchBinary(url);
     const target = join(PUBLIC, path);
     mkdirSync(dirname(target), { recursive: true });
     writeFileSync(target, bytes);
   }
 
+
   mkdirSync(join(OUT, 'pages'), { recursive: true });
   rmSync(join(OUT, 'pages'), { recursive: true, force: true });
-  const manifest = { version: VERSION, source: SOURCE, groups: [], pages: {} };
+  const manifest = { version: VERSION, source: SOURCE, logo: logoPath, home: { file: 'home.html', title: home.title, description: home.description }, groups: [], pages: {} };
   for (const group of groups) {
     const entry = { title: group.title, pages: [] };
     for (const page of group.pages) {

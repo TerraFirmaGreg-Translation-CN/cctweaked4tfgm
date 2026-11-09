@@ -158,6 +158,12 @@ if (CC) {
   }
 }
 
+const ccHome =
+  CC?.home && existsSync(join(DOCS, 'data/cc', CC.home.file))
+    ? readFileSync(join(DOCS, 'data/cc', CC.home.file), 'utf8')
+    : null;
+const ccLogo = CC?.logo || '/logo.png';
+
 function localePages(locale) {
   return [...pages.values()].filter((page) => page.locale === locale);
 }
@@ -296,7 +302,7 @@ function renderNav(page) {
 
   return `<nav id="nav">
   <button id="nav-reveal" type="button" aria-label="${copy.site}">☰</button>
-  <h1><a href="${BASE}${homepage.replace(/^\//, '')}"><img src="${BASE}logo.png" alt="CC: Tweaked for TerraFirmaGreg" /></a></h1>
+  <h1><a href="${BASE}${homepage.replace(/^\//, '')}"><img src="${BASE}${ccLogo.replace(/^\//, '')}" alt="CC: Tweaked for TerraFirmaGreg" /></a></h1>
   <div class="nav-links">
     ${tocBlock}
     ${page.url.startsWith('/tfgm') ? `${siteGroups}${renderCcGroups(page)}` : `${renderCcGroups(page)}${siteGroups}`}
@@ -319,21 +325,35 @@ const UPSTREAM_SECTIONS = new Set([
 ]);
 
 function absolutize(html, locale) {
-  return html.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g, (match, attr, path) => {
-    if (path.startsWith('cctweaked4tfgm/')) return match;
-    let value = path;
+  const prefix = (value) => {
+    if (value.startsWith('cctweaked4tfgm/')) return value;
     const section = value.split('/')[0];
+    const isAsset = /\.(?:png|jpe?g|gif|svg|webp|css|js|json|woff2?)$/i.test(value.split('?')[0]);
+    let out = value;
     if (
       locale === 'zh_cn' &&
+      !isAsset &&
       !UPSTREAM_SECTIONS.has(section) &&
-      !value.startsWith('zh_cn/') &&
-      !value.startsWith('cctweaked4tfgm/')
+      !out.startsWith('zh_cn/')
     ) {
-      value = `zh_cn/${value}`;
+      out = `zh_cn/${out}`;
     }
-    if (!/\.[a-z0-9]+$/i.test(value) && !value.endsWith('/') && !value.includes('#')) value = `${value}/`;
-    return `${attr}="/cctweaked4tfgm/${value}"`;
+    if (!isAsset && !/\.[a-z0-9]+$/i.test(out) && !out.endsWith('/') && !out.includes('#')) out = `${out}/`;
+    return `cctweaked4tfgm/${out}`;
+  };
+  html = html.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g, (match, attr, path) => `${attr}="/${prefix(path)}"`);
+  html = html.replace(/\bsrcset="([^"]*)"/g, (match, value) => {
+    const rewritten = value
+      .split(',')
+      .map((part) => {
+        const [url, descriptor] = part.trim().split(/\s+/, 2);
+        const out = url.startsWith('/') && !url.startsWith('//') ? `/${prefix(url.slice(1))}` : url;
+        return `${out}${descriptor ? ` ${descriptor}` : ''}`;
+      })
+      .join(', ');
+    return `srcset="${rewritten}"`;
   });
+  return html;
 }
 
 function renderLayout(page, content) {
@@ -442,14 +462,31 @@ function build() {
       base: BASE,
     });
     for (const page of localePages(locale)) {
-      const source = readFileSync(page.sourcePath, 'utf8');
-      const { body } = parseFrontmatter(source);
-      const rendered = markdown.render(body, page.rel.split('/').slice(0, -1).join('/'));
-      page.toc = rendered.headings;
-      let html = rendered.html;
-      for (const placeholder of rendered.placeholders) {
-        const { name, attrs } = components.attrsFromTag(placeholder.tag);
-        html = html.replace(placeholder.key, components.render(name, attrs));
+      let html;
+      if (locale === 'en_us' && page.url === '/' && ccHome) {
+        const pill = components.render('VersionPill', { 'show-core': '' });
+        const tfgm = `<h2>TerraFirmaGreg</h2><p>This copy of the reference is pinned to <strong>TFGM ${escapeHtml(
+          data.meta.modpack.tag,
+        )}</strong> and CC: Tweaked ${escapeHtml(data.meta.ccTweaked.version)}. TerraFirmaGreg replaces the recipes, gates progression and adds its own peripherals around the upstream mod; the delta is documented under <a href="/tfgm/">TerraFirmaGreg</a>.</p><table class="definition-list"><tbody><tr><th><a href="/tfgm/differences/">What TFGM changes</a></th><td>Recipes, creative tab, quest chapter, language overrides and the two upstream API breaks.</td></tr><tr><th><a href="/tfgm/recipes/">Recipe set</a></th><td>All 54 CC/AP recipes rendered from the release's EMI layouts.</td></tr><tr><th><a href="/tfgm/turtle-upgrades/">Turtle upgrades</a></th><td>73 GregTech tool upgrades across 20 materials.</td></tr><tr><th><a href="/tfgm/integrations/">Integrations</a></th><td>Controlling GregTech machines, Create and Advanced Peripherals from Lua.</td></tr></tbody></table>`;
+        html = ccHome
+          .replace('<h2>Features</h2>', `${pill}<h2 id="features">Features</h2>`)
+          .replace('<h2>Getting Started</h2>', '<h2 id="getting-started">Getting Started</h2>')
+          .replace('<h2>Globals</h2>', `${tfgm.replace('<h2>TerraFirmaGreg</h2>', '<h2 id="terrafirmagreg">TerraFirmaGreg</h2>')}<h2>Globals</h2>`);
+        page.toc = [
+          { id: 'features', title: 'Features', level: 2 },
+          { id: 'getting-started', title: 'Getting Started', level: 2 },
+          { id: 'terrafirmagreg', title: 'TerraFirmaGreg', level: 2 },
+        ];
+      } else {
+        const source = readFileSync(page.sourcePath, 'utf8');
+        const { body } = parseFrontmatter(source);
+        const rendered = markdown.render(body, page.rel.split('/').slice(0, -1).join('/'));
+        page.toc = rendered.headings;
+        html = rendered.html;
+        for (const placeholder of rendered.placeholders) {
+          const { name, attrs } = components.attrsFromTag(placeholder.tag);
+          html = html.replace(placeholder.key, components.render(name, attrs));
+        }
       }
       page.summary = plainSummary(html);
       page.html = renderLayout(page, absolutize(html, locale));
@@ -458,6 +495,10 @@ function build() {
     if (locale === 'en_us') {
       for (const page of ccPages) {
         let html = readFileSync(page.file, 'utf8');
+        const integrationNote = `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>The pack exposes GregTech machines and Create blocks through these capabilities. See <a href="/tfgm/integrations/">Integrations</a> for the concrete method lists and Lua examples.</p></div></div>`;
+        if (page.url.startsWith('/generic_peripheral/') || page.url === '/module/peripheral/') {
+          html = html.replace(/<\/h1>/, (heading) => `${heading}${integrationNote}`);
+        }
         const recipeNote = `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>TerraFirmaGreg deletes this vanilla recipe and rebuilds it on a GregTech machine. See the <a href="/tfgm/recipes/">TerraFirmaGreg recipe set</a> for the replacement.</p></div></div>`;
         html = html.replace(/<h2>Recipes?<\/h2>/, (heading) => `${heading}${recipeNote}`);
         if (page.url === '/module/turtle/') {
