@@ -1,6 +1,6 @@
 {
-  "server": "/home/cn059/Projects/TFGM-CN/cctweaked4tfgm/.cache/modpack-0.13.18/defaultconfigs/computercraft-server.toml",
-  "client": "/home/cn059/Projects/TFGM-CN/cctweaked4tfgm/.cache/modpack-0.13.18/config/computercraft-client.toml",
+  "server": "/home/runner/work/cctweaked4tfgm/cctweaked4tfgm/.cache/modpack-0.13.18/defaultconfigs/computercraft-server.toml",
+  "client": "/home/runner/work/cctweaked4tfgm/cctweaked4tfgm/.cache/modpack-0.13.18/config/computercraft-client.toml",
   "values": {
     "computer_space_limit": 1000000,
     "floppy_space_limit": 125000,
