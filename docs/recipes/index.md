@@ -1,5 +1,5 @@
 ---
-title: Recipes
+title: Recipe index
 order: 10
 ---
 

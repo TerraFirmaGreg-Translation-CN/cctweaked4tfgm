@@ -44,9 +44,10 @@ function main() {
   const lang = extractLang(modpack.dir, ccVersion);
   const labels = extractLabels(recipes, quests, upgrades);
 
+  // Deliberately no wall-clock timestamp: the committed data must be a pure
+  // function of the source release, otherwise CI commits noise every night.
   const payload = {
     schema: 1,
-    generatedAt: new Date().toISOString(),
     generator: 'cctweaked4tfgm/scripts/extract-tfgm.mjs',
     modpack: {
       tag,
@@ -76,7 +77,7 @@ function main() {
   write(join(dir, 'labels.json'), labels);
 
   // Stable pointer for the site's default route.
-  write(join(outDir, 'latest.json'), { tag, generatedAt: payload.generatedAt });
+  write(join(outDir, 'latest.json'), { tag, released: modpack.released });
   writeIndexModule(outDir, tag);
 
   console.log(
@@ -665,8 +666,10 @@ function extractConfig(dir) {
   }
 
   return {
-    server: serverPath.replace(/\\/g, '/'),
-    client: clientPath,
+    // Repo-relative, not absolute: the committed data must not depend on where
+    // the checkout lives.
+    server: 'defaultconfigs/computercraft-server.toml',
+    client: 'config/computercraft-client.toml',
     values: { ...server, ...client },
     upstream,
     overrides: Object.keys(diff),

@@ -1,5 +1,5 @@
 ---
-title: 配方
+title: 配方索引
 order: 10
 ---
 
