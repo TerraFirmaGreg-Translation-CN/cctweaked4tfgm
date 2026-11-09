@@ -116,9 +116,9 @@ verify() {
 
 diff() {
   local changed=false
-  if [[ -n "$(git -C "$ROOT" status --porcelain -- docs/data)" ]]; then
+  if [[ -n "$(git -C "$ROOT" status --porcelain -- docs/data docs/public/images)" ]]; then
     changed=true
-    git -C "$ROOT" --no-pager diff --stat -- docs/data | sed 's/^/  /'
+    git -C "$ROOT" --no-pager diff --stat -- docs/data docs/public/images | sed 's/^/  /'
   else
     echo "Generated data matches the committed copy"
   fi
@@ -140,13 +140,13 @@ build() {
 commit_data() {
   local tag="${TAG:?TAG required}"
   cd "$ROOT"
-  if [[ -z "$(git status --porcelain -- docs/data)" ]]; then
+  if [[ -z "$(git status --porcelain -- docs/data docs/public/images)" ]]; then
     echo "Nothing to commit"
     return 0
   fi
   git config user.name "github-actions[bot]"
   git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-  git add docs/data
+  git add docs/data docs/public/images
   git commit -m "data: regenerate for TFGM ${tag}"
   git push
 }

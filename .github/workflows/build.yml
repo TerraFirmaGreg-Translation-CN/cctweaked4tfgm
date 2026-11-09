@@ -104,6 +104,7 @@ jobs:
           name: tfgm-data
           path: |
             docs/data/
+            docs/public/images/
             .cache/upstream/
           if-no-files-found: error
 
