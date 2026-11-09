@@ -194,6 +194,24 @@ function searchPages(locale) {
   return [...localePages(locale), ...(locale === 'zh_cn' ? ccPagesZh : ccPages)];
 }
 
+const CC_RECIPE_REPLACEMENTS = {
+  '/module/pocket/': ['tfg:crafting/pocket_computer_normal', 'tfg:crafting/pocket_computer_advanced'],
+  '/module/turtle/': ['computercraft:assembler/turtle_normal', 'computercraft:assembler/turtle_advanced'],
+  '/peripheral/computer/': ['computercraft:assembler/computer_normal', 'computercraft:assembler/computer_advanced'],
+  '/peripheral/drive/': ['tfg:crafting/disk_drive'],
+  '/peripheral/modem/': [
+    'tfg:crafting/wired_modem',
+    'tfg:crafting/wireless_modem_normal',
+    'tfg:crafting/wireless_modem_advanced',
+    'tfg:crafting/wired_modem_shapeless',
+    'tfg:crafting/wired_modem_full_shapeless',
+  ],
+  '/peripheral/monitor/': ['tfg:crafting/monitor_normal', 'tfg:crafting/monitor_advanced'],
+  '/peripheral/printer/': ['tfg:crafting/printer'],
+  '/peripheral/redstone_relay/': ['computercraft:assembler/redstone_relay'],
+  '/peripheral/speaker/': ['tfg:crafting/speaker'],
+};
+
 const CC_GROUP_LABELS = {
   en_us: {},
   zh_cn: {
@@ -546,9 +564,17 @@ function build() {
       }
       const recipeNote =
         locale === 'zh_cn'
-          ? `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>群峦格雷删除了这个原版配方，并改用格雷机器重写。替换配方见 <a href="/zh_cn/tfgm/recipes/">群峦格雷配方表</a>。</p></div></div>`
-          : `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>TerraFirmaGreg deletes this vanilla recipe and rebuilds it on a GregTech machine. See the <a href="/tfgm/recipes/">TerraFirmaGreg recipe set</a> for the replacement.</p></div></div>`;
-      html = html.replace(locale === 'zh_cn' ? /<h2>配方<\/h2>/ : /<h2>Recipes?<\/h2>/, (heading) => `${heading}${recipeNote}`);
+          ? `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>群峦格雷删除了这个原版配方，并改用格雷机器重写。下面是替换后的配方。</p></div></div>`
+          : `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>TerraFirmaGreg deletes this vanilla recipe and rebuilds it on a GregTech machine. The replacement is rendered below.</p></div></div>`;
+      const replacementIds = CC_RECIPE_REPLACEMENTS[page.baseUrl];
+      if (replacementIds) {
+        const cards = components.renderRecipeCards(replacementIds);
+        const sectionRe =
+          locale === 'zh_cn' ? /(<h2>配方<\/h2>)([\s\S]*?)(?=<h2|$)/ : /(<h2>Recipes?<\/h2>)([\s\S]*?)(?=<h2|$)/;
+        html = html.replace(sectionRe, (match, heading) => `${heading}${recipeNote}${cards}`);
+      } else {
+        html = html.replace(locale === 'zh_cn' ? /<h2>配方<\/h2>/ : /<h2>Recipes?<\/h2>/, (heading) => `${heading}${recipeNote}`);
+      }
       if (page.baseUrl === '/module/turtle/') {
         const upgradeNote =
           locale === 'zh_cn'

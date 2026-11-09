@@ -87,9 +87,13 @@ export function createComponents({ locale, data, emiMap }) {
     return `<p class="pill-row">${parts.join('')}</p>`;
   }
 
-  function recipeBrowser({ machines = [], removals = false } = {}) {
+  function recipeBrowser({ machines = [], removals = false, ids = null, compact = false } = {}) {
     const recipes = data.recipes.filter((recipe) => recipe.kind !== 'remove');
-    const pool = machines.length ? recipes.filter((recipe) => machines.includes(recipe.machine)) : recipes;
+    let pool = machines.length ? recipes.filter((recipe) => machines.includes(recipe.machine)) : recipes;
+    if (ids) {
+      const order = new Map(ids.map((id, index) => [id, index]));
+      pool = recipes.filter((recipe) => order.has(recipe.id)).sort((a, b) => order.get(a.id) - order.get(b.id));
+    }
     const machineIds = [...new Set(pool.map((recipe) => recipe.machine))].sort();
     const tiers = [...new Set(pool.map((recipe) => recipe.tier).filter(Boolean))];
 
@@ -169,6 +173,8 @@ export function createComponents({ locale, data, emiMap }) {
             JSON.stringify(removal.removal, null, 2),
           )}</pre></details>`
         : '';
+
+    if (compact) return `<div class="recipe-grid">${cards}</div>`;
 
     return `<section class="browser" data-browser="recipes">
   <div class="toolbar">
@@ -507,7 +513,12 @@ export function createComponents({ locale, data, emiMap }) {
     )}</a></p>`;
   }
 
+  function renderRecipeCards(ids) {
+    return recipeBrowser({ ids, compact: true });
+  }
+
   return {
+    renderRecipeCards,
     render(name, attrs) {
       switch (name) {
         case 'VersionPill':
