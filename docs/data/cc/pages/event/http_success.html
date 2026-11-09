@@ -1,0 +1,19 @@
+<h1>http_success</h1><p>The <a href="/event/http_success/" class="reference"><code>http_success</code></a> event is fired when an HTTP request returns successfully.</p>
+<p>This event is normally handled inside <a href="/module/http/#v:get" class="reference"><code>http.get</code></a> and <a href="/module/http/#v:post" class="reference"><code>http.post</code></a>, but it can still be seen when using <a href="/module/http/#v:request" class="reference"><code>http.request</code></a>.</p>
+<h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The URL of the site requested.</li>
+<li><a href="/module/http/#ty:Response" class="reference"><code>http.Response</code></a>: The successful HTTP response.</li>
+</ol>
+<h2>Example</h2>
+<p>Prints the content of a website (this may fail if the request fails):</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">myURL</span> <span class="symbol">=</span> <span class="string">&quot;https://tweaked.cc/&quot;</span>
+<a title="Asynchronously make a HTTP request to the given url." href="/module/http/#v:request"><span class="ident">http</span><span class="symbol">.</span><span class="symbol">request</span></a><span class="symbol">(</span><span class="ident">myURL</span><span class="symbol">)</span>
+<span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">url</span><span class="symbol">,</span> <span class="ident">handle</span>
+<span class="keyword">repeat</span>
+    <span class="ident">event</span><span class="symbol">,</span> <span class="ident">url</span><span class="symbol">,</span> <span class="ident">handle</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;http_success&quot;</span><span class="symbol">)</span>
+<span class="keyword">until</span> <span class="ident">url</span> <span class="symbol">==</span> <span class="ident">myURL</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Contents of &quot;</span> <span class="symbol">..</span> <span class="ident">url</span> <span class="symbol">..</span> <span class="string">&quot;:&quot;</span><span class="symbol">)</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="ident">handle</span><span class="symbol">.</span><span class="symbol">readAll</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="ident">handle</span><span class="symbol">.</span><span class="symbol">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol"></span></pre></div><h3>See also</h3><ul><li><strong><a href="/module/http/#v:request" class="reference"><code>http.request</code></a></strong> To make an HTTP request.</li></ul>

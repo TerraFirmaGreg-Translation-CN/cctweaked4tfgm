@@ -1,0 +1,48 @@
+<h1>Data packs</h1><p>CC: Tweaked allows customising and extending many of its features via <a href="https://minecraft.wiki/w/Data_pack" title="Data pack on the Minecraft wiki">data packs</a>, such as adding new
+programs to the ROM, or providing new turtle tools. This page serves as a reference for CC:T's data pack functionality.</p>
+<div class="admonition admonition-note"><h5 class="admonition-heading"><span aria-hidden="true">🛈</span> Data pack compatibility</h5><p></p>
+<p>Unlike other parts of this documentation, the format of data packs change between Minecraft versions. Make sure you're
+using the right documentation for your Minecraft version.</p>
+<ul>
+<li><a href="/reference/data_pack/">Minecraft 1.20.1</a></li>
+<li><a href="https://tweaked.cc/mc-1.21.x/reference/data_pack.html">Minecraft 1.21.1</a></li>
+<li><a href="https://tweaked.cc/mc-26.3/reference/data_pack.html">Minecraft 26.3</a></li>
+</ul>
+</div><p>In addition to this documentation, we also provide an <a href="https://datapacks.madefor.cc/">online data pack builder</a> and an
+<a href="https://github.com/cc-tweaked/datapack-example" title="An example data pack for CC: Tweaked">example/template data pack</a>.</p>
+<h2>CraftOS ROM</h2>
+<p>Datapacks can be used to add or overwrite files in CraftOS's ROM, allowing you to add new programs or modules, or adjust
+the behaviour of existing ones. Files should be placed in <code>data/computercraft/lua/rom</code>.  For example, a datapack
+containing <code>data/computercraft/lua/rom/programs/example.lua</code> will add a new program <code>example</code>.</p>
+<div class="admonition admonition-warning"><h5 class="admonition-heading"><span aria-hidden="true">⚠</span> File naming</h5><p></p>
+<p>Data packs <a href="https://minecraft.wiki/w/Tutorials/Creating_a_data_pack#Legal_characters">impose some restrictions on file names</a>. As a result, all file and directory names must
+be lower case.</p>
+</div><ul>
+<li>Files under <code>rom/autorun</code> will be run on computer startup.</li>
+<li>Files under <code>rom/modules/main</code> can be loaded via <code>require</code>.</li>
+<li>Files located in <code>rom/apis/</code> will be loaded via <code>os.loadAPI</code> on startup. Similarly:
+<ul>
+<li>Files under <code>rom/apis/http</code> will be loaded if the HTTP API is enabled.</li>
+<li>Files under <code>rom/apis/turtle</code> will be loaded on all turtles.</li>
+<li>Files under <code>rom/apis/pocket</code> will be loaded on all pocket computers.</li>
+<li>Files under <code>rom/apis/command</code> will be loaded on all command computers.</li>
+</ul>
+</li>
+</ul>
+<h2>Tags</h2>
+<p>CC:T provides several <a href="https://tweaked.cc/javadoc/dan200/computercraft/api/ComputerCraftTags.Blocks.html" title="ComputerCraftTags.Blocks javadoc">block</a> and <a href="https://tweaked.cc/javadoc/dan200/computercraft/api/ComputerCraftTags.Items.html" title="ComputerCraftTags.Items javadoc">item</a> tags. While most tags are just used to group related
+blocks/items (e.g. <code>computercraft:turtles</code> is the list of all turtles), several can be extended by data packs to tweak
+functionality:</p>
+<ul>
+<li><code>computercraft:turtle_can_place</code> item tag: This tag lists items turtles can use with <a href="/module/turtle/#v:place" class="reference"><code>turtle.place</code></a>. By default
+this contains glass bottles and boats,</li>
+<li><code>computercraft:turtle_can_use</code> block tag: This tag lists blocks turtles can interact with <a href="/module/turtle/#v:place" class="reference"><code>turtle.place</code></a>. By
+default this contains beehives, cauldrons and the composter. The <a href="https://datapacks.madefor.cc/">data pack builder</a> has options for adding
+levers/buttons and modems to this list, allowing turtles to toggle them.</li>
+<li><code>computercraft:always_breakable</code> block tag: All turtle tools are capable of breaking instant-break blocks, such as
+saplings. This tag specifies additional blocks that can be broken by all tools. By default, this includes leaves,
+bamboo and bamboo saplings.</li>
+<li><code>computercraft:turtle_shovel_harvestable</code>, <code>computercraft:turtle_sword_harvestable</code>,
+<code>computercraft:turtle_hoe_harvestable</code> block tags: These tags specify which blocks can be broken by the shovel, sword
+and hoe respectively.</li>
+</ul>

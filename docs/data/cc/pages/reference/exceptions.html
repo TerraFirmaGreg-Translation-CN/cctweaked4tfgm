@@ -1,0 +1,136 @@
+<h1>CraftOS's exception protocol</h1><p>By default, Lua represents errors are plain strings. The file name and line number may be perpended to the error message
+(e.g. <code>example.lua:12: error message</code>), but all other information (e.g. stack trace) is lost.</p>
+<p>In order to preserve this information across APIs which support catching errors (<a href="https://www.lua.org/manual/5.1/manual.html#pdf-pcall" class="reference"><code>pcall</code></a>, <a href="https://www.lua.org/manual/5.1/manual.html#pdf-coroutine.resume" class="reference"><code>coroutine.resume</code></a>),
+CraftOS supports a richer form of errors that capture the context they were thrown in, referred to as
+&quot;exceptions&quot;. These exceptions can be created by coroutine managers (such as <a href="/module/parallel/" class="reference"><code>parallel</code></a>) to preserve error information
+across coroutine boundaries, allowing the shell and Lua REPL to display the precise source and location of the error.</p>
+<p>An exception is defined as a table with:</p>
+<ul>
+<li>A <code>message</code> field of type <a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>.</li>
+<li>A <code>thread</code> field, of type <a href="https://www.lua.org/manual/5.1/manual.html#5.2" class="reference"><code>thread</code></a>.</li>
+<li>A metatable, with a <code>__name = &quot;exception&quot;</code> field.</li>
+</ul>
+<h2>Example</h2>
+<p>As an example, let's consider the simplest coroutine manager, that just spawns a new coroutine and forwards events to
+it. When we error inside the coroutine, notice that shell does not display a rich error, as the stack trace information
+is lost!</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-no-run="1" data-snippet="run_basic"><span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">run</span><span class="symbol">(</span><span class="ident">fn</span><span class="symbol">,</span> <span class="symbol">...</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">co</span> <span class="symbol">=</span> <span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">create</span><span class="symbol">(</span><span class="ident">fn</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">ok</span><span class="symbol">,</span> <span class="ident">result</span> <span class="symbol">=</span> <span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">resume</span><span class="symbol">(</span><span class="ident">co</span><span class="symbol">,</span> <span class="symbol">...</span><span class="symbol">)</span>
+  <span class="keyword">while</span> <span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">status</span><span class="symbol">(</span><span class="ident">co</span><span class="symbol">)</span> <span class="symbol">~=</span> <span class="string">&quot;dead&quot;</span> <span class="keyword">do</span>
+    <span class="keyword">local</span> <span class="ident">event</span> <span class="symbol">=</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">pack</span><span class="symbol">(</span><a title="Pause execution of the current thread and waits for events, including the terminate event." href="/module/os/#v:pullEventRaw"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEventRaw</span></a><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span>
+    <span class="keyword">if</span> <span class="ident">result</span> <span class="symbol">==</span> <span class="literal-kw">nil</span> <span class="operator-kw">or</span> <span class="ident">filter</span> <span class="symbol">==</span> <span class="string">&quot;terminated&quot;</span> <span class="operator-kw">or</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">1</span><span class="symbol">]</span> <span class="symbol">==</span> <span class="ident">filter</span> <span class="keyword">then</span>
+      <span class="ident">ok</span><span class="symbol">,</span> <span class="ident">result</span> <span class="symbol">=</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">pack</span><span class="symbol">(</span><span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">resume</span><span class="symbol">(</span><span class="ident">co</span><span class="symbol">,</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">unpack</span><span class="symbol">(</span><span class="ident">event</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">,</span> <span class="ident">event</span><span class="symbol">.</span><span class="symbol">n</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">)</span>
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">if</span> <span class="operator-kw">not</span> <span class="ident">ok</span> <span class="keyword">then</span> <span class="ident">error</span><span class="symbol">(</span><span class="ident">result</span><span class="symbol">,</span> <span class="number">0</span><span class="symbol">)</span> <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">return</span> <span class="ident">run</span><span class="symbol"></span></pre></div><div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-mount="run_basic:run.lua"><span class="keyword">local</span> <span class="ident">run</span> <span class="symbol">=</span> <span class="ident">require</span> <span class="string">&quot;run&quot;</span>
+<span class="ident">run</span><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="symbol">)</span>
+  <span class="ident">error</span><span class="symbol">(</span><span class="string">&quot;ohno&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol">)</span><span class="symbol"></span></pre></div><p>We can fix this by updating our coroutine manager to throw an exception when an error occurs. The shell now prints a
+rich error on exit.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-no-run="1" data-snippet="run_exn"><span class="comment">-- NEW: Define our exception metatable.</span>
+<span class="keyword">local</span> <span class="ident">exception_mt</span> <span class="symbol">=</span> <span class="symbol">{</span>
+  <span class="ident">__name</span> <span class="symbol">=</span> <span class="string">&quot;exception&quot;</span><span class="symbol">,</span>
+  <span class="ident">__tostring</span> <span class="symbol">=</span> <span class="keyword">function</span><span class="symbol">(</span><span class="ident">self</span><span class="symbol">)</span> <span class="keyword">return</span> <span class="ident">self</span><span class="symbol">.</span><span class="symbol">message</span> <span class="keyword">end</span>
+<span class="symbol">}</span>
+
+<span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">run</span><span class="symbol">(</span><span class="ident">fn</span><span class="symbol">,</span> <span class="symbol">...</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">co</span> <span class="symbol">=</span> <span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">create</span><span class="symbol">(</span><span class="ident">fn</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">ok</span><span class="symbol">,</span> <span class="ident">result</span> <span class="symbol">=</span> <span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">resume</span><span class="symbol">(</span><span class="ident">co</span><span class="symbol">,</span> <span class="symbol">...</span><span class="symbol">)</span>
+  <span class="keyword">while</span> <span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">status</span><span class="symbol">(</span><span class="ident">co</span><span class="symbol">)</span> <span class="symbol">~=</span> <span class="string">&quot;dead&quot;</span> <span class="keyword">do</span>
+    <span class="keyword">local</span> <span class="ident">event</span> <span class="symbol">=</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">pack</span><span class="symbol">(</span><a title="Pause execution of the current thread and waits for events, including the terminate event." href="/module/os/#v:pullEventRaw"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEventRaw</span></a><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span>
+    <span class="keyword">if</span> <span class="ident">result</span> <span class="symbol">==</span> <span class="literal-kw">nil</span> <span class="operator-kw">or</span> <span class="ident">filter</span> <span class="symbol">==</span> <span class="string">&quot;terminated&quot;</span> <span class="operator-kw">or</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">1</span><span class="symbol">]</span> <span class="symbol">==</span> <span class="ident">filter</span> <span class="keyword">then</span>
+      <span class="ident">ok</span><span class="symbol">,</span> <span class="ident">result</span> <span class="symbol">=</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">pack</span><span class="symbol">(</span><span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">resume</span><span class="symbol">(</span><span class="ident">co</span><span class="symbol">,</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">unpack</span><span class="symbol">(</span><span class="ident">event</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">,</span> <span class="ident">event</span><span class="symbol">.</span><span class="symbol">n</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">)</span>
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">if</span> <span class="operator-kw">not</span> <span class="ident">ok</span> <span class="keyword">then</span>
+    <span class="comment">-- NEW: If we have a string error, wrap that into an exception instead</span>
+    <span class="keyword">if</span> <span class="ident">type</span><span class="symbol">(</span><span class="ident">result</span><span class="symbol">)</span> <span class="symbol">==</span> <span class="string">&quot;string&quot;</span> <span class="keyword">then</span>
+      <span class="ident">error</span><span class="symbol">(</span><span class="ident">setmetatable</span><span class="symbol">(</span><span class="symbol">{</span> <span class="ident">message</span> <span class="symbol">=</span> <span class="ident">result</span><span class="symbol">,</span> <span class="ident">thread</span> <span class="symbol">=</span> <span class="ident">co</span> <span class="symbol">}</span><span class="symbol">,</span> <span class="ident">exception_mt</span><span class="symbol">)</span><span class="symbol">)</span>
+    <span class="keyword">else</span>
+      <span class="ident">error</span><span class="symbol">(</span><span class="ident">result</span><span class="symbol">,</span> <span class="number">0</span><span class="symbol">)</span>
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">return</span> <span class="ident">run</span><span class="symbol"></span></pre></div><div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-mount="run_exn:run.lua"><span class="keyword">local</span> <span class="ident">run</span> <span class="symbol">=</span> <span class="ident">require</span> <span class="string">&quot;run&quot;</span>
+<span class="ident">run</span><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="symbol">)</span>
+  <span class="ident">error</span><span class="symbol">(</span><span class="string">&quot;ohno&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol">)</span><span class="symbol"></span></pre></div><h2><a href="/module/parallel/" class="reference"><code>parallel</code></a> and exceptions</h2>
+<p>One issue you may find with the above pattern is exceptions are <em>not</em> thrown by <a href="/module/parallel/" class="reference"><code>parallel</code></a> functions. For instance,
+this program has the same issue as before, and does not print a rich error.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-mount="run_exn:run.lua"><span class="keyword">local</span> <span class="ident">run</span> <span class="symbol">=</span> <span class="ident">require</span> <span class="string">&quot;run&quot;</span>
+<span class="ident">run</span><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="symbol">)</span>
+<a title="Switches between execution of the functions, until any of them finishes." href="/module/parallel/#v:waitForAny">  <span class="ident">parallel</span><span class="symbol">.</span><span class="symbol">waitForAny</span></a><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="symbol">)</span>
+    <span class="ident">error</span><span class="symbol">(</span><span class="string">&quot;ohno&quot;</span><span class="symbol">)</span>
+  <span class="keyword">end</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol">)</span><span class="symbol"></span></pre></div><p>This is done by default to preserve the backwards compatibility of CraftOS. Some user code catches errors thrown from
+within <a href="/module/parallel/" class="reference"><code>parallel</code></a> functions, and inspects the errors, and trying to convert those errors into exceptions will break
+that code. However, if you run a this code <em>without</em> our <code>run</code> function, you'll notice the rich error is displayed:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr"><a title="Switches between execution of the functions, until any of them finishes." href="/module/parallel/#v:waitForAny"><span class="ident">parallel</span><span class="symbol">.</span><span class="symbol">waitForAny</span></a><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="symbol">)</span>
+  <span class="ident">error</span><span class="symbol">(</span><span class="string">&quot;ohno&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol">)</span><span class="symbol"></span></pre></div><p>Internally, <a href="/module/parallel/" class="reference"><code>parallel</code></a> functions attempt to determine whether an error message is captured by user code (with
+<a href="https://www.lua.org/manual/5.1/manual.html#pdf-pcall" class="reference"><code>pcall</code></a>/<a href="https://www.lua.org/manual/5.1/manual.html#pdf-xpcall" class="reference"><code>xpcall</code></a> or <a href="https://www.lua.org/manual/5.1/manual.html#pdf-coroutine.resume" class="reference"><code>coroutine.resume</code></a>). If the error is never observed, then it's safe to wrap it into an
+exception!</p>
+<p>What we're seeing here is that <a href="/module/parallel/" class="reference"><code>parallel</code></a> doesn't know anything about our coroutine manager, and so assumes it's not
+safe to throw an exception.</p>
+<p>This can be fixed by making the first function in our child coroutine the magic <code>debug.getregistry().try_barrier</code>
+function. This function:</p>
+<ul>
+<li>Accepts a &quot;context&quot;, the function to call, and the function's arguments as parameters, then immediately calls the
+function.</li>
+<li>The &quot;context&quot; is a table with:
+<ul>
+<li>A <code>co</code> field, containing the parent coroutine.</li>
+<li>An optional <code>can_wrap</code> field, indicating whether exceptions can be wrapped or not.</li>
+</ul>
+</li>
+</ul>
+<p>Support for this in our coroutine manager looks as follows:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-no-run="1" data-snippet="run_barrier"><span class="comment">-- NEW: Define our magic try_barrier function:</span>
+<span class="keyword">local</span> <span class="ident">try_barrier</span> <span class="symbol">=</span> <span class="ident">debug</span><span class="symbol">.</span><span class="symbol">getregistry</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="symbol">cc_try_barrier</span>
+<span class="keyword">if</span> <span class="operator-kw">not</span> <span class="ident">try_barrier</span> <span class="keyword">then</span>
+    <span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">bounce</span><span class="symbol">(</span><span class="symbol">...</span><span class="symbol">)</span> <span class="keyword">return</span> <span class="symbol">...</span> <span class="keyword">end</span>
+    <span class="ident">try_barrier</span> <span class="symbol">=</span> <span class="keyword">function</span><span class="symbol">(</span><span class="ident">parent</span><span class="symbol">,</span> <span class="ident">f</span><span class="symbol">,</span> <span class="symbol">...</span><span class="symbol">)</span> <span class="keyword">return</span> <span class="ident">bounce</span><span class="symbol">(</span><span class="ident">f</span><span class="symbol">(</span><span class="symbol">...</span><span class="symbol">)</span><span class="symbol">)</span> <span class="keyword">end</span>
+    <span class="ident">debug</span><span class="symbol">.</span><span class="symbol">getregistry</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">.</span><span class="symbol">cc_try_barrier</span> <span class="symbol">=</span> <span class="ident">try_barrier</span>
+<span class="keyword">end</span>
+
+<span class="keyword">local</span> <span class="ident">exception_mt</span> <span class="symbol">=</span> <span class="symbol">{</span>
+  <span class="ident">__name</span> <span class="symbol">=</span> <span class="string">&quot;exception&quot;</span><span class="symbol">,</span>
+  <span class="ident">__tostring</span> <span class="symbol">=</span> <span class="keyword">function</span><span class="symbol">(</span><span class="ident">self</span><span class="symbol">)</span> <span class="keyword">return</span> <span class="ident">self</span><span class="symbol">.</span><span class="symbol">message</span> <span class="keyword">end</span>
+<span class="symbol">}</span>
+
+<span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">run</span><span class="symbol">(</span><span class="ident">fn</span><span class="symbol">,</span> <span class="symbol">...</span><span class="symbol">)</span>
+  <span class="comment">-- NEW: Start our coroutine using the try_barrier function instead. We use</span>
+  <span class="comment">-- { can_wrap = true } to tell parallel that it can always wrap errors into</span>
+  <span class="comment">-- exceptions.</span>
+  <span class="keyword">local</span> <span class="ident">co</span> <span class="symbol">=</span> <span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">create</span><span class="symbol">(</span><span class="ident">try_barrier</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">ok</span><span class="symbol">,</span> <span class="ident">result</span> <span class="symbol">=</span> <span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">resume</span><span class="symbol">(</span><span class="ident">co</span><span class="symbol">,</span> <span class="symbol">{</span> <span class="ident">co</span> <span class="symbol">=</span> <span class="ident">co</span><span class="symbol">,</span> <span class="ident">can_wrap</span> <span class="symbol">=</span> <span class="literal-kw">true</span> <span class="symbol">}</span><span class="symbol">,</span> <span class="ident">fn</span><span class="symbol">,</span> <span class="symbol">...</span><span class="symbol">)</span>
+
+  <span class="keyword">while</span> <span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">status</span><span class="symbol">(</span><span class="ident">co</span><span class="symbol">)</span> <span class="symbol">~=</span> <span class="string">&quot;dead&quot;</span> <span class="keyword">do</span>
+    <span class="keyword">local</span> <span class="ident">event</span> <span class="symbol">=</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">pack</span><span class="symbol">(</span><a title="Pause execution of the current thread and waits for events, including the terminate event." href="/module/os/#v:pullEventRaw"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEventRaw</span></a><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span>
+    <span class="keyword">if</span> <span class="ident">result</span> <span class="symbol">==</span> <span class="literal-kw">nil</span> <span class="operator-kw">or</span> <span class="ident">filter</span> <span class="symbol">==</span> <span class="string">&quot;terminated&quot;</span> <span class="operator-kw">or</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">1</span><span class="symbol">]</span> <span class="symbol">==</span> <span class="ident">filter</span> <span class="keyword">then</span>
+      <span class="ident">ok</span><span class="symbol">,</span> <span class="ident">result</span> <span class="symbol">=</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">pack</span><span class="symbol">(</span><span class="ident">coroutine</span><span class="symbol">.</span><span class="symbol">resume</span><span class="symbol">(</span><span class="ident">co</span><span class="symbol">,</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">unpack</span><span class="symbol">(</span><span class="ident">event</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">,</span> <span class="ident">event</span><span class="symbol">.</span><span class="symbol">n</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol">)</span>
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+
+  <span class="keyword">if</span> <span class="operator-kw">not</span> <span class="ident">ok</span> <span class="keyword">then</span>
+    <span class="keyword">if</span> <span class="ident">type</span><span class="symbol">(</span><span class="ident">result</span><span class="symbol">)</span> <span class="symbol">==</span> <span class="string">&quot;string&quot;</span> <span class="keyword">then</span>
+      <span class="ident">error</span><span class="symbol">(</span><span class="ident">setmetatable</span><span class="symbol">(</span><span class="symbol">{</span> <span class="ident">message</span> <span class="symbol">=</span> <span class="ident">result</span><span class="symbol">,</span> <span class="ident">thread</span> <span class="symbol">=</span> <span class="ident">co</span> <span class="symbol">}</span><span class="symbol">,</span> <span class="ident">exception_mt</span><span class="symbol">)</span><span class="symbol">)</span>
+    <span class="keyword">else</span>
+      <span class="ident">error</span><span class="symbol">(</span><span class="ident">result</span><span class="symbol">,</span> <span class="number">0</span><span class="symbol">)</span>
+    <span class="keyword">end</span>
+  <span class="keyword">end</span>
+<span class="keyword">end</span>
+
+<span class="keyword">return</span> <span class="ident">run</span><span class="symbol"></span></pre></div><div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-mount="run_barrier:run.lua"><span class="keyword">local</span> <span class="ident">run</span> <span class="symbol">=</span> <span class="ident">require</span> <span class="string">&quot;run&quot;</span>
+<span class="ident">run</span><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="symbol">)</span>
+<a title="Switches between execution of the functions, until any of them finishes." href="/module/parallel/#v:waitForAny">  <span class="ident">parallel</span><span class="symbol">.</span><span class="symbol">waitForAny</span></a><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="symbol">)</span>
+    <span class="ident">error</span><span class="symbol">(</span><span class="string">&quot;ohno&quot;</span><span class="symbol">)</span>
+  <span class="keyword">end</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol">)</span><span class="symbol"></span></pre></div>

@@ -1,0 +1,19 @@
+<h1>speaker_audio_empty</h1><h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The name of the speaker which is available to play more audio.</li>
+</ol>
+<h2>Example</h2>
+<p>This uses <a href="/module/io/#v:lines" class="reference"><code>io.lines</code></a> to read audio data in blocks of 16KiB from &quot;example_song.dfpwm&quot;, and then attempts to play it
+using <a href="/peripheral/speaker/#v:playAudio" class="reference"><code>speaker.playAudio</code></a>. If the speaker's buffer is full, it waits for an event and tries again.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-peripheral="speaker"><span class="keyword">local</span> <a title="Convert between streams of DFPWM audio data and a list of amplitudes." href="/library/cc.audio.dfpwm/"><span class="ident">dfpwm</span> </a><span class="symbol">=</span> <span class="ident">require</span><span class="symbol">(</span><span class="string">&quot;cc.audio.dfpwm&quot;</span><span class="symbol">)</span>
+<span class="keyword">local</span> <span class="ident">speaker</span> <span class="symbol">=</span> <a title="Find all peripherals of a specific type, and return the wrapped peripherals." href="/module/peripheral/#v:find"><span class="ident">peripheral</span><span class="symbol">.</span><span class="symbol">find</span></a><span class="symbol">(</span><span class="string">&quot;speaker&quot;</span><span class="symbol">)</span>
+
+<span class="keyword">local</span> <span class="ident">decoder</span> <span class="symbol">=</span> <a title="Create a new decoder for converting DFPWM into PCM audio data." href="/library/cc.audio.dfpwm/#v:make_decoder"><span class="ident">dfpwm</span><span class="symbol">.</span><span class="symbol">make_decoder</span></a><span class="symbol">(</span><span class="symbol">)</span>
+<span class="keyword">for</span> <span class="ident">chunk</span> <span class="keyword">in</span> <a title="Opens the given file name in read mode and returns an iterator that, each time it is called, returns a new line from the file." href="/module/io/#v:lines"><span class="ident">io</span><span class="symbol">.</span><span class="symbol">lines</span></a><span class="symbol">(</span><span class="string">&quot;data/example.dfpwm&quot;</span><span class="symbol">,</span> <span class="number">16</span> <span class="symbol">*</span> <span class="number">1024</span><span class="symbol">)</span> <span class="keyword">do</span>
+    <span class="keyword">local</span> <span class="ident">buffer</span> <span class="symbol">=</span> <span class="ident">decoder</span><span class="symbol">(</span><span class="ident">chunk</span><span class="symbol">)</span>
+
+    <span class="keyword">while</span> <span class="operator-kw">not</span> <span class="ident">speaker</span><span class="symbol">.</span><span class="symbol">playAudio</span><span class="symbol">(</span><span class="ident">buffer</span><span class="symbol">)</span> <span class="keyword">do</span>
+<a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent">        <span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;speaker_audio_empty&quot;</span><span class="symbol">)</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>See also</h3><ul><li><strong><a href="/peripheral/speaker/#v:playAudio" class="reference"><code>speaker.playAudio</code></a></strong> To play audio using the speaker</li></ul>

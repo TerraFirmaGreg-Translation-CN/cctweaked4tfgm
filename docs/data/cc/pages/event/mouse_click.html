@@ -1,0 +1,18 @@
+<h1>mouse_click</h1><p>This event is fired when the terminal is clicked with a mouse. This event is only fired on advanced computers (including
+advanced turtles and pocket computers).</p>
+<h2>Return values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The mouse button that was clicked.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The X-coordinate of the click.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The Y-coordinate of the click.</li>
+</ol>
+<h2>Mouse buttons</h2>
+<p>Several mouse events (<a href="/event/mouse_click/" class="reference"><code>mouse_click</code></a>, <a href="/event/mouse_up/" class="reference"><code>mouse_up</code></a>, <a href="/event/mouse_scroll/" class="reference"><code>mouse_scroll</code></a>) contain a &quot;mouse button&quot; code. This takes a
+numerical value depending on which button on your mouse was last pressed when this event occurred.</p>
+<div role="region"><table><tbody><tr><th class="right">Button Code</th><th>Mouse Button</th></tr><tr><td class="right">1</td><td>Left button</td></tr><tr><td class="right">2</td><td>Right button</td></tr><tr><td class="right">3</td><td>Middle button</td></tr></tbody></table></div><h2>Example</h2>
+<p>Print the button and the coordinates whenever the mouse is clicked.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">button</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;mouse_click&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="symbol">(</span><span class="string">&quot;The mouse button %s was pressed at %d, %d&quot;</span><span class="symbol">)</span><span class="symbol">:</span><span class="symbol">format</span><span class="symbol">(</span><span class="ident">button</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

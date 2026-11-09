@@ -1,0 +1,43 @@
+<h1>Entity details</h1><p>Some functions in CC: Tweaked (such as <a href="/module/commands/#v:getEntities" class="reference"><code>commands.getEntities</code></a>) provide a way to get information about an entity.
+This page details information about entities that CC: Tweaked may return.</p>
+<h2>Basic information</h2>
+<p>Entity information will <em>always</em> contain:</p>
+<ul>
+<li><code>name: string</code>: The namespaced ID for this entity, e.g. <code>minecraft:player</code>. See <a href="https://minecraft.wiki/w/Java_Edition_data_values#Entities" title="Java Edition data values on the Minecraft Wiki">the Minecraft wiki</a> for a
+list of vanilla entity IDs.</li>
+</ul>
+<h3>Example</h3>
+<p>A creeper:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:creeper&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Display information</h2>
+<p>The display name of the entity.</p>
+<ul>
+<li><code>displayName: string</code>: The translated display name of the entity. This uses the <em>server's</em> language. This will
+typically be English on multi-player servers, and your current language on single player.</li>
+</ul>
+<h3>Example</h3>
+<p>A creeper:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:creeper&quot;</span><span class="symbol">,</span>
+    <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Creeper&quot;</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Health</h2>
+<p>The health of an entity.</p>
+<ul>
+<li><code>health: number</code>: The current health of the entity.</li>
+<li><code>maxHealth: number</code>: The maximum health of an entity.</li>
+</ul>
+<h3>Example</h3>
+<p>A player at max health.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:player&quot;</span><span class="symbol">,</span>
+    <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Alex&quot;</span><span class="symbol">,</span>
+    <span class="ident">health</span> <span class="symbol">=</span> <span class="number">20</span><span class="symbol">,</span>
+    <span class="ident">maxHealth</span> <span class="symbol">=</span> <span class="number">20</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Entity tags</h2>
+<p>The <a href="https://minecraft.wiki/w/Entity_type_tag_%28Java_Edition%29" title="Entity type tags on the Minecraft Wiki">tags</a> an entity of this type has.</p>
+<ul>
+<li><code>tags: { [string] = boolean }</code>: The set of tags for this entity. This is a mapping of tag name to <code>true</code>.</li>
+</ul>
+<h3>Changes</h3><ul><li><strong>New in version 1.118.0</strong> </li></ul>

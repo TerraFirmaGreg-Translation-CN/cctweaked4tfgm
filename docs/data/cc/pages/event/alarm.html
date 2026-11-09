@@ -1,0 +1,14 @@
+<h1>alarm</h1><p>The <a href="/event/alarm/" class="reference"><code>alarm</code></a> event is fired when an alarm started with <a href="/module/os/#v:setAlarm" class="reference"><code>os.setAlarm</code></a> completes.</p>
+<h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The ID of the alarm that finished.</li>
+</ol>
+<h2>Example</h2>
+<p>Starts a timer and then waits for it to complete.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">alarm_id</span> <span class="symbol">=</span> <a title="Sets an alarm that will fire at the specified in-game time." href="/module/os/#v:setAlarm"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">setAlarm</span></a><span class="symbol">(</span><a title="Returns the current time depending on the string passed in." href="/module/os/#v:time"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">time</span></a><span class="symbol">(</span><span class="symbol">)</span> <span class="symbol">+</span> <span class="number">0.05</span><span class="symbol">)</span>
+<span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">id</span>
+<span class="keyword">repeat</span>
+    <span class="ident">event</span><span class="symbol">,</span> <span class="ident">id</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;alarm&quot;</span><span class="symbol">)</span>
+<span class="keyword">until</span> <span class="ident">id</span> <span class="symbol">==</span> <span class="ident">alarm_id</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Alarm with ID &quot;</span> <span class="symbol">..</span> <span class="ident">id</span> <span class="symbol">..</span> <span class="string">&quot; was fired&quot;</span><span class="symbol">)</span><span class="symbol"></span></pre></div><h3>See also</h3><ul><li><strong><a href="/module/os/#v:setAlarm" class="reference"><code>os.setAlarm</code></a></strong> To start an alarm.</li></ul>

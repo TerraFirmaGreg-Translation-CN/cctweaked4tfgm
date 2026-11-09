@@ -1,0 +1,12 @@
+<h1>peripheral_detach</h1><p>The <a href="/event/peripheral_detach/" class="reference"><code>peripheral_detach</code></a> event is fired when a peripheral is detached from a side or from a modem.</p>
+<h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The side the peripheral was detached from.</li>
+</ol>
+<h2>Example</h2>
+<p>Prints a message when a peripheral is detached:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">side</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;peripheral_detach&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;A peripheral was detached on side &quot;</span> <span class="symbol">..</span> <span class="ident">side</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>See also</h3><ul><li><strong><a href="/module/peripheral/" class="reference"><code>peripheral</code></a></strong> For the event fired when a peripheral is attached.</li></ul>

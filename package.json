@@ -11,6 +11,7 @@
     "data": "node scripts/extract-tfgm.mjs",
     "data:fetch": "node scripts/fetch-item-index.mjs",
     "data:api": "node scripts/build-cc-index.mjs",
+    "data:cc": "node scripts/fetch-cc-docs.mjs",
     "data:emi": "node scripts/fetch-emi-bundle.mjs",
     "verify-data": "node scripts/verify-data.mjs",
     "validate:emi": "node scripts/verify-emi.mjs",

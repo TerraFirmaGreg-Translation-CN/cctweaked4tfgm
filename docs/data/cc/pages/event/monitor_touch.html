@@ -1,0 +1,14 @@
+<h1>monitor_touch</h1><p>The <a href="/event/monitor_touch/" class="reference"><code>monitor_touch</code></a> event is fired when an adjacent or networked <a href="/peripheral/monitor/" class="reference">Advanced Monitor</a> is right-clicked.</p>
+<h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The side or network ID of the monitor that was touched.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The X coordinate of the touch, in characters.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The Y coordinate of the touch, in characters.</li>
+</ol>
+<h2>Example</h2>
+<p>Prints a message when a monitor is touched:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">side</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;monitor_touch&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;The monitor on side &quot;</span> <span class="symbol">..</span> <span class="ident">side</span> <span class="symbol">..</span> <span class="string">&quot; was touched at (&quot;</span> <span class="symbol">..</span> <span class="ident">x</span> <span class="symbol">..</span> <span class="string">&quot;, &quot;</span> <span class="symbol">..</span> <span class="ident">y</span> <span class="symbol">..</span> <span class="string">&quot;)&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

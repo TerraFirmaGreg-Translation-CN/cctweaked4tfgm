@@ -1,0 +1,57 @@
+<h1>Setting up GPS</h1><p>The <a href="/module/gps/" class="reference"><code>gps</code></a> API allows a computer to find its current position using a <a href="/peripheral/modem/" class="reference">wireless modem</a>. This works by
+communicating with other computers (called <em>GPS hosts</em>) that already know their position, finding the distance to those
+computers (with <a href="/event/modem_message/" class="reference"><code>modem_message</code></a>), and using that to derive its position from theirs (with a process known as
+<a href="https://en.wikipedia.org/wiki/Trilateration">trilateration</a>.</p>
+<p>In order for this to work, we need our GPS hosts set up in a specific pattern, each one differing in position on at
+least one axis. This guide takes you through the process of setting up a <em>constellation</em> of GPS hosts, and using them to
+determine a computer's position.</p>
+<h2>Prerequisites</h2>
+<p>You will need:</p>
+<ul>
+<li>Four computers.</li>
+<li>Four Ender Modems. Normal Wireless Modems may be used, but the range of the GPS constellation will be severely
+limited.</li>
+</ul>
+<p>Additionally, you will need another computer and a wireless modem, in order to test that GPS works!</p>
+<h2>Picking an area</h2>
+<p>First, choose a place to build your GPS constellation. This should be a 10x10x10 cube, though you can make this smaller
+if needed. The larger a constellation is, the more accurate it is over large distances, but even a 5x5x5 constellation
+should serve a several thousand block radius.</p>
+<p>Every computer must be loaded in order for other computers to use GPS, so it is recommended to build your GPS
+constellation in a single chunk that will always be loaded. You may want to choose an area in an already chunk-loaded
+part of your base, or in the <a href="https://minecraft.wiki/w/Spawn_chunk" title="Spawn Chunk — Minecraft Wiki">spawn chunks</a>. You can use <kbd>F3+G</kbd> to view the chunk boundaries if
+needed.</p>
+<p>This is the example area we will be building our constellation in:</p>
+<img alt="An empty 10x10x10 area, with the axis marked with smooth stone." src="https://tweaked.cc/mc-1.20.x/gps-constellation-area-8f979d93.png" class="big-image"/><h2>Building the constellation</h2>
+<ol>
+<li>Place down your first computer in a corner of your area, and put a modem on top.</li>
+<li>Head to the two adjacent corners of your area, place down another two computers and put a modem on top of each.</li>
+<li>Pillar up above the first computer to the top of your cube, and place the final computer. Place a modem on the
+computer.</li>
+</ol>
+<p>You should now have something like this:</p>
+<img alt="The same area as before, but with a computer in each corner." src="https://tweaked.cc/mc-1.20.x/gps-constellation-built-171b5f8f.png" class="big-image"/><h2>Configuring the constellation</h2>
+<p>Now that the structure of your constellation is built, we need to configure each host in it.</p>
+<ol>
+<li>
+<p>Press <kbd>F3</kbd> to open Minecraft's debug screen.</p>
+</li>
+<li>
+<p>Go back to the first computer and look at it. On the right of the screen about halfway down you should see an entry
+labelled <code>Targeted Block</code>, the numbers correspond to the position of the block that you are looking at. Write these
+numbers down.</p>
+</li>
+<li>
+<p>Open the computer's UI, and run <code>edit startup.lua</code>.</p>
+</li>
+<li>
+<p>Type the following code into the file, replacing <code>x</code>, <code>y</code>, and <code>z</code> with the coordinates you just wrote down.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr"><a title="Run a program with the supplied arguments." href="/module/shell/#v:run"><span class="ident">shell</span><span class="symbol">.</span><span class="symbol">run</span></a><span class="symbol">(</span><span class="string">&quot;gps&quot;</span><span class="symbol">,</span> <span class="string">&quot;host&quot;</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span><span class="symbol">,</span> <span class="ident">z</span><span class="symbol">)</span><span class="symbol"></span></pre></div></li>
+<li>
+<p>Save the file, and then reboot the computer (hold <kbd>Ctrl+R</kbd> or run the <code>reboot</code> program) to run the startup
+program.</p>
+</li>
+</ol>
+<p>Repeat this process for the other three computers.</p>
+<p>Congratulations, your constellation is now fully set up! You can test it by placing another computer close by, placing a
+wireless modem on it, and running the <code>gps locate</code> program (or calling the <a href="/module/gps/#v:locate" class="reference"><code>gps.locate</code></a> function).</p>

@@ -1,0 +1,17 @@
+<h1>key</h1><p>This event is fired when any key is pressed while the terminal is focused.</p>
+<p>This event returns a numerical &quot;key code&quot; (for instance, <kbd>F1</kbd> is 290). This value may vary between versions and
+so it is recommended to use the constants in the <a href="/module/keys/" class="reference"><code>keys</code></a> API rather than hard coding numeric values.</p>
+<p>If the button pressed represented a printable character, then the <a href="/event/key/" class="reference"><code>key</code></a> event will be followed immediately by a <a href="/event/char/" class="reference"><code>char</code></a>
+event. If you are consuming text input, use a <a href="/event/char/" class="reference"><code>char</code></a> event instead!</p>
+<h2>Return values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The numerical key value of the key pressed.</li>
+<li><span class="reference reference-unresolved"><code>boolean</code></span>: Whether the key event was generated while holding the key (<span class="reference reference-unresolved"><code>true</code></span>), rather than pressing it the first time (<span class="reference reference-unresolved"><code>false</code></span>).</li>
+</ol>
+<h2>Example</h2>
+<p>Prints each key when the user presses it, and if the key is being held.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">key</span><span class="symbol">,</span> <span class="ident">is_held</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;key&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="symbol">(</span><span class="string">&quot;%s held=%s&quot;</span><span class="symbol">)</span><span class="symbol">:</span><span class="symbol">format</span><span class="symbol">(</span><a title="Translates a numerical key code to a human-readable name." href="/module/keys/#v:getName"><span class="ident">keys</span><span class="symbol">.</span><span class="symbol">getName</span></a><span class="symbol">(</span><span class="ident">key</span><span class="symbol">)</span><span class="symbol">,</span> <span class="ident">is_held</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

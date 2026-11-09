@@ -1,0 +1,14 @@
+<h1>mouse_scroll</h1><p>This event is fired when a mouse wheel is scrolled in the terminal.</p>
+<h2>Return values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The direction of the scroll. (-1 = up, 1 = down)</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The X-coordinate of the mouse when scrolling.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The Y-coordinate of the mouse when scrolling.</li>
+</ol>
+<h2>Example</h2>
+<p>Prints the direction of each scroll, and the position of the mouse at the time.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">dir</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;mouse_scroll&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="symbol">(</span><span class="string">&quot;The mouse was scrolled in direction %s at %d, %d&quot;</span><span class="symbol">)</span><span class="symbol">:</span><span class="symbol">format</span><span class="symbol">(</span><span class="ident">dir</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

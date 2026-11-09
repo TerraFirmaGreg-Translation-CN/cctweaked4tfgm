@@ -5,6 +5,20 @@ import hljs from 'highlight.js';
 import { Marked } from 'marked';
 
 const ADMONITION_RE = /^::: *([a-z]+)(?: +(.*))?\n([\s\S]*?)^::: *$/gm;
+const UPSTREAM_SECTIONS = new Set([
+  'module',
+  'library',
+  'peripheral',
+  'generic_peripheral',
+  'event',
+  'guide',
+  'reference',
+]);
+const UPSTREAM_URL = /^https?:\/\/tweaked\.cc\/mc-1\.20\.x\/([^?#]*)([?#].*)?$/;
+
+function isUpstreamPath(path) {
+  return UPSTREAM_SECTIONS.has(String(path).split('/')[1]);
+}
 
 export function parseFrontmatter(source) {
   const match = /^---\r?\n([\s\S]*?)\r?\n---\r?\n?/.exec(source);
@@ -33,13 +47,21 @@ export function slugify(text) {
 /** Rewrites an href found in a page of `locale` into a final site URL. */
 export function rewriteHref(href, { locale, prefix, base, pageDir }) {
   if (!href) return href;
+
+  const upstream = UPSTREAM_URL.exec(href);
+  if (upstream && upstream[1] && !/\.(?:json|txt|css|js)$/i.test(upstream[1])) {
+    const clean = upstream[1].replace(/\.html$/, '').replace(/^index$/, '');
+    const suffix = upstream[2] || '';
+    return clean ? `${base}${clean}/${suffix}` : `${base}${suffix}`;
+  }
+
   if (/^(?:[a-z]+:|\/\/|#|mailto:)/i.test(href)) return href;
 
   const [path, hash = ''] = href.split('#');
   let target = path;
 
   if (target.startsWith('/')) {
-    if (locale !== 'en_us' && !target.startsWith(`/${locale}/`) && target !== `/${locale}`) {
+    if (locale !== 'en_us' && !isUpstreamPath(target) && !target.startsWith(`/${locale}/`) && target !== `/${locale}`) {
       target = `/${locale}${target}`;
     }
     target = target.replace(/\.md$/, '').replace(/\/index$/, '/');
@@ -55,7 +77,7 @@ export function rewriteHref(href, { locale, prefix, base, pageDir }) {
   }
   let resolved = `/${parts.join('/')}`.replace(/\.md$/, '');
   if (!/\.[a-z0-9]+$/i.test(resolved) && !resolved.endsWith('/')) resolved = `${resolved}/`;
-  if (locale !== 'en_us') resolved = `/${locale}${resolved}`;
+  if (locale !== 'en_us' && !isUpstreamPath(resolved)) resolved = `/${locale}${resolved}`;
   return `${base}${resolved.replace(/^\//, '')}${hash ? `#${hash}` : ''}`;
 }
 

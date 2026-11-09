@@ -1,0 +1,89 @@
+<h1>parallel</h1><p>A simple way to run several functions at once.</p>
+<p>Functions are not actually executed simultaneously, but rather this API will
+automatically switch between them whenever they yield (e.g. whenever they call
+<a href="https://www.lua.org/manual/5.1/manual.html#pdf-coroutine.yield" class="reference"><code>coroutine.yield</code></a>, or functions that call that - such as <a href="/module/os/#v:pullEvent" class="reference"><code>os.pullEvent</code></a> - or
+functions that call that, etc - basically, anything that causes the function
+to &quot;pause&quot;).</p>
+<p>Each function executed in &quot;parallel&quot; gets its own copy of the event queue,
+and so &quot;event consuming&quot; functions (again, mostly anything that causes the
+script to pause - eg <a href="/module/os/#v:sleep" class="reference"><code>os.sleep</code></a>, <a href="/module/rednet/#v:receive" class="reference"><code>rednet.receive</code></a>, most of the <a href="/module/turtle/" class="reference"><code>turtle</code></a> API,
+etc) can safely be used in one without affecting the event queue accessed by
+the other.</p>
+<div class="admonition admonition-warning"><h5 class="admonition-heading"><span aria-hidden="true">⚠</span> warning</h5><p>When using this API, be careful to pass the functions you want to run in
+parallel, and <em>not</em> the result of calling those functions.</p>
+<p>For instance, the following is correct:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">do_sleep</span><span class="symbol">(</span><span class="symbol">)</span> <span class="ident">sleep</span><span class="symbol">(</span><span class="number">1</span><span class="symbol">)</span> <span class="keyword">end</span>
+<a title="Switches between execution of the functions, until any of them finishes." href="/module/parallel/#v:waitForAny"><span class="ident">parallel</span><span class="symbol">.</span><span class="symbol">waitForAny</span></a><span class="symbol">(</span><span class="ident">do_sleep</span><span class="symbol">,</span> <a title="Wait for a rednet message to be received, or until timeout seconds have elapsed." href="/module/rednet/#v:receive"><span class="ident">rednet</span><span class="symbol">.</span><span class="symbol">receive</span></a><span class="symbol">)</span><span class="symbol"></span></pre></div><p>but the following is <strong>NOT</strong>:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">do_sleep</span><span class="symbol">(</span><span class="symbol">)</span> <span class="ident">sleep</span><span class="symbol">(</span><span class="number">1</span><span class="symbol">)</span> <span class="keyword">end</span>
+<a title="Switches between execution of the functions, until any of them finishes." href="/module/parallel/#v:waitForAny"><span class="ident">parallel</span><span class="symbol">.</span><span class="symbol">waitForAny</span></a><span class="symbol">(</span><span class="ident">do_sleep</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">,</span> <a title="Wait for a rednet message to be received, or until timeout seconds have elapsed." href="/module/rednet/#v:receive"><span class="ident">rednet</span><span class="symbol">.</span><span class="symbol">receive</span></a><span class="symbol">)</span><span class="symbol"></span></pre></div></div><h3>Changes</h3><ul><li><strong>New in version 1.2</strong> </li></ul><table class="definition-list"><tbody><tr><th class="definition-name"><a href="#v:waitForAny">waitForAny(...)</a></th><td>Switches between execution of the functions, until any of them finishes.</td></tr><tr><th class="definition-name"><a href="#v:waitForAll">waitForAll(...)</a></th><td>Runs several functions in parallel, until all of them are finished.</td></tr></tbody></table><dl class="definition"><dt><a name="v:waitForAny" href="#v:waitForAny"></a><span class="definition-name">waitForAny(...)</span><a href="https://github.com/cc-tweaked/CC-Tweaked/blob/807ab862b6387fde87c11cc0c1f961760b1b100b/projects/core/src/main/resources/data/computercraft/lua/rom/apis/parallel.lua#L69" class="source-link">Source</a></dt><dd><p>Switches between execution of the functions, until any of them
+finishes. If any of the functions errors, the message is propagated upwards
+from the <a href="/module/parallel/#v:waitForAny" class="reference"><code>parallel.waitForAny</code></a> call.</p>
+<h3>Parameters</h3><ol class="parameter-list"><li><span class="parameter">...</span> <span class="type"><span class="reference reference-unresolved"><code>function</code></span></span> The functions to run in parallel.</li></ol><h3>Usage</h3><ul><li><p>Print a message every second until the <code>q</code> key is pressed.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">tick</span><span class="symbol">(</span><span class="symbol">)</span>
+    <span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+<a title="Pauses execution for the specified number of seconds, alias of _G.sleep." href="/module/os/#v:sleep">        <span class="ident">os</span><span class="symbol">.</span><span class="symbol">sleep</span></a><span class="symbol">(</span><span class="number">1</span><span class="symbol">)</span>
+        <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Tick&quot;</span><span class="symbol">)</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span>
+<span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">wait_for_q</span><span class="symbol">(</span><span class="symbol">)</span>
+    <span class="keyword">repeat</span>
+        <span class="keyword">local</span> <span class="ident">_</span><span class="symbol">,</span> <span class="ident">key</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;key&quot;</span><span class="symbol">)</span>
+    <span class="keyword">until</span> <span class="ident">key</span> <span class="symbol">==</span> <a title="Constants for all keyboard &quot;key codes&quot;, as queued by the key event." href="/module/keys/"><span class="ident">keys</span></a><span class="symbol">.</span><span class="symbol">q</span>
+    <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Q was pressed!&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span>
+<a title="Switches between execution of the functions, until any of them finishes." href="/module/parallel/#v:waitForAny">
+<span class="ident">parallel</span><span class="symbol">.</span><span class="symbol">waitForAny</span></a><span class="symbol">(</span><span class="ident">tick</span><span class="symbol">,</span> <span class="ident">wait_for_q</span><span class="symbol">)</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Everything done!&quot;</span><span class="symbol">)</span><span class="symbol"></span></pre></div></li></ul></dd><dt><a name="v:waitForAll" href="#v:waitForAll"></a><span class="definition-name">waitForAll(...)</span><a href="https://github.com/cc-tweaked/CC-Tweaked/blob/807ab862b6387fde87c11cc0c1f961760b1b100b/projects/core/src/main/resources/data/computercraft/lua/rom/apis/parallel.lua#L182" class="source-link">Source</a></dt><dd><p>Runs several functions in parallel, until all of them are finished.</p>
+<p>If any of the functions errors, the other functions are not resumed, and the
+error is propagated upwards.</p>
+<div class="admonition admonition-warning"><h5 class="admonition-heading"><span aria-hidden="true">⚠</span> warning</h5><p></p>
+<p>While any number of functions can be run in parallel, running too many things
+in parallel can sometimes cause issues:</p>
+<ul>
+<li>Computers only buffer 256 events at a time. Trying to run several hundred
+functions in parallel (particularly when calling peripheral methods) can
+cause the event queue to fill up, resulting in events being dropped, and
+programs getting stuck.</li>
+<li>Computers only run 16 HTTP requests at a time. Trying to run more than that
+in parallel will have no effect.</li>
+</ul>
+</div><h3>Spawning new parallel functions</h3>
+<p>In some cases, you may want to start running additional functions in parallel
+from an existing <a href="/module/parallel/#v:waitForAll" class="reference"><code>parallel.waitForAll</code></a> call. Every function passed to
+<a href="/module/parallel/#v:waitForAll" class="reference"><code>waitForAll</code></a> can accept a <code>spawn</code> argument, which can be called to spawn new
+parallel functions.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr"><a title="Runs several functions in parallel, until all of them are finished." href="/module/parallel/#v:waitForAll"><span class="ident">parallel</span><span class="symbol">.</span><span class="symbol">waitForAll</span></a><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="ident">spawn</span><span class="symbol">)</span>
+    <span class="ident">spawn</span><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="symbol">)</span> <span class="ident">sleep</span><span class="symbol">(</span><span class="number">1</span><span class="symbol">)</span><span class="symbol">;</span> <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Finished 1&quot;</span><span class="symbol">)</span> <span class="keyword">end</span><span class="symbol">)</span>
+    <span class="ident">spawn</span><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="symbol">)</span> <span class="ident">sleep</span><span class="symbol">(</span><span class="number">2</span><span class="symbol">)</span><span class="symbol">;</span> <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Finished 2&quot;</span><span class="symbol">)</span> <span class="keyword">end</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol">)</span><span class="symbol"></span></pre></div><h3>Parameters</h3><ol class="parameter-list"><li><span class="parameter">...</span> <span class="type">function(spawn: function(fn: <span class="reference reference-unresolved"><code>function</code></span>, ...: <span class="reference reference-unresolved"><code>any</code></span>))</span> The functions to run
+in parallel.</li></ol><h3>Usage</h3><ul><li><p>Start off two timers and wait for them both to run.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">a</span><span class="symbol">(</span><span class="symbol">)</span>
+<a title="Pauses execution for the specified number of seconds, alias of _G.sleep." href="/module/os/#v:sleep">    <span class="ident">os</span><span class="symbol">.</span><span class="symbol">sleep</span></a><span class="symbol">(</span><span class="number">1</span><span class="symbol">)</span>
+    <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;A is done&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span>
+<span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">b</span><span class="symbol">(</span><span class="symbol">)</span>
+<a title="Pauses execution for the specified number of seconds, alias of _G.sleep." href="/module/os/#v:sleep">    <span class="ident">os</span><span class="symbol">.</span><span class="symbol">sleep</span></a><span class="symbol">(</span><span class="number">3</span><span class="symbol">)</span>
+    <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;B is done&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span>
+<a title="Runs several functions in parallel, until all of them are finished." href="/module/parallel/#v:waitForAll">
+<span class="ident">parallel</span><span class="symbol">.</span><span class="symbol">waitForAll</span></a><span class="symbol">(</span><span class="ident">a</span><span class="symbol">,</span> <span class="ident">b</span><span class="symbol">)</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Everything done!&quot;</span><span class="symbol">)</span><span class="symbol"></span></pre></div></li><li><p>Generate a list of functions to run in parallel.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">funcs</span> <span class="symbol">=</span> <span class="symbol">{</span><span class="symbol">}</span>
+<span class="keyword">for</span> <span class="ident">i</span> <span class="symbol">=</span> <span class="number">1</span><span class="symbol">,</span> <span class="number">5</span> <span class="keyword">do</span>
+    <span class="ident">table</span><span class="symbol">.</span><span class="symbol">insert</span><span class="symbol">(</span><span class="ident">funcs</span><span class="symbol">,</span> <span class="keyword">function</span><span class="symbol">(</span><span class="symbol">)</span>
+        <span class="ident">sleep</span><span class="symbol">(</span><span class="ident">math</span><span class="symbol">.</span><span class="symbol">random</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span>
+        <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Finished &quot;</span> <span class="symbol">..</span> <span class="ident">i</span><span class="symbol">)</span>
+    <span class="keyword">end</span><span class="symbol">)</span>
+<span class="keyword">end</span>
+<a title="Runs several functions in parallel, until all of them are finished." href="/module/parallel/#v:waitForAll">
+<span class="ident">parallel</span><span class="symbol">.</span><span class="symbol">waitForAll</span></a><span class="symbol">(</span><span class="ident">table</span><span class="symbol">.</span><span class="symbol">unpack</span><span class="symbol">(</span><span class="ident">funcs</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Everything done!&quot;</span><span class="symbol">)</span><span class="symbol"></span></pre></div></li><li><p>Run new functions in parallel from within <code>waitForAll</code>.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><a title="Runs several functions in parallel, until all of them are finished." href="/module/parallel/#v:waitForAll"><span class="ident">parallel</span><span class="symbol">.</span><span class="symbol">waitForAll</span></a><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="ident">spawn</span><span class="symbol">)</span>
+    <span class="keyword">for</span> <span class="ident">i</span> <span class="symbol">=</span> <span class="number">1</span><span class="symbol">,</span> <span class="number">5</span> <span class="keyword">do</span>
+        <span class="ident">spawn</span><span class="symbol">(</span><span class="keyword">function</span><span class="symbol">(</span><span class="symbol">)</span>
+            <span class="ident">sleep</span><span class="symbol">(</span><span class="ident">math</span><span class="symbol">.</span><span class="symbol">random</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span>
+            <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Finished &quot;</span> <span class="symbol">..</span> <span class="ident">i</span><span class="symbol">)</span>
+        <span class="keyword">end</span><span class="symbol">)</span>
+    <span class="keyword">end</span>
+<span class="keyword">end</span><span class="symbol">)</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Everything done!&quot;</span><span class="symbol">)</span><span class="symbol"></span></pre></div></li></ul><h3>Changes</h3><ul><li><strong>Changed in version 1.120.0:</strong> Added ability to spawn new parallel functions.</li></ul></dd></dl>

@@ -1,0 +1,91 @@
+<h1>The /computercraft command</h1><p>CC: Tweaked provides a <code>/computercraft</code> command for server owners to manage running computers on a server.</p>
+<h2 id="permissions"><a class="anchor" aria-hidden="true" href="#permissions"></a>Permissions</h2>
+<p>As the <code>/computercraft</code> command is mostly intended for debugging and administrative purposes, its sub-commands typically
+require you to have op (or similar).</p>
+<ul>
+<li>All players have access to the <a href="#queue" title="/computercraft queue"><code>queue</code></a> sub-command.</li>
+<li>On a multi-player server, all other commands require op.</li>
+<li>On a single-player world, the player can run the <a href="#dump" title="/computercraft dump"><code>dump</code></a>, <a href="#turn-on" title="/computercraft turn-on"><code>turn-on</code></a>/<a href="#shutdown" title="/computercraft shutdown"><code>shutdown</code></a>, and <a href="#track" title="/computercraft track"><code>track</code></a> sub-commands, even
+when cheats are not enabled. The <a href="#tp" title="/computercraft tp"><code>tp</code></a> and <a href="#view" title="/computercraft view"><code>view</code></a> commands require cheats.</li>
+</ul>
+<p>If a permission mod such as <a href="https://github.com/LuckPerms/LuckPerms/" title="A permissions plugin for Minecraft servers.">LuckPerms</a> is installed<sup><a href="#fn-permission" id="ref-1-fn-permission" role="doc-noteref" class="fn-label">1</a></sup>, you can configure access to the individual
+sub-commands. Each sub-command creates a <code>computercraft.command.NAME</code> permission node to control which players can
+execute it.</p>
+<h2 id="computer-selectors"><a class="anchor" aria-hidden="true" href="#computer-selectors"></a>Computer selectors</h2>
+<p>Some commands (such as <a href="#tp" title="/computercraft tp"><code>tp</code></a> or <a href="#turn-on" title="/computercraft turn-on"><code>turn-on</code></a>) target a specific computer, or a list of computers. To specify which
+computers to operate on, you must use &quot;computer selectors&quot;.</p>
+<p>Computer selectors are similar to Minecraft's <a href="https://minecraft.wiki/w/Target_selectors" title="Target Selectors on the Minecraft wiki">entity target selectors</a>, but targeting computers instead. They allow
+you to select one or more computers, based on a set of predicates.</p>
+<p>The following predicates are supported:</p>
+<ul>
+<li><code>id=&lt;id></code>: Select computer(s) with a specific id.</li>
+<li><code>instance=&lt;id></code>: Select the computer with the given instance id.</li>
+<li><code>family=&lt;normal|advanced|command></code>: Select computers based on their type.</li>
+<li><code>label=&lt;label></code>: Select computers with the given label.</li>
+<li><code>distance=&lt;distance></code>: Select computers within a specific distance of the player executing the command. This uses
+Minecraft's <a href="https://minecraft.wiki/w/Argument_types#minecraft:float_range">float range</a> syntax.</li>
+</ul>
+<p><code>#&lt;id></code> may also be used as a shorthand for <code>@c[id=&lt;id>]</code>, to select computer(s) with a specific id.</p>
+<h3>Examples:</h3>
+<ul>
+<li><code>/computercraft turn-on #12</code>: Turn on the computer(s) with an id of 12.</li>
+<li><code>/computercraft shutdown @c[distance=..100]</code>: Shut down all computers with 100 blocks of the player.</li>
+</ul>
+<h2 id="commands"><a class="anchor" aria-hidden="true" href="#commands"></a>Commands</h2>
+<h3 id="dump"><a class="anchor" aria-hidden="true" href="#dump"></a><code>/computercraft dump</code></h3>
+<p><code>/computercraft dump</code> prints a table of currently loaded computers, including their id, position, and whether they're
+running. It can also be run with a single computer argument to dump more detailed information about a computer.</p>
+<p><img src="https://tweaked.cc/mc-1.20.x/computercraft-dump-e4816091.png" alt="A screenshot of a Minecraft world. In the chat box, there is a table listing 5 computers, with columns labelled &quot;Computer&quot;, &quot;On&quot; and &quot;Position&quot;. Below that, is a more detailed list of information about Computer 0, including its label (&quot;My computer&quot;) and that it has a monitor on the right hand side" title="An example of
+running '/computercraft dump'"/></p>
+<p>Next to the computer id, there are several buttons to either <a href="#tp" title="/computercraft tp">teleport</a> to the computer, or <a href="#view" title="/computercraft view">open its terminal
+</a>.</p>
+<p>Computers are sorted by distance to the player, so nearby computers will appear earlier.</p>
+<h3 id="turn-on"><a class="anchor" aria-hidden="true" href="#turn-on"></a><code>/computercraft turn-on [computers...]</code></h3>
+<p>Turn on one or more computers or, if no run with no arguments, all loaded computers.</p>
+<h4>Examples</h4>
+<ul>
+<li><code>/computercraft turn-on #0 #2</code>: Turn on computers with id 0 and 2.</li>
+<li><code>/computercraft turn-on @c[family=command]</code>: Turn on all command computers.</li>
+</ul>
+<h3 id="shutdown"><a class="anchor" aria-hidden="true" href="#shutdown"></a><code>/computercraft shutdown [computers...]</code></h3>
+<p>Shutdown one or more computers or, if no run with no arguments, all loaded computers.</p>
+<p>This is sometimes useful when dealing with lag, as a way to ensure that ComputerCraft is not causing problems.</p>
+<h4>Examples</h4>
+<ul>
+<li><code>/computercraft shutdown</code>: Shut down all loaded computers.</li>
+<li><code>/computercraft shutdown @c[distance=..10]</code>: Shut down all computers in a block radius.</li>
+</ul>
+<h3 id="tp"><a class="anchor" aria-hidden="true" href="#tp"></a><code>/computercraft tp [computer]</code></h3>
+<p>Teleport to the given computer.</p>
+<p>This is normally used from via the <a href="#dump" title="/computercraft dump"><code>dump</code></a> command interface rather than being invoked directly.</p>
+<h3 id="view"><a class="anchor" aria-hidden="true" href="#view"></a><code>/computercraft view [computer]</code></h3>
+<p>Open a terminal for the specified computer. This allows remotely viewing computers without having to interact with the
+block.</p>
+<p>This is normally used from via the <a href="#dump" title="/computercraft dump"><code>dump</code></a> command interface rather than being invoked directly.</p>
+<h3 id="track"><a class="anchor" aria-hidden="true" href="#track"></a><code>/computercraft track</code></h3>
+<p>The <code>/computercraft track</code> command allows you to enable profiling of computers. When a computer runs code, or interacts
+with the Minecraft world, we time how long that takes. This timing information may then be queried, and used to find
+computers which may be causing lag.</p>
+<p>To enable the profiler, run <code>/computercraft track start</code>. Computers will then start recording metrics. Once enough data
+has been gathered, run <code>/computercraft track stop</code> to stop profiling and display the recorded data.</p>
+<p><img src="https://tweaked.cc/mc-1.20.x/computercraft-track-68451592.png" alt/></p>
+<p>The table by default shows the number of times each computer has run, and how long it ran for (in total, and on
+average). In the above screenshot, we can see one computer was particularly badly behaved, and ran for 7 seconds. The
+buttons may be used to <a href="#tp" title="/computercraft tp">teleport</a> to the computer, or <a href="#view" title="/computercraft view">open its terminal </a>, and inspect it further.</p>
+<p><code>/computercraft track dump</code> can be used to display this table at any point (including while profiling is still running).</p>
+<p>Computers also record other information, such as how much server-thread time they consume, or their HTTP bandwidth
+usage. The <code>dump</code> subcommand accepts a list of other fields to display, instead of the default timings.</p>
+<h4>Examples</h4>
+<ul>
+<li><code>/computercraft track dump server_tasks_count server_tasks</code>: Print the number of server-thread tasks each computer
+executed, and how long they took in total.</li>
+<li><code>/computercraft track dump http_upload http_download</code>: Print the number of bytes uploaded and downloaded by each
+computer.</li>
+</ul>
+<h3 id="queue"><a class="anchor" aria-hidden="true" href="#queue"></a><code>/computercraft queue</code></h3>
+<p>The queue subcommand allows non-operator players to queue a <a href="/event/computer_command/" class="reference"><code>computer_command</code></a> event on <em>command</em> computers.</p>
+<p>This has a similar purpose to vanilla's <a href="https://minecraft.wiki/w/Commands/trigger" title="/trigger on the Minecraft wiki"><code>/trigger</code></a> command. Command computers may choose to listen to this event, and
+then perform some action.</p>
+<section role="doc-endnotes"><ol>
+<li id="fn-permission">
+<p>This supports any mod which uses Forge's permission API or <a href="https://github.com/lucko/fabric-permissions-api" title="A simple permissions API for Fabric">fabric-permission-api</a>. <span><a href="#ref-1-fn-permission" role="doc-backlink" class="fn-label">↩︎︎</a></span></p></li></ol>

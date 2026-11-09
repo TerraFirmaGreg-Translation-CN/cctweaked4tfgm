@@ -103,6 +103,13 @@ emi_bundle() {
   node "$ROOT/scripts/fetch-emi-bundle.mjs" --tag "$tag"
 }
 
+cc_docs() {
+  local tag="${MODPACK_TAG:-$(latest_modpack_tag)}"
+  local cc
+  cc="${CC_VERSION:-$(cc_version_for "$tag")}"
+  node "$ROOT/scripts/fetch-cc-docs.mjs" --version "$cc"
+}
+
 verify() {
   node "$ROOT/scripts/verify-data.mjs"
 }
@@ -153,6 +160,7 @@ Usage: bash ci/run.sh <command>
   extract        regenerate data/ from the checkout
   api-index      rebuild data/cc-index.json for the pinned CC:T
   emi            extract the CC/AP EMI recipe subset into data/emi
+  cc-docs        mirror the CC:T documentation for the pinned version
   verify         run the data gate
   diff           report whether data/ changed
   install        npm ci
@@ -167,6 +175,7 @@ case "${1:-}" in
   extract) extract ;;
   api-index) api_index ;;
   emi) emi_bundle ;;
+  cc-docs) cc_docs ;;
   verify) verify ;;
   diff) diff ;;
   install) install ;;

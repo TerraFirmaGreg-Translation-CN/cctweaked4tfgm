@@ -1,0 +1,28 @@
+<h1>Computer startup</h1><p>When a computer turns on, it searches for files to run as part of the startup process. This page details this process.</p>
+<p>For information about creating a basic startup file, see <a href="/guide/startup/" class="reference">Running programs on computer startup</a>.</p>
+<ol>
+<li>
+<p><code>/rom/autorun</code>: Computers first look in the <code>/rom/autorun</code> folder, and run every file in that folder. This folder is
+empty by default, but may be extended by datapacks or other mods. See <a href="/reference/data_pack/" class="reference">Data packs</a> for more information.</p>
+</li>
+<li>
+<p>If the <code>shell.allow_disk_startup</code> <a href="/module/settings/" class="reference">setting</a> is <code>true</code>, then connected disk drives are searched for a
+<code>startup</code> file, <code>startup.lua</code> file, or <code>startup/</code> directory. The first disk containing these files will be used for
+startup.</p>
+<ol>
+<li>The <code>startup</code> (<em>or</em> <code>startup.lua</code>) file will be run.</li>
+<li>All programs under <code>startup/</code> will be run.</li>
+</ol>
+<p>The order disks are iterated over is not defined, and so it is recommended to only have one disk containing startup
+files connected to a computer.</p>
+</li>
+<li>
+<p>If no startup files are found on a disk, and the <code>shell.allow_startup</code> <a href="/module/settings/" class="reference">setting</a> is <code>true</code>, then the
+root directory is searched for startup files in the same way (<code>startup</code> <em>or</em> <code>startup.lua</code>, then all files in
+<code>startup/</code>).</p>
+</li>
+</ol>
+<p>When listing a files from a directory (either <code>startup/</code> or <code>rom/autorun</code>), the result of <a href="/module/fs/#v:list" class="reference"><code>fs.list</code></a> is used
+directly. This will always return files in lexicographical order. This means that <code>startup/a.lua</code> will always run before
+<code>startup/b.lua</code>.</p>
+<h3>See also</h3><ul><li><strong><a href="/guide/startup/" class="reference"><code>Running programs on computer startup</code></a></strong> </li></ul>

@@ -1,0 +1,15 @@
+<h1>redstone</h1><p>The <a href="/event/redstone/" class="reference"><code>redstone</code></a> event is fired whenever any redstone inputs on the computer or <a href="/peripheral/redstone_relay/" class="reference">relay</a> change.</p>
+<h2>Return values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+</ol>
+<h2>Example</h2>
+<p>Prints a message when a redstone input changes:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+<a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent">  <span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;redstone&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;A redstone input has changed!&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h2>See also</h2>
+<ul>
+<li><a href="/module/redstone/" class="reference">The <code>redstone</code> API on computers</a></li>
+<li><a href="/peripheral/redstone_relay/" class="reference">The <code>redstone_relay</code> peripheral</a></li>
+</ul>

@@ -1,0 +1,15 @@
+<h1>key_up</h1><p>Fired whenever a key is released (or the terminal is closed while a key was being pressed).</p>
+<p>This event returns a numerical &quot;key code&quot; (for instance, <kbd>F1</kbd> is 290). This value may vary between versions and
+so it is recommended to use the constants in the <a href="/module/keys/" class="reference"><code>keys</code></a> API rather than hard coding numeric values.</p>
+<h2>Return values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The numerical key value of the key pressed.</li>
+</ol>
+<h2>Example</h2>
+<p>Prints each key released on the keyboard whenever a <a href="/event/key_up/" class="reference"><code>key_up</code></a> event is fired.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">key</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;key_up&quot;</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">name</span> <span class="symbol">=</span> <a title="Translates a numerical key code to a human-readable name." href="/module/keys/#v:getName"><span class="ident">keys</span><span class="symbol">.</span><span class="symbol">getName</span></a><span class="symbol">(</span><span class="ident">key</span><span class="symbol">)</span> <span class="operator-kw">or</span> <span class="string">&quot;unknown key&quot;</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="ident">name</span> <span class="symbol">..</span> <span class="string">&quot; was released.&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>See also</h3><ul><li><strong><a href="/module/keys/" class="reference"><code>keys</code></a></strong> For a lookup table of the given keys.</li></ul>

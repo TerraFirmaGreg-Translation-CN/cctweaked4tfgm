@@ -1,0 +1,21 @@
+<h1>modem_message</h1><p>The <a href="/event/modem_message/" class="reference"><code>modem_message</code></a> event is fired when a message is received on an open channel on any <a href="/peripheral/modem/" class="reference"><code>modem</code></a>.</p>
+<h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The side of the modem that received the message.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The channel that the message was sent on.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The reply channel set by the sender.</li>
+<li><span class="reference reference-unresolved"><code>any</code></span>: The message as sent by the sender.</li>
+<li><span class="type"><span class="reference reference-unresolved"><code>number</code></span>|<span class="reference reference-unresolved"><code>nil</code></span></span>: The distance between the sender and the receiver in blocks, or <span class="reference reference-unresolved"><code>nil</code></span> if the message was sent between dimensions.</li>
+</ol>
+<h2>Example</h2>
+<p>Wraps a <a href="/peripheral/modem/" class="reference"><code>modem</code></a> peripheral, opens channel 0 for listening, and prints all received messages.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">modem</span> <span class="symbol">=</span> <a title="Find all peripherals of a specific type, and return the wrapped peripherals." href="/module/peripheral/#v:find"><span class="ident">peripheral</span><span class="symbol">.</span><span class="symbol">find</span></a><span class="symbol">(</span><span class="string">&quot;modem&quot;</span><span class="symbol">)</span> <span class="operator-kw">or</span> <span class="ident">error</span><span class="symbol">(</span><span class="string">&quot;No modem attached&quot;</span><span class="symbol">,</span> <span class="number">0</span><span class="symbol">)</span>
+<span class="ident">modem</span><span class="symbol">.</span><span class="symbol">open</span><span class="symbol">(</span><span class="number">0</span><span class="symbol">)</span>
+
+<span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+    <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">side</span><span class="symbol">,</span> <span class="ident">channel</span><span class="symbol">,</span> <span class="ident">replyChannel</span><span class="symbol">,</span> <span class="ident">message</span><span class="symbol">,</span> <span class="ident">distance</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;modem_message&quot;</span><span class="symbol">)</span>
+    <span class="ident">print</span><span class="symbol">(</span><span class="symbol">(</span><span class="string">&quot;Message received on side %s on channel %d (reply to %d) from %f blocks away with message %s&quot;</span><span class="symbol">)</span><span class="symbol">:</span><span class="symbol">format</span><span class="symbol">(</span>
+        <span class="ident">side</span><span class="symbol">,</span> <span class="ident">channel</span><span class="symbol">,</span> <span class="ident">replyChannel</span><span class="symbol">,</span> <span class="ident">distance</span><span class="symbol">,</span> <span class="ident">tostring</span><span class="symbol">(</span><span class="ident">message</span><span class="symbol">)</span>
+    <span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

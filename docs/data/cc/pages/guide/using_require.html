@@ -1,0 +1,60 @@
+<h1>Reusing code with require</h1><p>A library is a collection of useful functions and other definitions which is stored separately to your main program. You
+might want to create a library because you have some functions which are used in multiple programs, or just to split
+your program into multiple more modular files.</p>
+<p>Let's say we want to create a small library to make working with the <a href="/module/term/" class="reference">terminal</a> a little easier. We'll provide two
+functions: <code>reset</code>, which clears the terminal and sets the cursor to (1, 1), and <code>write_center</code>, which prints some text
+in the middle of the screen.</p>
+<p>Start off by creating a file called <code>more_term.lua</code>:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-snippet="more_term"><span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">reset</span><span class="symbol">(</span><span class="symbol">)</span>
+<a title="Clears the terminal, filling it with the current background colour." href="/module/term/#v:clear">  <span class="ident">term</span><span class="symbol">.</span><span class="symbol">clear</span></a><span class="symbol">(</span><span class="symbol">)</span>
+<a title="Set the position of the cursor." href="/module/term/#v:setCursorPos">  <span class="ident">term</span><span class="symbol">.</span><span class="symbol">setCursorPos</span></a><span class="symbol">(</span><span class="number">1</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">)</span>
+<span class="keyword">end</span>
+
+<span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">write_center</span><span class="symbol">(</span><span class="ident">text</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span> <span class="symbol">=</span> <a title="Get the position of the cursor." href="/module/term/#v:getCursorPos"><span class="ident">term</span><span class="symbol">.</span><span class="symbol">getCursorPos</span></a><span class="symbol">(</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">width</span><span class="symbol">,</span> <span class="ident">height</span> <span class="symbol">=</span> <a title="Get the size of the terminal." href="/module/term/#v:getSize"><span class="ident">term</span><span class="symbol">.</span><span class="symbol">getSize</span></a><span class="symbol">(</span><span class="symbol">)</span>
+<a title="Set the position of the cursor." href="/module/term/#v:setCursorPos">  <span class="ident">term</span><span class="symbol">.</span><span class="symbol">setCursorPos</span></a><span class="symbol">(</span><span class="ident">math</span><span class="symbol">.</span><span class="symbol">floor</span><span class="symbol">(</span><span class="symbol">(</span><span class="ident">width</span> <span class="symbol">-</span> <span class="symbol">#</span><span class="ident">text</span><span class="symbol">)</span> <span class="symbol">/</span> <span class="number">2</span><span class="symbol">)</span> <span class="symbol">+</span> <span class="number">1</span><span class="symbol">,</span> <span class="ident">y</span><span class="symbol">)</span>
+<a title="Write text at the current cursor position, moving the cursor to the end of the text." href="/module/term/#v:write">  <span class="ident">term</span><span class="symbol">.</span><span class="symbol">write</span></a><span class="symbol">(</span><span class="ident">text</span><span class="symbol">)</span>
+<span class="keyword">end</span>
+
+<span class="keyword">return</span> <span class="symbol">{</span> <span class="ident">reset</span> <span class="symbol">=</span> <span class="ident">reset</span><span class="symbol">,</span> <span class="ident">write_center</span> <span class="symbol">=</span> <span class="ident">write_center</span> <span class="symbol">}</span><span class="symbol"></span></pre></div><p>Now, what's going on here? We define our two functions as one might expect, and then at the bottom return a table with
+the two functions. When we require this library, this table is what is returned. With that, we can then call the
+original functions. Now create a new file, with the following:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-mount="more_term:more_term.lua"><span class="keyword">local</span> <span class="ident">more_term</span> <span class="symbol">=</span> <span class="ident">require</span><span class="symbol">(</span><span class="string">&quot;more_term&quot;</span><span class="symbol">)</span>
+<span class="ident">more_term</span><span class="symbol">.</span><span class="symbol">reset</span><span class="symbol">(</span><span class="symbol">)</span>
+<span class="ident">more_term</span><span class="symbol">.</span><span class="symbol">write_center</span><span class="symbol">(</span><span class="string">&quot;Hello, world!&quot;</span><span class="symbol">)</span><span class="symbol"></span></pre></div><p>When run, this'll clear the screen and print some text in the middle of the first line.</p>
+<h2>require in depth</h2>
+<p>While the previous section is a good introduction to how <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> operates, there are a couple of remaining points
+which are worth mentioning for more advanced usage.</p>
+<h3>Libraries can return anything</h3>
+<p>In our above example, we return a table containing the functions we want to expose. However, it's worth pointing out
+that you can return ''anything'' from your library - a table, a function or even just a string! <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> treats them
+all the same, and just returns whatever your library provides.</p>
+<h3>Module resolution and the package path</h3>
+<p>In the above examples, we defined our library in a file, and <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> read from it. While this is what you'll do most
+of the time, it is possible to make <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> look elsewhere for your library, such as downloading from a website or
+loading from an in-memory library store.</p>
+<p>As a result, the <em>module name</em> you pass to <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> doesn't correspond to a file path. One common mistake is to load
+code from a sub-directory using <code>require(&quot;folder/library&quot;)</code> or even <code>require(&quot;folder/library.lua&quot;)</code>, neither of which
+will do quite what you expect.</p>
+<p>When loading libraries (also referred to as <em>modules</em>) from files, <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> searches along the <a href="https://www.lua.org/manual/5.1/manual.html#pdf-package.path" class="reference"><em>module
+path</em></a>. By default, this looks something like:</p>
+<ul>
+<li><code>?.lua</code></li>
+<li><code>?/init.lua</code></li>
+<li><code>/rom/modules/main/?.lua</code></li>
+<li>etc...</li>
+</ul>
+<p>When you call <code>require(&quot;my_library&quot;)</code>, <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> replaces the <code>?</code> in each element of the path with your module name, and
+checks if the file exists. In this case, we'd look for <code>my_library.lua</code>, <code>my_library/init.lua</code>,
+<code>/rom/modules/main/my_library.lua</code> and so on. Note that this works <em>relative to the current program</em>, so if your
+program is actually called <code>folder/program</code>, then we'll look for <code>folder/my_library.lua</code>, etc...</p>
+<p>One other caveat is loading libraries from sub-directories. For instance, say we have a file
+<code>my/fancy/library.lua</code>. This can be loaded by using <code>require(&quot;my.fancy.library&quot;)</code> - the '.'s are replaced with '/'
+before we start looking for the library.</p>
+<h2>External links</h2>
+<p>There are several external resources which go into require in a little more detail:</p>
+<ul>
+<li>The <a href="http://lua-users.org/wiki/ModulesTutorial">Lua Module tutorial</a> on the Lua wiki.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#pdf-require">Lua's manual section on <code>require</code></a>.</li>
+</ul>

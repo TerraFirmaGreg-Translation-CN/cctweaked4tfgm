@@ -1,0 +1,5932 @@
+{
+  "version": "1.121.0",
+  "source": "https://tweaked.cc/mc-1.20.x",
+  "groups": [
+    {
+      "title": "Globals",
+      "pages": [
+        {
+          "key": "module/_G.html",
+          "url": "/module/_G/",
+          "title": "_G",
+          "description": "Functions in the global environment, defined in bios.lua.",
+          "file": "pages/module/_G.html",
+          "toc": [
+            {
+              "id": "v:sleep",
+              "title": "sleep([time=0])"
+            },
+            {
+              "id": "v:write",
+              "title": "write(text)"
+            },
+            {
+              "id": "v:print",
+              "title": "print(...)"
+            },
+            {
+              "id": "v:printError",
+              "title": "printError(...)"
+            },
+            {
+              "id": "v:read",
+              "title": "read([replaceChar [, history [, completeFn [, default]]]])"
+            },
+            {
+              "id": "v:_HOST",
+              "title": "_HOST"
+            },
+            {
+              "id": "v:_CC_DEFAULT_SETTINGS",
+              "title": "_CC_DEFAULT_SETTINGS"
+            }
+          ]
+        },
+        {
+          "key": "module/colors.html",
+          "url": "/module/colors/",
+          "title": "colors",
+          "description": "Constants and functions for colour values, suitable for working with term and redstone.",
+          "file": "pages/module/colors.html",
+          "toc": [
+            {
+              "id": "v:white",
+              "title": "white = 0x1"
+            },
+            {
+              "id": "v:orange",
+              "title": "orange = 0x2"
+            },
+            {
+              "id": "v:magenta",
+              "title": "magenta = 0x4"
+            },
+            {
+              "id": "v:lightBlue",
+              "title": "lightBlue = 0x8"
+            },
+            {
+              "id": "v:yellow",
+              "title": "yellow = 0x10"
+            },
+            {
+              "id": "v:lime",
+              "title": "lime = 0x20"
+            },
+            {
+              "id": "v:pink",
+              "title": "pink = 0x40"
+            },
+            {
+              "id": "v:gray",
+              "title": "gray = 0x80"
+            },
+            {
+              "id": "v:lightGray",
+              "title": "lightGray = 0x100"
+            },
+            {
+              "id": "v:cyan",
+              "title": "cyan = 0x200"
+            },
+            {
+              "id": "v:purple",
+              "title": "purple = 0x400"
+            },
+            {
+              "id": "v:blue",
+              "title": "blue = 0x800"
+            },
+            {
+              "id": "v:brown",
+              "title": "brown = 0x1000"
+            },
+            {
+              "id": "v:green",
+              "title": "green = 0x2000"
+            },
+            {
+              "id": "v:red",
+              "title": "red = 0x4000"
+            },
+            {
+              "id": "v:black",
+              "title": "black = 0x8000"
+            },
+            {
+              "id": "v:combine",
+              "title": "combine(...)"
+            },
+            {
+              "id": "v:subtract",
+              "title": "subtract(colors, ...)"
+            },
+            {
+              "id": "v:test",
+              "title": "test(colors, color)"
+            },
+            {
+              "id": "v:packRGB",
+              "title": "packRGB(r, g, b)"
+            },
+            {
+              "id": "v:unpackRGB",
+              "title": "unpackRGB(rgb)"
+            },
+            {
+              "id": "v:toBlit",
+              "title": "toBlit(color)"
+            },
+            {
+              "id": "v:fromBlit",
+              "title": "fromBlit(hex)"
+            }
+          ]
+        },
+        {
+          "key": "module/colours.html",
+          "url": "/module/colours/",
+          "title": "colours",
+          "description": "An alternative version of colors for lovers of British spelling.",
+          "file": "pages/module/colours.html",
+          "toc": [
+            {
+              "id": "v:grey",
+              "title": "grey"
+            },
+            {
+              "id": "v:lightGrey",
+              "title": "lightGrey"
+            }
+          ]
+        },
+        {
+          "key": "module/commands.html",
+          "url": "/module/commands/",
+          "title": "commands",
+          "description": "Execute Minecraft commands and gather data from the results from a command computer.",
+          "file": "pages/module/commands.html",
+          "toc": [
+            {
+              "id": "v:exec",
+              "title": "exec(command)"
+            },
+            {
+              "id": "v:execAsync",
+              "title": "execAsync(command)"
+            },
+            {
+              "id": "v:list",
+              "title": "list(...)"
+            },
+            {
+              "id": "v:getDimension",
+              "title": "getDimension()"
+            },
+            {
+              "id": "v:getBlockPosition",
+              "title": "getBlockPosition()"
+            },
+            {
+              "id": "v:getBlockInfos",
+              "title": "getBlockInfos(minX, minY, minZ, maxX, maxY, maxZ [, dimension])"
+            },
+            {
+              "id": "v:getBlockInfo",
+              "title": "getBlockInfo(x, y, z [, dimension])"
+            },
+            {
+              "id": "v:getEntities",
+              "title": "getEntities(selector)"
+            },
+            {
+              "id": "v:native",
+              "title": "native"
+            },
+            {
+              "id": "v:async",
+              "title": "async"
+            }
+          ]
+        },
+        {
+          "key": "module/disk.html",
+          "url": "/module/disk/",
+          "title": "disk",
+          "description": "Interact with disk drives.",
+          "file": "pages/module/disk.html",
+          "toc": [
+            {
+              "id": "v:isPresent",
+              "title": "isPresent(name)"
+            },
+            {
+              "id": "v:getLabel",
+              "title": "getLabel(name)"
+            },
+            {
+              "id": "v:setLabel",
+              "title": "setLabel(name, label)"
+            },
+            {
+              "id": "v:hasData",
+              "title": "hasData(name)"
+            },
+            {
+              "id": "v:getMountPath",
+              "title": "getMountPath(name)"
+            },
+            {
+              "id": "v:hasAudio",
+              "title": "hasAudio(name)"
+            },
+            {
+              "id": "v:getAudioTitle",
+              "title": "getAudioTitle(name)"
+            },
+            {
+              "id": "v:playAudio",
+              "title": "playAudio(name)"
+            },
+            {
+              "id": "v:stopAudio",
+              "title": "stopAudio(name)"
+            },
+            {
+              "id": "v:eject",
+              "title": "eject(name)"
+            },
+            {
+              "id": "v:getID",
+              "title": "getID(name)"
+            }
+          ]
+        },
+        {
+          "key": "module/fs.html",
+          "url": "/module/fs/",
+          "title": "fs",
+          "description": "Interact with the computer's files and filesystem, allowing you to manipulate files, directories and paths.",
+          "file": "pages/module/fs.html",
+          "toc": [
+            {
+              "id": "v:complete",
+              "title": "complete(...)"
+            },
+            {
+              "id": "v:find",
+              "title": "find(path)"
+            },
+            {
+              "id": "v:isDriveRoot",
+              "title": "isDriveRoot(path)"
+            },
+            {
+              "id": "v:list",
+              "title": "list(path)"
+            },
+            {
+              "id": "v:combine",
+              "title": "combine(path, ...)"
+            },
+            {
+              "id": "v:getName",
+              "title": "getName(path)"
+            },
+            {
+              "id": "v:getDir",
+              "title": "getDir(path)"
+            },
+            {
+              "id": "v:getSize",
+              "title": "getSize(path)"
+            },
+            {
+              "id": "v:exists",
+              "title": "exists(path)"
+            },
+            {
+              "id": "v:isDir",
+              "title": "isDir(path)"
+            },
+            {
+              "id": "v:isReadOnly",
+              "title": "isReadOnly(path)"
+            },
+            {
+              "id": "v:makeDir",
+              "title": "makeDir(path)"
+            },
+            {
+              "id": "v:move",
+              "title": "move(path, dest)"
+            },
+            {
+              "id": "v:copy",
+              "title": "copy(path, dest)"
+            },
+            {
+              "id": "v:delete",
+              "title": "delete(path)"
+            },
+            {
+              "id": "v:open",
+              "title": "open(path, mode)"
+            },
+            {
+              "id": "v:getDrive",
+              "title": "getDrive(path)"
+            },
+            {
+              "id": "v:getFreeSpace",
+              "title": "getFreeSpace(path)"
+            },
+            {
+              "id": "v:getCapacity",
+              "title": "getCapacity(path)"
+            },
+            {
+              "id": "v:attributes",
+              "title": "attributes(path)"
+            },
+            {
+              "id": "ty:ReadWriteHandle:read",
+              "title": "ReadWriteHandle.read([count])"
+            },
+            {
+              "id": "ty:ReadWriteHandle:readAll",
+              "title": "ReadWriteHandle.readAll()"
+            },
+            {
+              "id": "ty:ReadWriteHandle:readLine",
+              "title": "ReadWriteHandle.readLine([withTrailing])"
+            },
+            {
+              "id": "ty:ReadWriteHandle:seek",
+              "title": "ReadWriteHandle.seek([whence [, offset]])"
+            },
+            {
+              "id": "ty:ReadWriteHandle:write",
+              "title": "ReadWriteHandle.write(...)"
+            },
+            {
+              "id": "ty:ReadWriteHandle:writeLine",
+              "title": "ReadWriteHandle.writeLine(text)"
+            },
+            {
+              "id": "ty:ReadWriteHandle:flush",
+              "title": "ReadWriteHandle.flush()"
+            },
+            {
+              "id": "ty:ReadWriteHandle:close",
+              "title": "ReadWriteHandle.close()"
+            },
+            {
+              "id": "ty:WriteHandle:write",
+              "title": "WriteHandle.write(...)"
+            },
+            {
+              "id": "ty:WriteHandle:writeLine",
+              "title": "WriteHandle.writeLine(text)"
+            },
+            {
+              "id": "ty:WriteHandle:flush",
+              "title": "WriteHandle.flush()"
+            },
+            {
+              "id": "ty:WriteHandle:seek",
+              "title": "WriteHandle.seek([whence [, offset]])"
+            },
+            {
+              "id": "ty:WriteHandle:close",
+              "title": "WriteHandle.close()"
+            },
+            {
+              "id": "ty:ReadHandle:read",
+              "title": "ReadHandle.read([count])"
+            },
+            {
+              "id": "ty:ReadHandle:readAll",
+              "title": "ReadHandle.readAll()"
+            },
+            {
+              "id": "ty:ReadHandle:readLine",
+              "title": "ReadHandle.readLine([withTrailing])"
+            },
+            {
+              "id": "ty:ReadHandle:seek",
+              "title": "ReadHandle.seek([whence [, offset]])"
+            },
+            {
+              "id": "ty:ReadHandle:close",
+              "title": "ReadHandle.close()"
+            }
+          ]
+        },
+        {
+          "key": "module/gps.html",
+          "url": "/module/gps/",
+          "title": "gps",
+          "description": "Use modems to locate the position of the current turtle or computers.",
+          "file": "pages/module/gps.html",
+          "toc": [
+            {
+              "id": "v:CHANNEL_GPS",
+              "title": "CHANNEL_GPS = 65534"
+            },
+            {
+              "id": "v:locate",
+              "title": "locate([timeout=2 [, debug=false]])"
+            }
+          ]
+        },
+        {
+          "key": "module/help.html",
+          "url": "/module/help/",
+          "title": "help",
+          "description": "Find help files on the current computer.",
+          "file": "pages/module/help.html",
+          "toc": [
+            {
+              "id": "v:path",
+              "title": "path()"
+            },
+            {
+              "id": "v:setPath",
+              "title": "setPath(newPath)"
+            },
+            {
+              "id": "v:lookup",
+              "title": "lookup(topic)"
+            },
+            {
+              "id": "v:topics",
+              "title": "topics()"
+            },
+            {
+              "id": "v:completeTopic",
+              "title": "completeTopic(prefix)"
+            }
+          ]
+        },
+        {
+          "key": "module/http.html",
+          "url": "/module/http/",
+          "title": "http",
+          "description": "Make HTTP requests, sending and receiving data to a remote web server.",
+          "file": "pages/module/http.html",
+          "toc": [
+            {
+              "id": "v:get",
+              "title": "get(...)"
+            },
+            {
+              "id": "v:post",
+              "title": "post(...)"
+            },
+            {
+              "id": "v:request",
+              "title": "request(...)"
+            },
+            {
+              "id": "v:checkURLAsync",
+              "title": "checkURLAsync(url)"
+            },
+            {
+              "id": "v:checkURL",
+              "title": "checkURL(url)"
+            },
+            {
+              "id": "v:websocketAsync",
+              "title": "websocketAsync(...)"
+            },
+            {
+              "id": "v:websocket",
+              "title": "websocket(...)"
+            },
+            {
+              "id": "ty:Response:getResponseCode",
+              "title": "Response.getResponseCode()"
+            },
+            {
+              "id": "ty:Response:getResponseHeaders",
+              "title": "Response.getResponseHeaders()"
+            },
+            {
+              "id": "ty:Websocket:receive",
+              "title": "Websocket.receive([timeout])"
+            },
+            {
+              "id": "ty:Websocket:send",
+              "title": "Websocket.send(message [, binary])"
+            },
+            {
+              "id": "ty:Websocket:close",
+              "title": "Websocket.close()"
+            },
+            {
+              "id": "ty:Websocket:getResponseHeaders",
+              "title": "Websocket.getResponseHeaders()"
+            }
+          ]
+        },
+        {
+          "key": "module/io.html",
+          "url": "/module/io/",
+          "title": "io",
+          "description": "Emulates Lua's standard io library.",
+          "file": "pages/module/io.html",
+          "toc": [
+            {
+              "id": "v:stdin",
+              "title": "stdin"
+            },
+            {
+              "id": "v:stdout",
+              "title": "stdout"
+            },
+            {
+              "id": "v:stderr",
+              "title": "stderr"
+            },
+            {
+              "id": "v:close",
+              "title": "close([file])"
+            },
+            {
+              "id": "v:flush",
+              "title": "flush()"
+            },
+            {
+              "id": "v:input",
+              "title": "input([file])"
+            },
+            {
+              "id": "v:lines",
+              "title": "lines([filename, ...])"
+            },
+            {
+              "id": "v:open",
+              "title": "open(filename [, mode])"
+            },
+            {
+              "id": "v:output",
+              "title": "output([file])"
+            },
+            {
+              "id": "v:read",
+              "title": "read(...)"
+            },
+            {
+              "id": "v:type",
+              "title": "type(obj)"
+            },
+            {
+              "id": "v:write",
+              "title": "write(...)"
+            },
+            {
+              "id": "ty:Handle:close",
+              "title": "Handle.close()"
+            },
+            {
+              "id": "ty:Handle:flush",
+              "title": "Handle.flush()"
+            },
+            {
+              "id": "ty:Handle:lines",
+              "title": "Handle.lines(...)"
+            },
+            {
+              "id": "ty:Handle:read",
+              "title": "Handle.read(...)"
+            },
+            {
+              "id": "ty:Handle:seek",
+              "title": "Handle.seek([whence [, offset]])"
+            },
+            {
+              "id": "ty:Handle:write",
+              "title": "Handle.write(...)"
+            }
+          ]
+        },
+        {
+          "key": "module/keys.html",
+          "url": "/module/keys/",
+          "title": "keys",
+          "description": "Constants for all keyboard \"key codes\", as queued by the key event.",
+          "file": "pages/module/keys.html",
+          "toc": [
+            {
+              "id": "v:getName",
+              "title": "getName(code)"
+            }
+          ]
+        },
+        {
+          "key": "module/multishell.html",
+          "url": "/module/multishell/",
+          "title": "multishell",
+          "description": "Multishell allows multiple programs to be run at the same time.",
+          "file": "pages/module/multishell.html",
+          "toc": [
+            {
+              "id": "v:getFocus",
+              "title": "getFocus()"
+            },
+            {
+              "id": "v:setFocus",
+              "title": "setFocus(n)"
+            },
+            {
+              "id": "v:getTitle",
+              "title": "getTitle(n)"
+            },
+            {
+              "id": "v:setTitle",
+              "title": "setTitle(n, title)"
+            },
+            {
+              "id": "v:getCurrent",
+              "title": "getCurrent()"
+            },
+            {
+              "id": "v:launch",
+              "title": "launch(tProgramEnv, sProgramPath, ...)"
+            },
+            {
+              "id": "v:getCount",
+              "title": "getCount()"
+            }
+          ]
+        },
+        {
+          "key": "module/os.html",
+          "url": "/module/os/",
+          "title": "os",
+          "description": "The os API allows interacting with the current computer.",
+          "file": "pages/module/os.html",
+          "toc": [
+            {
+              "id": "v:pullEvent",
+              "title": "pullEvent([filter])"
+            },
+            {
+              "id": "v:pullEventRaw",
+              "title": "pullEventRaw([filter])"
+            },
+            {
+              "id": "v:sleep",
+              "title": "sleep([time=0])"
+            },
+            {
+              "id": "v:version",
+              "title": "version()"
+            },
+            {
+              "id": "v:run",
+              "title": "run(env, path, ...)"
+            },
+            {
+              "id": "v:queueEvent",
+              "title": "queueEvent(name, ...)"
+            },
+            {
+              "id": "v:startTimer",
+              "title": "startTimer(time)"
+            },
+            {
+              "id": "v:cancelTimer",
+              "title": "cancelTimer(token)"
+            },
+            {
+              "id": "v:setAlarm",
+              "title": "setAlarm(time)"
+            },
+            {
+              "id": "v:cancelAlarm",
+              "title": "cancelAlarm(token)"
+            },
+            {
+              "id": "v:shutdown",
+              "title": "shutdown()"
+            },
+            {
+              "id": "v:reboot",
+              "title": "reboot()"
+            },
+            {
+              "id": "v:getComputerID",
+              "title": "getComputerID()"
+            },
+            {
+              "id": "v:computerID",
+              "title": "computerID()"
+            },
+            {
+              "id": "v:getComputerLabel",
+              "title": "getComputerLabel()"
+            },
+            {
+              "id": "v:computerLabel",
+              "title": "computerLabel()"
+            },
+            {
+              "id": "v:setComputerLabel",
+              "title": "setComputerLabel([label])"
+            },
+            {
+              "id": "v:clock",
+              "title": "clock()"
+            },
+            {
+              "id": "v:time",
+              "title": "time([locale])"
+            },
+            {
+              "id": "v:day",
+              "title": "day([locale])"
+            },
+            {
+              "id": "v:epoch",
+              "title": "epoch([locale])"
+            },
+            {
+              "id": "v:date",
+              "title": "date([format [, time]])"
+            }
+          ]
+        },
+        {
+          "key": "module/paintutils.html",
+          "url": "/module/paintutils/",
+          "title": "paintutils",
+          "description": "Utilities for drawing more complex graphics, such as pixels, lines and images.",
+          "file": "pages/module/paintutils.html",
+          "toc": [
+            {
+              "id": "v:parseImage",
+              "title": "parseImage(image)"
+            },
+            {
+              "id": "v:loadImage",
+              "title": "loadImage(path)"
+            },
+            {
+              "id": "v:drawPixel",
+              "title": "drawPixel(xPos, yPos [, colour])"
+            },
+            {
+              "id": "v:drawLine",
+              "title": "drawLine(startX, startY, endX, endY [, colour])"
+            },
+            {
+              "id": "v:drawBox",
+              "title": "drawBox(startX, startY, endX, endY [, colour])"
+            },
+            {
+              "id": "v:drawFilledBox",
+              "title": "drawFilledBox(startX, startY, endX, endY [, colour])"
+            },
+            {
+              "id": "v:drawImage",
+              "title": "drawImage(image, xPos, yPos)"
+            }
+          ]
+        },
+        {
+          "key": "module/parallel.html",
+          "url": "/module/parallel/",
+          "title": "parallel",
+          "description": "A simple way to run several functions at once.",
+          "file": "pages/module/parallel.html",
+          "toc": [
+            {
+              "id": "v:waitForAny",
+              "title": "waitForAny(...)"
+            },
+            {
+              "id": "v:waitForAll",
+              "title": "waitForAll(...)"
+            }
+          ]
+        },
+        {
+          "key": "module/peripheral.html",
+          "url": "/module/peripheral/",
+          "title": "peripheral",
+          "description": "Find and control peripherals attached to this computer.",
+          "file": "pages/module/peripheral.html",
+          "toc": [
+            {
+              "id": "v:getNames",
+              "title": "getNames()"
+            },
+            {
+              "id": "v:isPresent",
+              "title": "isPresent(name)"
+            },
+            {
+              "id": "v:getType",
+              "title": "getType(peripheral)"
+            },
+            {
+              "id": "v:hasType",
+              "title": "hasType(peripheral, peripheral_type)"
+            },
+            {
+              "id": "v:getMethods",
+              "title": "getMethods(name)"
+            },
+            {
+              "id": "v:getName",
+              "title": "getName(peripheral)"
+            },
+            {
+              "id": "v:call",
+              "title": "call(name, method, ...)"
+            },
+            {
+              "id": "v:wrap",
+              "title": "wrap(name)"
+            },
+            {
+              "id": "v:find",
+              "title": "find(ty [, filter])"
+            }
+          ]
+        },
+        {
+          "key": "module/pocket.html",
+          "url": "/module/pocket/",
+          "title": "pocket",
+          "description": "Control the current pocket computer, adding or removing upgrades.",
+          "file": "pages/module/pocket.html",
+          "toc": [
+            {
+              "id": "v:equipBack",
+              "title": "equipBack()"
+            },
+            {
+              "id": "v:unequipBack",
+              "title": "unequipBack()"
+            }
+          ]
+        },
+        {
+          "key": "module/rednet.html",
+          "url": "/module/rednet/",
+          "title": "rednet",
+          "description": "Communicate with other computers by using modems.",
+          "file": "pages/module/rednet.html",
+          "toc": [
+            {
+              "id": "v:CHANNEL_BROADCAST",
+              "title": "CHANNEL_BROADCAST = 65535"
+            },
+            {
+              "id": "v:CHANNEL_REPEAT",
+              "title": "CHANNEL_REPEAT = 65533"
+            },
+            {
+              "id": "v:MAX_ID_CHANNELS",
+              "title": "MAX_ID_CHANNELS = 65500"
+            },
+            {
+              "id": "v:open",
+              "title": "open(modem)"
+            },
+            {
+              "id": "v:close",
+              "title": "close([modem])"
+            },
+            {
+              "id": "v:isOpen",
+              "title": "isOpen([modem])"
+            },
+            {
+              "id": "v:send",
+              "title": "send(recipient, message [, protocol])"
+            },
+            {
+              "id": "v:broadcast",
+              "title": "broadcast(message [, protocol])"
+            },
+            {
+              "id": "v:receive",
+              "title": "receive([protocol_filter [, timeout]])"
+            },
+            {
+              "id": "v:host",
+              "title": "host(protocol, hostname)"
+            },
+            {
+              "id": "v:unhost",
+              "title": "unhost(protocol)"
+            },
+            {
+              "id": "v:lookup",
+              "title": "lookup(protocol [, hostname [, timeout=2]])"
+            },
+            {
+              "id": "v:run",
+              "title": "run()"
+            }
+          ]
+        },
+        {
+          "key": "module/redstone.html",
+          "url": "/module/redstone/",
+          "title": "redstone",
+          "description": "Get and set redstone signals adjacent to this computer.",
+          "file": "pages/module/redstone.html",
+          "toc": [
+            {
+              "id": "v:getSides",
+              "title": "getSides()"
+            },
+            {
+              "id": "v:setOutput",
+              "title": "setOutput(side, on)"
+            },
+            {
+              "id": "v:getOutput",
+              "title": "getOutput(side)"
+            },
+            {
+              "id": "v:getInput",
+              "title": "getInput(side)"
+            },
+            {
+              "id": "v:setAnalogOutput",
+              "title": "setAnalogOutput(side, value)"
+            },
+            {
+              "id": "v:setAnalogueOutput",
+              "title": "setAnalogueOutput(side, value)"
+            },
+            {
+              "id": "v:getAnalogOutput",
+              "title": "getAnalogOutput(side)"
+            },
+            {
+              "id": "v:getAnalogueOutput",
+              "title": "getAnalogueOutput(side)"
+            },
+            {
+              "id": "v:getAnalogInput",
+              "title": "getAnalogInput(side)"
+            },
+            {
+              "id": "v:getAnalogueInput",
+              "title": "getAnalogueInput(side)"
+            },
+            {
+              "id": "v:setBundledOutput",
+              "title": "setBundledOutput(side, output)"
+            },
+            {
+              "id": "v:getBundledOutput",
+              "title": "getBundledOutput(side)"
+            },
+            {
+              "id": "v:getBundledInput",
+              "title": "getBundledInput(side)"
+            },
+            {
+              "id": "v:testBundledInput",
+              "title": "testBundledInput(side, mask)"
+            }
+          ]
+        },
+        {
+          "key": "module/settings.html",
+          "url": "/module/settings/",
+          "title": "settings",
+          "description": "Read and write configuration options for CraftOS and your programs.",
+          "file": "pages/module/settings.html",
+          "toc": [
+            {
+              "id": "v:define",
+              "title": "define(name [, options])"
+            },
+            {
+              "id": "v:undefine",
+              "title": "undefine(name)"
+            },
+            {
+              "id": "v:set",
+              "title": "set(name, value)"
+            },
+            {
+              "id": "v:get",
+              "title": "get(name [, default])"
+            },
+            {
+              "id": "v:getDetails",
+              "title": "getDetails(name)"
+            },
+            {
+              "id": "v:unset",
+              "title": "unset(name)"
+            },
+            {
+              "id": "v:clear",
+              "title": "clear()"
+            },
+            {
+              "id": "v:getNames",
+              "title": "getNames()"
+            },
+            {
+              "id": "v:load",
+              "title": "load([path=\".settings\"])"
+            },
+            {
+              "id": "v:save",
+              "title": "save([path=\".settings\"])"
+            }
+          ]
+        },
+        {
+          "key": "module/shell.html",
+          "url": "/module/shell/",
+          "title": "shell",
+          "description": "The shell API provides access to CraftOS's command line interface.",
+          "file": "pages/module/shell.html",
+          "toc": [
+            {
+              "id": "v:execute",
+              "title": "execute(command, ...)"
+            },
+            {
+              "id": "v:run",
+              "title": "run(...)"
+            },
+            {
+              "id": "v:exit",
+              "title": "exit()"
+            },
+            {
+              "id": "v:dir",
+              "title": "dir()"
+            },
+            {
+              "id": "v:setDir",
+              "title": "setDir(dir)"
+            },
+            {
+              "id": "v:path",
+              "title": "path()"
+            },
+            {
+              "id": "v:setPath",
+              "title": "setPath(path)"
+            },
+            {
+              "id": "v:resolve",
+              "title": "resolve(path)"
+            },
+            {
+              "id": "v:resolveProgram",
+              "title": "resolveProgram(command)"
+            },
+            {
+              "id": "v:programs",
+              "title": "programs([include_hidden])"
+            },
+            {
+              "id": "v:complete",
+              "title": "complete(sLine)"
+            },
+            {
+              "id": "v:completeProgram",
+              "title": "completeProgram(program)"
+            },
+            {
+              "id": "v:setCompletionFunction",
+              "title": "setCompletionFunction(program, complete)"
+            },
+            {
+              "id": "v:getCompletionInfo",
+              "title": "getCompletionInfo()"
+            },
+            {
+              "id": "v:getRunningProgram",
+              "title": "getRunningProgram()"
+            },
+            {
+              "id": "v:setAlias",
+              "title": "setAlias(command, program)"
+            },
+            {
+              "id": "v:clearAlias",
+              "title": "clearAlias(command)"
+            },
+            {
+              "id": "v:aliases",
+              "title": "aliases()"
+            },
+            {
+              "id": "v:openTab",
+              "title": "openTab(...)"
+            },
+            {
+              "id": "v:switchTab",
+              "title": "switchTab(id)"
+            }
+          ]
+        },
+        {
+          "key": "module/term.html",
+          "url": "/module/term/",
+          "title": "term",
+          "description": "Interact with a computer's terminal or monitors, writing text and drawing ASCII graphics.",
+          "file": "pages/module/term.html",
+          "toc": [
+            {
+              "id": "v:nativePaletteColour",
+              "title": "nativePaletteColour(colour)"
+            },
+            {
+              "id": "v:nativePaletteColor",
+              "title": "nativePaletteColor(colour)"
+            },
+            {
+              "id": "v:write",
+              "title": "write(text)"
+            },
+            {
+              "id": "v:scroll",
+              "title": "scroll(y)"
+            },
+            {
+              "id": "v:getCursorPos",
+              "title": "getCursorPos()"
+            },
+            {
+              "id": "v:setCursorPos",
+              "title": "setCursorPos(x, y)"
+            },
+            {
+              "id": "v:getCursorBlink",
+              "title": "getCursorBlink()"
+            },
+            {
+              "id": "v:setCursorBlink",
+              "title": "setCursorBlink(blink)"
+            },
+            {
+              "id": "v:getSize",
+              "title": "getSize()"
+            },
+            {
+              "id": "v:clear",
+              "title": "clear()"
+            },
+            {
+              "id": "v:clearLine",
+              "title": "clearLine()"
+            },
+            {
+              "id": "v:getTextColour",
+              "title": "getTextColour()"
+            },
+            {
+              "id": "v:getTextColor",
+              "title": "getTextColor()"
+            },
+            {
+              "id": "v:setTextColour",
+              "title": "setTextColour(colour)"
+            },
+            {
+              "id": "v:setTextColor",
+              "title": "setTextColor(colour)"
+            },
+            {
+              "id": "v:getBackgroundColour",
+              "title": "getBackgroundColour()"
+            },
+            {
+              "id": "v:getBackgroundColor",
+              "title": "getBackgroundColor()"
+            },
+            {
+              "id": "v:setBackgroundColour",
+              "title": "setBackgroundColour(colour)"
+            },
+            {
+              "id": "v:setBackgroundColor",
+              "title": "setBackgroundColor(colour)"
+            },
+            {
+              "id": "v:isColour",
+              "title": "isColour()"
+            },
+            {
+              "id": "v:isColor",
+              "title": "isColor()"
+            },
+            {
+              "id": "v:blit",
+              "title": "blit(text, textColour, backgroundColour)"
+            },
+            {
+              "id": "v:setPaletteColour",
+              "title": "setPaletteColour(...)"
+            },
+            {
+              "id": "v:setPaletteColor",
+              "title": "setPaletteColor(...)"
+            },
+            {
+              "id": "v:getPaletteColour",
+              "title": "getPaletteColour(colour)"
+            },
+            {
+              "id": "v:getPaletteColor",
+              "title": "getPaletteColor(colour)"
+            },
+            {
+              "id": "v:redirect",
+              "title": "redirect(target)"
+            },
+            {
+              "id": "v:current",
+              "title": "current()"
+            },
+            {
+              "id": "v:native",
+              "title": "native()"
+            },
+            {
+              "id": "ty:Redirect:write",
+              "title": "Redirect.write(text)"
+            },
+            {
+              "id": "ty:Redirect:scroll",
+              "title": "Redirect.scroll(y)"
+            },
+            {
+              "id": "ty:Redirect:getCursorPos",
+              "title": "Redirect.getCursorPos()"
+            },
+            {
+              "id": "ty:Redirect:setCursorPos",
+              "title": "Redirect.setCursorPos(x, y)"
+            },
+            {
+              "id": "ty:Redirect:getCursorBlink",
+              "title": "Redirect.getCursorBlink()"
+            },
+            {
+              "id": "ty:Redirect:setCursorBlink",
+              "title": "Redirect.setCursorBlink(blink)"
+            },
+            {
+              "id": "ty:Redirect:getSize",
+              "title": "Redirect.getSize()"
+            },
+            {
+              "id": "ty:Redirect:clear",
+              "title": "Redirect.clear()"
+            },
+            {
+              "id": "ty:Redirect:clearLine",
+              "title": "Redirect.clearLine()"
+            },
+            {
+              "id": "ty:Redirect:getTextColour",
+              "title": "Redirect.getTextColour()"
+            },
+            {
+              "id": "ty:Redirect:getTextColor",
+              "title": "Redirect.getTextColor()"
+            },
+            {
+              "id": "ty:Redirect:setTextColour",
+              "title": "Redirect.setTextColour(colour)"
+            },
+            {
+              "id": "ty:Redirect:setTextColor",
+              "title": "Redirect.setTextColor(colour)"
+            },
+            {
+              "id": "ty:Redirect:getBackgroundColour",
+              "title": "Redirect.getBackgroundColour()"
+            },
+            {
+              "id": "ty:Redirect:getBackgroundColor",
+              "title": "Redirect.getBackgroundColor()"
+            },
+            {
+              "id": "ty:Redirect:setBackgroundColour",
+              "title": "Redirect.setBackgroundColour(colour)"
+            },
+            {
+              "id": "ty:Redirect:setBackgroundColor",
+              "title": "Redirect.setBackgroundColor(colour)"
+            },
+            {
+              "id": "ty:Redirect:isColour",
+              "title": "Redirect.isColour()"
+            },
+            {
+              "id": "ty:Redirect:isColor",
+              "title": "Redirect.isColor()"
+            },
+            {
+              "id": "ty:Redirect:blit",
+              "title": "Redirect.blit(text, textColour, backgroundColour)"
+            },
+            {
+              "id": "ty:Redirect:setPaletteColour",
+              "title": "Redirect.setPaletteColour(...)"
+            },
+            {
+              "id": "ty:Redirect:setPaletteColor",
+              "title": "Redirect.setPaletteColor(...)"
+            },
+            {
+              "id": "ty:Redirect:getPaletteColour",
+              "title": "Redirect.getPaletteColour(colour)"
+            },
+            {
+              "id": "ty:Redirect:getPaletteColor",
+              "title": "Redirect.getPaletteColor(colour)"
+            }
+          ]
+        },
+        {
+          "key": "module/textutils.html",
+          "url": "/module/textutils/",
+          "title": "textutils",
+          "description": "Helpful utilities for formatting and manipulating strings.",
+          "file": "pages/module/textutils.html",
+          "toc": [
+            {
+              "id": "v:slowWrite",
+              "title": "slowWrite(text [, rate])"
+            },
+            {
+              "id": "v:slowPrint",
+              "title": "slowPrint(sText [, nRate])"
+            },
+            {
+              "id": "v:formatTime",
+              "title": "formatTime(nTime [, bTwentyFourHour])"
+            },
+            {
+              "id": "v:pagedPrint",
+              "title": "pagedPrint(text [, free_lines])"
+            },
+            {
+              "id": "v:tabulate",
+              "title": "tabulate(...)"
+            },
+            {
+              "id": "v:pagedTabulate",
+              "title": "pagedTabulate(...)"
+            },
+            {
+              "id": "v:empty_json_array",
+              "title": "empty_json_array"
+            },
+            {
+              "id": "v:json_null",
+              "title": "json_null"
+            },
+            {
+              "id": "v:serialize",
+              "title": "serialize(t, opts)"
+            },
+            {
+              "id": "v:serialise",
+              "title": "serialise(t, opts)"
+            },
+            {
+              "id": "v:unserialize",
+              "title": "unserialize(s)"
+            },
+            {
+              "id": "v:unserialise",
+              "title": "unserialise(s)"
+            },
+            {
+              "id": "v:serializeJSON",
+              "title": "serializeJSON(...)"
+            },
+            {
+              "id": "v:serialiseJSON",
+              "title": "serialiseJSON(...)"
+            },
+            {
+              "id": "v:unserializeJSON",
+              "title": "unserializeJSON(s [, options])"
+            },
+            {
+              "id": "v:unserialiseJSON",
+              "title": "unserialiseJSON(s [, options])"
+            },
+            {
+              "id": "v:urlEncode",
+              "title": "urlEncode(str)"
+            },
+            {
+              "id": "v:complete",
+              "title": "complete(sSearchText [, tSearchTable])"
+            }
+          ]
+        },
+        {
+          "key": "module/turtle.html",
+          "url": "/module/turtle/",
+          "title": "turtle",
+          "description": "Turtles are a robotic device, which can break and place blocks, attack mobs, and move about the world.",
+          "file": "pages/module/turtle.html",
+          "toc": [
+            {
+              "id": "v:craft",
+              "title": "craft([limit=64])"
+            },
+            {
+              "id": "v:forward",
+              "title": "forward()"
+            },
+            {
+              "id": "v:back",
+              "title": "back()"
+            },
+            {
+              "id": "v:up",
+              "title": "up()"
+            },
+            {
+              "id": "v:down",
+              "title": "down()"
+            },
+            {
+              "id": "v:turnLeft",
+              "title": "turnLeft()"
+            },
+            {
+              "id": "v:turnRight",
+              "title": "turnRight()"
+            },
+            {
+              "id": "v:dig",
+              "title": "dig([side])"
+            },
+            {
+              "id": "v:digUp",
+              "title": "digUp([side])"
+            },
+            {
+              "id": "v:digDown",
+              "title": "digDown([side])"
+            },
+            {
+              "id": "v:place",
+              "title": "place([text])"
+            },
+            {
+              "id": "v:placeUp",
+              "title": "placeUp([text])"
+            },
+            {
+              "id": "v:placeDown",
+              "title": "placeDown([text])"
+            },
+            {
+              "id": "v:drop",
+              "title": "drop([count])"
+            },
+            {
+              "id": "v:dropUp",
+              "title": "dropUp([count])"
+            },
+            {
+              "id": "v:dropDown",
+              "title": "dropDown([count])"
+            },
+            {
+              "id": "v:select",
+              "title": "select(slot)"
+            },
+            {
+              "id": "v:getItemCount",
+              "title": "getItemCount([slot])"
+            },
+            {
+              "id": "v:getItemSpace",
+              "title": "getItemSpace([slot])"
+            },
+            {
+              "id": "v:detect",
+              "title": "detect()"
+            },
+            {
+              "id": "v:detectUp",
+              "title": "detectUp()"
+            },
+            {
+              "id": "v:detectDown",
+              "title": "detectDown()"
+            },
+            {
+              "id": "v:compare",
+              "title": "compare()"
+            },
+            {
+              "id": "v:compareUp",
+              "title": "compareUp()"
+            },
+            {
+              "id": "v:compareDown",
+              "title": "compareDown()"
+            },
+            {
+              "id": "v:attack",
+              "title": "attack([side])"
+            },
+            {
+              "id": "v:attackUp",
+              "title": "attackUp([side])"
+            },
+            {
+              "id": "v:attackDown",
+              "title": "attackDown([side])"
+            },
+            {
+              "id": "v:suck",
+              "title": "suck([count])"
+            },
+            {
+              "id": "v:suckUp",
+              "title": "suckUp([count])"
+            },
+            {
+              "id": "v:suckDown",
+              "title": "suckDown([count])"
+            },
+            {
+              "id": "v:getFuelLevel",
+              "title": "getFuelLevel()"
+            },
+            {
+              "id": "v:refuel",
+              "title": "refuel([count])"
+            },
+            {
+              "id": "v:compareTo",
+              "title": "compareTo(slot)"
+            },
+            {
+              "id": "v:transferTo",
+              "title": "transferTo(slot [, count])"
+            },
+            {
+              "id": "v:getSelectedSlot",
+              "title": "getSelectedSlot()"
+            },
+            {
+              "id": "v:getFuelLimit",
+              "title": "getFuelLimit()"
+            },
+            {
+              "id": "v:equipLeft",
+              "title": "equipLeft()"
+            },
+            {
+              "id": "v:equipRight",
+              "title": "equipRight()"
+            },
+            {
+              "id": "v:getEquippedLeft",
+              "title": "getEquippedLeft()"
+            },
+            {
+              "id": "v:getEquippedRight",
+              "title": "getEquippedRight()"
+            },
+            {
+              "id": "v:inspect",
+              "title": "inspect()"
+            },
+            {
+              "id": "v:inspectUp",
+              "title": "inspectUp()"
+            },
+            {
+              "id": "v:inspectDown",
+              "title": "inspectDown()"
+            },
+            {
+              "id": "v:getItemDetail",
+              "title": "getItemDetail([slot [, detailed]])"
+            }
+          ]
+        },
+        {
+          "key": "module/vector.html",
+          "url": "/module/vector/",
+          "title": "vector",
+          "description": "A basic 3D vector type and some common vector operations.",
+          "file": "pages/module/vector.html",
+          "toc": [
+            {
+              "id": "v:new",
+              "title": "new(x, y, z)"
+            },
+            {
+              "id": "ty:Vector:add",
+              "title": "Vector:add(o)"
+            },
+            {
+              "id": "ty:Vector:sub",
+              "title": "Vector:sub(o)"
+            },
+            {
+              "id": "ty:Vector:mul",
+              "title": "Vector:mul(factor)"
+            },
+            {
+              "id": "ty:Vector:div",
+              "title": "Vector:div(factor)"
+            },
+            {
+              "id": "ty:Vector:unm",
+              "title": "Vector:unm()"
+            },
+            {
+              "id": "ty:Vector:dot",
+              "title": "Vector:dot(o)"
+            },
+            {
+              "id": "ty:Vector:cross",
+              "title": "Vector:cross(o)"
+            },
+            {
+              "id": "ty:Vector:length",
+              "title": "Vector:length()"
+            },
+            {
+              "id": "ty:Vector:normalize",
+              "title": "Vector:normalize()"
+            },
+            {
+              "id": "ty:Vector:round",
+              "title": "Vector:round([tolerance])"
+            },
+            {
+              "id": "ty:Vector:tostring",
+              "title": "Vector:tostring()"
+            },
+            {
+              "id": "ty:Vector:equals",
+              "title": "Vector:equals(other)"
+            }
+          ]
+        },
+        {
+          "key": "module/window.html",
+          "url": "/module/window/",
+          "title": "window",
+          "description": "A terminal redirect occupying a smaller area of an existing terminal.",
+          "file": "pages/module/window.html",
+          "toc": [
+            {
+              "id": "v:create",
+              "title": "create(parent, nX, nY, nWidth, nHeight [, bStartVisible])"
+            },
+            {
+              "id": "ty:Window:write",
+              "title": "Window.write(sText)"
+            },
+            {
+              "id": "ty:Window:blit",
+              "title": "Window.blit(sText, sTextColor, sBackgroundColor)"
+            },
+            {
+              "id": "ty:Window:clear",
+              "title": "Window.clear()"
+            },
+            {
+              "id": "ty:Window:clearLine",
+              "title": "Window.clearLine()"
+            },
+            {
+              "id": "ty:Window:getCursorPos",
+              "title": "Window.getCursorPos()"
+            },
+            {
+              "id": "ty:Window:setCursorPos",
+              "title": "Window.setCursorPos(x, y)"
+            },
+            {
+              "id": "ty:Window:setCursorBlink",
+              "title": "Window.setCursorBlink(blink)"
+            },
+            {
+              "id": "ty:Window:getCursorBlink",
+              "title": "Window.getCursorBlink()"
+            },
+            {
+              "id": "ty:Window:isColor",
+              "title": "Window.isColor()"
+            },
+            {
+              "id": "ty:Window:isColour",
+              "title": "Window.isColour()"
+            },
+            {
+              "id": "ty:Window:setTextColor",
+              "title": "Window.setTextColor(color)"
+            },
+            {
+              "id": "ty:Window:setTextColour",
+              "title": "Window.setTextColour(color)"
+            },
+            {
+              "id": "ty:Window:setPaletteColour",
+              "title": "Window.setPaletteColour(colour, r, g, b)"
+            },
+            {
+              "id": "ty:Window:setPaletteColor",
+              "title": "Window.setPaletteColor(colour, r, g, b)"
+            },
+            {
+              "id": "ty:Window:getPaletteColour",
+              "title": "Window.getPaletteColour(colour)"
+            },
+            {
+              "id": "ty:Window:getPaletteColor",
+              "title": "Window.getPaletteColor(colour)"
+            },
+            {
+              "id": "ty:Window:setBackgroundColor",
+              "title": "Window.setBackgroundColor(color)"
+            },
+            {
+              "id": "ty:Window:setBackgroundColour",
+              "title": "Window.setBackgroundColour(color)"
+            },
+            {
+              "id": "ty:Window:getSize",
+              "title": "Window.getSize()"
+            },
+            {
+              "id": "ty:Window:scroll",
+              "title": "Window.scroll(n)"
+            },
+            {
+              "id": "ty:Window:getTextColor",
+              "title": "Window.getTextColor()"
+            },
+            {
+              "id": "ty:Window:getTextColour",
+              "title": "Window.getTextColour()"
+            },
+            {
+              "id": "ty:Window:getBackgroundColor",
+              "title": "Window.getBackgroundColor()"
+            },
+            {
+              "id": "ty:Window:getBackgroundColour",
+              "title": "Window.getBackgroundColour()"
+            },
+            {
+              "id": "ty:Window:getLine",
+              "title": "Window.getLine(y)"
+            },
+            {
+              "id": "ty:Window:setVisible",
+              "title": "Window.setVisible(visible)"
+            },
+            {
+              "id": "ty:Window:isVisible",
+              "title": "Window.isVisible()"
+            },
+            {
+              "id": "ty:Window:redraw",
+              "title": "Window.redraw()"
+            },
+            {
+              "id": "ty:Window:restoreCursor",
+              "title": "Window.restoreCursor()"
+            },
+            {
+              "id": "ty:Window:getPosition",
+              "title": "Window.getPosition()"
+            },
+            {
+              "id": "ty:Window:reposition",
+              "title": "Window.reposition(new_x, new_y [, new_width, new_height [, new_parent]])"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Modules",
+      "pages": [
+        {
+          "key": "library/cc.audio.dfpwm.html",
+          "url": "/library/cc.audio.dfpwm/",
+          "title": "cc.audio.dfpwm",
+          "description": "Convert between streams of DFPWM audio data and a list of amplitudes.",
+          "file": "pages/library/cc.audio.dfpwm.html",
+          "toc": [
+            {
+              "id": "v:make_encoder",
+              "title": "make_encoder()"
+            },
+            {
+              "id": "v:encode",
+              "title": "encode(input)"
+            },
+            {
+              "id": "v:make_decoder",
+              "title": "make_decoder()"
+            },
+            {
+              "id": "v:decode",
+              "title": "decode(input)"
+            }
+          ]
+        },
+        {
+          "key": "library/cc.base64.html",
+          "url": "/library/cc.base64/",
+          "title": "cc.base64",
+          "description": "The cc.base64 module provides functions for converting binary data to and from Base64.",
+          "file": "pages/library/cc.base64.html",
+          "toc": [
+            {
+              "id": "v:encode",
+              "title": "encode(str [, alt_chars=\"+/\"])"
+            },
+            {
+              "id": "v:decode",
+              "title": "decode(str [, alt_chars=\"+/\"])"
+            }
+          ]
+        },
+        {
+          "key": "library/cc.completion.html",
+          "url": "/library/cc.completion/",
+          "title": "cc.completion",
+          "description": "A collection of helper methods for working with input completion, such as that require by _G.read.",
+          "file": "pages/library/cc.completion.html",
+          "toc": [
+            {
+              "id": "v:choice",
+              "title": "choice(text, choices [, add_space])"
+            },
+            {
+              "id": "v:peripheral",
+              "title": "peripheral(text [, add_space])"
+            },
+            {
+              "id": "v:side",
+              "title": "side(text [, add_space])"
+            },
+            {
+              "id": "v:setting",
+              "title": "setting(text [, add_space])"
+            },
+            {
+              "id": "v:command",
+              "title": "command(text [, add_space])"
+            }
+          ]
+        },
+        {
+          "key": "library/cc.expect.html",
+          "url": "/library/cc.expect/",
+          "title": "cc.expect",
+          "description": "The cc.expect library provides helper functions for verifying that function arguments are well-formed and of the correct type.",
+          "file": "pages/library/cc.expect.html",
+          "toc": [
+            {
+              "id": "v:expect",
+              "title": "expect(index, value, ...)"
+            },
+            {
+              "id": "v:field",
+              "title": "field(tbl, index, ...)"
+            },
+            {
+              "id": "v:range",
+              "title": "range(num [, min=-math.huge [, max=math.huge]])"
+            }
+          ]
+        },
+        {
+          "key": "library/cc.image.nft.html",
+          "url": "/library/cc.image.nft/",
+          "title": "cc.image.nft",
+          "description": "Read and draw nft (\"Nitrogen Fingers Text\") images.",
+          "file": "pages/library/cc.image.nft.html",
+          "toc": [
+            {
+              "id": "v:parse",
+              "title": "parse(image)"
+            },
+            {
+              "id": "v:load",
+              "title": "load(path)"
+            },
+            {
+              "id": "v:draw",
+              "title": "draw(image, xPos, yPos [, target])"
+            }
+          ]
+        },
+        {
+          "key": "library/cc.pretty.html",
+          "url": "/library/cc.pretty/",
+          "title": "cc.pretty",
+          "description": "A pretty printer for rendering data structures in an aesthetically pleasing manner.",
+          "file": "pages/library/cc.pretty.html",
+          "toc": [
+            {
+              "id": "v:empty",
+              "title": "empty"
+            },
+            {
+              "id": "v:space",
+              "title": "space"
+            },
+            {
+              "id": "v:line",
+              "title": "line"
+            },
+            {
+              "id": "v:space_line",
+              "title": "space_line"
+            },
+            {
+              "id": "v:text",
+              "title": "text(text [, colour])"
+            },
+            {
+              "id": "v:concat",
+              "title": "concat(...)"
+            },
+            {
+              "id": "v:nest",
+              "title": "nest(depth, doc)"
+            },
+            {
+              "id": "v:group",
+              "title": "group(doc)"
+            },
+            {
+              "id": "v:write",
+              "title": "write(doc [, ribbon_frac=0.6])"
+            },
+            {
+              "id": "v:print",
+              "title": "print(doc [, ribbon_frac=0.6])"
+            },
+            {
+              "id": "v:render",
+              "title": "render(doc [, width [, ribbon_frac=0.6]])"
+            },
+            {
+              "id": "v:pretty",
+              "title": "pretty(obj [, options])"
+            },
+            {
+              "id": "v:pretty_print",
+              "title": "pretty_print(obj [, options [, ribbon_frac=0.6]])"
+            }
+          ]
+        },
+        {
+          "key": "library/cc.require.html",
+          "url": "/library/cc.require/",
+          "title": "cc.require",
+          "description": "A pure Lua implementation of the builtin require function and package library.",
+          "file": "pages/library/cc.require.html",
+          "toc": [
+            {
+              "id": "v:make",
+              "title": "make(env, dir)"
+            }
+          ]
+        },
+        {
+          "key": "library/cc.shell.completion.html",
+          "url": "/library/cc.shell.completion/",
+          "title": "cc.shell.completion",
+          "description": "A collection of helper methods for working with shell completion.",
+          "file": "pages/library/cc.shell.completion.html",
+          "toc": [
+            {
+              "id": "v:file",
+              "title": "file(shell, text)"
+            },
+            {
+              "id": "v:dir",
+              "title": "dir(shell, text)"
+            },
+            {
+              "id": "v:dirOrFile",
+              "title": "dirOrFile(shell, text, previous [, add_space])"
+            },
+            {
+              "id": "v:program",
+              "title": "program(shell, text)"
+            },
+            {
+              "id": "v:programWithArgs",
+              "title": "programWithArgs(shell, text, previous, starting)"
+            },
+            {
+              "id": "v:help",
+              "title": "help"
+            },
+            {
+              "id": "v:choice",
+              "title": "choice"
+            },
+            {
+              "id": "v:peripheral",
+              "title": "peripheral"
+            },
+            {
+              "id": "v:side",
+              "title": "side"
+            },
+            {
+              "id": "v:setting",
+              "title": "setting"
+            },
+            {
+              "id": "v:command",
+              "title": "command"
+            },
+            {
+              "id": "v:build",
+              "title": "build(...)"
+            }
+          ]
+        },
+        {
+          "key": "library/cc.strings.html",
+          "url": "/library/cc.strings/",
+          "title": "cc.strings",
+          "description": "Various utilities for working with strings and text.",
+          "file": "pages/library/cc.strings.html",
+          "toc": [
+            {
+              "id": "v:wrap",
+              "title": "wrap(text [, width])"
+            },
+            {
+              "id": "v:ensure_width",
+              "title": "ensure_width(line [, width])"
+            },
+            {
+              "id": "v:split",
+              "title": "split(str, deliminator [, plain=false [, limit]])"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Peripherals",
+      "pages": [
+        {
+          "key": "peripheral/command.html",
+          "url": "/peripheral/command/",
+          "title": "command",
+          "description": "This peripheral allows you to interact with command blocks.",
+          "file": "pages/peripheral/command.html",
+          "toc": [
+            {
+              "id": "v:getCommand",
+              "title": "getCommand()"
+            },
+            {
+              "id": "v:setCommand",
+              "title": "setCommand(command)"
+            },
+            {
+              "id": "v:runCommand",
+              "title": "runCommand()"
+            }
+          ]
+        },
+        {
+          "key": "peripheral/computer.html",
+          "url": "/peripheral/computer/",
+          "title": "computer",
+          "description": "A computer or turtle wrapped as a peripheral.",
+          "file": "pages/peripheral/computer.html",
+          "toc": [
+            {
+              "id": "v:turnOn",
+              "title": "turnOn()"
+            },
+            {
+              "id": "v:shutdown",
+              "title": "shutdown()"
+            },
+            {
+              "id": "v:reboot",
+              "title": "reboot()"
+            },
+            {
+              "id": "v:getID",
+              "title": "getID()"
+            },
+            {
+              "id": "v:isOn",
+              "title": "isOn()"
+            },
+            {
+              "id": "v:getLabel",
+              "title": "getLabel()"
+            }
+          ]
+        },
+        {
+          "key": "peripheral/drive.html",
+          "url": "/peripheral/drive/",
+          "title": "drive",
+          "description": "Disk drives are a peripheral which allow you to read and write to floppy disks and other \"mountable media\" (such as computers or turtles).",
+          "file": "pages/peripheral/drive.html",
+          "toc": [
+            {
+              "id": "v:isDiskPresent",
+              "title": "isDiskPresent()"
+            },
+            {
+              "id": "v:getDiskLabel",
+              "title": "getDiskLabel()"
+            },
+            {
+              "id": "v:setDiskLabel",
+              "title": "setDiskLabel([label])"
+            },
+            {
+              "id": "v:hasData",
+              "title": "hasData()"
+            },
+            {
+              "id": "v:getMountPath",
+              "title": "getMountPath()"
+            },
+            {
+              "id": "v:hasAudio",
+              "title": "hasAudio()"
+            },
+            {
+              "id": "v:getAudioTitle",
+              "title": "getAudioTitle()"
+            },
+            {
+              "id": "v:playAudio",
+              "title": "playAudio()"
+            },
+            {
+              "id": "v:stopAudio",
+              "title": "stopAudio()"
+            },
+            {
+              "id": "v:ejectDisk",
+              "title": "ejectDisk()"
+            },
+            {
+              "id": "v:getDiskID",
+              "title": "getDiskID()"
+            }
+          ]
+        },
+        {
+          "key": "peripheral/modem.html",
+          "url": "/peripheral/modem/",
+          "title": "modem",
+          "description": "Modems allow you to send messages between computers over long distances.",
+          "file": "pages/peripheral/modem.html",
+          "toc": [
+            {
+              "id": "v:open",
+              "title": "open(channel)"
+            },
+            {
+              "id": "v:isOpen",
+              "title": "isOpen(channel)"
+            },
+            {
+              "id": "v:close",
+              "title": "close(channel)"
+            },
+            {
+              "id": "v:closeAll",
+              "title": "closeAll()"
+            },
+            {
+              "id": "v:transmit",
+              "title": "transmit(channel, replyChannel, payload)"
+            },
+            {
+              "id": "v:isWireless",
+              "title": "isWireless()"
+            },
+            {
+              "id": "v:getNamesRemote",
+              "title": "getNamesRemote()"
+            },
+            {
+              "id": "v:isPresentRemote",
+              "title": "isPresentRemote(name)"
+            },
+            {
+              "id": "v:getTypeRemote",
+              "title": "getTypeRemote(name)"
+            },
+            {
+              "id": "v:hasTypeRemote",
+              "title": "hasTypeRemote(name, type)"
+            },
+            {
+              "id": "v:getMethodsRemote",
+              "title": "getMethodsRemote(name)"
+            },
+            {
+              "id": "v:callRemote",
+              "title": "callRemote(remoteName, method, ...)"
+            },
+            {
+              "id": "v:getNameLocal",
+              "title": "getNameLocal()"
+            }
+          ]
+        },
+        {
+          "key": "peripheral/monitor.html",
+          "url": "/peripheral/monitor/",
+          "title": "monitor",
+          "description": "Monitors are a block which act as a terminal, displaying information on one side.",
+          "file": "pages/peripheral/monitor.html",
+          "toc": [
+            {
+              "id": "v:setTextScale",
+              "title": "setTextScale(scale)"
+            },
+            {
+              "id": "v:getTextScale",
+              "title": "getTextScale()"
+            },
+            {
+              "id": "v:write",
+              "title": "write(text)"
+            },
+            {
+              "id": "v:scroll",
+              "title": "scroll(y)"
+            },
+            {
+              "id": "v:getCursorPos",
+              "title": "getCursorPos()"
+            },
+            {
+              "id": "v:setCursorPos",
+              "title": "setCursorPos(x, y)"
+            },
+            {
+              "id": "v:getCursorBlink",
+              "title": "getCursorBlink()"
+            },
+            {
+              "id": "v:setCursorBlink",
+              "title": "setCursorBlink(blink)"
+            },
+            {
+              "id": "v:getSize",
+              "title": "getSize()"
+            },
+            {
+              "id": "v:clear",
+              "title": "clear()"
+            },
+            {
+              "id": "v:clearLine",
+              "title": "clearLine()"
+            },
+            {
+              "id": "v:getTextColour",
+              "title": "getTextColour()"
+            },
+            {
+              "id": "v:getTextColor",
+              "title": "getTextColor()"
+            },
+            {
+              "id": "v:setTextColour",
+              "title": "setTextColour(colour)"
+            },
+            {
+              "id": "v:setTextColor",
+              "title": "setTextColor(colour)"
+            },
+            {
+              "id": "v:getBackgroundColour",
+              "title": "getBackgroundColour()"
+            },
+            {
+              "id": "v:getBackgroundColor",
+              "title": "getBackgroundColor()"
+            },
+            {
+              "id": "v:setBackgroundColour",
+              "title": "setBackgroundColour(colour)"
+            },
+            {
+              "id": "v:setBackgroundColor",
+              "title": "setBackgroundColor(colour)"
+            },
+            {
+              "id": "v:isColour",
+              "title": "isColour()"
+            },
+            {
+              "id": "v:isColor",
+              "title": "isColor()"
+            },
+            {
+              "id": "v:blit",
+              "title": "blit(text, textColour, backgroundColour)"
+            },
+            {
+              "id": "v:setPaletteColour",
+              "title": "setPaletteColour(...)"
+            },
+            {
+              "id": "v:setPaletteColor",
+              "title": "setPaletteColor(...)"
+            },
+            {
+              "id": "v:getPaletteColour",
+              "title": "getPaletteColour(colour)"
+            },
+            {
+              "id": "v:getPaletteColor",
+              "title": "getPaletteColor(colour)"
+            }
+          ]
+        },
+        {
+          "key": "peripheral/printer.html",
+          "url": "/peripheral/printer/",
+          "title": "printer",
+          "description": "The printer peripheral allows printing text onto pages.",
+          "file": "pages/peripheral/printer.html",
+          "toc": [
+            {
+              "id": "v:write",
+              "title": "write(text)"
+            },
+            {
+              "id": "v:getCursorPos",
+              "title": "getCursorPos()"
+            },
+            {
+              "id": "v:setCursorPos",
+              "title": "setCursorPos(x, y)"
+            },
+            {
+              "id": "v:getPageSize",
+              "title": "getPageSize()"
+            },
+            {
+              "id": "v:newPage",
+              "title": "newPage()"
+            },
+            {
+              "id": "v:endPage",
+              "title": "endPage()"
+            },
+            {
+              "id": "v:setPageTitle",
+              "title": "setPageTitle([title])"
+            },
+            {
+              "id": "v:getInkLevel",
+              "title": "getInkLevel()"
+            },
+            {
+              "id": "v:getPaperLevel",
+              "title": "getPaperLevel()"
+            }
+          ]
+        },
+        {
+          "key": "peripheral/redstone_relay.html",
+          "url": "/peripheral/redstone_relay/",
+          "title": "redstone_relay",
+          "description": "The redstone relay is a peripheral that allows reading and outputting redstone signals.",
+          "file": "pages/peripheral/redstone_relay.html",
+          "toc": [
+            {
+              "id": "v:setOutput",
+              "title": "setOutput(side, on)"
+            },
+            {
+              "id": "v:getOutput",
+              "title": "getOutput(side)"
+            },
+            {
+              "id": "v:getInput",
+              "title": "getInput(side)"
+            },
+            {
+              "id": "v:setAnalogOutput",
+              "title": "setAnalogOutput(side, value)"
+            },
+            {
+              "id": "v:setAnalogueOutput",
+              "title": "setAnalogueOutput(side, value)"
+            },
+            {
+              "id": "v:getAnalogOutput",
+              "title": "getAnalogOutput(side)"
+            },
+            {
+              "id": "v:getAnalogueOutput",
+              "title": "getAnalogueOutput(side)"
+            },
+            {
+              "id": "v:getAnalogInput",
+              "title": "getAnalogInput(side)"
+            },
+            {
+              "id": "v:getAnalogueInput",
+              "title": "getAnalogueInput(side)"
+            },
+            {
+              "id": "v:setBundledOutput",
+              "title": "setBundledOutput(side, output)"
+            },
+            {
+              "id": "v:getBundledOutput",
+              "title": "getBundledOutput(side)"
+            },
+            {
+              "id": "v:getBundledInput",
+              "title": "getBundledInput(side)"
+            },
+            {
+              "id": "v:testBundledInput",
+              "title": "testBundledInput(side, mask)"
+            }
+          ]
+        },
+        {
+          "key": "peripheral/speaker.html",
+          "url": "/peripheral/speaker/",
+          "title": "speaker",
+          "description": "The speaker peripheral allows your computer to play notes and other sounds.",
+          "file": "pages/peripheral/speaker.html",
+          "toc": [
+            {
+              "id": "v:playNote",
+              "title": "playNote(instrument [, volume [, pitch]])"
+            },
+            {
+              "id": "v:playSound",
+              "title": "playSound(name [, volume [, pitch]])"
+            },
+            {
+              "id": "v:playAudio",
+              "title": "playAudio(audio [, volume])"
+            },
+            {
+              "id": "v:stop",
+              "title": "stop()"
+            }
+          ]
+        },
+        {
+          "key": "peripheral/turtle_storage.html",
+          "url": "/peripheral/turtle_storage/",
+          "title": "turtle_storage",
+          "description": "A turtle_storage allows you to equip a shulker or other storage items with a turtle and access its contents.",
+          "file": "pages/peripheral/turtle_storage.html",
+          "toc": [
+            {
+              "id": "v:size",
+              "title": "size()"
+            },
+            {
+              "id": "v:list",
+              "title": "list()"
+            },
+            {
+              "id": "v:getItemDetail",
+              "title": "getItemDetail(slot)"
+            },
+            {
+              "id": "v:pushItems",
+              "title": "pushItems(fromSlot [, limit [, toSlot]])"
+            },
+            {
+              "id": "v:pullItems",
+              "title": "pullItems([fromSlot [, limit [, toSlot]]])"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Generic Peripherals",
+      "pages": [
+        {
+          "key": "generic_peripheral/energy_storage.html",
+          "url": "/generic_peripheral/energy_storage/",
+          "title": "energy_storage",
+          "description": "Methods for interacting with blocks which store energy.",
+          "file": "pages/generic_peripheral/energy_storage.html",
+          "toc": [
+            {
+              "id": "v:getEnergy",
+              "title": "getEnergy()"
+            },
+            {
+              "id": "v:getEnergyCapacity",
+              "title": "getEnergyCapacity()"
+            }
+          ]
+        },
+        {
+          "key": "generic_peripheral/fluid_storage.html",
+          "url": "/generic_peripheral/fluid_storage/",
+          "title": "fluid_storage",
+          "description": "Methods for interacting with tanks and other fluid storage blocks.",
+          "file": "pages/generic_peripheral/fluid_storage.html",
+          "toc": [
+            {
+              "id": "v:tanks",
+              "title": "tanks()"
+            },
+            {
+              "id": "v:pushFluid",
+              "title": "pushFluid(toName [, limit [, fluidName]])"
+            },
+            {
+              "id": "v:pullFluid",
+              "title": "pullFluid(fromName [, limit [, fluidName]])"
+            }
+          ]
+        },
+        {
+          "key": "generic_peripheral/inventory.html",
+          "url": "/generic_peripheral/inventory/",
+          "title": "inventory",
+          "description": "Methods for interacting with inventories.",
+          "file": "pages/generic_peripheral/inventory.html",
+          "toc": [
+            {
+              "id": "v:size",
+              "title": "size()"
+            },
+            {
+              "id": "v:list",
+              "title": "list()"
+            },
+            {
+              "id": "v:getItemDetail",
+              "title": "getItemDetail(slot)"
+            },
+            {
+              "id": "v:getItemLimit",
+              "title": "getItemLimit(slot)"
+            },
+            {
+              "id": "v:pushItems",
+              "title": "pushItems(toName, fromSlot [, limit [, toSlot]])"
+            },
+            {
+              "id": "v:pullItems",
+              "title": "pullItems(fromName, fromSlot [, limit [, toSlot]])"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Events",
+      "pages": [
+        {
+          "key": "event/alarm.html",
+          "url": "/event/alarm/",
+          "title": "alarm",
+          "description": "The alarm event is fired when an alarm started with os.setAlarm completes.",
+          "file": "pages/event/alarm.html",
+          "toc": []
+        },
+        {
+          "key": "event/char.html",
+          "url": "/event/char/",
+          "title": "char",
+          "description": "The char event is fired when a character is typed on the keyboard.",
+          "file": "pages/event/char.html",
+          "toc": []
+        },
+        {
+          "key": "event/computer_command.html",
+          "url": "/event/computer_command/",
+          "title": "computer_command",
+          "description": "The computer_command event is fired when the /computercraft queue command is run for the current command computer.",
+          "file": "pages/event/computer_command.html",
+          "toc": []
+        },
+        {
+          "key": "event/disk.html",
+          "url": "/event/disk/",
+          "title": "disk",
+          "description": "The disk event is fired when a disk is inserted into an adjacent or networked disk drive.",
+          "file": "pages/event/disk.html",
+          "toc": []
+        },
+        {
+          "key": "event/disk_eject.html",
+          "url": "/event/disk_eject/",
+          "title": "disk_eject",
+          "description": "The disk_eject event is fired when a disk is removed from an adjacent or networked disk drive.",
+          "file": "pages/event/disk_eject.html",
+          "toc": []
+        },
+        {
+          "key": "event/file_transfer.html",
+          "url": "/event/file_transfer/",
+          "title": "file_transfer",
+          "description": "The file_transfer event is queued when a user drags-and-drops a file on an open computer.",
+          "file": "pages/event/file_transfer.html",
+          "toc": [
+            {
+              "id": "ty:TransferredFiles:getFiles",
+              "title": "TransferredFiles.getFiles()"
+            },
+            {
+              "id": "ty:TransferredFile:getName",
+              "title": "TransferredFile.getName()"
+            }
+          ]
+        },
+        {
+          "key": "event/http_check.html",
+          "url": "/event/http_check/",
+          "title": "http_check",
+          "description": "The http_check event is fired when a URL check finishes.",
+          "file": "pages/event/http_check.html",
+          "toc": []
+        },
+        {
+          "key": "event/http_failure.html",
+          "url": "/event/http_failure/",
+          "title": "http_failure",
+          "description": "The http_failure event is fired when an HTTP request fails.",
+          "file": "pages/event/http_failure.html",
+          "toc": []
+        },
+        {
+          "key": "event/http_success.html",
+          "url": "/event/http_success/",
+          "title": "http_success",
+          "description": "The http_success event is fired when an HTTP request returns successfully.",
+          "file": "pages/event/http_success.html",
+          "toc": []
+        },
+        {
+          "key": "event/key.html",
+          "url": "/event/key/",
+          "title": "key",
+          "description": "This event is fired when any key is pressed while the terminal is focused.",
+          "file": "pages/event/key.html",
+          "toc": []
+        },
+        {
+          "key": "event/key_up.html",
+          "url": "/event/key_up/",
+          "title": "key_up",
+          "description": "Fired whenever a key is released (or the terminal is closed while a key was being pressed).",
+          "file": "pages/event/key_up.html",
+          "toc": []
+        },
+        {
+          "key": "event/modem_message.html",
+          "url": "/event/modem_message/",
+          "title": "modem_message",
+          "description": "The modem_message event is fired when a message is received on an open channel on any modem.",
+          "file": "pages/event/modem_message.html",
+          "toc": []
+        },
+        {
+          "key": "event/monitor_resize.html",
+          "url": "/event/monitor_resize/",
+          "title": "monitor_resize",
+          "description": "The monitor_resize event is fired when an adjacent or networked monitor's size is changed.",
+          "file": "pages/event/monitor_resize.html",
+          "toc": []
+        },
+        {
+          "key": "event/monitor_touch.html",
+          "url": "/event/monitor_touch/",
+          "title": "monitor_touch",
+          "description": "The monitor_touch event is fired when an adjacent or networked Advanced Monitor is right-clicked.",
+          "file": "pages/event/monitor_touch.html",
+          "toc": []
+        },
+        {
+          "key": "event/mouse_click.html",
+          "url": "/event/mouse_click/",
+          "title": "mouse_click",
+          "description": "This event is fired when the terminal is clicked with a mouse.",
+          "file": "pages/event/mouse_click.html",
+          "toc": []
+        },
+        {
+          "key": "event/mouse_drag.html",
+          "url": "/event/mouse_drag/",
+          "title": "mouse_drag",
+          "description": "This event is fired every time the mouse is moved while a mouse button is being held.",
+          "file": "pages/event/mouse_drag.html",
+          "toc": []
+        },
+        {
+          "key": "event/mouse_scroll.html",
+          "url": "/event/mouse_scroll/",
+          "title": "mouse_scroll",
+          "description": "This event is fired when a mouse wheel is scrolled in the terminal.",
+          "file": "pages/event/mouse_scroll.html",
+          "toc": []
+        },
+        {
+          "key": "event/mouse_up.html",
+          "url": "/event/mouse_up/",
+          "title": "mouse_up",
+          "description": "This event is fired when a mouse button is released or a held mouse leaves the computer's terminal.",
+          "file": "pages/event/mouse_up.html",
+          "toc": []
+        },
+        {
+          "key": "event/paste.html",
+          "url": "/event/paste/",
+          "title": "paste",
+          "description": "The paste event is fired when text is pasted into the computer through Ctrl-V (or ⌘V on Mac).",
+          "file": "pages/event/paste.html",
+          "toc": []
+        },
+        {
+          "key": "event/peripheral.html",
+          "url": "/event/peripheral/",
+          "title": "peripheral",
+          "description": "The peripheral event is fired when a peripheral is attached on a side or to a modem.",
+          "file": "pages/event/peripheral.html",
+          "toc": []
+        },
+        {
+          "key": "event/peripheral_detach.html",
+          "url": "/event/peripheral_detach/",
+          "title": "peripheral_detach",
+          "description": "The peripheral_detach event is fired when a peripheral is detached from a side or from a modem.",
+          "file": "pages/event/peripheral_detach.html",
+          "toc": []
+        },
+        {
+          "key": "event/rednet_message.html",
+          "url": "/event/rednet_message/",
+          "title": "rednet_message",
+          "description": "The rednet_message event is fired when a message is sent over Rednet.",
+          "file": "pages/event/rednet_message.html",
+          "toc": []
+        },
+        {
+          "key": "event/redstone.html",
+          "url": "/event/redstone/",
+          "title": "redstone",
+          "description": "The redstone event is fired whenever any redstone inputs on the computer or relay change.",
+          "file": "pages/event/redstone.html",
+          "toc": []
+        },
+        {
+          "key": "event/setting_changed.html",
+          "url": "/event/setting_changed/",
+          "title": "setting_changed",
+          "description": "The setting_changed event is fired when a setting is modified with the settings API.",
+          "file": "pages/event/setting_changed.html",
+          "toc": []
+        },
+        {
+          "key": "event/speaker_audio_empty.html",
+          "url": "/event/speaker_audio_empty/",
+          "title": "speaker_audio_empty",
+          "description": "Return Values",
+          "file": "pages/event/speaker_audio_empty.html",
+          "toc": []
+        },
+        {
+          "key": "event/task_complete.html",
+          "url": "/event/task_complete/",
+          "title": "task_complete",
+          "description": "The task_complete event is fired when an asynchronous task completes.",
+          "file": "pages/event/task_complete.html",
+          "toc": []
+        },
+        {
+          "key": "event/term_resize.html",
+          "url": "/event/term_resize/",
+          "title": "term_resize",
+          "description": "The term_resize event is fired when the main terminal is resized.",
+          "file": "pages/event/term_resize.html",
+          "toc": []
+        },
+        {
+          "key": "event/terminate.html",
+          "url": "/event/terminate/",
+          "title": "terminate",
+          "description": "The terminate event is fired when Ctrl-T is held down.",
+          "file": "pages/event/terminate.html",
+          "toc": []
+        },
+        {
+          "key": "event/timer.html",
+          "url": "/event/timer/",
+          "title": "timer",
+          "description": "The timer event is fired when a timer started with os.startTimer completes.",
+          "file": "pages/event/timer.html",
+          "toc": []
+        },
+        {
+          "key": "event/turtle_inventory.html",
+          "url": "/event/turtle_inventory/",
+          "title": "turtle_inventory",
+          "description": "The turtle_inventory event is fired when a turtle's inventory is changed.",
+          "file": "pages/event/turtle_inventory.html",
+          "toc": []
+        },
+        {
+          "key": "event/websocket_closed.html",
+          "url": "/event/websocket_closed/",
+          "title": "websocket_closed",
+          "description": "The websocket_closed event is fired when an open WebSocket connection is closed.",
+          "file": "pages/event/websocket_closed.html",
+          "toc": []
+        },
+        {
+          "key": "event/websocket_failure.html",
+          "url": "/event/websocket_failure/",
+          "title": "websocket_failure",
+          "description": "The websocket_failure event is fired when a WebSocket connection request fails.",
+          "file": "pages/event/websocket_failure.html",
+          "toc": []
+        },
+        {
+          "key": "event/websocket_message.html",
+          "url": "/event/websocket_message/",
+          "title": "websocket_message",
+          "description": "The websocket_message event is fired when a message is received on an open WebSocket connection.",
+          "file": "pages/event/websocket_message.html",
+          "toc": []
+        },
+        {
+          "key": "event/websocket_success.html",
+          "url": "/event/websocket_success/",
+          "title": "websocket_success",
+          "description": "The websocket_success event is fired when a WebSocket connection request returns successfully.",
+          "file": "pages/event/websocket_success.html",
+          "toc": []
+        }
+      ]
+    },
+    {
+      "title": "Guides",
+      "pages": [
+        {
+          "key": "guide/gps_setup.html",
+          "url": "/guide/gps_setup/",
+          "title": "Setting up GPS",
+          "description": "The gps API allows a computer to find its current position using a wireless modem.",
+          "file": "pages/guide/gps_setup.html",
+          "toc": []
+        },
+        {
+          "key": "guide/local_ips.html",
+          "url": "/guide/local_ips/",
+          "title": "Allowing access to local IPs",
+          "description": "By default, ComputerCraft blocks access to local IP addresses for security.",
+          "file": "pages/guide/local_ips.html",
+          "toc": []
+        },
+        {
+          "key": "guide/speaker_audio.html",
+          "url": "/guide/speaker_audio/",
+          "title": "Playing audio with speakers",
+          "description": "CC: Tweaked's speaker peripheral provides a powerful way to play any audio you like with the speaker.playAudio method.",
+          "file": "pages/guide/speaker_audio.html",
+          "toc": []
+        },
+        {
+          "key": "guide/startup.html",
+          "url": "/guide/startup/",
+          "title": "Running programs on computer startup",
+          "description": "It's often useful to automatically start running a program when a computer is turned on, such as when running a GPS host...",
+          "file": "pages/guide/startup.html",
+          "toc": []
+        },
+        {
+          "key": "guide/using_require.html",
+          "url": "/guide/using_require/",
+          "title": "Reusing code with require",
+          "description": "A library is a collection of useful functions and other definitions which is stored separately to your main program.",
+          "file": "pages/guide/using_require.html",
+          "toc": []
+        }
+      ]
+    },
+    {
+      "title": "Reference",
+      "pages": [
+        {
+          "key": "reference/block_details.html",
+          "url": "/reference/block_details/",
+          "title": "Block details",
+          "description": "Several functions in CC: Tweaked, such as turtle.inspect and commands.getBlockInfo provide a way to get information about a block in the world.",
+          "file": "pages/reference/block_details.html",
+          "toc": []
+        },
+        {
+          "key": "reference/breaking_changes.html",
+          "url": "/reference/breaking_changes/",
+          "title": "Incompatibilities between versions",
+          "description": "CC: Tweaked tries to remain as compatible between versions as possible, meaning most programs written for older versions...",
+          "file": "pages/reference/breaking_changes.html",
+          "toc": []
+        },
+        {
+          "key": "reference/computercraft_command.html",
+          "url": "/reference/computercraft_command/",
+          "title": "The /computercraft command",
+          "description": "CC: Tweaked provides a /computercraft command for server owners to manage running computers on a server.",
+          "file": "pages/reference/computercraft_command.html",
+          "toc": []
+        },
+        {
+          "key": "reference/data_pack.html",
+          "url": "/reference/data_pack/",
+          "title": "Data packs",
+          "description": "CC: Tweaked allows customising and extending many of its features via data packs, such as adding new programs to the ROM, or providing new turtle tools.",
+          "file": "pages/reference/data_pack.html",
+          "toc": []
+        },
+        {
+          "key": "reference/entity_details.html",
+          "url": "/reference/entity_details/",
+          "title": "Entity details",
+          "description": "Some functions in CC: Tweaked (such as commands.getEntities) provide a way to get information about an entity.",
+          "file": "pages/reference/entity_details.html",
+          "toc": []
+        },
+        {
+          "key": "reference/exceptions.html",
+          "url": "/reference/exceptions/",
+          "title": "CraftOS's exception protocol",
+          "description": "By default, Lua represents errors are plain strings.",
+          "file": "pages/reference/exceptions.html",
+          "toc": []
+        },
+        {
+          "key": "reference/feature_compat.html",
+          "url": "/reference/feature_compat/",
+          "title": "Lua 5.2/5.3 features in CC: Tweaked",
+          "description": "CC: Tweaked is based off of the Cobalt Lua runtime, which uses Lua 5.",
+          "file": "pages/reference/feature_compat.html",
+          "toc": []
+        },
+        {
+          "key": "reference/item_details.html",
+          "url": "/reference/item_details/",
+          "title": "Item details",
+          "description": "Several functions in CC: Tweaked, such as turtle.getItemDetail and inventory.getItemDetail provide a way to get information about an item stack.",
+          "file": "pages/reference/item_details.html",
+          "toc": []
+        },
+        {
+          "key": "reference/startup.html",
+          "url": "/reference/startup/",
+          "title": "Computer startup",
+          "description": "When a computer turns on, it searches for files to run as part of the startup process.",
+          "file": "pages/reference/startup.html",
+          "toc": []
+        }
+      ]
+    }
+  ],
+  "pages": {
+    "/module/_G/": {
+      "title": "_G",
+      "description": "Functions in the global environment, defined in bios.lua.",
+      "group": "Globals",
+      "file": "pages/module/_G.html",
+      "toc": [
+        {
+          "id": "v:sleep",
+          "title": "sleep([time=0])"
+        },
+        {
+          "id": "v:write",
+          "title": "write(text)"
+        },
+        {
+          "id": "v:print",
+          "title": "print(...)"
+        },
+        {
+          "id": "v:printError",
+          "title": "printError(...)"
+        },
+        {
+          "id": "v:read",
+          "title": "read([replaceChar [, history [, completeFn [, default]]]])"
+        },
+        {
+          "id": "v:_HOST",
+          "title": "_HOST"
+        },
+        {
+          "id": "v:_CC_DEFAULT_SETTINGS",
+          "title": "_CC_DEFAULT_SETTINGS"
+        }
+      ]
+    },
+    "/module/colors/": {
+      "title": "colors",
+      "description": "Constants and functions for colour values, suitable for working with term and redstone.",
+      "group": "Globals",
+      "file": "pages/module/colors.html",
+      "toc": [
+        {
+          "id": "v:white",
+          "title": "white = 0x1"
+        },
+        {
+          "id": "v:orange",
+          "title": "orange = 0x2"
+        },
+        {
+          "id": "v:magenta",
+          "title": "magenta = 0x4"
+        },
+        {
+          "id": "v:lightBlue",
+          "title": "lightBlue = 0x8"
+        },
+        {
+          "id": "v:yellow",
+          "title": "yellow = 0x10"
+        },
+        {
+          "id": "v:lime",
+          "title": "lime = 0x20"
+        },
+        {
+          "id": "v:pink",
+          "title": "pink = 0x40"
+        },
+        {
+          "id": "v:gray",
+          "title": "gray = 0x80"
+        },
+        {
+          "id": "v:lightGray",
+          "title": "lightGray = 0x100"
+        },
+        {
+          "id": "v:cyan",
+          "title": "cyan = 0x200"
+        },
+        {
+          "id": "v:purple",
+          "title": "purple = 0x400"
+        },
+        {
+          "id": "v:blue",
+          "title": "blue = 0x800"
+        },
+        {
+          "id": "v:brown",
+          "title": "brown = 0x1000"
+        },
+        {
+          "id": "v:green",
+          "title": "green = 0x2000"
+        },
+        {
+          "id": "v:red",
+          "title": "red = 0x4000"
+        },
+        {
+          "id": "v:black",
+          "title": "black = 0x8000"
+        },
+        {
+          "id": "v:combine",
+          "title": "combine(...)"
+        },
+        {
+          "id": "v:subtract",
+          "title": "subtract(colors, ...)"
+        },
+        {
+          "id": "v:test",
+          "title": "test(colors, color)"
+        },
+        {
+          "id": "v:packRGB",
+          "title": "packRGB(r, g, b)"
+        },
+        {
+          "id": "v:unpackRGB",
+          "title": "unpackRGB(rgb)"
+        },
+        {
+          "id": "v:toBlit",
+          "title": "toBlit(color)"
+        },
+        {
+          "id": "v:fromBlit",
+          "title": "fromBlit(hex)"
+        }
+      ]
+    },
+    "/module/colours/": {
+      "title": "colours",
+      "description": "An alternative version of colors for lovers of British spelling.",
+      "group": "Globals",
+      "file": "pages/module/colours.html",
+      "toc": [
+        {
+          "id": "v:grey",
+          "title": "grey"
+        },
+        {
+          "id": "v:lightGrey",
+          "title": "lightGrey"
+        }
+      ]
+    },
+    "/module/commands/": {
+      "title": "commands",
+      "description": "Execute Minecraft commands and gather data from the results from a command computer.",
+      "group": "Globals",
+      "file": "pages/module/commands.html",
+      "toc": [
+        {
+          "id": "v:exec",
+          "title": "exec(command)"
+        },
+        {
+          "id": "v:execAsync",
+          "title": "execAsync(command)"
+        },
+        {
+          "id": "v:list",
+          "title": "list(...)"
+        },
+        {
+          "id": "v:getDimension",
+          "title": "getDimension()"
+        },
+        {
+          "id": "v:getBlockPosition",
+          "title": "getBlockPosition()"
+        },
+        {
+          "id": "v:getBlockInfos",
+          "title": "getBlockInfos(minX, minY, minZ, maxX, maxY, maxZ [, dimension])"
+        },
+        {
+          "id": "v:getBlockInfo",
+          "title": "getBlockInfo(x, y, z [, dimension])"
+        },
+        {
+          "id": "v:getEntities",
+          "title": "getEntities(selector)"
+        },
+        {
+          "id": "v:native",
+          "title": "native"
+        },
+        {
+          "id": "v:async",
+          "title": "async"
+        }
+      ]
+    },
+    "/module/disk/": {
+      "title": "disk",
+      "description": "Interact with disk drives.",
+      "group": "Globals",
+      "file": "pages/module/disk.html",
+      "toc": [
+        {
+          "id": "v:isPresent",
+          "title": "isPresent(name)"
+        },
+        {
+          "id": "v:getLabel",
+          "title": "getLabel(name)"
+        },
+        {
+          "id": "v:setLabel",
+          "title": "setLabel(name, label)"
+        },
+        {
+          "id": "v:hasData",
+          "title": "hasData(name)"
+        },
+        {
+          "id": "v:getMountPath",
+          "title": "getMountPath(name)"
+        },
+        {
+          "id": "v:hasAudio",
+          "title": "hasAudio(name)"
+        },
+        {
+          "id": "v:getAudioTitle",
+          "title": "getAudioTitle(name)"
+        },
+        {
+          "id": "v:playAudio",
+          "title": "playAudio(name)"
+        },
+        {
+          "id": "v:stopAudio",
+          "title": "stopAudio(name)"
+        },
+        {
+          "id": "v:eject",
+          "title": "eject(name)"
+        },
+        {
+          "id": "v:getID",
+          "title": "getID(name)"
+        }
+      ]
+    },
+    "/module/fs/": {
+      "title": "fs",
+      "description": "Interact with the computer's files and filesystem, allowing you to manipulate files, directories and paths.",
+      "group": "Globals",
+      "file": "pages/module/fs.html",
+      "toc": [
+        {
+          "id": "v:complete",
+          "title": "complete(...)"
+        },
+        {
+          "id": "v:find",
+          "title": "find(path)"
+        },
+        {
+          "id": "v:isDriveRoot",
+          "title": "isDriveRoot(path)"
+        },
+        {
+          "id": "v:list",
+          "title": "list(path)"
+        },
+        {
+          "id": "v:combine",
+          "title": "combine(path, ...)"
+        },
+        {
+          "id": "v:getName",
+          "title": "getName(path)"
+        },
+        {
+          "id": "v:getDir",
+          "title": "getDir(path)"
+        },
+        {
+          "id": "v:getSize",
+          "title": "getSize(path)"
+        },
+        {
+          "id": "v:exists",
+          "title": "exists(path)"
+        },
+        {
+          "id": "v:isDir",
+          "title": "isDir(path)"
+        },
+        {
+          "id": "v:isReadOnly",
+          "title": "isReadOnly(path)"
+        },
+        {
+          "id": "v:makeDir",
+          "title": "makeDir(path)"
+        },
+        {
+          "id": "v:move",
+          "title": "move(path, dest)"
+        },
+        {
+          "id": "v:copy",
+          "title": "copy(path, dest)"
+        },
+        {
+          "id": "v:delete",
+          "title": "delete(path)"
+        },
+        {
+          "id": "v:open",
+          "title": "open(path, mode)"
+        },
+        {
+          "id": "v:getDrive",
+          "title": "getDrive(path)"
+        },
+        {
+          "id": "v:getFreeSpace",
+          "title": "getFreeSpace(path)"
+        },
+        {
+          "id": "v:getCapacity",
+          "title": "getCapacity(path)"
+        },
+        {
+          "id": "v:attributes",
+          "title": "attributes(path)"
+        },
+        {
+          "id": "ty:ReadWriteHandle:read",
+          "title": "ReadWriteHandle.read([count])"
+        },
+        {
+          "id": "ty:ReadWriteHandle:readAll",
+          "title": "ReadWriteHandle.readAll()"
+        },
+        {
+          "id": "ty:ReadWriteHandle:readLine",
+          "title": "ReadWriteHandle.readLine([withTrailing])"
+        },
+        {
+          "id": "ty:ReadWriteHandle:seek",
+          "title": "ReadWriteHandle.seek([whence [, offset]])"
+        },
+        {
+          "id": "ty:ReadWriteHandle:write",
+          "title": "ReadWriteHandle.write(...)"
+        },
+        {
+          "id": "ty:ReadWriteHandle:writeLine",
+          "title": "ReadWriteHandle.writeLine(text)"
+        },
+        {
+          "id": "ty:ReadWriteHandle:flush",
+          "title": "ReadWriteHandle.flush()"
+        },
+        {
+          "id": "ty:ReadWriteHandle:close",
+          "title": "ReadWriteHandle.close()"
+        },
+        {
+          "id": "ty:WriteHandle:write",
+          "title": "WriteHandle.write(...)"
+        },
+        {
+          "id": "ty:WriteHandle:writeLine",
+          "title": "WriteHandle.writeLine(text)"
+        },
+        {
+          "id": "ty:WriteHandle:flush",
+          "title": "WriteHandle.flush()"
+        },
+        {
+          "id": "ty:WriteHandle:seek",
+          "title": "WriteHandle.seek([whence [, offset]])"
+        },
+        {
+          "id": "ty:WriteHandle:close",
+          "title": "WriteHandle.close()"
+        },
+        {
+          "id": "ty:ReadHandle:read",
+          "title": "ReadHandle.read([count])"
+        },
+        {
+          "id": "ty:ReadHandle:readAll",
+          "title": "ReadHandle.readAll()"
+        },
+        {
+          "id": "ty:ReadHandle:readLine",
+          "title": "ReadHandle.readLine([withTrailing])"
+        },
+        {
+          "id": "ty:ReadHandle:seek",
+          "title": "ReadHandle.seek([whence [, offset]])"
+        },
+        {
+          "id": "ty:ReadHandle:close",
+          "title": "ReadHandle.close()"
+        }
+      ]
+    },
+    "/module/gps/": {
+      "title": "gps",
+      "description": "Use modems to locate the position of the current turtle or computers.",
+      "group": "Globals",
+      "file": "pages/module/gps.html",
+      "toc": [
+        {
+          "id": "v:CHANNEL_GPS",
+          "title": "CHANNEL_GPS = 65534"
+        },
+        {
+          "id": "v:locate",
+          "title": "locate([timeout=2 [, debug=false]])"
+        }
+      ]
+    },
+    "/module/help/": {
+      "title": "help",
+      "description": "Find help files on the current computer.",
+      "group": "Globals",
+      "file": "pages/module/help.html",
+      "toc": [
+        {
+          "id": "v:path",
+          "title": "path()"
+        },
+        {
+          "id": "v:setPath",
+          "title": "setPath(newPath)"
+        },
+        {
+          "id": "v:lookup",
+          "title": "lookup(topic)"
+        },
+        {
+          "id": "v:topics",
+          "title": "topics()"
+        },
+        {
+          "id": "v:completeTopic",
+          "title": "completeTopic(prefix)"
+        }
+      ]
+    },
+    "/module/http/": {
+      "title": "http",
+      "description": "Make HTTP requests, sending and receiving data to a remote web server.",
+      "group": "Globals",
+      "file": "pages/module/http.html",
+      "toc": [
+        {
+          "id": "v:get",
+          "title": "get(...)"
+        },
+        {
+          "id": "v:post",
+          "title": "post(...)"
+        },
+        {
+          "id": "v:request",
+          "title": "request(...)"
+        },
+        {
+          "id": "v:checkURLAsync",
+          "title": "checkURLAsync(url)"
+        },
+        {
+          "id": "v:checkURL",
+          "title": "checkURL(url)"
+        },
+        {
+          "id": "v:websocketAsync",
+          "title": "websocketAsync(...)"
+        },
+        {
+          "id": "v:websocket",
+          "title": "websocket(...)"
+        },
+        {
+          "id": "ty:Response:getResponseCode",
+          "title": "Response.getResponseCode()"
+        },
+        {
+          "id": "ty:Response:getResponseHeaders",
+          "title": "Response.getResponseHeaders()"
+        },
+        {
+          "id": "ty:Websocket:receive",
+          "title": "Websocket.receive([timeout])"
+        },
+        {
+          "id": "ty:Websocket:send",
+          "title": "Websocket.send(message [, binary])"
+        },
+        {
+          "id": "ty:Websocket:close",
+          "title": "Websocket.close()"
+        },
+        {
+          "id": "ty:Websocket:getResponseHeaders",
+          "title": "Websocket.getResponseHeaders()"
+        }
+      ]
+    },
+    "/module/io/": {
+      "title": "io",
+      "description": "Emulates Lua's standard io library.",
+      "group": "Globals",
+      "file": "pages/module/io.html",
+      "toc": [
+        {
+          "id": "v:stdin",
+          "title": "stdin"
+        },
+        {
+          "id": "v:stdout",
+          "title": "stdout"
+        },
+        {
+          "id": "v:stderr",
+          "title": "stderr"
+        },
+        {
+          "id": "v:close",
+          "title": "close([file])"
+        },
+        {
+          "id": "v:flush",
+          "title": "flush()"
+        },
+        {
+          "id": "v:input",
+          "title": "input([file])"
+        },
+        {
+          "id": "v:lines",
+          "title": "lines([filename, ...])"
+        },
+        {
+          "id": "v:open",
+          "title": "open(filename [, mode])"
+        },
+        {
+          "id": "v:output",
+          "title": "output([file])"
+        },
+        {
+          "id": "v:read",
+          "title": "read(...)"
+        },
+        {
+          "id": "v:type",
+          "title": "type(obj)"
+        },
+        {
+          "id": "v:write",
+          "title": "write(...)"
+        },
+        {
+          "id": "ty:Handle:close",
+          "title": "Handle.close()"
+        },
+        {
+          "id": "ty:Handle:flush",
+          "title": "Handle.flush()"
+        },
+        {
+          "id": "ty:Handle:lines",
+          "title": "Handle.lines(...)"
+        },
+        {
+          "id": "ty:Handle:read",
+          "title": "Handle.read(...)"
+        },
+        {
+          "id": "ty:Handle:seek",
+          "title": "Handle.seek([whence [, offset]])"
+        },
+        {
+          "id": "ty:Handle:write",
+          "title": "Handle.write(...)"
+        }
+      ]
+    },
+    "/module/keys/": {
+      "title": "keys",
+      "description": "Constants for all keyboard \"key codes\", as queued by the key event.",
+      "group": "Globals",
+      "file": "pages/module/keys.html",
+      "toc": [
+        {
+          "id": "v:getName",
+          "title": "getName(code)"
+        }
+      ]
+    },
+    "/module/multishell/": {
+      "title": "multishell",
+      "description": "Multishell allows multiple programs to be run at the same time.",
+      "group": "Globals",
+      "file": "pages/module/multishell.html",
+      "toc": [
+        {
+          "id": "v:getFocus",
+          "title": "getFocus()"
+        },
+        {
+          "id": "v:setFocus",
+          "title": "setFocus(n)"
+        },
+        {
+          "id": "v:getTitle",
+          "title": "getTitle(n)"
+        },
+        {
+          "id": "v:setTitle",
+          "title": "setTitle(n, title)"
+        },
+        {
+          "id": "v:getCurrent",
+          "title": "getCurrent()"
+        },
+        {
+          "id": "v:launch",
+          "title": "launch(tProgramEnv, sProgramPath, ...)"
+        },
+        {
+          "id": "v:getCount",
+          "title": "getCount()"
+        }
+      ]
+    },
+    "/module/os/": {
+      "title": "os",
+      "description": "The os API allows interacting with the current computer.",
+      "group": "Globals",
+      "file": "pages/module/os.html",
+      "toc": [
+        {
+          "id": "v:pullEvent",
+          "title": "pullEvent([filter])"
+        },
+        {
+          "id": "v:pullEventRaw",
+          "title": "pullEventRaw([filter])"
+        },
+        {
+          "id": "v:sleep",
+          "title": "sleep([time=0])"
+        },
+        {
+          "id": "v:version",
+          "title": "version()"
+        },
+        {
+          "id": "v:run",
+          "title": "run(env, path, ...)"
+        },
+        {
+          "id": "v:queueEvent",
+          "title": "queueEvent(name, ...)"
+        },
+        {
+          "id": "v:startTimer",
+          "title": "startTimer(time)"
+        },
+        {
+          "id": "v:cancelTimer",
+          "title": "cancelTimer(token)"
+        },
+        {
+          "id": "v:setAlarm",
+          "title": "setAlarm(time)"
+        },
+        {
+          "id": "v:cancelAlarm",
+          "title": "cancelAlarm(token)"
+        },
+        {
+          "id": "v:shutdown",
+          "title": "shutdown()"
+        },
+        {
+          "id": "v:reboot",
+          "title": "reboot()"
+        },
+        {
+          "id": "v:getComputerID",
+          "title": "getComputerID()"
+        },
+        {
+          "id": "v:computerID",
+          "title": "computerID()"
+        },
+        {
+          "id": "v:getComputerLabel",
+          "title": "getComputerLabel()"
+        },
+        {
+          "id": "v:computerLabel",
+          "title": "computerLabel()"
+        },
+        {
+          "id": "v:setComputerLabel",
+          "title": "setComputerLabel([label])"
+        },
+        {
+          "id": "v:clock",
+          "title": "clock()"
+        },
+        {
+          "id": "v:time",
+          "title": "time([locale])"
+        },
+        {
+          "id": "v:day",
+          "title": "day([locale])"
+        },
+        {
+          "id": "v:epoch",
+          "title": "epoch([locale])"
+        },
+        {
+          "id": "v:date",
+          "title": "date([format [, time]])"
+        }
+      ]
+    },
+    "/module/paintutils/": {
+      "title": "paintutils",
+      "description": "Utilities for drawing more complex graphics, such as pixels, lines and images.",
+      "group": "Globals",
+      "file": "pages/module/paintutils.html",
+      "toc": [
+        {
+          "id": "v:parseImage",
+          "title": "parseImage(image)"
+        },
+        {
+          "id": "v:loadImage",
+          "title": "loadImage(path)"
+        },
+        {
+          "id": "v:drawPixel",
+          "title": "drawPixel(xPos, yPos [, colour])"
+        },
+        {
+          "id": "v:drawLine",
+          "title": "drawLine(startX, startY, endX, endY [, colour])"
+        },
+        {
+          "id": "v:drawBox",
+          "title": "drawBox(startX, startY, endX, endY [, colour])"
+        },
+        {
+          "id": "v:drawFilledBox",
+          "title": "drawFilledBox(startX, startY, endX, endY [, colour])"
+        },
+        {
+          "id": "v:drawImage",
+          "title": "drawImage(image, xPos, yPos)"
+        }
+      ]
+    },
+    "/module/parallel/": {
+      "title": "parallel",
+      "description": "A simple way to run several functions at once.",
+      "group": "Globals",
+      "file": "pages/module/parallel.html",
+      "toc": [
+        {
+          "id": "v:waitForAny",
+          "title": "waitForAny(...)"
+        },
+        {
+          "id": "v:waitForAll",
+          "title": "waitForAll(...)"
+        }
+      ]
+    },
+    "/module/peripheral/": {
+      "title": "peripheral",
+      "description": "Find and control peripherals attached to this computer.",
+      "group": "Globals",
+      "file": "pages/module/peripheral.html",
+      "toc": [
+        {
+          "id": "v:getNames",
+          "title": "getNames()"
+        },
+        {
+          "id": "v:isPresent",
+          "title": "isPresent(name)"
+        },
+        {
+          "id": "v:getType",
+          "title": "getType(peripheral)"
+        },
+        {
+          "id": "v:hasType",
+          "title": "hasType(peripheral, peripheral_type)"
+        },
+        {
+          "id": "v:getMethods",
+          "title": "getMethods(name)"
+        },
+        {
+          "id": "v:getName",
+          "title": "getName(peripheral)"
+        },
+        {
+          "id": "v:call",
+          "title": "call(name, method, ...)"
+        },
+        {
+          "id": "v:wrap",
+          "title": "wrap(name)"
+        },
+        {
+          "id": "v:find",
+          "title": "find(ty [, filter])"
+        }
+      ]
+    },
+    "/module/pocket/": {
+      "title": "pocket",
+      "description": "Control the current pocket computer, adding or removing upgrades.",
+      "group": "Globals",
+      "file": "pages/module/pocket.html",
+      "toc": [
+        {
+          "id": "v:equipBack",
+          "title": "equipBack()"
+        },
+        {
+          "id": "v:unequipBack",
+          "title": "unequipBack()"
+        }
+      ]
+    },
+    "/module/rednet/": {
+      "title": "rednet",
+      "description": "Communicate with other computers by using modems.",
+      "group": "Globals",
+      "file": "pages/module/rednet.html",
+      "toc": [
+        {
+          "id": "v:CHANNEL_BROADCAST",
+          "title": "CHANNEL_BROADCAST = 65535"
+        },
+        {
+          "id": "v:CHANNEL_REPEAT",
+          "title": "CHANNEL_REPEAT = 65533"
+        },
+        {
+          "id": "v:MAX_ID_CHANNELS",
+          "title": "MAX_ID_CHANNELS = 65500"
+        },
+        {
+          "id": "v:open",
+          "title": "open(modem)"
+        },
+        {
+          "id": "v:close",
+          "title": "close([modem])"
+        },
+        {
+          "id": "v:isOpen",
+          "title": "isOpen([modem])"
+        },
+        {
+          "id": "v:send",
+          "title": "send(recipient, message [, protocol])"
+        },
+        {
+          "id": "v:broadcast",
+          "title": "broadcast(message [, protocol])"
+        },
+        {
+          "id": "v:receive",
+          "title": "receive([protocol_filter [, timeout]])"
+        },
+        {
+          "id": "v:host",
+          "title": "host(protocol, hostname)"
+        },
+        {
+          "id": "v:unhost",
+          "title": "unhost(protocol)"
+        },
+        {
+          "id": "v:lookup",
+          "title": "lookup(protocol [, hostname [, timeout=2]])"
+        },
+        {
+          "id": "v:run",
+          "title": "run()"
+        }
+      ]
+    },
+    "/module/redstone/": {
+      "title": "redstone",
+      "description": "Get and set redstone signals adjacent to this computer.",
+      "group": "Globals",
+      "file": "pages/module/redstone.html",
+      "toc": [
+        {
+          "id": "v:getSides",
+          "title": "getSides()"
+        },
+        {
+          "id": "v:setOutput",
+          "title": "setOutput(side, on)"
+        },
+        {
+          "id": "v:getOutput",
+          "title": "getOutput(side)"
+        },
+        {
+          "id": "v:getInput",
+          "title": "getInput(side)"
+        },
+        {
+          "id": "v:setAnalogOutput",
+          "title": "setAnalogOutput(side, value)"
+        },
+        {
+          "id": "v:setAnalogueOutput",
+          "title": "setAnalogueOutput(side, value)"
+        },
+        {
+          "id": "v:getAnalogOutput",
+          "title": "getAnalogOutput(side)"
+        },
+        {
+          "id": "v:getAnalogueOutput",
+          "title": "getAnalogueOutput(side)"
+        },
+        {
+          "id": "v:getAnalogInput",
+          "title": "getAnalogInput(side)"
+        },
+        {
+          "id": "v:getAnalogueInput",
+          "title": "getAnalogueInput(side)"
+        },
+        {
+          "id": "v:setBundledOutput",
+          "title": "setBundledOutput(side, output)"
+        },
+        {
+          "id": "v:getBundledOutput",
+          "title": "getBundledOutput(side)"
+        },
+        {
+          "id": "v:getBundledInput",
+          "title": "getBundledInput(side)"
+        },
+        {
+          "id": "v:testBundledInput",
+          "title": "testBundledInput(side, mask)"
+        }
+      ]
+    },
+    "/module/settings/": {
+      "title": "settings",
+      "description": "Read and write configuration options for CraftOS and your programs.",
+      "group": "Globals",
+      "file": "pages/module/settings.html",
+      "toc": [
+        {
+          "id": "v:define",
+          "title": "define(name [, options])"
+        },
+        {
+          "id": "v:undefine",
+          "title": "undefine(name)"
+        },
+        {
+          "id": "v:set",
+          "title": "set(name, value)"
+        },
+        {
+          "id": "v:get",
+          "title": "get(name [, default])"
+        },
+        {
+          "id": "v:getDetails",
+          "title": "getDetails(name)"
+        },
+        {
+          "id": "v:unset",
+          "title": "unset(name)"
+        },
+        {
+          "id": "v:clear",
+          "title": "clear()"
+        },
+        {
+          "id": "v:getNames",
+          "title": "getNames()"
+        },
+        {
+          "id": "v:load",
+          "title": "load([path=\".settings\"])"
+        },
+        {
+          "id": "v:save",
+          "title": "save([path=\".settings\"])"
+        }
+      ]
+    },
+    "/module/shell/": {
+      "title": "shell",
+      "description": "The shell API provides access to CraftOS's command line interface.",
+      "group": "Globals",
+      "file": "pages/module/shell.html",
+      "toc": [
+        {
+          "id": "v:execute",
+          "title": "execute(command, ...)"
+        },
+        {
+          "id": "v:run",
+          "title": "run(...)"
+        },
+        {
+          "id": "v:exit",
+          "title": "exit()"
+        },
+        {
+          "id": "v:dir",
+          "title": "dir()"
+        },
+        {
+          "id": "v:setDir",
+          "title": "setDir(dir)"
+        },
+        {
+          "id": "v:path",
+          "title": "path()"
+        },
+        {
+          "id": "v:setPath",
+          "title": "setPath(path)"
+        },
+        {
+          "id": "v:resolve",
+          "title": "resolve(path)"
+        },
+        {
+          "id": "v:resolveProgram",
+          "title": "resolveProgram(command)"
+        },
+        {
+          "id": "v:programs",
+          "title": "programs([include_hidden])"
+        },
+        {
+          "id": "v:complete",
+          "title": "complete(sLine)"
+        },
+        {
+          "id": "v:completeProgram",
+          "title": "completeProgram(program)"
+        },
+        {
+          "id": "v:setCompletionFunction",
+          "title": "setCompletionFunction(program, complete)"
+        },
+        {
+          "id": "v:getCompletionInfo",
+          "title": "getCompletionInfo()"
+        },
+        {
+          "id": "v:getRunningProgram",
+          "title": "getRunningProgram()"
+        },
+        {
+          "id": "v:setAlias",
+          "title": "setAlias(command, program)"
+        },
+        {
+          "id": "v:clearAlias",
+          "title": "clearAlias(command)"
+        },
+        {
+          "id": "v:aliases",
+          "title": "aliases()"
+        },
+        {
+          "id": "v:openTab",
+          "title": "openTab(...)"
+        },
+        {
+          "id": "v:switchTab",
+          "title": "switchTab(id)"
+        }
+      ]
+    },
+    "/module/term/": {
+      "title": "term",
+      "description": "Interact with a computer's terminal or monitors, writing text and drawing ASCII graphics.",
+      "group": "Globals",
+      "file": "pages/module/term.html",
+      "toc": [
+        {
+          "id": "v:nativePaletteColour",
+          "title": "nativePaletteColour(colour)"
+        },
+        {
+          "id": "v:nativePaletteColor",
+          "title": "nativePaletteColor(colour)"
+        },
+        {
+          "id": "v:write",
+          "title": "write(text)"
+        },
+        {
+          "id": "v:scroll",
+          "title": "scroll(y)"
+        },
+        {
+          "id": "v:getCursorPos",
+          "title": "getCursorPos()"
+        },
+        {
+          "id": "v:setCursorPos",
+          "title": "setCursorPos(x, y)"
+        },
+        {
+          "id": "v:getCursorBlink",
+          "title": "getCursorBlink()"
+        },
+        {
+          "id": "v:setCursorBlink",
+          "title": "setCursorBlink(blink)"
+        },
+        {
+          "id": "v:getSize",
+          "title": "getSize()"
+        },
+        {
+          "id": "v:clear",
+          "title": "clear()"
+        },
+        {
+          "id": "v:clearLine",
+          "title": "clearLine()"
+        },
+        {
+          "id": "v:getTextColour",
+          "title": "getTextColour()"
+        },
+        {
+          "id": "v:getTextColor",
+          "title": "getTextColor()"
+        },
+        {
+          "id": "v:setTextColour",
+          "title": "setTextColour(colour)"
+        },
+        {
+          "id": "v:setTextColor",
+          "title": "setTextColor(colour)"
+        },
+        {
+          "id": "v:getBackgroundColour",
+          "title": "getBackgroundColour()"
+        },
+        {
+          "id": "v:getBackgroundColor",
+          "title": "getBackgroundColor()"
+        },
+        {
+          "id": "v:setBackgroundColour",
+          "title": "setBackgroundColour(colour)"
+        },
+        {
+          "id": "v:setBackgroundColor",
+          "title": "setBackgroundColor(colour)"
+        },
+        {
+          "id": "v:isColour",
+          "title": "isColour()"
+        },
+        {
+          "id": "v:isColor",
+          "title": "isColor()"
+        },
+        {
+          "id": "v:blit",
+          "title": "blit(text, textColour, backgroundColour)"
+        },
+        {
+          "id": "v:setPaletteColour",
+          "title": "setPaletteColour(...)"
+        },
+        {
+          "id": "v:setPaletteColor",
+          "title": "setPaletteColor(...)"
+        },
+        {
+          "id": "v:getPaletteColour",
+          "title": "getPaletteColour(colour)"
+        },
+        {
+          "id": "v:getPaletteColor",
+          "title": "getPaletteColor(colour)"
+        },
+        {
+          "id": "v:redirect",
+          "title": "redirect(target)"
+        },
+        {
+          "id": "v:current",
+          "title": "current()"
+        },
+        {
+          "id": "v:native",
+          "title": "native()"
+        },
+        {
+          "id": "ty:Redirect:write",
+          "title": "Redirect.write(text)"
+        },
+        {
+          "id": "ty:Redirect:scroll",
+          "title": "Redirect.scroll(y)"
+        },
+        {
+          "id": "ty:Redirect:getCursorPos",
+          "title": "Redirect.getCursorPos()"
+        },
+        {
+          "id": "ty:Redirect:setCursorPos",
+          "title": "Redirect.setCursorPos(x, y)"
+        },
+        {
+          "id": "ty:Redirect:getCursorBlink",
+          "title": "Redirect.getCursorBlink()"
+        },
+        {
+          "id": "ty:Redirect:setCursorBlink",
+          "title": "Redirect.setCursorBlink(blink)"
+        },
+        {
+          "id": "ty:Redirect:getSize",
+          "title": "Redirect.getSize()"
+        },
+        {
+          "id": "ty:Redirect:clear",
+          "title": "Redirect.clear()"
+        },
+        {
+          "id": "ty:Redirect:clearLine",
+          "title": "Redirect.clearLine()"
+        },
+        {
+          "id": "ty:Redirect:getTextColour",
+          "title": "Redirect.getTextColour()"
+        },
+        {
+          "id": "ty:Redirect:getTextColor",
+          "title": "Redirect.getTextColor()"
+        },
+        {
+          "id": "ty:Redirect:setTextColour",
+          "title": "Redirect.setTextColour(colour)"
+        },
+        {
+          "id": "ty:Redirect:setTextColor",
+          "title": "Redirect.setTextColor(colour)"
+        },
+        {
+          "id": "ty:Redirect:getBackgroundColour",
+          "title": "Redirect.getBackgroundColour()"
+        },
+        {
+          "id": "ty:Redirect:getBackgroundColor",
+          "title": "Redirect.getBackgroundColor()"
+        },
+        {
+          "id": "ty:Redirect:setBackgroundColour",
+          "title": "Redirect.setBackgroundColour(colour)"
+        },
+        {
+          "id": "ty:Redirect:setBackgroundColor",
+          "title": "Redirect.setBackgroundColor(colour)"
+        },
+        {
+          "id": "ty:Redirect:isColour",
+          "title": "Redirect.isColour()"
+        },
+        {
+          "id": "ty:Redirect:isColor",
+          "title": "Redirect.isColor()"
+        },
+        {
+          "id": "ty:Redirect:blit",
+          "title": "Redirect.blit(text, textColour, backgroundColour)"
+        },
+        {
+          "id": "ty:Redirect:setPaletteColour",
+          "title": "Redirect.setPaletteColour(...)"
+        },
+        {
+          "id": "ty:Redirect:setPaletteColor",
+          "title": "Redirect.setPaletteColor(...)"
+        },
+        {
+          "id": "ty:Redirect:getPaletteColour",
+          "title": "Redirect.getPaletteColour(colour)"
+        },
+        {
+          "id": "ty:Redirect:getPaletteColor",
+          "title": "Redirect.getPaletteColor(colour)"
+        }
+      ]
+    },
+    "/module/textutils/": {
+      "title": "textutils",
+      "description": "Helpful utilities for formatting and manipulating strings.",
+      "group": "Globals",
+      "file": "pages/module/textutils.html",
+      "toc": [
+        {
+          "id": "v:slowWrite",
+          "title": "slowWrite(text [, rate])"
+        },
+        {
+          "id": "v:slowPrint",
+          "title": "slowPrint(sText [, nRate])"
+        },
+        {
+          "id": "v:formatTime",
+          "title": "formatTime(nTime [, bTwentyFourHour])"
+        },
+        {
+          "id": "v:pagedPrint",
+          "title": "pagedPrint(text [, free_lines])"
+        },
+        {
+          "id": "v:tabulate",
+          "title": "tabulate(...)"
+        },
+        {
+          "id": "v:pagedTabulate",
+          "title": "pagedTabulate(...)"
+        },
+        {
+          "id": "v:empty_json_array",
+          "title": "empty_json_array"
+        },
+        {
+          "id": "v:json_null",
+          "title": "json_null"
+        },
+        {
+          "id": "v:serialize",
+          "title": "serialize(t, opts)"
+        },
+        {
+          "id": "v:serialise",
+          "title": "serialise(t, opts)"
+        },
+        {
+          "id": "v:unserialize",
+          "title": "unserialize(s)"
+        },
+        {
+          "id": "v:unserialise",
+          "title": "unserialise(s)"
+        },
+        {
+          "id": "v:serializeJSON",
+          "title": "serializeJSON(...)"
+        },
+        {
+          "id": "v:serialiseJSON",
+          "title": "serialiseJSON(...)"
+        },
+        {
+          "id": "v:unserializeJSON",
+          "title": "unserializeJSON(s [, options])"
+        },
+        {
+          "id": "v:unserialiseJSON",
+          "title": "unserialiseJSON(s [, options])"
+        },
+        {
+          "id": "v:urlEncode",
+          "title": "urlEncode(str)"
+        },
+        {
+          "id": "v:complete",
+          "title": "complete(sSearchText [, tSearchTable])"
+        }
+      ]
+    },
+    "/module/turtle/": {
+      "title": "turtle",
+      "description": "Turtles are a robotic device, which can break and place blocks, attack mobs, and move about the world.",
+      "group": "Globals",
+      "file": "pages/module/turtle.html",
+      "toc": [
+        {
+          "id": "v:craft",
+          "title": "craft([limit=64])"
+        },
+        {
+          "id": "v:forward",
+          "title": "forward()"
+        },
+        {
+          "id": "v:back",
+          "title": "back()"
+        },
+        {
+          "id": "v:up",
+          "title": "up()"
+        },
+        {
+          "id": "v:down",
+          "title": "down()"
+        },
+        {
+          "id": "v:turnLeft",
+          "title": "turnLeft()"
+        },
+        {
+          "id": "v:turnRight",
+          "title": "turnRight()"
+        },
+        {
+          "id": "v:dig",
+          "title": "dig([side])"
+        },
+        {
+          "id": "v:digUp",
+          "title": "digUp([side])"
+        },
+        {
+          "id": "v:digDown",
+          "title": "digDown([side])"
+        },
+        {
+          "id": "v:place",
+          "title": "place([text])"
+        },
+        {
+          "id": "v:placeUp",
+          "title": "placeUp([text])"
+        },
+        {
+          "id": "v:placeDown",
+          "title": "placeDown([text])"
+        },
+        {
+          "id": "v:drop",
+          "title": "drop([count])"
+        },
+        {
+          "id": "v:dropUp",
+          "title": "dropUp([count])"
+        },
+        {
+          "id": "v:dropDown",
+          "title": "dropDown([count])"
+        },
+        {
+          "id": "v:select",
+          "title": "select(slot)"
+        },
+        {
+          "id": "v:getItemCount",
+          "title": "getItemCount([slot])"
+        },
+        {
+          "id": "v:getItemSpace",
+          "title": "getItemSpace([slot])"
+        },
+        {
+          "id": "v:detect",
+          "title": "detect()"
+        },
+        {
+          "id": "v:detectUp",
+          "title": "detectUp()"
+        },
+        {
+          "id": "v:detectDown",
+          "title": "detectDown()"
+        },
+        {
+          "id": "v:compare",
+          "title": "compare()"
+        },
+        {
+          "id": "v:compareUp",
+          "title": "compareUp()"
+        },
+        {
+          "id": "v:compareDown",
+          "title": "compareDown()"
+        },
+        {
+          "id": "v:attack",
+          "title": "attack([side])"
+        },
+        {
+          "id": "v:attackUp",
+          "title": "attackUp([side])"
+        },
+        {
+          "id": "v:attackDown",
+          "title": "attackDown([side])"
+        },
+        {
+          "id": "v:suck",
+          "title": "suck([count])"
+        },
+        {
+          "id": "v:suckUp",
+          "title": "suckUp([count])"
+        },
+        {
+          "id": "v:suckDown",
+          "title": "suckDown([count])"
+        },
+        {
+          "id": "v:getFuelLevel",
+          "title": "getFuelLevel()"
+        },
+        {
+          "id": "v:refuel",
+          "title": "refuel([count])"
+        },
+        {
+          "id": "v:compareTo",
+          "title": "compareTo(slot)"
+        },
+        {
+          "id": "v:transferTo",
+          "title": "transferTo(slot [, count])"
+        },
+        {
+          "id": "v:getSelectedSlot",
+          "title": "getSelectedSlot()"
+        },
+        {
+          "id": "v:getFuelLimit",
+          "title": "getFuelLimit()"
+        },
+        {
+          "id": "v:equipLeft",
+          "title": "equipLeft()"
+        },
+        {
+          "id": "v:equipRight",
+          "title": "equipRight()"
+        },
+        {
+          "id": "v:getEquippedLeft",
+          "title": "getEquippedLeft()"
+        },
+        {
+          "id": "v:getEquippedRight",
+          "title": "getEquippedRight()"
+        },
+        {
+          "id": "v:inspect",
+          "title": "inspect()"
+        },
+        {
+          "id": "v:inspectUp",
+          "title": "inspectUp()"
+        },
+        {
+          "id": "v:inspectDown",
+          "title": "inspectDown()"
+        },
+        {
+          "id": "v:getItemDetail",
+          "title": "getItemDetail([slot [, detailed]])"
+        }
+      ]
+    },
+    "/module/vector/": {
+      "title": "vector",
+      "description": "A basic 3D vector type and some common vector operations.",
+      "group": "Globals",
+      "file": "pages/module/vector.html",
+      "toc": [
+        {
+          "id": "v:new",
+          "title": "new(x, y, z)"
+        },
+        {
+          "id": "ty:Vector:add",
+          "title": "Vector:add(o)"
+        },
+        {
+          "id": "ty:Vector:sub",
+          "title": "Vector:sub(o)"
+        },
+        {
+          "id": "ty:Vector:mul",
+          "title": "Vector:mul(factor)"
+        },
+        {
+          "id": "ty:Vector:div",
+          "title": "Vector:div(factor)"
+        },
+        {
+          "id": "ty:Vector:unm",
+          "title": "Vector:unm()"
+        },
+        {
+          "id": "ty:Vector:dot",
+          "title": "Vector:dot(o)"
+        },
+        {
+          "id": "ty:Vector:cross",
+          "title": "Vector:cross(o)"
+        },
+        {
+          "id": "ty:Vector:length",
+          "title": "Vector:length()"
+        },
+        {
+          "id": "ty:Vector:normalize",
+          "title": "Vector:normalize()"
+        },
+        {
+          "id": "ty:Vector:round",
+          "title": "Vector:round([tolerance])"
+        },
+        {
+          "id": "ty:Vector:tostring",
+          "title": "Vector:tostring()"
+        },
+        {
+          "id": "ty:Vector:equals",
+          "title": "Vector:equals(other)"
+        }
+      ]
+    },
+    "/module/window/": {
+      "title": "window",
+      "description": "A terminal redirect occupying a smaller area of an existing terminal.",
+      "group": "Globals",
+      "file": "pages/module/window.html",
+      "toc": [
+        {
+          "id": "v:create",
+          "title": "create(parent, nX, nY, nWidth, nHeight [, bStartVisible])"
+        },
+        {
+          "id": "ty:Window:write",
+          "title": "Window.write(sText)"
+        },
+        {
+          "id": "ty:Window:blit",
+          "title": "Window.blit(sText, sTextColor, sBackgroundColor)"
+        },
+        {
+          "id": "ty:Window:clear",
+          "title": "Window.clear()"
+        },
+        {
+          "id": "ty:Window:clearLine",
+          "title": "Window.clearLine()"
+        },
+        {
+          "id": "ty:Window:getCursorPos",
+          "title": "Window.getCursorPos()"
+        },
+        {
+          "id": "ty:Window:setCursorPos",
+          "title": "Window.setCursorPos(x, y)"
+        },
+        {
+          "id": "ty:Window:setCursorBlink",
+          "title": "Window.setCursorBlink(blink)"
+        },
+        {
+          "id": "ty:Window:getCursorBlink",
+          "title": "Window.getCursorBlink()"
+        },
+        {
+          "id": "ty:Window:isColor",
+          "title": "Window.isColor()"
+        },
+        {
+          "id": "ty:Window:isColour",
+          "title": "Window.isColour()"
+        },
+        {
+          "id": "ty:Window:setTextColor",
+          "title": "Window.setTextColor(color)"
+        },
+        {
+          "id": "ty:Window:setTextColour",
+          "title": "Window.setTextColour(color)"
+        },
+        {
+          "id": "ty:Window:setPaletteColour",
+          "title": "Window.setPaletteColour(colour, r, g, b)"
+        },
+        {
+          "id": "ty:Window:setPaletteColor",
+          "title": "Window.setPaletteColor(colour, r, g, b)"
+        },
+        {
+          "id": "ty:Window:getPaletteColour",
+          "title": "Window.getPaletteColour(colour)"
+        },
+        {
+          "id": "ty:Window:getPaletteColor",
+          "title": "Window.getPaletteColor(colour)"
+        },
+        {
+          "id": "ty:Window:setBackgroundColor",
+          "title": "Window.setBackgroundColor(color)"
+        },
+        {
+          "id": "ty:Window:setBackgroundColour",
+          "title": "Window.setBackgroundColour(color)"
+        },
+        {
+          "id": "ty:Window:getSize",
+          "title": "Window.getSize()"
+        },
+        {
+          "id": "ty:Window:scroll",
+          "title": "Window.scroll(n)"
+        },
+        {
+          "id": "ty:Window:getTextColor",
+          "title": "Window.getTextColor()"
+        },
+        {
+          "id": "ty:Window:getTextColour",
+          "title": "Window.getTextColour()"
+        },
+        {
+          "id": "ty:Window:getBackgroundColor",
+          "title": "Window.getBackgroundColor()"
+        },
+        {
+          "id": "ty:Window:getBackgroundColour",
+          "title": "Window.getBackgroundColour()"
+        },
+        {
+          "id": "ty:Window:getLine",
+          "title": "Window.getLine(y)"
+        },
+        {
+          "id": "ty:Window:setVisible",
+          "title": "Window.setVisible(visible)"
+        },
+        {
+          "id": "ty:Window:isVisible",
+          "title": "Window.isVisible()"
+        },
+        {
+          "id": "ty:Window:redraw",
+          "title": "Window.redraw()"
+        },
+        {
+          "id": "ty:Window:restoreCursor",
+          "title": "Window.restoreCursor()"
+        },
+        {
+          "id": "ty:Window:getPosition",
+          "title": "Window.getPosition()"
+        },
+        {
+          "id": "ty:Window:reposition",
+          "title": "Window.reposition(new_x, new_y [, new_width, new_height [, new_parent]])"
+        }
+      ]
+    },
+    "/library/cc.audio.dfpwm/": {
+      "title": "cc.audio.dfpwm",
+      "description": "Convert between streams of DFPWM audio data and a list of amplitudes.",
+      "group": "Modules",
+      "file": "pages/library/cc.audio.dfpwm.html",
+      "toc": [
+        {
+          "id": "v:make_encoder",
+          "title": "make_encoder()"
+        },
+        {
+          "id": "v:encode",
+          "title": "encode(input)"
+        },
+        {
+          "id": "v:make_decoder",
+          "title": "make_decoder()"
+        },
+        {
+          "id": "v:decode",
+          "title": "decode(input)"
+        }
+      ]
+    },
+    "/library/cc.base64/": {
+      "title": "cc.base64",
+      "description": "The cc.base64 module provides functions for converting binary data to and from Base64.",
+      "group": "Modules",
+      "file": "pages/library/cc.base64.html",
+      "toc": [
+        {
+          "id": "v:encode",
+          "title": "encode(str [, alt_chars=\"+/\"])"
+        },
+        {
+          "id": "v:decode",
+          "title": "decode(str [, alt_chars=\"+/\"])"
+        }
+      ]
+    },
+    "/library/cc.completion/": {
+      "title": "cc.completion",
+      "description": "A collection of helper methods for working with input completion, such as that require by _G.read.",
+      "group": "Modules",
+      "file": "pages/library/cc.completion.html",
+      "toc": [
+        {
+          "id": "v:choice",
+          "title": "choice(text, choices [, add_space])"
+        },
+        {
+          "id": "v:peripheral",
+          "title": "peripheral(text [, add_space])"
+        },
+        {
+          "id": "v:side",
+          "title": "side(text [, add_space])"
+        },
+        {
+          "id": "v:setting",
+          "title": "setting(text [, add_space])"
+        },
+        {
+          "id": "v:command",
+          "title": "command(text [, add_space])"
+        }
+      ]
+    },
+    "/library/cc.expect/": {
+      "title": "cc.expect",
+      "description": "The cc.expect library provides helper functions for verifying that function arguments are well-formed and of the correct type.",
+      "group": "Modules",
+      "file": "pages/library/cc.expect.html",
+      "toc": [
+        {
+          "id": "v:expect",
+          "title": "expect(index, value, ...)"
+        },
+        {
+          "id": "v:field",
+          "title": "field(tbl, index, ...)"
+        },
+        {
+          "id": "v:range",
+          "title": "range(num [, min=-math.huge [, max=math.huge]])"
+        }
+      ]
+    },
+    "/library/cc.image.nft/": {
+      "title": "cc.image.nft",
+      "description": "Read and draw nft (\"Nitrogen Fingers Text\") images.",
+      "group": "Modules",
+      "file": "pages/library/cc.image.nft.html",
+      "toc": [
+        {
+          "id": "v:parse",
+          "title": "parse(image)"
+        },
+        {
+          "id": "v:load",
+          "title": "load(path)"
+        },
+        {
+          "id": "v:draw",
+          "title": "draw(image, xPos, yPos [, target])"
+        }
+      ]
+    },
+    "/library/cc.pretty/": {
+      "title": "cc.pretty",
+      "description": "A pretty printer for rendering data structures in an aesthetically pleasing manner.",
+      "group": "Modules",
+      "file": "pages/library/cc.pretty.html",
+      "toc": [
+        {
+          "id": "v:empty",
+          "title": "empty"
+        },
+        {
+          "id": "v:space",
+          "title": "space"
+        },
+        {
+          "id": "v:line",
+          "title": "line"
+        },
+        {
+          "id": "v:space_line",
+          "title": "space_line"
+        },
+        {
+          "id": "v:text",
+          "title": "text(text [, colour])"
+        },
+        {
+          "id": "v:concat",
+          "title": "concat(...)"
+        },
+        {
+          "id": "v:nest",
+          "title": "nest(depth, doc)"
+        },
+        {
+          "id": "v:group",
+          "title": "group(doc)"
+        },
+        {
+          "id": "v:write",
+          "title": "write(doc [, ribbon_frac=0.6])"
+        },
+        {
+          "id": "v:print",
+          "title": "print(doc [, ribbon_frac=0.6])"
+        },
+        {
+          "id": "v:render",
+          "title": "render(doc [, width [, ribbon_frac=0.6]])"
+        },
+        {
+          "id": "v:pretty",
+          "title": "pretty(obj [, options])"
+        },
+        {
+          "id": "v:pretty_print",
+          "title": "pretty_print(obj [, options [, ribbon_frac=0.6]])"
+        }
+      ]
+    },
+    "/library/cc.require/": {
+      "title": "cc.require",
+      "description": "A pure Lua implementation of the builtin require function and package library.",
+      "group": "Modules",
+      "file": "pages/library/cc.require.html",
+      "toc": [
+        {
+          "id": "v:make",
+          "title": "make(env, dir)"
+        }
+      ]
+    },
+    "/library/cc.shell.completion/": {
+      "title": "cc.shell.completion",
+      "description": "A collection of helper methods for working with shell completion.",
+      "group": "Modules",
+      "file": "pages/library/cc.shell.completion.html",
+      "toc": [
+        {
+          "id": "v:file",
+          "title": "file(shell, text)"
+        },
+        {
+          "id": "v:dir",
+          "title": "dir(shell, text)"
+        },
+        {
+          "id": "v:dirOrFile",
+          "title": "dirOrFile(shell, text, previous [, add_space])"
+        },
+        {
+          "id": "v:program",
+          "title": "program(shell, text)"
+        },
+        {
+          "id": "v:programWithArgs",
+          "title": "programWithArgs(shell, text, previous, starting)"
+        },
+        {
+          "id": "v:help",
+          "title": "help"
+        },
+        {
+          "id": "v:choice",
+          "title": "choice"
+        },
+        {
+          "id": "v:peripheral",
+          "title": "peripheral"
+        },
+        {
+          "id": "v:side",
+          "title": "side"
+        },
+        {
+          "id": "v:setting",
+          "title": "setting"
+        },
+        {
+          "id": "v:command",
+          "title": "command"
+        },
+        {
+          "id": "v:build",
+          "title": "build(...)"
+        }
+      ]
+    },
+    "/library/cc.strings/": {
+      "title": "cc.strings",
+      "description": "Various utilities for working with strings and text.",
+      "group": "Modules",
+      "file": "pages/library/cc.strings.html",
+      "toc": [
+        {
+          "id": "v:wrap",
+          "title": "wrap(text [, width])"
+        },
+        {
+          "id": "v:ensure_width",
+          "title": "ensure_width(line [, width])"
+        },
+        {
+          "id": "v:split",
+          "title": "split(str, deliminator [, plain=false [, limit]])"
+        }
+      ]
+    },
+    "/peripheral/command/": {
+      "title": "command",
+      "description": "This peripheral allows you to interact with command blocks.",
+      "group": "Peripherals",
+      "file": "pages/peripheral/command.html",
+      "toc": [
+        {
+          "id": "v:getCommand",
+          "title": "getCommand()"
+        },
+        {
+          "id": "v:setCommand",
+          "title": "setCommand(command)"
+        },
+        {
+          "id": "v:runCommand",
+          "title": "runCommand()"
+        }
+      ]
+    },
+    "/peripheral/computer/": {
+      "title": "computer",
+      "description": "A computer or turtle wrapped as a peripheral.",
+      "group": "Peripherals",
+      "file": "pages/peripheral/computer.html",
+      "toc": [
+        {
+          "id": "v:turnOn",
+          "title": "turnOn()"
+        },
+        {
+          "id": "v:shutdown",
+          "title": "shutdown()"
+        },
+        {
+          "id": "v:reboot",
+          "title": "reboot()"
+        },
+        {
+          "id": "v:getID",
+          "title": "getID()"
+        },
+        {
+          "id": "v:isOn",
+          "title": "isOn()"
+        },
+        {
+          "id": "v:getLabel",
+          "title": "getLabel()"
+        }
+      ]
+    },
+    "/peripheral/drive/": {
+      "title": "drive",
+      "description": "Disk drives are a peripheral which allow you to read and write to floppy disks and other \"mountable media\" (such as computers or turtles).",
+      "group": "Peripherals",
+      "file": "pages/peripheral/drive.html",
+      "toc": [
+        {
+          "id": "v:isDiskPresent",
+          "title": "isDiskPresent()"
+        },
+        {
+          "id": "v:getDiskLabel",
+          "title": "getDiskLabel()"
+        },
+        {
+          "id": "v:setDiskLabel",
+          "title": "setDiskLabel([label])"
+        },
+        {
+          "id": "v:hasData",
+          "title": "hasData()"
+        },
+        {
+          "id": "v:getMountPath",
+          "title": "getMountPath()"
+        },
+        {
+          "id": "v:hasAudio",
+          "title": "hasAudio()"
+        },
+        {
+          "id": "v:getAudioTitle",
+          "title": "getAudioTitle()"
+        },
+        {
+          "id": "v:playAudio",
+          "title": "playAudio()"
+        },
+        {
+          "id": "v:stopAudio",
+          "title": "stopAudio()"
+        },
+        {
+          "id": "v:ejectDisk",
+          "title": "ejectDisk()"
+        },
+        {
+          "id": "v:getDiskID",
+          "title": "getDiskID()"
+        }
+      ]
+    },
+    "/peripheral/modem/": {
+      "title": "modem",
+      "description": "Modems allow you to send messages between computers over long distances.",
+      "group": "Peripherals",
+      "file": "pages/peripheral/modem.html",
+      "toc": [
+        {
+          "id": "v:open",
+          "title": "open(channel)"
+        },
+        {
+          "id": "v:isOpen",
+          "title": "isOpen(channel)"
+        },
+        {
+          "id": "v:close",
+          "title": "close(channel)"
+        },
+        {
+          "id": "v:closeAll",
+          "title": "closeAll()"
+        },
+        {
+          "id": "v:transmit",
+          "title": "transmit(channel, replyChannel, payload)"
+        },
+        {
+          "id": "v:isWireless",
+          "title": "isWireless()"
+        },
+        {
+          "id": "v:getNamesRemote",
+          "title": "getNamesRemote()"
+        },
+        {
+          "id": "v:isPresentRemote",
+          "title": "isPresentRemote(name)"
+        },
+        {
+          "id": "v:getTypeRemote",
+          "title": "getTypeRemote(name)"
+        },
+        {
+          "id": "v:hasTypeRemote",
+          "title": "hasTypeRemote(name, type)"
+        },
+        {
+          "id": "v:getMethodsRemote",
+          "title": "getMethodsRemote(name)"
+        },
+        {
+          "id": "v:callRemote",
+          "title": "callRemote(remoteName, method, ...)"
+        },
+        {
+          "id": "v:getNameLocal",
+          "title": "getNameLocal()"
+        }
+      ]
+    },
+    "/peripheral/monitor/": {
+      "title": "monitor",
+      "description": "Monitors are a block which act as a terminal, displaying information on one side.",
+      "group": "Peripherals",
+      "file": "pages/peripheral/monitor.html",
+      "toc": [
+        {
+          "id": "v:setTextScale",
+          "title": "setTextScale(scale)"
+        },
+        {
+          "id": "v:getTextScale",
+          "title": "getTextScale()"
+        },
+        {
+          "id": "v:write",
+          "title": "write(text)"
+        },
+        {
+          "id": "v:scroll",
+          "title": "scroll(y)"
+        },
+        {
+          "id": "v:getCursorPos",
+          "title": "getCursorPos()"
+        },
+        {
+          "id": "v:setCursorPos",
+          "title": "setCursorPos(x, y)"
+        },
+        {
+          "id": "v:getCursorBlink",
+          "title": "getCursorBlink()"
+        },
+        {
+          "id": "v:setCursorBlink",
+          "title": "setCursorBlink(blink)"
+        },
+        {
+          "id": "v:getSize",
+          "title": "getSize()"
+        },
+        {
+          "id": "v:clear",
+          "title": "clear()"
+        },
+        {
+          "id": "v:clearLine",
+          "title": "clearLine()"
+        },
+        {
+          "id": "v:getTextColour",
+          "title": "getTextColour()"
+        },
+        {
+          "id": "v:getTextColor",
+          "title": "getTextColor()"
+        },
+        {
+          "id": "v:setTextColour",
+          "title": "setTextColour(colour)"
+        },
+        {
+          "id": "v:setTextColor",
+          "title": "setTextColor(colour)"
+        },
+        {
+          "id": "v:getBackgroundColour",
+          "title": "getBackgroundColour()"
+        },
+        {
+          "id": "v:getBackgroundColor",
+          "title": "getBackgroundColor()"
+        },
+        {
+          "id": "v:setBackgroundColour",
+          "title": "setBackgroundColour(colour)"
+        },
+        {
+          "id": "v:setBackgroundColor",
+          "title": "setBackgroundColor(colour)"
+        },
+        {
+          "id": "v:isColour",
+          "title": "isColour()"
+        },
+        {
+          "id": "v:isColor",
+          "title": "isColor()"
+        },
+        {
+          "id": "v:blit",
+          "title": "blit(text, textColour, backgroundColour)"
+        },
+        {
+          "id": "v:setPaletteColour",
+          "title": "setPaletteColour(...)"
+        },
+        {
+          "id": "v:setPaletteColor",
+          "title": "setPaletteColor(...)"
+        },
+        {
+          "id": "v:getPaletteColour",
+          "title": "getPaletteColour(colour)"
+        },
+        {
+          "id": "v:getPaletteColor",
+          "title": "getPaletteColor(colour)"
+        }
+      ]
+    },
+    "/peripheral/printer/": {
+      "title": "printer",
+      "description": "The printer peripheral allows printing text onto pages.",
+      "group": "Peripherals",
+      "file": "pages/peripheral/printer.html",
+      "toc": [
+        {
+          "id": "v:write",
+          "title": "write(text)"
+        },
+        {
+          "id": "v:getCursorPos",
+          "title": "getCursorPos()"
+        },
+        {
+          "id": "v:setCursorPos",
+          "title": "setCursorPos(x, y)"
+        },
+        {
+          "id": "v:getPageSize",
+          "title": "getPageSize()"
+        },
+        {
+          "id": "v:newPage",
+          "title": "newPage()"
+        },
+        {
+          "id": "v:endPage",
+          "title": "endPage()"
+        },
+        {
+          "id": "v:setPageTitle",
+          "title": "setPageTitle([title])"
+        },
+        {
+          "id": "v:getInkLevel",
+          "title": "getInkLevel()"
+        },
+        {
+          "id": "v:getPaperLevel",
+          "title": "getPaperLevel()"
+        }
+      ]
+    },
+    "/peripheral/redstone_relay/": {
+      "title": "redstone_relay",
+      "description": "The redstone relay is a peripheral that allows reading and outputting redstone signals.",
+      "group": "Peripherals",
+      "file": "pages/peripheral/redstone_relay.html",
+      "toc": [
+        {
+          "id": "v:setOutput",
+          "title": "setOutput(side, on)"
+        },
+        {
+          "id": "v:getOutput",
+          "title": "getOutput(side)"
+        },
+        {
+          "id": "v:getInput",
+          "title": "getInput(side)"
+        },
+        {
+          "id": "v:setAnalogOutput",
+          "title": "setAnalogOutput(side, value)"
+        },
+        {
+          "id": "v:setAnalogueOutput",
+          "title": "setAnalogueOutput(side, value)"
+        },
+        {
+          "id": "v:getAnalogOutput",
+          "title": "getAnalogOutput(side)"
+        },
+        {
+          "id": "v:getAnalogueOutput",
+          "title": "getAnalogueOutput(side)"
+        },
+        {
+          "id": "v:getAnalogInput",
+          "title": "getAnalogInput(side)"
+        },
+        {
+          "id": "v:getAnalogueInput",
+          "title": "getAnalogueInput(side)"
+        },
+        {
+          "id": "v:setBundledOutput",
+          "title": "setBundledOutput(side, output)"
+        },
+        {
+          "id": "v:getBundledOutput",
+          "title": "getBundledOutput(side)"
+        },
+        {
+          "id": "v:getBundledInput",
+          "title": "getBundledInput(side)"
+        },
+        {
+          "id": "v:testBundledInput",
+          "title": "testBundledInput(side, mask)"
+        }
+      ]
+    },
+    "/peripheral/speaker/": {
+      "title": "speaker",
+      "description": "The speaker peripheral allows your computer to play notes and other sounds.",
+      "group": "Peripherals",
+      "file": "pages/peripheral/speaker.html",
+      "toc": [
+        {
+          "id": "v:playNote",
+          "title": "playNote(instrument [, volume [, pitch]])"
+        },
+        {
+          "id": "v:playSound",
+          "title": "playSound(name [, volume [, pitch]])"
+        },
+        {
+          "id": "v:playAudio",
+          "title": "playAudio(audio [, volume])"
+        },
+        {
+          "id": "v:stop",
+          "title": "stop()"
+        }
+      ]
+    },
+    "/peripheral/turtle_storage/": {
+      "title": "turtle_storage",
+      "description": "A turtle_storage allows you to equip a shulker or other storage items with a turtle and access its contents.",
+      "group": "Peripherals",
+      "file": "pages/peripheral/turtle_storage.html",
+      "toc": [
+        {
+          "id": "v:size",
+          "title": "size()"
+        },
+        {
+          "id": "v:list",
+          "title": "list()"
+        },
+        {
+          "id": "v:getItemDetail",
+          "title": "getItemDetail(slot)"
+        },
+        {
+          "id": "v:pushItems",
+          "title": "pushItems(fromSlot [, limit [, toSlot]])"
+        },
+        {
+          "id": "v:pullItems",
+          "title": "pullItems([fromSlot [, limit [, toSlot]]])"
+        }
+      ]
+    },
+    "/generic_peripheral/energy_storage/": {
+      "title": "energy_storage",
+      "description": "Methods for interacting with blocks which store energy.",
+      "group": "Generic Peripherals",
+      "file": "pages/generic_peripheral/energy_storage.html",
+      "toc": [
+        {
+          "id": "v:getEnergy",
+          "title": "getEnergy()"
+        },
+        {
+          "id": "v:getEnergyCapacity",
+          "title": "getEnergyCapacity()"
+        }
+      ]
+    },
+    "/generic_peripheral/fluid_storage/": {
+      "title": "fluid_storage",
+      "description": "Methods for interacting with tanks and other fluid storage blocks.",
+      "group": "Generic Peripherals",
+      "file": "pages/generic_peripheral/fluid_storage.html",
+      "toc": [
+        {
+          "id": "v:tanks",
+          "title": "tanks()"
+        },
+        {
+          "id": "v:pushFluid",
+          "title": "pushFluid(toName [, limit [, fluidName]])"
+        },
+        {
+          "id": "v:pullFluid",
+          "title": "pullFluid(fromName [, limit [, fluidName]])"
+        }
+      ]
+    },
+    "/generic_peripheral/inventory/": {
+      "title": "inventory",
+      "description": "Methods for interacting with inventories.",
+      "group": "Generic Peripherals",
+      "file": "pages/generic_peripheral/inventory.html",
+      "toc": [
+        {
+          "id": "v:size",
+          "title": "size()"
+        },
+        {
+          "id": "v:list",
+          "title": "list()"
+        },
+        {
+          "id": "v:getItemDetail",
+          "title": "getItemDetail(slot)"
+        },
+        {
+          "id": "v:getItemLimit",
+          "title": "getItemLimit(slot)"
+        },
+        {
+          "id": "v:pushItems",
+          "title": "pushItems(toName, fromSlot [, limit [, toSlot]])"
+        },
+        {
+          "id": "v:pullItems",
+          "title": "pullItems(fromName, fromSlot [, limit [, toSlot]])"
+        }
+      ]
+    },
+    "/event/alarm/": {
+      "title": "alarm",
+      "description": "The alarm event is fired when an alarm started with os.setAlarm completes.",
+      "group": "Events",
+      "file": "pages/event/alarm.html",
+      "toc": []
+    },
+    "/event/char/": {
+      "title": "char",
+      "description": "The char event is fired when a character is typed on the keyboard.",
+      "group": "Events",
+      "file": "pages/event/char.html",
+      "toc": []
+    },
+    "/event/computer_command/": {
+      "title": "computer_command",
+      "description": "The computer_command event is fired when the /computercraft queue command is run for the current command computer.",
+      "group": "Events",
+      "file": "pages/event/computer_command.html",
+      "toc": []
+    },
+    "/event/disk/": {
+      "title": "disk",
+      "description": "The disk event is fired when a disk is inserted into an adjacent or networked disk drive.",
+      "group": "Events",
+      "file": "pages/event/disk.html",
+      "toc": []
+    },
+    "/event/disk_eject/": {
+      "title": "disk_eject",
+      "description": "The disk_eject event is fired when a disk is removed from an adjacent or networked disk drive.",
+      "group": "Events",
+      "file": "pages/event/disk_eject.html",
+      "toc": []
+    },
+    "/event/file_transfer/": {
+      "title": "file_transfer",
+      "description": "The file_transfer event is queued when a user drags-and-drops a file on an open computer.",
+      "group": "Events",
+      "file": "pages/event/file_transfer.html",
+      "toc": [
+        {
+          "id": "ty:TransferredFiles:getFiles",
+          "title": "TransferredFiles.getFiles()"
+        },
+        {
+          "id": "ty:TransferredFile:getName",
+          "title": "TransferredFile.getName()"
+        }
+      ]
+    },
+    "/event/http_check/": {
+      "title": "http_check",
+      "description": "The http_check event is fired when a URL check finishes.",
+      "group": "Events",
+      "file": "pages/event/http_check.html",
+      "toc": []
+    },
+    "/event/http_failure/": {
+      "title": "http_failure",
+      "description": "The http_failure event is fired when an HTTP request fails.",
+      "group": "Events",
+      "file": "pages/event/http_failure.html",
+      "toc": []
+    },
+    "/event/http_success/": {
+      "title": "http_success",
+      "description": "The http_success event is fired when an HTTP request returns successfully.",
+      "group": "Events",
+      "file": "pages/event/http_success.html",
+      "toc": []
+    },
+    "/event/key/": {
+      "title": "key",
+      "description": "This event is fired when any key is pressed while the terminal is focused.",
+      "group": "Events",
+      "file": "pages/event/key.html",
+      "toc": []
+    },
+    "/event/key_up/": {
+      "title": "key_up",
+      "description": "Fired whenever a key is released (or the terminal is closed while a key was being pressed).",
+      "group": "Events",
+      "file": "pages/event/key_up.html",
+      "toc": []
+    },
+    "/event/modem_message/": {
+      "title": "modem_message",
+      "description": "The modem_message event is fired when a message is received on an open channel on any modem.",
+      "group": "Events",
+      "file": "pages/event/modem_message.html",
+      "toc": []
+    },
+    "/event/monitor_resize/": {
+      "title": "monitor_resize",
+      "description": "The monitor_resize event is fired when an adjacent or networked monitor's size is changed.",
+      "group": "Events",
+      "file": "pages/event/monitor_resize.html",
+      "toc": []
+    },
+    "/event/monitor_touch/": {
+      "title": "monitor_touch",
+      "description": "The monitor_touch event is fired when an adjacent or networked Advanced Monitor is right-clicked.",
+      "group": "Events",
+      "file": "pages/event/monitor_touch.html",
+      "toc": []
+    },
+    "/event/mouse_click/": {
+      "title": "mouse_click",
+      "description": "This event is fired when the terminal is clicked with a mouse.",
+      "group": "Events",
+      "file": "pages/event/mouse_click.html",
+      "toc": []
+    },
+    "/event/mouse_drag/": {
+      "title": "mouse_drag",
+      "description": "This event is fired every time the mouse is moved while a mouse button is being held.",
+      "group": "Events",
+      "file": "pages/event/mouse_drag.html",
+      "toc": []
+    },
+    "/event/mouse_scroll/": {
+      "title": "mouse_scroll",
+      "description": "This event is fired when a mouse wheel is scrolled in the terminal.",
+      "group": "Events",
+      "file": "pages/event/mouse_scroll.html",
+      "toc": []
+    },
+    "/event/mouse_up/": {
+      "title": "mouse_up",
+      "description": "This event is fired when a mouse button is released or a held mouse leaves the computer's terminal.",
+      "group": "Events",
+      "file": "pages/event/mouse_up.html",
+      "toc": []
+    },
+    "/event/paste/": {
+      "title": "paste",
+      "description": "The paste event is fired when text is pasted into the computer through Ctrl-V (or ⌘V on Mac).",
+      "group": "Events",
+      "file": "pages/event/paste.html",
+      "toc": []
+    },
+    "/event/peripheral/": {
+      "title": "peripheral",
+      "description": "The peripheral event is fired when a peripheral is attached on a side or to a modem.",
+      "group": "Events",
+      "file": "pages/event/peripheral.html",
+      "toc": []
+    },
+    "/event/peripheral_detach/": {
+      "title": "peripheral_detach",
+      "description": "The peripheral_detach event is fired when a peripheral is detached from a side or from a modem.",
+      "group": "Events",
+      "file": "pages/event/peripheral_detach.html",
+      "toc": []
+    },
+    "/event/rednet_message/": {
+      "title": "rednet_message",
+      "description": "The rednet_message event is fired when a message is sent over Rednet.",
+      "group": "Events",
+      "file": "pages/event/rednet_message.html",
+      "toc": []
+    },
+    "/event/redstone/": {
+      "title": "redstone",
+      "description": "The redstone event is fired whenever any redstone inputs on the computer or relay change.",
+      "group": "Events",
+      "file": "pages/event/redstone.html",
+      "toc": []
+    },
+    "/event/setting_changed/": {
+      "title": "setting_changed",
+      "description": "The setting_changed event is fired when a setting is modified with the settings API.",
+      "group": "Events",
+      "file": "pages/event/setting_changed.html",
+      "toc": []
+    },
+    "/event/speaker_audio_empty/": {
+      "title": "speaker_audio_empty",
+      "description": "Return Values",
+      "group": "Events",
+      "file": "pages/event/speaker_audio_empty.html",
+      "toc": []
+    },
+    "/event/task_complete/": {
+      "title": "task_complete",
+      "description": "The task_complete event is fired when an asynchronous task completes.",
+      "group": "Events",
+      "file": "pages/event/task_complete.html",
+      "toc": []
+    },
+    "/event/term_resize/": {
+      "title": "term_resize",
+      "description": "The term_resize event is fired when the main terminal is resized.",
+      "group": "Events",
+      "file": "pages/event/term_resize.html",
+      "toc": []
+    },
+    "/event/terminate/": {
+      "title": "terminate",
+      "description": "The terminate event is fired when Ctrl-T is held down.",
+      "group": "Events",
+      "file": "pages/event/terminate.html",
+      "toc": []
+    },
+    "/event/timer/": {
+      "title": "timer",
+      "description": "The timer event is fired when a timer started with os.startTimer completes.",
+      "group": "Events",
+      "file": "pages/event/timer.html",
+      "toc": []
+    },
+    "/event/turtle_inventory/": {
+      "title": "turtle_inventory",
+      "description": "The turtle_inventory event is fired when a turtle's inventory is changed.",
+      "group": "Events",
+      "file": "pages/event/turtle_inventory.html",
+      "toc": []
+    },
+    "/event/websocket_closed/": {
+      "title": "websocket_closed",
+      "description": "The websocket_closed event is fired when an open WebSocket connection is closed.",
+      "group": "Events",
+      "file": "pages/event/websocket_closed.html",
+      "toc": []
+    },
+    "/event/websocket_failure/": {
+      "title": "websocket_failure",
+      "description": "The websocket_failure event is fired when a WebSocket connection request fails.",
+      "group": "Events",
+      "file": "pages/event/websocket_failure.html",
+      "toc": []
+    },
+    "/event/websocket_message/": {
+      "title": "websocket_message",
+      "description": "The websocket_message event is fired when a message is received on an open WebSocket connection.",
+      "group": "Events",
+      "file": "pages/event/websocket_message.html",
+      "toc": []
+    },
+    "/event/websocket_success/": {
+      "title": "websocket_success",
+      "description": "The websocket_success event is fired when a WebSocket connection request returns successfully.",
+      "group": "Events",
+      "file": "pages/event/websocket_success.html",
+      "toc": []
+    },
+    "/guide/gps_setup/": {
+      "title": "Setting up GPS",
+      "description": "The gps API allows a computer to find its current position using a wireless modem.",
+      "group": "Guides",
+      "file": "pages/guide/gps_setup.html",
+      "toc": []
+    },
+    "/guide/local_ips/": {
+      "title": "Allowing access to local IPs",
+      "description": "By default, ComputerCraft blocks access to local IP addresses for security.",
+      "group": "Guides",
+      "file": "pages/guide/local_ips.html",
+      "toc": []
+    },
+    "/guide/speaker_audio/": {
+      "title": "Playing audio with speakers",
+      "description": "CC: Tweaked's speaker peripheral provides a powerful way to play any audio you like with the speaker.playAudio method.",
+      "group": "Guides",
+      "file": "pages/guide/speaker_audio.html",
+      "toc": []
+    },
+    "/guide/startup/": {
+      "title": "Running programs on computer startup",
+      "description": "It's often useful to automatically start running a program when a computer is turned on, such as when running a GPS host...",
+      "group": "Guides",
+      "file": "pages/guide/startup.html",
+      "toc": []
+    },
+    "/guide/using_require/": {
+      "title": "Reusing code with require",
+      "description": "A library is a collection of useful functions and other definitions which is stored separately to your main program.",
+      "group": "Guides",
+      "file": "pages/guide/using_require.html",
+      "toc": []
+    },
+    "/reference/block_details/": {
+      "title": "Block details",
+      "description": "Several functions in CC: Tweaked, such as turtle.inspect and commands.getBlockInfo provide a way to get information about a block in the world.",
+      "group": "Reference",
+      "file": "pages/reference/block_details.html",
+      "toc": []
+    },
+    "/reference/breaking_changes/": {
+      "title": "Incompatibilities between versions",
+      "description": "CC: Tweaked tries to remain as compatible between versions as possible, meaning most programs written for older versions...",
+      "group": "Reference",
+      "file": "pages/reference/breaking_changes.html",
+      "toc": []
+    },
+    "/reference/computercraft_command/": {
+      "title": "The /computercraft command",
+      "description": "CC: Tweaked provides a /computercraft command for server owners to manage running computers on a server.",
+      "group": "Reference",
+      "file": "pages/reference/computercraft_command.html",
+      "toc": []
+    },
+    "/reference/data_pack/": {
+      "title": "Data packs",
+      "description": "CC: Tweaked allows customising and extending many of its features via data packs, such as adding new programs to the ROM, or providing new turtle tools.",
+      "group": "Reference",
+      "file": "pages/reference/data_pack.html",
+      "toc": []
+    },
+    "/reference/entity_details/": {
+      "title": "Entity details",
+      "description": "Some functions in CC: Tweaked (such as commands.getEntities) provide a way to get information about an entity.",
+      "group": "Reference",
+      "file": "pages/reference/entity_details.html",
+      "toc": []
+    },
+    "/reference/exceptions/": {
+      "title": "CraftOS's exception protocol",
+      "description": "By default, Lua represents errors are plain strings.",
+      "group": "Reference",
+      "file": "pages/reference/exceptions.html",
+      "toc": []
+    },
+    "/reference/feature_compat/": {
+      "title": "Lua 5.2/5.3 features in CC: Tweaked",
+      "description": "CC: Tweaked is based off of the Cobalt Lua runtime, which uses Lua 5.",
+      "group": "Reference",
+      "file": "pages/reference/feature_compat.html",
+      "toc": []
+    },
+    "/reference/item_details/": {
+      "title": "Item details",
+      "description": "Several functions in CC: Tweaked, such as turtle.getItemDetail and inventory.getItemDetail provide a way to get information about an item stack.",
+      "group": "Reference",
+      "file": "pages/reference/item_details.html",
+      "toc": []
+    },
+    "/reference/startup/": {
+      "title": "Computer startup",
+      "description": "When a computer turns on, it searches for files to run as part of the startup process.",
+      "group": "Reference",
+      "file": "pages/reference/startup.html",
+      "toc": []
+    }
+  }
+}

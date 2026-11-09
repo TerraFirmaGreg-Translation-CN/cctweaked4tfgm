@@ -1,0 +1,18 @@
+<h1>term_resize</h1><p>The <a href="/event/term_resize/" class="reference"><code>term_resize</code></a> event is fired when the main terminal is resized. For instance:</p>
+<ul>
+<li>When a the tab bar is shown or hidden in <a href="/module/multishell/" class="reference"><code>multishell</code></a>.</li>
+<li>When the terminal is redirected to a monitor via the &quot;monitor&quot; program and the monitor is resized.</li>
+</ul>
+<p>When this event fires, some parts of the terminal may have been moved or deleted. Simple terminal programs (those
+not using <a href="/module/term/#v:setCursorPos" class="reference"><code>term.setCursorPos</code></a>) can ignore this event, but more complex GUI programs should redraw the entire screen.</p>
+<h2>Return values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+</ol>
+<h2>Example</h2>
+<p>Print a message each time the terminal is resized.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+<a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent">  <span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;term_resize&quot;</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">w</span><span class="symbol">,</span> <span class="ident">h</span> <span class="symbol">=</span> <a title="Get the size of the terminal." href="/module/term/#v:getSize"><span class="ident">term</span><span class="symbol">.</span><span class="symbol">getSize</span></a><span class="symbol">(</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;The term was resized to (&quot;</span> <span class="symbol">..</span> <span class="ident">w</span> <span class="symbol">..</span> <span class="string">&quot;, &quot;</span> <span class="symbol">..</span> <span class="ident">h</span> <span class="symbol">..</span> <span class="string">&quot;)&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

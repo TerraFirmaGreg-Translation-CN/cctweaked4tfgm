@@ -1,0 +1,13 @@
+<h1>computer_command</h1><p>The <a href="/event/computer_command/" class="reference"><code>computer_command</code></a> event is fired when the <a href="/reference/computercraft_command/#queue"><code>/computercraft queue</code> command</a>
+is run for the current command computer.</p>
+<h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a><abbr title="Variable number of arguments">…</abbr>: The arguments passed to the command.</li>
+</ol>
+<h2>Example</h2>
+<p>Prints the contents of messages sent:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span> <span class="symbol">=</span> <span class="symbol">{</span><a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;computer_command&quot;</span><span class="symbol">)</span><span class="symbol">}</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Received message:&quot;</span><span class="symbol">,</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">unpack</span><span class="symbol">(</span><span class="ident">event</span><span class="symbol">,</span> <span class="number">2</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

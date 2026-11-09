@@ -1,0 +1,187 @@
+<h1>Item details</h1><p>Several functions in CC: Tweaked, such as <a href="/module/turtle/#v:getItemDetail" class="reference"><code>turtle.getItemDetail</code></a> and <a href="/generic_peripheral/inventory/#v:getItemDetail" class="reference"><code>inventory.getItemDetail</code></a> provide a way to get
+information about an item stack. This page details information about items that CC: Tweaked may return.</p>
+<p>Some methods (such as <a href="/generic_peripheral/inventory/#v:list" class="reference"><code>inventory.list</code></a> and <a href="/module/turtle/#v:getItemDetail" class="reference"><code>turtle.getItemDetail</code></a> without the <code>detailed</code> flag), will only return
+the &quot;Basic information&quot; about the item.</p>
+<h2>Basic information</h2>
+<p>Item information will <em>always</em> contain:</p>
+<ul>
+<li><code>name: string</code>: The namespaced ID for this item, e.g. <code>minecraft:dirt</code>. See <a href="https://minecraft.wiki/w/Java_Edition_data_values#Items" title="Java Edition data values on the Minecraft Wiki">the Minecraft wiki</a> for a
+list of vanilla item IDs.</li>
+<li><code>count: number</code>: The number of items in the stack.</li>
+<li><code>nbt?: string</code>: A hash of the NBT in the stack. While this does not expose any information about the item's NBT, it
+can be used as a way to compare items. If two items have the same <code>name</code> and <code>nbt</code>, then all other properties
+(e.g. durability, enchantment) will be the same.</li>
+</ul>
+<h3>Example</h3>
+<p>A stack of 32 Stripped Acacia Logs:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><p>A turtle with an upgrade attached:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;computercraft:turtle_normal&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">1</span><span class="symbol">,</span>
+    <span class="ident">nbt</span> <span class="symbol">=</span> <span class="string">&quot;a33095c2eb17c10e12f2b970c4e1b2bb&quot;</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Display information</h2>
+<p>Common information shown in the item's tooltip:</p>
+<ul>
+<li><code>displayName: string</code>: The translated display name of the item. This uses the <em>server's</em> language. This will
+typically be English on multi-player servers, and your current language on single player.</li>
+<li><code>lore: { string... }</code>: Additional lore about this item, as a list of strings.</li>
+</ul>
+<h3>Example</h3>
+<p>A stack of Stripped Acacia Logs:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+    <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Stripped Acacia Log&quot;</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Max count</h2>
+<p>The maximum number of items this item can stack to:</p>
+<ul>
+<li><code>maxCount: number</code>: The max possible size of the item stack.</li>
+</ul>
+<h3>Example</h3>
+<p>A stack of Stripped Acacia Logs:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+    <span class="ident">maxCount</span> <span class="symbol">=</span> <span class="number">64</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Item tags</h2>
+<p>The <a href="https://minecraft.wiki/w/Item_tag_%28Java_Edition%29" title="Item tags on the Minecraft Wiki">tags</a> an item has.</p>
+<ul>
+<li><code>tags: { [string] = boolean }</code>: The set of tags for this item. This is a mapping of tag name to <code>true</code>.</li>
+</ul>
+<p>While the representation of tags is a little more complicated then a single list, this makes it very easy to check if an
+item has a certain tag:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="comment">--- Check if the item in the turtle's inventory is a log.</span>
+<span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">is_log</span><span class="symbol">(</span><span class="ident">slot</span><span class="symbol">)</span>
+    <span class="keyword">local</span> <span class="ident">ok</span><span class="symbol">,</span> <span class="ident">block</span> <span class="symbol">=</span> <a title="Get information about the items in the given slot." href="/module/turtle/#v:getItemDetail"><span class="ident">turtle</span><span class="symbol">.</span><span class="symbol">getItemDetail</span></a><span class="symbol">(</span><span class="ident">slot</span><span class="symbol">,</span> <span class="literal-kw">true</span><span class="symbol">)</span>
+    <span class="keyword">return</span> <span class="ident">ok</span> <span class="operator-kw">and</span> <span class="ident">block</span><span class="symbol">.</span><span class="symbol">tags</span><span class="symbol">[</span><span class="string">&quot;minecraft:logs&quot;</span><span class="symbol">]</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>Example</h3>
+<p>A stack of Stripped Acacia Logs:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+    <span class="ident">tags</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">[</span><span class="string">&quot;minecraft:acacia_logs&quot;</span><span class="symbol">]</span> <span class="symbol">=</span> <span class="literal-kw">true</span><span class="symbol">,</span>
+        <span class="symbol">[</span><span class="string">&quot;minecraft:logs&quot;</span><span class="symbol">]</span> <span class="symbol">=</span> <span class="literal-kw">true</span><span class="symbol">,</span>
+        <span class="symbol">[</span><span class="string">&quot;minecraft:logs_that_burn&quot;</span><span class="symbol">]</span> <span class="symbol">=</span> <span class="literal-kw">true</span><span class="symbol">,</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Item groups</h2>
+<p>The creative tabs this item appears on:</p>
+<ul>
+<li><code>itemGroups: { { id = string, displayName = string }... }</code>: The item groups this item appears on. Each item group is
+stored as a table, containing its id and display name.</li>
+</ul>
+<div class="admonition admonition-info"><h5 class="admonition-heading"><span aria-hidden="true">🛈</span> Version differences</h5><p>This information is not available on Minecraft 1.19.3 to 1.20.3. This field is present, but empty on those versions.</p>
+</div><h3>Example</h3>
+<p>A stack of Stripped Acacia Logs:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+    <span class="ident">itemGroups</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">{</span>
+            <span class="ident">id</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:building_blocks&quot;</span><span class="symbol">,</span>
+            <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Building Blocks&quot;</span>
+        <span class="symbol">}</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Damage and durability</h2>
+<p>If this item can be damaged (e.g. a pickaxe), then its damage and durability will be available:</p>
+<ul>
+<li><code>damage: number</code>: The amount of damage this item has taken.</li>
+<li><code>maxDamage: number</code>: The maximum amount of damage this item has taken.</li>
+<li><code>durability?: number</code>: If this item is damaged (i.e. the durability bar is visible), the percentage left on the
+durability bar, between 0 and 1 (inclusive).</li>
+<li><code>unbreakable?: boolean</code>: <code>true</code>, if the item is unbreakable</li>
+</ul>
+<h3>Example</h3>
+<p>An unused diamond pickaxe:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:diamond_pickaxe&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">1</span><span class="symbol">,</span>
+    <span class="ident">damage</span> <span class="symbol">=</span> <span class="number">0</span><span class="symbol">,</span>
+    <span class="ident">maxDamage</span> <span class="symbol">=</span> <span class="number">1561</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><p>A half-used wooden pickaxe:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:wooden_pickaxe&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">1</span><span class="symbol">,</span>
+    <span class="ident">damage</span> <span class="symbol">=</span> <span class="number">21</span><span class="symbol">,</span>
+    <span class="ident">maxDamage</span> <span class="symbol">=</span> <span class="number">59</span><span class="symbol">,</span>
+    <span class="ident">durability</span> <span class="symbol">=</span> <span class="number">0.615</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Enchantments</h2>
+<p>The enchantments this item has. This includes both tools and enchanted books.</p>
+<ul>
+<li><code>enchantments: { table... }</code>: The enchantments this item has. Each enchantment is a table containing several
+properties:
+<ul>
+<li><code>name: string</code>: The namespaced ID for this enchantment, e.g. <code>minecraft:efficiency</code>. See <a href="https://minecraft.wiki/w/Java_Edition_data_values#Enchantments" title="Java Edition data values on the Minecraft Wiki">the Minecraft
+wiki</a> for a list of vanilla enchantment IDs.</li>
+<li><code>displayName: string</code>: The translated display name for this enchantment.</li>
+<li><code>level: number</code>: The level for this enchantment.</li>
+</ul>
+</li>
+</ul>
+<h3>Example</h3>
+<p>A diamond pickaxe with Efficiency V:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:diamond_pickaxe&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">1</span><span class="symbol">,</span>
+    <span class="ident">enchantments</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">{</span>
+            <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:efficiency&quot;</span><span class="symbol">,</span>
+            <span class="ident">level</span> <span class="symbol">=</span> <span class="number">5</span><span class="symbol">,</span>
+            <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Efficiency V&quot;</span><span class="symbol">,</span>
+        <span class="symbol">}</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Potion effects</h2>
+<p>The effects this potion (or potion-imbued item, such as a tipped arrow) has:</p>
+<ul>
+<li><code>potionEffects: { table... }</code>: The effects this item has. Each potion effect is a table containing several
+properties:
+<ul>
+<li><code>name: string</code>: The namespaced ID for this effect, e.g. <code>minecraft:regeneration</code>. See <a href="https://minecraft.wiki/w/Java_Edition_data_values#Effects" title="Java Edition data values on the Minecraft Wiki">the Minecraft wiki</a> for a list of vanilla effect IDs.</li>
+<li><code>displayName: string</code>: The translated display name for this potion effect.</li>
+<li><code>duration?: number</code>: The duration this effect will last for (if not instant), in seconds.</li>
+<li><code>potency?: number</code>: The potency of this potion.</li>
+</ul>
+</li>
+</ul>
+<h3>Example</h3>
+<p>A basic Potion of Healing:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:potion&quot;</span><span class="symbol">,</span>
+    <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Potion of Healing&quot;</span><span class="symbol">,</span>
+    <span class="ident">potionEffects</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">{</span>
+            <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:instant_health&quot;</span><span class="symbol">,</span>
+            <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Instant Health&quot;</span><span class="symbol">,</span>
+        <span class="symbol">}</span><span class="symbol">,</span>
+    <span class="symbol">}</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><p>An upgraded Potion of Regeneration:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:potion&quot;</span><span class="symbol">,</span>
+    <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Potion of Regeneration&quot;</span><span class="symbol">,</span>
+    <span class="ident">potionEffects</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">{</span>
+            <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:regeneration&quot;</span><span class="symbol">,</span>
+            <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Regeneration II&quot;</span><span class="symbol">,</span>
+            <span class="ident">duration</span> <span class="symbol">=</span> <span class="number">22.5</span><span class="symbol">,</span>
+            <span class="ident">potency</span> <span class="symbol">=</span> <span class="number">2</span><span class="symbol">,</span>
+        <span class="symbol">}</span><span class="symbol">,</span>
+    <span class="symbol">}</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Map colour</h2>
+<p>The colour the item's block form will appear on the map, if specified.</p>
+<ul>
+<li><code>mapColour?: number</code>: The colour of the block, as an RGB hex value.</li>
+<li><code>mapColor?: number</code>: The color of the block, as an RGB hex value.</li>
+</ul>
+<p>The map colour is just returned as a plain number (e.g. <code>9923917</code> for dirt). It can either be displayed in hex with
+<a href="https://www.lua.org/manual/5.1/manual.html#pdf-string.format" class="reference"><code>string.format</code></a>, or converted to individual RGB values with <a href="/module/colors/#v:unpackRGB" class="reference"><code>colors.unpackRGB</code></a>.</p>
+<h3>Example</h3>
+<p>A stack of Stripped Acacia Logs:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+    <span class="ident">mapColour</span> <span class="symbol">=</span> <span class="number">14188339</span><span class="symbol">,</span>
+    <span class="ident">mapColor</span> <span class="symbol">=</span> <span class="number">14188339</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h3>Changes</h3><ul><li><strong>New in version 1.64</strong> </li><li><strong>Changed in version 1.94.0:</strong> Add NBT hash, item tags, lore, enchantment and unbreakable flag.</li><li><strong>Changed in version 1.100.9:</strong> Add item groups.</li><li><strong>Changed in version 1.117.0:</strong> Added map colour and potion effects.</li></ul>

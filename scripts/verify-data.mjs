@@ -255,6 +255,28 @@ if (emiMap) {
   }
 }
 
+// --- CC:T documentation mirror ---------------------------------------------
+
+const ccDocs = read('cc/pages.json');
+if (ccDocs) {
+  if (ccDocs.version !== meta?.ccTweaked?.version) {
+    fail(
+      `cc/pages.json mirrors CC:T ${ccDocs.version} but the pack pins ${meta?.ccTweaked?.version}; ` +
+        'run scripts/fetch-cc-docs.mjs --version ' + meta?.ccTweaked?.version,
+    );
+  }
+  const mirrored = Object.values(ccDocs.pages || {});
+  if (mirrored.length < 90) fail(`only ${mirrored.length} CC:T documentation pages mirrored`);
+  for (const page of mirrored) {
+    if (!existsSync(resolve(dataRoot, 'cc', page.file))) {
+      fail(`missing mirrored CC:T page: ${page.file}`);
+    }
+  }
+  for (const group of ccDocs.groups || []) {
+    if (!group.pages?.length) fail(`CC:T group ${group.title} has no pages`);
+  }
+}
+
 // --- docs ------------------------------------------------------------------
 
 // Locale parity: every English page needs a Chinese counterpart, or the user

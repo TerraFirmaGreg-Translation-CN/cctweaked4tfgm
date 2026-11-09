@@ -1,0 +1,10 @@
+<h1>http_check</h1><p>The <a href="/event/http_check/" class="reference"><code>http_check</code></a> event is fired when a URL check finishes.</p>
+<p>This event is normally handled inside <a href="/module/http/#v:checkURL" class="reference"><code>http.checkURL</code></a>, but it can still be seen when using <a href="/module/http/#v:checkURLAsync" class="reference"><code>http.checkURLAsync</code></a>.</p>
+<h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The URL requested to be checked.</li>
+<li><span class="reference reference-unresolved"><code>boolean</code></span>: Whether the check succeeded.</li>
+<li><span class="type"><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>|<span class="reference reference-unresolved"><code>nil</code></span></span>: If the check failed, a reason explaining why the check failed.</li>
+</ol>
+<h3>See also</h3><ul><li><strong><a href="/module/http/#v:checkURLAsync" class="reference"><code>http.checkURLAsync</code></a></strong> To check a URL asynchronously.</li></ul>

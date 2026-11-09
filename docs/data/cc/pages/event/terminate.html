@@ -1,0 +1,16 @@
+<h1>terminate</h1><p>The <a href="/event/terminate/" class="reference"><code>terminate</code></a> event is fired when <kbd>Ctrl-T</kbd> is held down.</p>
+<p>This event is normally handled by <a href="/module/os/#v:pullEvent" class="reference"><code>os.pullEvent</code></a>, and will not be returned. However, <a href="/module/os/#v:pullEventRaw" class="reference"><code>os.pullEventRaw</code></a> will return this event when fired.</p>
+<p><a href="/event/terminate/" class="reference"><code>terminate</code></a> will be sent even when a filter is provided to <a href="/module/os/#v:pullEventRaw" class="reference"><code>os.pullEventRaw</code></a>. When using <a href="/module/os/#v:pullEventRaw" class="reference"><code>os.pullEventRaw</code></a> with a filter, make sure to check that the event is not <a href="/event/terminate/" class="reference"><code>terminate</code></a>.</p>
+<h2>Return values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+</ol>
+<h2>Example</h2>
+<p>Prints a message when Ctrl-T is held:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for events, including the terminate event." href="/module/os/#v:pullEventRaw"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEventRaw</span></a><span class="symbol">(</span><span class="string">&quot;terminate&quot;</span><span class="symbol">)</span>
+  <span class="keyword">if</span> <span class="ident">event</span> <span class="symbol">==</span> <span class="string">&quot;terminate&quot;</span> <span class="keyword">then</span> <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Terminate requested!&quot;</span><span class="symbol">)</span> <span class="keyword">end</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><p>Exits when Ctrl-T is held:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+<a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent">  <span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

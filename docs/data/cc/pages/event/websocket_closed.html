@@ -1,0 +1,21 @@
+<h1>websocket_closed</h1><p>The <a href="/event/websocket_closed/" class="reference"><code>websocket_closed</code></a> event is fired when an open WebSocket connection is closed.</p>
+<h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The URL of the WebSocket that was closed.</li>
+<li><span class="type"><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>|<span class="reference reference-unresolved"><code>nil</code></span></span>: The <a href="https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.6" title="The WebSocket Connection Close Reason, RFC 6455">server-provided reason</a>
+the websocket was closed. This will be <span class="reference reference-unresolved"><code>nil</code></span> if the connection was closed
+abnormally.</li>
+<li><span class="type"><span class="reference reference-unresolved"><code>number</code></span>|<span class="reference reference-unresolved"><code>nil</code></span></span>: The <a href="https://www.rfc-editor.org/rfc/rfc6455.html#section-7.1.5" title="The WebSocket Connection Close Code, RFC 6455">connection close code</a>,
+indicating why the socket was closed. This will be <span class="reference reference-unresolved"><code>nil</code></span> if the connection
+was closed abnormally.</li>
+</ol>
+<h2>Example</h2>
+<p>Prints a message when a WebSocket is closed (this may take a minute):</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">myURL</span> <span class="symbol">=</span> <span class="string">&quot;wss://example.tweaked.cc/echo&quot;</span>
+<span class="keyword">local</span> <span class="ident">ws</span> <span class="symbol">=</span> <a title="Open a websocket." href="/module/http/#v:websocket"><span class="ident">http</span><span class="symbol">.</span><span class="symbol">websocket</span></a><span class="symbol">(</span><span class="ident">myURL</span><span class="symbol">)</span>
+<span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">url</span>
+<span class="keyword">repeat</span>
+    <span class="ident">event</span><span class="symbol">,</span> <span class="ident">url</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;websocket_closed&quot;</span><span class="symbol">)</span>
+<span class="keyword">until</span> <span class="ident">url</span> <span class="symbol">==</span> <span class="ident">myURL</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;The WebSocket at &quot;</span> <span class="symbol">..</span> <span class="ident">url</span> <span class="symbol">..</span> <span class="string">&quot; was closed.&quot;</span><span class="symbol">)</span><span class="symbol"></span></pre></div>

@@ -86,6 +86,11 @@ jobs:
           MODPACK_TAG: ${{ steps.resolve.outputs.tag }}
         run: bash ci/run.sh emi
 
+      - name: Mirror the CC:T documentation
+        env:
+          MODPACK_TAG: ${{ steps.resolve.outputs.tag }}
+        run: bash ci/run.sh cc-docs
+
       - name: Verify generated data
         run: bash ci/run.sh verify
 

@@ -328,6 +328,12 @@ export function createComponents({ locale, data, emiMap }) {
 
   function apiIndex() {
     const api = data.ccIndex;
+    const localUrl = (url) => {
+      const match = /^https:\/\/tweaked\.cc\/mc-1\.20\.x\/([^?#]+)([?#].*)?$/.exec(url || '');
+      if (!match) return url;
+      const path = match[1].replace(/\.html$/, '').replace(/^index$/, '');
+      return `/${path ? `${path}/` : ''}${match[2] || ''}`;
+    };
     const kinds = [...new Set(Object.values(api.entries).map((entry) => entry.kind))];
     const ordered = KIND_ORDER.filter((kind) => kinds.includes(kind));
     const rows = Object.entries(api.entries)
@@ -358,7 +364,7 @@ export function createComponents({ locale, data, emiMap }) {
       (row) =>
         `<li data-search="${escapeAttr(
           `${row.symbol} ${row.name} ${row.summary}`.toLowerCase(),
-        )}"><a class="mono" href="${escapeAttr(row.url)}" target="_blank" rel="noreferrer">${escapeHtml(
+        )}"><a class="mono" href="${escapeAttr(localUrl(row.url))}">${escapeHtml(
           row.name,
         )}</a><span class="muted"> — ${escapeHtml(row.summary)}</span></li>`,
     )

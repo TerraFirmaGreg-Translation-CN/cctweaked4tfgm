@@ -1,0 +1,21 @@
+<h1>task_complete</h1><p>The <a href="/event/task_complete/" class="reference"><code>task_complete</code></a> event is fired when an asynchronous task completes. This is usually handled inside the function call that queued the task; however, functions such as <a href="/module/commands/#v:execAsync" class="reference"><code>commands.execAsync</code></a> return immediately so the user can wait for completion.</p>
+<h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The ID of the task that completed.</li>
+<li><span class="reference reference-unresolved"><code>boolean</code></span>: Whether the command succeeded.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: If the command failed, an error message explaining the failure. (This is not present if the command succeeded.)</li>
+<li><abbr title="Variable number of arguments">…</abbr>: Any parameters returned from the command.</li>
+</ol>
+<h2>Example</h2>
+<p>Prints the results of an asynchronous command:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">taskID</span> <span class="symbol">=</span> <a title="Asynchronously execute a command." href="/module/commands/#v:execAsync"><span class="ident">commands</span><span class="symbol">.</span><span class="symbol">execAsync</span></a><span class="symbol">(</span><span class="string">&quot;say Hello&quot;</span><span class="symbol">)</span>
+<span class="keyword">local</span> <span class="ident">event</span>
+<span class="keyword">repeat</span>
+    <span class="ident">event</span> <span class="symbol">=</span> <span class="symbol">{</span><a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;task_complete&quot;</span><span class="symbol">)</span><span class="symbol">}</span>
+<span class="keyword">until</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">2</span><span class="symbol">]</span> <span class="symbol">==</span> <span class="ident">taskID</span>
+<span class="keyword">if</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">3</span><span class="symbol">]</span> <span class="symbol">==</span> <span class="literal-kw">true</span> <span class="keyword">then</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Task &quot;</span> <span class="symbol">..</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">2</span><span class="symbol">]</span> <span class="symbol">..</span> <span class="string">&quot; succeeded:&quot;</span><span class="symbol">,</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">unpack</span><span class="symbol">(</span><span class="ident">event</span><span class="symbol">,</span> <span class="number">4</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">else</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Task &quot;</span> <span class="symbol">..</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">2</span><span class="symbol">]</span> <span class="symbol">..</span> <span class="string">&quot; failed: &quot;</span> <span class="symbol">..</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">4</span><span class="symbol">]</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>See also</h3><ul><li><strong><a href="/module/commands/#v:execAsync" class="reference"><code>commands.execAsync</code></a></strong> To run a command which fires a task_complete event.</li></ul>

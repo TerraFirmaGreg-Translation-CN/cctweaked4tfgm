@@ -1,0 +1,14 @@
+<h1>mouse_drag</h1><p>This event is fired every time the mouse is moved while a mouse button is being held.</p>
+<h2>Return values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The <a href="/event/mouse_click/#Mouse_buttons">mouse button</a> that is being pressed.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The X-coordinate of the mouse.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The Y-coordinate of the mouse.</li>
+</ol>
+<h2>Example</h2>
+<p>Print the button and the coordinates whenever the mouse is dragged.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">button</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;mouse_drag&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="symbol">(</span><span class="string">&quot;The mouse button %s was dragged at %d, %d&quot;</span><span class="symbol">)</span><span class="symbol">:</span><span class="symbol">format</span><span class="symbol">(</span><span class="ident">button</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>See also</h3><ul><li><strong><a href="/event/mouse_click/" class="reference"><code>mouse_click</code></a></strong> For when a mouse button is initially pressed.</li></ul>

@@ -1,0 +1,20 @@
+<h1>websocket_message</h1><p>The <a href="/event/websocket_message/" class="reference"><code>websocket_message</code></a> event is fired when a message is received on an open WebSocket connection.</p>
+<p>This event is normally handled by <a href="/module/http/#ty:Websocket:receive" class="reference"><code>http.Websocket.receive</code></a>, but it can also be pulled manually.</p>
+<h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The URL of the WebSocket.</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The contents of the message.</li>
+<li><span class="reference reference-unresolved"><code>boolean</code></span>: Whether this is a binary message.</li>
+</ol>
+<h2>Example</h2>
+<p>Prints a message sent by a WebSocket:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">myURL</span> <span class="symbol">=</span> <span class="string">&quot;wss://example.tweaked.cc/echo&quot;</span>
+<span class="keyword">local</span> <span class="ident">ws</span> <span class="symbol">=</span> <a title="Open a websocket." href="/module/http/#v:websocket"><span class="ident">http</span><span class="symbol">.</span><span class="symbol">websocket</span></a><span class="symbol">(</span><span class="ident">myURL</span><span class="symbol">)</span>
+<span class="ident">ws</span><span class="symbol">.</span><span class="symbol">send</span><span class="symbol">(</span><span class="string">&quot;Hello!&quot;</span><span class="symbol">)</span>
+<span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">url</span><span class="symbol">,</span> <span class="ident">message</span>
+<span class="keyword">repeat</span>
+    <span class="ident">event</span><span class="symbol">,</span> <span class="ident">url</span><span class="symbol">,</span> <span class="ident">message</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;websocket_message&quot;</span><span class="symbol">)</span>
+<span class="keyword">until</span> <span class="ident">url</span> <span class="symbol">==</span> <span class="ident">myURL</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Received message from &quot;</span> <span class="symbol">..</span> <span class="ident">url</span> <span class="symbol">..</span> <span class="string">&quot; with contents &quot;</span> <span class="symbol">..</span> <span class="ident">message</span><span class="symbol">)</span>
+<span class="ident">ws</span><span class="symbol">.</span><span class="symbol">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol"></span></pre></div>

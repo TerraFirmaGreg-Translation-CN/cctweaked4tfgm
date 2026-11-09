@@ -19,6 +19,8 @@ are MIT licensed, © TerraFirmaGreg Translation CN.
 | `emi/recipes/**` | published TerraFirmaGreg recipe-book bundle (`tfg-<tag>`) | Modpack-Modern repository licence |
 | `emi/icons/*`, `emi/items-lang/*`, `emi/lang/*`, `emi/tags/*` | same EMI bundle, pruned to the CC/AP recipe set | item textures and names remain the property of their mod authors |
 | `emi-map.json` | mapping from `recipes.json` rows to EMI layout ids | Modpack-Modern repository licence |
+| `cc/pages.json`, `cc/pages/**` | rendered page bodies from <https://tweaked.cc/mc-1.20.x/> | MPL-2.0, © CC: Tweaked contributors |
+| `public/images/**` | item icons and screenshots referenced by those pages | item icons remain Mojang/mod authors' property |
 | `cc-index.json` | [CC: Tweaked](https://github.com/cc-tweaked/CC-Tweaked) generated site index | MPL-2.0 |
 
 Recipe, quest and config data is reproduced for reference purposes. Item names
@@ -36,9 +38,11 @@ runtime, from the bundle described above.
 
 ## Quoted material
 
-- CC: Tweaked is MPL-2.0; the documentation text at <https://tweaked.cc/> is
-  reproduced there under the same licence. This site links to it rather than
-  copying it.
+- CC: Tweaked is MPL-2.0. The reference pages under `docs/data/cc/` are
+  reproduced from <https://tweaked.cc/mc-1.20.x/> under that licence; the
+  corresponding source is <https://github.com/cc-tweaked/CC-Tweaked>.
+  TerraFirmaGreg inserts are marked with a "TerraFirmaGreg" callout and link
+  back to the `/tfgm/` section.
 - ComputerCraft (the original mod by Daniel Ratcliffe) is distributed under the
   ComputerCraft Public License (`LicenseRef-CCPL`). This repository does not
   include ComputerCraft code.

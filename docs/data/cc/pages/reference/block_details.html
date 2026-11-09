@@ -1,0 +1,58 @@
+<h1>Block details</h1><p>Several functions in CC: Tweaked, such as <a href="/module/turtle/#v:inspect" class="reference"><code>turtle.inspect</code></a> and <a href="/module/commands/#v:getBlockInfo" class="reference"><code>commands.getBlockInfo</code></a> provide a way to get
+information about a block in the world. This page details information about blocks that CC: Tweaked may return.</p>
+<h2>Basic information</h2>
+<p>Block information will <em>always</em> contain:</p>
+<ul>
+<li><code>name: string</code>: The namespaced ID for this block, e.g. <code>minecraft:dirt</code>. See <a href="https://minecraft.wiki/w/Java_Edition_data_values#Blocks" title="Java Edition data values on the Minecraft Wiki">the Minecraft wiki</a> for a
+list of vanilla block IDs.</li>
+<li><code>state: { [string] = any}</code>: A table containing the block state of the block.</li>
+</ul>
+<h3>Example</h3>
+<p>A fully hydrated block of farmland:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:farmland&quot;</span><span class="symbol">,</span>
+    <span class="ident">state</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="ident">moisture</span> <span class="symbol">=</span> <span class="number">7</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><p>An extended piston, facing upwards:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:piston&quot;</span><span class="symbol">,</span>
+    <span class="ident">state</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="ident">facing</span> <span class="symbol">=</span> <span class="string">&quot;up&quot;</span><span class="symbol">,</span>
+        <span class="ident">extended</span> <span class="symbol">=</span> <span class="literal-kw">true</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Block tags</h2>
+<p>The <a href="https://minecraft.wiki/w/Block_tag_%28Java_Edition%29" title="Block tags on the Minecraft Wiki">tags</a> a block has.</p>
+<ul>
+<li><code>tags: { [string] = boolean }</code>: The set of tags for this block. This is a mapping of tag name to <code>true</code>.</li>
+</ul>
+<p>While the representation of tags is a little more complicated then a single list, this makes it very easy to check if a
+block has a certain tag:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="comment">--- Check if the block in front of the turtle is a log.</span>
+<span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">is_log</span><span class="symbol">(</span><span class="symbol">)</span>
+    <span class="keyword">local</span> <span class="ident">ok</span><span class="symbol">,</span> <span class="ident">block</span> <span class="symbol">=</span> <a title="Get information about the block in front of the turtle." href="/module/turtle/#v:inspect"><span class="ident">turtle</span><span class="symbol">.</span><span class="symbol">inspect</span></a><span class="symbol">(</span><span class="symbol">)</span>
+    <span class="keyword">return</span> <span class="ident">ok</span> <span class="operator-kw">and</span> <span class="ident">block</span><span class="symbol">.</span><span class="symbol">tags</span><span class="symbol">[</span><span class="string">&quot;minecraft:logs&quot;</span><span class="symbol">]</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>Example</h3>
+<p>A fully hydrated block of farmland:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:farmland&quot;</span><span class="symbol">,</span>
+    <span class="ident">state</span> <span class="symbol">=</span> <span class="symbol">{</span> <span class="symbol">...</span> <span class="symbol">}</span><span class="symbol">,</span>
+    <span class="ident">tags</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">[</span><span class="string">&quot;minecraft:mineable/shovel&quot;</span><span class="symbol">]</span> <span class="symbol">=</span> <span class="literal-kw">true</span><span class="symbol">,</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>Map colour</h2>
+<p>The colour the block will appear on the map, if specified.</p>
+<ul>
+<li><code>mapColour?: number</code>: The colour of the block, as an RGB hex value.</li>
+<li><code>mapColor?: number</code>: The color of the block, as an RGB hex value.</li>
+</ul>
+<p>The map colour is just returned as a plain number (e.g. <code>9923917</code> for farmland). It can either be displayed in hex with
+<a href="https://www.lua.org/manual/5.1/manual.html#pdf-string.format" class="reference"><code>string.format</code></a>, or converted to individual RGB values with <a href="/module/colors/#v:unpackRGB" class="reference"><code>colors.unpackRGB</code></a>.</p>
+<h3>Example</h3>
+<p>A fully hydrated block of farmland:</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:farmland&quot;</span><span class="symbol">,</span>
+    <span class="ident">state</span> <span class="symbol">=</span> <span class="symbol">{</span> <span class="symbol">...</span> <span class="symbol">}</span><span class="symbol">,</span>
+    <span class="ident">mapColour</span> <span class="symbol">=</span> <span class="number">9923917</span><span class="symbol">,</span>
+    <span class="ident">mapColor</span> <span class="symbol">=</span> <span class="number">9923917</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h3>Changes</h3><ul><li><strong>New in version 1.64</strong> </li><li><strong>Changed in version 1.76:</strong> Added block state.</li><li><strong>Changed in version 1.117.0:</strong> Added map colour.</li></ul>

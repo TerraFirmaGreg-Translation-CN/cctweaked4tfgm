@@ -1,0 +1,14 @@
+<h1>timer</h1><p>The <a href="/event/timer/" class="reference"><code>timer</code></a> event is fired when a timer started with <a href="/module/os/#v:startTimer" class="reference"><code>os.startTimer</code></a> completes.</p>
+<h2>Return Values</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>: The event name.</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>: The ID of the timer that finished.</li>
+</ol>
+<h2>Example</h2>
+<p>Start and wait for a timer to finish.</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">timer_id</span> <span class="symbol">=</span> <a title="Starts a timer that will run for the specified number of seconds." href="/module/os/#v:startTimer"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">startTimer</span></a><span class="symbol">(</span><span class="number">2</span><span class="symbol">)</span>
+<span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">id</span>
+<span class="keyword">repeat</span>
+    <span class="ident">event</span><span class="symbol">,</span> <span class="ident">id</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;timer&quot;</span><span class="symbol">)</span>
+<span class="keyword">until</span> <span class="ident">id</span> <span class="symbol">==</span> <span class="ident">timer_id</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Timer with ID &quot;</span> <span class="symbol">..</span> <span class="ident">id</span> <span class="symbol">..</span> <span class="string">&quot; was fired&quot;</span><span class="symbol">)</span><span class="symbol"></span></pre></div><h3>See also</h3><ul><li><strong><a href="/module/os/#v:startTimer" class="reference"><code>os.startTimer</code></a></strong> To start a timer.</li></ul>

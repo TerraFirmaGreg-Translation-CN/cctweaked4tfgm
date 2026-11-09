@@ -138,8 +138,64 @@ function buildPages() {
 
 const pages = buildPages();
 
+const CC = existsSync(join(DOCS, 'data/cc/pages.json')) ? readJson('data/cc/pages.json') : null;
+const ccPages = [];
+if (CC) {
+  for (const group of CC.groups || []) {
+    for (const entry of group.pages) {
+      ccPages.push({
+        locale: 'en_us',
+        cc: true,
+        url: entry.url,
+        title: entry.title,
+        description: entry.description,
+        group: group.title,
+        toc: entry.toc || [],
+        file: join(DOCS, 'data/cc', entry.file),
+        output: urlToFile(entry.url),
+      });
+    }
+  }
+}
+
 function localePages(locale) {
   return [...pages.values()].filter((page) => page.locale === locale);
+}
+
+function searchPages(locale) {
+  return [...localePages(locale), ...ccPages];
+}
+
+const CC_GROUP_LABELS = {
+  en_us: {},
+  zh_cn: {
+    Globals: '全局函数',
+    Modules: '模块',
+    'Generic Peripherals': '通用外设',
+    Peripherals: '外设',
+    Events: '事件',
+    Guides: '指南',
+    Reference: '参考',
+  },
+};
+
+function renderCcGroups(page) {
+  if (!CC) return '';
+  const labels = CC_GROUP_LABELS[page.locale] || {};
+  return (CC.groups || [])
+    .map((group) => {
+      const title = labels[group.title] || group.title;
+      const items = group.pages
+        .map(
+          (entry) =>
+            `<li><a href="${BASE}${entry.url.replace(/^\//, '')}" class="sidebar-link${
+              page.url === entry.url ? ' selected' : ''
+            }">${escapeHtml(entry.title)}</a></li>`,
+        )
+        .join('');
+      return `<h2 tabindex="0">${escapeHtml(title)}</h2><ul>${items}</ul>`;
+    })
+    .join('');
 }
 
 function groupPages(locale) {
@@ -180,7 +236,9 @@ function renderNav(page) {
   const prefix = LOCALES[locale].prefix;
   const homepage = `/${prefix}`.replace(/\/+$/, '') || '/';
   const groups = groupPages(locale);
-  const toc = page.toc?.filter((heading) => heading.level >= 2 && heading.level <= 3) || [];
+  const toc = page.cc
+    ? page.toc || []
+    : page.toc?.filter((heading) => heading.level >= 2 && heading.level <= 3) || [];
 
   const tocBlock = toc.length
     ? `<h2 tabindex="0">${copy.contents}</h2><ul>${toc
@@ -188,7 +246,7 @@ function renderNav(page) {
           (heading) =>
             `<li><a href="#${escapeAttr(heading.id)}" class="sidebar-link${
               heading.level === 3 ? ' sidebar-link--sub' : ''
-            }">${heading.title}</a></li>`,
+            }">${escapeHtml(heading.title)}</a></li>`,
         )
         .join('')}</ul>`
     : '';
@@ -241,7 +299,7 @@ function renderNav(page) {
   <h1><a href="${BASE}${homepage.replace(/^\//, '')}"><img src="${BASE}logo.png" alt="CC: Tweaked for TerraFirmaGreg" /></a></h1>
   <div class="nav-links">
     ${tocBlock}
-    ${siteGroups}
+    ${page.url.startsWith('/tfgm') ? `${siteGroups}${renderCcGroups(page)}` : `${renderCcGroups(page)}${siteGroups}`}
     <h2 tabindex="0">${copy.upstream}</h2>
     <ul>${upstream}</ul>
     <h2 tabindex="0">${copy.language}</h2>
@@ -250,11 +308,27 @@ function renderNav(page) {
 </nav>`;
 }
 
+const UPSTREAM_SECTIONS = new Set([
+  'module',
+  'library',
+  'peripheral',
+  'generic_peripheral',
+  'event',
+  'guide',
+  'reference',
+]);
+
 function absolutize(html, locale) {
   return html.replace(/\b(href|src)="\/(?!\/)([^"]*)"/g, (match, attr, path) => {
     if (path.startsWith('cctweaked4tfgm/')) return match;
     let value = path;
-    if (locale === 'zh_cn' && !value.startsWith('zh_cn/') && !value.startsWith('cctweaked4tfgm/')) {
+    const section = value.split('/')[0];
+    if (
+      locale === 'zh_cn' &&
+      !UPSTREAM_SECTIONS.has(section) &&
+      !value.startsWith('zh_cn/') &&
+      !value.startsWith('cctweaked4tfgm/')
+    ) {
       value = `zh_cn/${value}`;
     }
     if (!/\.[a-z0-9]+$/i.test(value) && !value.endsWith('/') && !value.includes('#')) value = `${value}/`;
@@ -302,10 +376,13 @@ ${renderNav(page)}
 ${content}
   </section>
   <footer>
-    <p>${escapeHtml(copy.license)} · <a href="https://github.com/TerraFirmaGreg-Translation-CN/cctweaked4tfgm">GitHub</a> ·
-    <a href="https://github.com/TerraFirmaGreg-Translation-CN/cctweaked4tfgm/edit/main/docs/${escapeAttr(
-      locale === 'zh_cn' ? `zh_cn/${page.rel}` : page.rel,
-    )}">${escapeHtml(copy.edit)}</a></p>
+    <p>${escapeHtml(copy.license)} · <a href="https://github.com/TerraFirmaGreg-Translation-CN/cctweaked4tfgm">GitHub</a>${
+      page.cc
+        ? ''
+        : ` · <a href="https://github.com/TerraFirmaGreg-Translation-CN/cctweaked4tfgm/edit/main/docs/${escapeAttr(
+            locale === 'zh_cn' ? `zh_cn/${page.rel}` : page.rel,
+          )}">${escapeHtml(copy.edit)}</a>`
+    }</p>
   </footer>
 </div>
 <div id="search-overlay"></div>
@@ -322,13 +399,13 @@ ${content}
 }
 
 function renderSearchIndex(locale) {
-  const entries = localePages(locale).map((page) => ({
+  const entries = searchPages(locale).map((page) => ({
     title: page.title,
     url: `${BASE}${page.url.replace(/^\//, '')}`,
-    summary: page.summary || '',
+    summary: page.summary || page.description || '',
     headings: (page.toc || [])
-      .filter((heading) => heading.level <= 3)
-      .map((heading) => ({ id: heading.id, title: heading.title, level: heading.level })),
+      .filter((heading) => !heading.level || heading.level <= 3)
+      .map((heading) => ({ id: heading.id, title: heading.title, level: heading.level || 2 })),
   }));
   writeFile(join(OUT, LOCALES[locale].prefix, 'index.json'), JSON.stringify({ schema: 1, locale, entries }, null, 0));
 }
@@ -378,6 +455,20 @@ function build() {
       page.html = renderLayout(page, absolutize(html, locale));
       writeFile(page.output, page.html);
     }
+    if (locale === 'en_us') {
+      for (const page of ccPages) {
+        let html = readFileSync(page.file, 'utf8');
+        const recipeNote = `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>TerraFirmaGreg deletes this vanilla recipe and rebuilds it on a GregTech machine. See the <a href="/tfgm/recipes/">TerraFirmaGreg recipe set</a> for the replacement.</p></div></div>`;
+        html = html.replace(/<h2>Recipes?<\/h2>/, (heading) => `${heading}${recipeNote}`);
+        if (page.url === '/module/turtle/') {
+          const upgradeNote = `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>TerraFirmaGreg adds one tool upgrade per GregTech material: 20 materials × 5 tools = 73 upgrades. See <a href="/tfgm/turtle-upgrades/">Turtle upgrades</a>.</p></div></div>`;
+          html = html.replace(/<h2>Turtle upgrades<\/h2>/, (heading) => `${heading}${upgradeNote}`);
+        }
+        page.summary = page.description || plainSummary(html);
+        page.html = renderLayout(page, absolutize(html, 'en_us'));
+        writeFile(page.output, page.html);
+      }
+    }
     renderSearchIndex(locale);
   }
 
@@ -389,7 +480,7 @@ function build() {
     ),
   );
 
-  console.log(`Built ${pages.size} pages into ${relative(ROOT, OUT)}/`);
+  console.log(`Built ${pages.size + ccPages.length} pages into ${relative(ROOT, OUT)}/`);
 }
 
 function serve() {
