@@ -1,77 +1,88 @@
 #!/usr/bin/env node
-// Download the pieces the extractor needs from upstream sources:
+// Cache the upstream inputs the extractor and API index need, for one release:
+//
+//   .cache/modpack-<tag>/                   Modpack-Modern checkout (by ci/run.sh)
 //   .cache/items-index.json                 items/index.json of the published EMI bundle
+//   .cache/items-lang-<locale>.json         display names for the same release
 //   .cache/upstream/cc-<version>/lang/*.json CC:T lang files for the pinned version
+//   .cache/upstream/cc-<version>/index.json  tweaked.cc symbol index
 //
 // The EMI bundle is the authoritative item registry of a TFGM release, which is
-// what the turtle-upgrade derivation needs (GT registers tools per material).
+// what the turtle-upgrade derivation needs: GregTech registers tools per
+// material, so the material set has to come from the shipped registry.
 
-import { execFileSync } from 'node:child_process';
-import { existsSync, mkdirSync, writeFileSync } from 'node:fs';
-import { dirname, resolve } from 'node:path';
+import { mkdirSync, writeFileSync } from 'node:fs';
+import { dirname, join, resolve } from 'node:path';
 
 import { findRepoRoot, readArg } from './lib/util.mjs';
 
-const RECIPE_BOOK =
-  'https://wiki.terrafirmagreg.team/modern/recipe-book/bundles/tfg-';
+const RECIPE_BOOK = 'https://wiki.terrafirmagreg.team/modern/recipe-book/bundles/tfg-';
 const CC_REPO = 'https://raw.githubusercontent.com/cc-tweaked/CC-Tweaked';
+const CC_SITE = 'https://tweaked.cc/mc-1.20.x';
 
 const root = findRepoRoot();
 const cache = resolve(root, '.cache');
-const modpackTag = readArg('modpack-tag', '');
-const ccVersion = readArg('cc-version', '');
+const modpackTag = readArg('modpack-tag');
+const ccVersion = readArg('cc-version');
+const LOCALES = ['en_us', 'zh_cn'];
 
-main();
-
-async function main() {
-  mkdirSync(join(cache, 'upstream'), { recursive: true });
-
-  const index = await fetchJson(`${RECIPE_BOOK}${modpackTag}/items/index.json`, 'items-index.json');
-  writeFileSync(join(cache, 'items-index.json'), `${JSON.stringify(index)}\n`);
-  const namespaces = Object.keys(index).filter((k) => Array.isArray(index[k]));
-  console.log(`items-index.json: ${namespaces.length} namespaces (${modpackTag})`);
-
-  // Display names for the ids referenced by the CC recipes. The published
-  // items-lang files are multi-megabyte, so they are cached and then pruned to
-  // the referenced set by the extractor.
-  for (const locale of ['en_us', 'zh_cn']) {
-    const lang = await fetchJson(
-      `${RECIPE_BOOK}${modpackTag}/items-lang/${locale}.json`,
-      `items-lang/${locale}.json`,
-    );
-    writeFileSync(join(cache, `items-lang-${locale}.json`), `${JSON.stringify(lang)}\n`);
-    console.log(`items-lang/${locale}.json: ${lang.itemCount} items`);
-  }
-
-  if (ccVersion) {
-    const tag = `v1.20.1-${ccVersion}`;
-    const dir = join(cache, 'upstream', `cc-${ccVersion}`, 'lang');
-    mkdirSync(dir, { recursive: true });
-    for (const locale of ['en_us', 'zh_cn']) {
-      const url = `${CC_REPO}/${tag}/projects/common/src/generated/resources/assets/computercraft/lang/${locale}.json`;
-      try {
-        const raw = await fetchText(url);
-        writeFileSync(join(dir, `${locale}.json`), raw);
-        console.log(`lang/${locale}.json: ${raw.length} bytes (CC:T ${ccVersion})`);
-      } catch (error) {
-        // zh_cn is hand-maintained upstream and lives outside generated resources.
-        const fallback = `${CC_REPO}/${tag}/projects/common/src/main/resources/assets/computercraft/lang/${locale}.json`;
-        const raw = await fetchText(fallback);
-        writeFileSync(join(dir, `${locale}.json`), raw);
-        console.log(`lang/${locale}.json: ${raw.length} bytes (fallback source)`);
-      }
-    }
-  } else {
-    console.warn('! no --cc-version given; skipped CC:T lang snapshot');
-  }
+if (!modpackTag) {
+  console.error('usage: fetch-item-index.mjs --modpack-tag <tag> [--cc-version <version>]');
+  process.exit(1);
 }
 
-async function fetchJson(url, label) {
-  return JSON.parse(await fetchText(url, label));
+const bundle = `${RECIPE_BOOK}${modpackTag}`;
+
+await fetchInto(
+  `${bundle}/items/index.json`,
+  join(cache, 'items-index.json'),
+  'items/index.json',
+);
+
+for (const locale of LOCALES) {
+  await fetchInto(
+    `${bundle}/items-lang/${locale}.json`,
+    join(cache, `items-lang-${locale}.json`),
+    `items-lang/${locale}.json`,
+  );
 }
 
-async function fetchText(url, label = url) {
+if (!ccVersion) {
+  console.warn('! no --cc-version given; skipped CC:T snapshots');
+  process.exit(0);
+}
+
+const ccTag = `v1.20.1-${ccVersion}`;
+const langDir = join(cache, 'upstream', `cc-${ccVersion}`, 'lang');
+
+for (const locale of LOCALES) {
+  const generated = `${CC_REPO}/${ccTag}/projects/common/src/generated/resources/assets/computercraft/lang/${locale}.json`;
+  const handWritten = `${CC_REPO}/${ccTag}/projects/common/src/main/resources/assets/computercraft/lang/${locale}.json`;
+  const text = await fetchText(generated).catch(() => fetchText(handWritten));
+  mkdirSync(langDir, { recursive: true });
+  writeFileSync(join(langDir, `${locale}.json`), text);
+  console.log(`${locale} lang: ${text.length} bytes (CC:T ${ccVersion})`);
+}
+
+const indexText = await fetchText(`${CC_SITE}/index.json`);
+const indexPath = join(cache, 'upstream', `cc-${ccVersion}`, 'index.json');
+mkdirSync(join(cache, 'upstream', `cc-${ccVersion}`), { recursive: true });
+writeFileSync(indexPath, indexText);
+console.log(`symbol index: ${Object.keys(JSON.parse(indexText)).length} entries (CC:T ${ccVersion})`);
+
+async function fetchInto(url, path, label) {
+  const text = await fetchText(url);
+  mkdirSync(dirname(path), { recursive: true });
+  writeFileSync(path, text);
+  const parsed = JSON.parse(text);
+  const count = Array.isArray(parsed.items)
+    ? parsed.items.length
+    : Object.values(parsed).filter(Array.isArray).reduce((sum, list) => sum + list.length, 0);
+  console.log(`${label}: ${count} entries (${modpackTag})`);
+}
+
+async function fetchText(url) {
   const res = await fetch(url, { headers: { 'user-agent': 'cctweaked4tfgm' } });
-  if (!res.ok) throw new Error(`${label}: HTTP ${res.status}`);
+  if (!res.ok) throw new Error(`${url}: HTTP ${res.status}`);
   return res.text();
 }
