@@ -149,6 +149,8 @@ const CC_KEEP_TITLE_GROUPS = new Set([
   'Events',
 ]);
 
+const CC_TITLES_ZH = JSON.parse(readFileSync(join(SITE, 'cc-titles-zh.json'), 'utf8'));
+
 function ccPageList(locale) {
   if (!CC) return [];
   const translated = locale === 'zh_cn' ? CC_ZH?.pages || {} : null;
@@ -156,7 +158,6 @@ function ccPageList(locale) {
   for (const group of CC.groups || []) {
     for (const entry of group.pages) {
       const zh = translated?.[entry.url];
-      const keepTitle = !translated || CC_KEEP_TITLE_GROUPS.has(group.title);
       const prefix = locale === 'zh_cn' ? '/zh_cn' : '';
       const url = `${prefix}${entry.url}`;
       out.push({
@@ -164,7 +165,7 @@ function ccPageList(locale) {
         cc: true,
         baseUrl: entry.url,
         url,
-        title: keepTitle ? entry.title : zh?.title || entry.title,
+        title: locale === 'zh_cn' ? CC_TITLES_ZH[entry.url] || zh?.title || entry.title : entry.title,
         description: zh?.description || entry.description,
         group: group.title,
         toc: entry.toc || [],

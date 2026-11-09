@@ -280,7 +280,12 @@ if (ccDocs) {
   if (!ccZh) {
     fail('cc/zh_cn/pages.json is missing — run scripts/cc-translate.mjs apply');
   } else {
+    const titlesPath = resolve(root, 'site/cc-titles-zh.json');
+    const titles = existsSync(titlesPath)
+      ? JSON.parse(readFileSync(titlesPath, 'utf8'))
+      : {};
     for (const [url, page] of Object.entries(ccDocs.pages || {})) {
+      if (!titles[url]) fail(`missing Chinese menu title for CC:T page ${url} in site/cc-titles-zh.json`);
       const translated = ccZh.pages?.[url];
       if (!translated) {
         fail(`missing Chinese translation for CC:T page ${url}`);
