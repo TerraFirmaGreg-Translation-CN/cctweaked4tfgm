@@ -1,0 +1,16 @@
+<h1>鼠标点击</h1><p>当用鼠标单击终端时会触发此事件。该事件仅在高级计算机（包括高级海龟和袖珍计算机）上触发。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：单击的鼠标按钮。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：单击的 X 坐标。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：单击的 Y 坐标。</li>
+</ol>
+<h2>鼠标按钮</h2>
+<p>多个鼠标事件（<a href="/event/mouse_click/" class="reference"><code>mouse_click</code></a>、<a href="/event/mouse_up/" class="reference"><code>mouse_up</code></a>、<a href="/event/mouse_scroll/" class="reference"><code>mouse_scroll</code></a>）包含“鼠标按钮”代码。这需要一个数值，具体取决于发生此事件时最后按下鼠标上的哪个按钮。</p>
+<div role="region"><table><tbody><tr><th class="right">按钮代码</th><th>鼠标按钮</th></tr><tr><td class="right">1</td><td>左按钮</td></tr><tr><td class="right">2</td><td>右键</td></tr><tr><td class="right">3</td><td>中键</td></tr></tbody></table></div><h2>例子</h2>
+<p>每次单击鼠标时都会打印按钮和坐标。</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">button</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;mouse_click&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="symbol">(</span><span class="string">&quot;The mouse button %s was pressed at %d, %d&quot;</span><span class="symbol">)</span><span class="symbol">:</span><span class="symbol">format</span><span class="symbol">(</span><span class="ident">button</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

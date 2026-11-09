@@ -1,0 +1,16 @@
+<h1>终止</h1><p><a href="/event/terminate/" class="reference"><code>terminate</code></a> 事件在按住 <kbd>Ctrl-T</kbd> 时触发。</p>
+<p>该事件通常由<a href="/module/os/#v:pullEvent" class="reference"><code>os.pullEvent</code></a>处理，并且不会返回。但是，<a href="/module/os/#v:pullEventRaw" class="reference"><code>os.pullEventRaw</code></a> 在触发时将返回此事件。</p>
+<p><a href="/event/terminate/" class="reference"><code>terminate</code></a> 即使向 <a href="/module/os/#v:pullEventRaw" class="reference"><code>os.pullEventRaw</code></a> 提供了过滤器也会被发送。将 <a href="/module/os/#v:pullEventRaw" class="reference"><code>os.pullEventRaw</code></a> 与过滤器一起使用时，请务必检查事件不是 <a href="/event/terminate/" class="reference"><code>terminate</code></a>。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+</ol>
+<h2>例子</h2>
+<p>按住 Ctrl-T 时打印一条消息：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for events, including the terminate event." href="/module/os/#v:pullEventRaw"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEventRaw</span></a><span class="symbol">(</span><span class="string">&quot;terminate&quot;</span><span class="symbol">)</span>
+  <span class="keyword">if</span> <span class="ident">event</span> <span class="symbol">==</span> <span class="string">&quot;terminate&quot;</span> <span class="keyword">then</span> <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Terminate requested!&quot;</span><span class="symbol">)</span> <span class="keyword">end</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><p>按住 Ctrl-T 时退出：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+<a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent">  <span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

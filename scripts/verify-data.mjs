@@ -275,6 +275,43 @@ if (ccDocs) {
   for (const group of ccDocs.groups || []) {
     if (!group.pages?.length) fail(`CC:T group ${group.title} has no pages`);
   }
+
+  const ccZh = read('cc/zh_cn/pages.json');
+  if (!ccZh) {
+    fail('cc/zh_cn/pages.json is missing — run scripts/cc-translate.mjs apply');
+  } else {
+    for (const [url, page] of Object.entries(ccDocs.pages || {})) {
+      const translated = ccZh.pages?.[url];
+      if (!translated) {
+        fail(`missing Chinese translation for CC:T page ${url}`);
+        continue;
+      }
+      if (!existsSync(resolve(dataRoot, 'cc/zh_cn', page.file))) {
+        fail(`missing Chinese CC:T page file: ${page.file}`);
+      }
+      if (translated.sourceHash !== page.sourceHash) {
+        fail(`Chinese CC:T page is stale: ${url} (rerun scripts/cc-translate.mjs extract/apply)`);
+      }
+      const enHtml = readFileSync(resolve(dataRoot, 'cc', page.file), 'utf8');
+      const zhHtml = readFileSync(resolve(dataRoot, 'cc/zh_cn', page.file), 'utf8');
+      if (/\[\[\d+\]\]/.test(zhHtml)) fail(`unresolved translation placeholder in ${page.file}`);
+      const linksOfHtml = (html) => {
+        const out = new Set();
+        for (const match of html.matchAll(/(?:href|src)="([^"]+)"/g)) {
+          let value = match[1];
+          if (!value.startsWith('/')) continue;
+          value = value.split('#')[0].replace(/\/+$/, '');
+          if (value.startsWith('/zh_cn')) value = value.slice('/zh_cn'.length) || '/';
+          out.add(value || '/');
+        }
+        return out;
+      };
+      const enLinks = linksOfHtml(enHtml);
+      const zhLinks = linksOfHtml(zhHtml);
+      for (const link of enLinks) if (!zhLinks.has(link)) fail(`Chinese CC:T page ${url} is missing link ${link}`);
+      for (const link of zhLinks) if (!enLinks.has(link)) fail(`Chinese CC:T page ${url} has unexpected link ${link}`);
+    }
+  }
 }
 
 // --- docs ------------------------------------------------------------------

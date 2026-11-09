@@ -1,0 +1,54 @@
+<h1>区块详细信息</h1><p>CC: Tweaked 中的几个函数，例如 <a href="/module/turtle/#v:inspect" class="reference"><code>turtle.inspect</code></a> 和 <a href="/module/commands/#v:getBlockInfo" class="reference"><code>commands.getBlockInfo</code></a> 提供了一种获取世界中某个方块信息的方法。本页详细介绍了 CC: Tweaked 可能返回的块的信息。</p>
+<h2>基本信息</h2>
+<p>块信息将<em>始终</em>包含：</p>
+<ul>
+<li><code>name: string</code>：该块的命名空间 ID，例如<code>minecraft:dirt</code>。请参阅 <a href="https://minecraft.wiki/w/Java_Edition_data_values#Blocks" title="Java Edition data values on the Minecraft Wiki">Minecraft wiki</a> 以获取普通方块 ID 列表。</li>
+<li><code>state: { [string] = any}</code>：包含块的块状态的表。</li>
+</ul>
+<h3>例子</h3>
+<p>一块完全水化的农田：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:farmland&quot;</span><span class="symbol">,</span>
+    <span class="ident">state</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="ident">moisture</span> <span class="symbol">=</span> <span class="number">7</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><p>伸出的活塞，面朝上：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:piston&quot;</span><span class="symbol">,</span>
+    <span class="ident">state</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="ident">facing</span> <span class="symbol">=</span> <span class="string">&quot;up&quot;</span><span class="symbol">,</span>
+        <span class="ident">extended</span> <span class="symbol">=</span> <span class="literal-kw">true</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>块标签</h2>
+<p>块具有的 <a href="https://minecraft.wiki/w/Block_tag_%28Java_Edition%29" title="Block tags on the Minecraft Wiki">tags</a>。</p>
+<ul>
+<li><code>tags: { [string] = boolean }</code>：该块的标签集。这是标签名称到 <code>true</code> 的映射。</li>
+</ul>
+<p>虽然标签的表示比单个列表稍微复杂一些，但这使得检查块是否具有特定标签变得非常容易：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="comment">--- Check if the block in front of the turtle is a log.</span>
+<span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">is_log</span><span class="symbol">(</span><span class="symbol">)</span>
+    <span class="keyword">local</span> <span class="ident">ok</span><span class="symbol">,</span> <span class="ident">block</span> <span class="symbol">=</span> <a title="Get information about the block in front of the turtle." href="/module/turtle/#v:inspect"><span class="ident">turtle</span><span class="symbol">.</span><span class="symbol">inspect</span></a><span class="symbol">(</span><span class="symbol">)</span>
+    <span class="keyword">return</span> <span class="ident">ok</span> <span class="operator-kw">and</span> <span class="ident">block</span><span class="symbol">.</span><span class="symbol">tags</span><span class="symbol">[</span><span class="string">&quot;minecraft:logs&quot;</span><span class="symbol">]</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>例子</h3>
+<p>一块完全水化的农田：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:farmland&quot;</span><span class="symbol">,</span>
+    <span class="ident">state</span> <span class="symbol">=</span> <span class="symbol">{</span> <span class="symbol">...</span> <span class="symbol">}</span><span class="symbol">,</span>
+    <span class="ident">tags</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">[</span><span class="string">&quot;minecraft:mineable/shovel&quot;</span><span class="symbol">]</span> <span class="symbol">=</span> <span class="literal-kw">true</span><span class="symbol">,</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>地图颜色</h2>
+<p>块将出现在地图上的颜色（如果指定）。</p>
+<ul>
+<li><code>mapColour?: number</code>：块的颜色，以 RGB 十六进制值表示。</li>
+<li><code>mapColor?: number</code>：块的颜色，以 RGB 十六进制值表示。</li>
+</ul>
+<p>地图颜色仅作为普通数字返回（例如 <code>9923917</code> 表示农田）。它可以使用 <a href="https://www.lua.org/manual/5.1/manual.html#pdf-string.format" class="reference"><code>string.format</code></a> 以十六进制显示，也可以使用 <a href="/module/colors/#v:unpackRGB" class="reference"><code>colors.unpackRGB</code></a> 转换为单独的 RGB 值。</p>
+<h3>例子</h3>
+<p>一块完全水化的农田：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:farmland&quot;</span><span class="symbol">,</span>
+    <span class="ident">state</span> <span class="symbol">=</span> <span class="symbol">{</span> <span class="symbol">...</span> <span class="symbol">}</span><span class="symbol">,</span>
+    <span class="ident">mapColour</span> <span class="symbol">=</span> <span class="number">9923917</span><span class="symbol">,</span>
+    <span class="ident">mapColor</span> <span class="symbol">=</span> <span class="number">9923917</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h3>更改</h3><ul><li><strong>1.64版本新增功能</strong></li><li><strong>在版本1.76中进行了更改：</strong>添加了方块状态。</li><li><strong>在版本1.117.0中进行了更改：</strong>添加了地图颜色。</li></ul>

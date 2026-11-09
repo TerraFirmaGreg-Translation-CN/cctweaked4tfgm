@@ -139,24 +139,45 @@ function buildPages() {
 const pages = buildPages();
 
 const CC = existsSync(join(DOCS, 'data/cc/pages.json')) ? readJson('data/cc/pages.json') : null;
-const ccPages = [];
-if (CC) {
+const CC_ZH = existsSync(join(DOCS, 'data/cc/zh_cn/pages.json')) ? readJson('data/cc/zh_cn/pages.json') : null;
+
+const CC_KEEP_TITLE_GROUPS = new Set([
+  'Globals',
+  'Modules',
+  'Peripherals',
+  'Generic Peripherals',
+  'Events',
+]);
+
+function ccPageList(locale) {
+  if (!CC) return [];
+  const translated = locale === 'zh_cn' ? CC_ZH?.pages || {} : null;
+  const out = [];
   for (const group of CC.groups || []) {
     for (const entry of group.pages) {
-      ccPages.push({
-        locale: 'en_us',
+      const zh = translated?.[entry.url];
+      const keepTitle = !translated || CC_KEEP_TITLE_GROUPS.has(group.title);
+      const prefix = locale === 'zh_cn' ? '/zh_cn' : '';
+      const url = `${prefix}${entry.url}`;
+      out.push({
+        locale,
         cc: true,
-        url: entry.url,
-        title: entry.title,
-        description: entry.description,
+        baseUrl: entry.url,
+        url,
+        title: keepTitle ? entry.title : zh?.title || entry.title,
+        description: zh?.description || entry.description,
         group: group.title,
         toc: entry.toc || [],
-        file: join(DOCS, 'data/cc', entry.file),
-        output: urlToFile(entry.url),
+        file: join(DOCS, 'data/cc', locale === 'zh_cn' ? 'zh_cn' : '', entry.file),
+        output: urlToFile(url),
       });
     }
   }
+  return out;
 }
+
+const ccPages = ccPageList('en_us');
+const ccPagesZh = ccPageList('zh_cn');
 
 const ccHome =
   CC?.home && existsSync(join(DOCS, 'data/cc', CC.home.file))
@@ -169,7 +190,7 @@ function localePages(locale) {
 }
 
 function searchPages(locale) {
-  return [...localePages(locale), ...ccPages];
+  return [...localePages(locale), ...(locale === 'zh_cn' ? ccPagesZh : ccPages)];
 }
 
 const CC_GROUP_LABELS = {
@@ -188,16 +209,18 @@ const CC_GROUP_LABELS = {
 function renderCcGroups(page) {
   if (!CC) return '';
   const labels = CC_GROUP_LABELS[page.locale] || {};
+  const list = page.locale === 'zh_cn' ? ccPagesZh : ccPages;
+  const byBase = new Map(list.map((entry) => [entry.baseUrl, entry]));
   return (CC.groups || [])
     .map((group) => {
       const title = labels[group.title] || group.title;
       const items = group.pages
-        .map(
-          (entry) =>
-            `<li><a href="${BASE}${entry.url.replace(/^\//, '')}" class="sidebar-link${
-              page.url === entry.url ? ' selected' : ''
-            }">${escapeHtml(entry.title)}</a></li>`,
-        )
+        .map((entry) => {
+          const pageEntry = byBase.get(entry.url) || { url: `${page.locale === 'zh_cn' ? '/zh_cn' : ''}${entry.url}`, title: entry.title };
+          return `<li><a href="${BASE}${pageEntry.url.replace(/^\//, '')}" class="sidebar-link${
+            page.url === pageEntry.url ? ' selected' : ''
+          }">${escapeHtml(pageEntry.title)}</a></li>`;
+        })
         .join('');
       return `<h2 tabindex="0">${escapeHtml(title)}</h2><ul>${items}</ul>`;
     })
@@ -295,9 +318,16 @@ function renderNav(page) {
     .join('');
 
   const other = LOCALES[LOCALES[locale].other];
-  const otherPage = [...pages.values()].find(
-    (candidate) => candidate.locale === LOCALES[locale].other && candidate.rel === page.rel,
-  );
+  let otherPage;
+  if (page.cc) {
+    const base = page.baseUrl || page.url.replace(/^\/zh_cn/, '');
+    const list = locale === 'en_us' ? ccPagesZh : ccPages;
+    otherPage = list.find((candidate) => (candidate.baseUrl || candidate.url.replace(/^\/zh_cn/, '')) === base);
+  } else {
+    otherPage = [...pages.values()].find(
+      (candidate) => candidate.locale === LOCALES[locale].other && candidate.rel === page.rel,
+    );
+  }
   const switchHref = `${BASE}${(otherPage?.url || `/${other.prefix}/`).replace(/^\//, '')}`;
 
   return `<nav id="nav">
@@ -314,28 +344,12 @@ function renderNav(page) {
 </nav>`;
 }
 
-const UPSTREAM_SECTIONS = new Set([
-  'module',
-  'library',
-  'peripheral',
-  'generic_peripheral',
-  'event',
-  'guide',
-  'reference',
-]);
-
 function absolutize(html, locale) {
   const prefix = (value) => {
     if (value.startsWith('cctweaked4tfgm/')) return value;
-    const section = value.split('/')[0];
     const isAsset = /\.(?:png|jpe?g|gif|svg|webp|css|js|json|woff2?)$/i.test(value.split('?')[0]);
     let out = value;
-    if (
-      locale === 'zh_cn' &&
-      !isAsset &&
-      !UPSTREAM_SECTIONS.has(section) &&
-      !out.startsWith('zh_cn/')
-    ) {
+    if (locale === 'zh_cn' && !isAsset && !out.startsWith('zh_cn/')) {
       out = `zh_cn/${out}`;
     }
     if (!isAsset && !/\.[a-z0-9]+$/i.test(out) && !out.endsWith('/') && !out.includes('#')) out = `${out}/`;
@@ -360,9 +374,10 @@ function renderLayout(page, content) {
   const locale = page.locale;
   const copy = navCopy[locale];
   const description =
-    locale === 'zh_cn'
+    page.description ||
+    (locale === 'zh_cn'
       ? '群峦格雷现代版实际使用的 CC: Tweaked：版本锁定的配方、海龟升级、任务映射与 Lua 接口索引。'
-      : 'The CC: Tweaked that TerraFirmaGreg Modern actually ships: versioned recipes, turtle upgrades, quest mapping and the Lua API index.';
+      : 'The CC: Tweaked that TerraFirmaGreg Modern actually ships: versioned recipes, turtle upgrades, quest mapping and the Lua API index.');
   const siteName = locale === 'zh_cn' ? '群峦格雷 CC: Tweaked' : 'CC: Tweaked for TerraFirmaGreg';
   const title = page.title === siteName ? escapeHtml(page.title) : `${escapeHtml(page.title)} · ${siteName}`;
 
@@ -492,23 +507,33 @@ function build() {
       page.html = renderLayout(page, absolutize(html, locale));
       writeFile(page.output, page.html);
     }
-    if (locale === 'en_us') {
-      for (const page of ccPages) {
-        let html = readFileSync(page.file, 'utf8');
-        const integrationNote = `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>The pack exposes GregTech machines and Create blocks through these capabilities. See <a href="/tfgm/integrations/">Integrations</a> for the concrete method lists and Lua examples.</p></div></div>`;
-        if (page.url.startsWith('/generic_peripheral/') || page.url === '/module/peripheral/') {
-          html = html.replace(/<\/h1>/, (heading) => `${heading}${integrationNote}`);
-        }
-        const recipeNote = `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>TerraFirmaGreg deletes this vanilla recipe and rebuilds it on a GregTech machine. See the <a href="/tfgm/recipes/">TerraFirmaGreg recipe set</a> for the replacement.</p></div></div>`;
-        html = html.replace(/<h2>Recipes?<\/h2>/, (heading) => `${heading}${recipeNote}`);
-        if (page.url === '/module/turtle/') {
-          const upgradeNote = `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>TerraFirmaGreg adds one tool upgrade per GregTech material: 20 materials × 5 tools = 73 upgrades. See <a href="/tfgm/turtle-upgrades/">Turtle upgrades</a>.</p></div></div>`;
-          html = html.replace(/<h2>Turtle upgrades<\/h2>/, (heading) => `${heading}${upgradeNote}`);
-        }
-        page.summary = page.description || plainSummary(html);
-        page.html = renderLayout(page, absolutize(html, 'en_us'));
-        writeFile(page.output, page.html);
+    for (const page of locale === 'zh_cn' ? ccPagesZh : ccPages) {
+      let html = readFileSync(page.file, 'utf8');
+      if (locale === 'zh_cn' && CC_KEEP_TITLE_GROUPS.has(page.group)) {
+        html = html.replace(/<h1[^>]*>[\s\S]*?<\/h1>/, `<h1>${escapeHtml(page.title)}</h1>`);
       }
+      const integrationNote =
+        locale === 'zh_cn'
+          ? `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>整合包通过这些 capability 暴露格雷机器与机械动力方块。具体方法列表和 Lua 示例见 <a href="/zh_cn/tfgm/integrations/">整合包联动</a>。</p></div></div>`
+          : `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>The pack exposes GregTech machines and Create blocks through these capabilities. See <a href="/tfgm/integrations/">Integrations</a> for the concrete method lists and Lua examples.</p></div></div>`;
+      if (page.baseUrl.startsWith('/generic_peripheral/') || page.baseUrl === '/module/peripheral/') {
+        html = html.replace(/<\/h1>/, (heading) => `${heading}${integrationNote}`);
+      }
+      const recipeNote =
+        locale === 'zh_cn'
+          ? `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>群峦格雷删除了这个原版配方，并改用格雷机器重写。替换配方见 <a href="/zh_cn/tfgm/recipes/">群峦格雷配方表</a>。</p></div></div>`
+          : `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>TerraFirmaGreg deletes this vanilla recipe and rebuilds it on a GregTech machine. See the <a href="/tfgm/recipes/">TerraFirmaGreg recipe set</a> for the replacement.</p></div></div>`;
+      html = html.replace(locale === 'zh_cn' ? /<h2>配方<\/h2>/ : /<h2>Recipes?<\/h2>/, (heading) => `${heading}${recipeNote}`);
+      if (page.baseUrl === '/module/turtle/') {
+        const upgradeNote =
+          locale === 'zh_cn'
+            ? `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>群峦格雷为每种格雷材料添加一个工具升级：20 种材料 × 5 种工具 = 73 个升级。见 <a href="/zh_cn/tfgm/turtle-upgrades/">海龟升级</a>。</p></div></div>`
+            : `<div class="admonition admonition-tip"><p class="admonition-heading">TerraFirmaGreg</p><div class="admonition-body"><p>TerraFirmaGreg adds one tool upgrade per GregTech material: 20 materials × 5 tools = 73 upgrades. See <a href="/tfgm/turtle-upgrades/">Turtle upgrades</a>.</p></div></div>`;
+        html = html.replace(locale === 'zh_cn' ? /<h2>海龟升级<\/h2>/ : /<h2>Turtle upgrades<\/h2>/, (heading) => `${heading}${upgradeNote}`);
+      }
+      page.summary = page.description || plainSummary(html);
+      page.html = renderLayout(page, absolutize(html, locale));
+      writeFile(page.output, page.html);
     }
     renderSearchIndex(locale);
   }
@@ -521,7 +546,7 @@ function build() {
     ),
   );
 
-  console.log(`Built ${pages.size + ccPages.length} pages into ${relative(ROOT, OUT)}/`);
+  console.log(`Built ${pages.size + ccPages.length + ccPagesZh.length} pages into ${relative(ROOT, OUT)}/`);
 }
 
 function serve() {

@@ -1,0 +1,19 @@
+<h1>http_成功</h1><p>当 HTTP 请求成功返回时，会触发 <a href="/event/http_success/" class="reference"><code>http_success</code></a> 事件。</p>
+<p>该事件通常在 <a href="/module/http/#v:get" class="reference"><code>http.get</code></a> 和 <a href="/module/http/#v:post" class="reference"><code>http.post</code></a> 内部处理，但在使用 <a href="/module/http/#v:request" class="reference"><code>http.request</code></a> 时仍然可以看到。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：请求的站点的 URL。</li>
+<li><a href="/module/http/#ty:Response" class="reference"><code>http.Response</code></a>：成功的 HTTP 响应。</li>
+</ol>
+<h2>例子</h2>
+<p>打印网站的内容（如果请求失败，则可能会失败）：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">myURL</span> <span class="symbol">=</span> <span class="string">&quot;https://tweaked.cc/&quot;</span>
+<a title="Asynchronously make a HTTP request to the given url." href="/module/http/#v:request"><span class="ident">http</span><span class="symbol">.</span><span class="symbol">request</span></a><span class="symbol">(</span><span class="ident">myURL</span><span class="symbol">)</span>
+<span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">url</span><span class="symbol">,</span> <span class="ident">handle</span>
+<span class="keyword">repeat</span>
+    <span class="ident">event</span><span class="symbol">,</span> <span class="ident">url</span><span class="symbol">,</span> <span class="ident">handle</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;http_success&quot;</span><span class="symbol">)</span>
+<span class="keyword">until</span> <span class="ident">url</span> <span class="symbol">==</span> <span class="ident">myURL</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Contents of &quot;</span> <span class="symbol">..</span> <span class="ident">url</span> <span class="symbol">..</span> <span class="string">&quot;:&quot;</span><span class="symbol">)</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="ident">handle</span><span class="symbol">.</span><span class="symbol">readAll</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="ident">handle</span><span class="symbol">.</span><span class="symbol">close</span><span class="symbol">(</span><span class="symbol">)</span><span class="symbol"></span></pre></div><h3>另请参阅</h3><ul><li><strong><a href="/module/http/#v:request" class="reference"><code>http.request</code></a></strong> 发出 HTTP 请求。</li></ul>

@@ -1,0 +1,15 @@
+<h1>钥匙</h1><p>当终端获得焦点时按下任意键，会触发此事件。</p>
+<p>此事件返回一个数字“键代码”（例如，<kbd>F1</kbd> 是 290）。该值可能因版本而异，因此建议使用 <a href="/module/keys/" class="reference"><code>keys</code></a> API 中的常量，而不是硬编码数值。</p>
+<p>如果按下的按钮代表可打印字符，则 <a href="/event/key/" class="reference"><code>key</code></a> 事件后将紧接着 <a href="/event/char/" class="reference"><code>char</code></a> 事件。如果您正在使用文本输入，请改用 <a href="/event/char/" class="reference"><code>char</code></a> 事件！</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：按下的键的数字键值。</li>
+<li><span class="reference reference-unresolved"><code>boolean</code></span>：按键事件是否是在按住按键时（<span class="reference reference-unresolved"><code>true</code></span>）生成，而不是第一次按下（<span class="reference reference-unresolved"><code>false</code></span>）。</li>
+</ol>
+<h2>例子</h2>
+<p>当用户按下每个键以及按住该键时打印每个键。</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">key</span><span class="symbol">,</span> <span class="ident">is_held</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;key&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="symbol">(</span><span class="string">&quot;%s held=%s&quot;</span><span class="symbol">)</span><span class="symbol">:</span><span class="symbol">format</span><span class="symbol">(</span><a title="Translates a numerical key code to a human-readable name." href="/module/keys/#v:getName"><span class="ident">keys</span><span class="symbol">.</span><span class="symbol">getName</span></a><span class="symbol">(</span><span class="ident">key</span><span class="symbol">)</span><span class="symbol">,</span> <span class="ident">is_held</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

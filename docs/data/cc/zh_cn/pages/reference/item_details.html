@@ -1,0 +1,170 @@
+<h1>商品详情</h1><p>CC: Tweaked 中的几个函数，例如 <a href="/module/turtle/#v:getItemDetail" class="reference"><code>turtle.getItemDetail</code></a> 和 <a href="/generic_peripheral/inventory/#v:getItemDetail" class="reference"><code>inventory.getItemDetail</code></a> 提供了一种获取有关项目堆栈信息的方法。本页详细介绍了 CC: Tweaked 可能返回的物品的信息。</p>
+<p>某些方法（例如 <a href="/generic_peripheral/inventory/#v:list" class="reference"><code>inventory.list</code></a> 和 <a href="/module/turtle/#v:getItemDetail" class="reference"><code>turtle.getItemDetail</code></a>，在未设置 <code>detailed</code> 标志时）只会返回物品的“基本信息”。</p>
+<h2>基本信息</h2>
+<p>项目信息将<em>始终</em>包含：</p>
+<ul>
+<li><code>name: string</code>：此项的命名空间 ID，例如<code>minecraft:dirt</code>。请参阅 <a href="https://minecraft.wiki/w/Java_Edition_data_values#Items" title="Java Edition data values on the Minecraft Wiki">Minecraft wiki</a> 以获取原始项目 ID 列表。</li>
+<li><code>count: number</code>：堆栈中的项目数。</li>
+<li><code>nbt?: string</code>：堆栈中NBT的哈希值。虽然这不会暴露有关该物品的 NBT 的任何信息，但它可以用作比较物品的一种方式。如果两个物品具有相同的 <code>name</code> 和 <code>nbt</code>，则所有其他属性（例如耐用性、结界）将相同。</li>
+</ul>
+<h3>例子</h3>
+<p>一堆 32 根去皮金合欢原木：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><p>附带升级的乌龟：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;computercraft:turtle_normal&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">1</span><span class="symbol">,</span>
+    <span class="ident">nbt</span> <span class="symbol">=</span> <span class="string">&quot;a33095c2eb17c10e12f2b970c4e1b2bb&quot;</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>显示信息</h2>
+<p>项目工具提示中显示的常见信息：</p>
+<ul>
+<li><code>displayName: string</code>：项目的翻译显示名称。这使用<em>服务器的</em>语言。在多人游戏服务器上通常为英语，在单人游戏服务器上通常为您当前的语言。</li>
+<li><code>lore: { string... }</code>：关于此项目的附加知识，作为字符串列表。</li>
+</ul>
+<h3>例子</h3>
+<p>一堆去皮的金合欢原木：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+    <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Stripped Acacia Log&quot;</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>最大计数</h2>
+<p>该物品可以堆叠的最大物品数量：</p>
+<ul>
+<li><code>maxCount: number</code>：项目堆栈的最大可能大小。</li>
+</ul>
+<h3>例子</h3>
+<p>一堆去皮的金合欢原木：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+    <span class="ident">maxCount</span> <span class="symbol">=</span> <span class="number">64</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>物品标签</h2>
+<p>项目具有的 <a href="https://minecraft.wiki/w/Item_tag_%28Java_Edition%29" title="Item tags on the Minecraft Wiki"> 标签 </a>。</p>
+<ul>
+<li><code>tags: { [string] = boolean }</code>：该项目的标签集。这是标签名称到 <code>true</code> 的映射。</li>
+</ul>
+<p>虽然标签的表示比单个列表稍微复杂一些，但这使得检查项目是否具有特定标签变得非常容易：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="comment">--- Check if the item in the turtle's inventory is a log.</span>
+<span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">is_log</span><span class="symbol">(</span><span class="ident">slot</span><span class="symbol">)</span>
+    <span class="keyword">local</span> <span class="ident">ok</span><span class="symbol">,</span> <span class="ident">block</span> <span class="symbol">=</span> <a title="Get information about the items in the given slot." href="/module/turtle/#v:getItemDetail"><span class="ident">turtle</span><span class="symbol">.</span><span class="symbol">getItemDetail</span></a><span class="symbol">(</span><span class="ident">slot</span><span class="symbol">,</span> <span class="literal-kw">true</span><span class="symbol">)</span>
+    <span class="keyword">return</span> <span class="ident">ok</span> <span class="operator-kw">and</span> <span class="ident">block</span><span class="symbol">.</span><span class="symbol">tags</span><span class="symbol">[</span><span class="string">&quot;minecraft:logs&quot;</span><span class="symbol">]</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>例子</h3>
+<p>一堆去皮的金合欢原木：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+    <span class="ident">tags</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">[</span><span class="string">&quot;minecraft:acacia_logs&quot;</span><span class="symbol">]</span> <span class="symbol">=</span> <span class="literal-kw">true</span><span class="symbol">,</span>
+        <span class="symbol">[</span><span class="string">&quot;minecraft:logs&quot;</span><span class="symbol">]</span> <span class="symbol">=</span> <span class="literal-kw">true</span><span class="symbol">,</span>
+        <span class="symbol">[</span><span class="string">&quot;minecraft:logs_that_burn&quot;</span><span class="symbol">]</span> <span class="symbol">=</span> <span class="literal-kw">true</span><span class="symbol">,</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>项目组</h2>
+<p>该项目出现在的广告素材标签上：</p>
+<ul>
+<li><code>itemGroups: { { id = string, displayName = string }... }</code>：该项目出现的项目组。每个项目组都存储为一个表，其中包含其 ID 和显示名称。</li>
+</ul>
+<div class="admonition admonition-info"><h5 class="admonition-heading"><span aria-hidden="true">🛈</span> 版本差异</h5><p>此信息在 Minecraft 1.19.3 至 1.20.3 上不可用。该字段存在，但在这些版本上为空。</p>
+</div><h3>例子</h3>
+<p>一堆去皮的金合欢原木：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+    <span class="ident">itemGroups</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">{</span>
+            <span class="ident">id</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:building_blocks&quot;</span><span class="symbol">,</span>
+            <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Building Blocks&quot;</span>
+        <span class="symbol">}</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>损坏和耐用性</h2>
+<p>如果该物品可能被损坏（例如镐），则其损坏和耐用性将可用：</p>
+<ul>
+<li><code>damage: number</code>：该物品受到的伤害量。</li>
+<li><code>maxDamage: number</code>：该物品受到的最大伤害。</li>
+<li><code>durability?: number</code>：如果该物品损坏（即耐久条可见），耐久条上剩余的百分比，介于 0 和 1 之间（含）。</li>
+<li><code>unbreakable?: boolean</code>：<code>true</code>，如果该物品牢不可破</li>
+</ul>
+<h3>例子</h3>
+<p>未使用过的钻石镐：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:diamond_pickaxe&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">1</span><span class="symbol">,</span>
+    <span class="ident">damage</span> <span class="symbol">=</span> <span class="number">0</span><span class="symbol">,</span>
+    <span class="ident">maxDamage</span> <span class="symbol">=</span> <span class="number">1561</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><p>一把用了一半的木镐：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:wooden_pickaxe&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">1</span><span class="symbol">,</span>
+    <span class="ident">damage</span> <span class="symbol">=</span> <span class="number">21</span><span class="symbol">,</span>
+    <span class="ident">maxDamage</span> <span class="symbol">=</span> <span class="number">59</span><span class="symbol">,</span>
+    <span class="ident">durability</span> <span class="symbol">=</span> <span class="number">0.615</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>结界</h2>
+<p>该物品具有的魔咒。这包括工具和魔法书籍。</p>
+<ul>
+<li><code>enchantments: { table... }</code>：该物品具有的魔咒。每个结界都是一个包含多个属性的表：<ul>
+<li><code>name: string</code>：此附魔的命名空间 ID，例如<code>minecraft:efficiency</code>。请参阅 <a href="https://minecraft.wiki/w/Java_Edition_data_values#Enchantments" title="Java Edition data values on the Minecraft Wiki">Minecraft wiki</a> 以获取原版附魔 ID 列表。</li>
+<li><code>displayName: string</code>：该结界的翻译显示名称。</li>
+<li><code>level: number</code>：此结界的等级。</li>
+</ul></li>
+</ul>
+<h3>例子</h3>
+<p>效率 V 的金刚石镐：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:diamond_pickaxe&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">1</span><span class="symbol">,</span>
+    <span class="ident">enchantments</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">{</span>
+            <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:efficiency&quot;</span><span class="symbol">,</span>
+            <span class="ident">level</span> <span class="symbol">=</span> <span class="number">5</span><span class="symbol">,</span>
+            <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Efficiency V&quot;</span><span class="symbol">,</span>
+        <span class="symbol">}</span>
+    <span class="symbol">}</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>药水效果</h2>
+<p>该药水（或浸有药水的物品，例如尖箭）具有的效果：</p>
+<ul>
+<li><code>potionEffects: { table... }</code>：该项目具有的效果。每个药水效果都是一个包含几个属性的表：<ul>
+<li><code>name: string</code>：此效果的命名空间 ID，例如<code>minecraft:regeneration</code>。请参阅 <a href="https://minecraft.wiki/w/Java_Edition_data_values#Effects" title="Java Edition data values on the Minecraft Wiki">Minecraft wiki</a> 以获取原始效果 ID 列表。</li>
+<li><code>displayName: string</code>：该药水效果的翻译显示名称。</li>
+<li><code>duration?: number</code>：该效果持续的持续时间（如果不是即时的），以秒为单位。</li>
+<li><code>potency?: number</code>：该药水的效力。</li>
+</ul></li>
+</ul>
+<h3>例子</h3>
+<p>基本治疗药水：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:potion&quot;</span><span class="symbol">,</span>
+    <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Potion of Healing&quot;</span><span class="symbol">,</span>
+    <span class="ident">potionEffects</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">{</span>
+            <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:instant_health&quot;</span><span class="symbol">,</span>
+            <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Instant Health&quot;</span><span class="symbol">,</span>
+        <span class="symbol">}</span><span class="symbol">,</span>
+    <span class="symbol">}</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><p>升级后的再生药水：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:potion&quot;</span><span class="symbol">,</span>
+    <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Potion of Regeneration&quot;</span><span class="symbol">,</span>
+    <span class="ident">potionEffects</span> <span class="symbol">=</span> <span class="symbol">{</span>
+        <span class="symbol">{</span>
+            <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:regeneration&quot;</span><span class="symbol">,</span>
+            <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Regeneration II&quot;</span><span class="symbol">,</span>
+            <span class="ident">duration</span> <span class="symbol">=</span> <span class="number">22.5</span><span class="symbol">,</span>
+            <span class="ident">potency</span> <span class="symbol">=</span> <span class="number">2</span><span class="symbol">,</span>
+        <span class="symbol">}</span><span class="symbol">,</span>
+    <span class="symbol">}</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>地图颜色</h2>
+<p>如果指定，则项目的块形式将显示在地图上的颜色。</p>
+<ul>
+<li><code>mapColour?: number</code>：块的颜色，以 RGB 十六进制值表示。</li>
+<li><code>mapColor?: number</code>：块的颜色，以 RGB 十六进制值表示。</li>
+</ul>
+<p>地图颜色仅作为普通数字返回（例如 <code>9923917</code> 表示污垢）。它可以使用 <a href="https://www.lua.org/manual/5.1/manual.html#pdf-string.format" class="reference"><code>string.format</code></a> 以十六进制显示，也可以使用 <a href="/module/colors/#v:unpackRGB" class="reference"><code>colors.unpackRGB</code></a> 转换为单独的 RGB 值。</p>
+<h3>例子</h3>
+<p>一堆去皮的金合欢原木：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:stripped_acacia_log&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+    <span class="ident">mapColour</span> <span class="symbol">=</span> <span class="number">14188339</span><span class="symbol">,</span>
+    <span class="ident">mapColor</span> <span class="symbol">=</span> <span class="number">14188339</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h3>更改</h3><ul><li><strong>1.64版本新增功能</strong></li><li><strong>在版本1.94.0中进行了更改：</strong>添加NBT哈希、物品标签、传说、结界和牢不可破的标志。</li><li><strong>版本1.100.9中更改：</strong>添加项目组。</li><li><strong>在1.117.0版本中进行了更改：</strong>添加了地图颜色和药水效果。</li></ul>

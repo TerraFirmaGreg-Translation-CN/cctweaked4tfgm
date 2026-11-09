@@ -9,6 +9,7 @@
  *
  * Usage: node scripts/fetch-cc-docs.mjs [--version 1.121.0] [--force]
  */
+import { createHash } from 'node:crypto';
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -231,7 +232,7 @@ async function main() {
 
   mkdirSync(join(OUT, 'pages'), { recursive: true });
   rmSync(join(OUT, 'pages'), { recursive: true, force: true });
-  const manifest = { version: VERSION, source: SOURCE, logo: logoPath, home: { file: 'home.html', title: home.title, description: home.description }, groups: [], pages: {} };
+  const manifest = { version: VERSION, source: SOURCE, logo: logoPath, home: { file: 'home.html', title: home.title, description: home.description, sourceHash: createHash('sha256').update(home.content).digest('hex').slice(0, 16) }, groups: [], pages: {} };
   for (const group of groups) {
     const entry = { title: group.title, pages: [] };
     for (const page of group.pages) {
@@ -247,6 +248,7 @@ async function main() {
         description: info.description,
         file: rel,
         toc: info.toc,
+        sourceHash: createHash('sha256').update(info.content).digest('hex').slice(0, 16),
       });
       manifest.pages[info.url] = {
         title: info.title,
@@ -254,6 +256,7 @@ async function main() {
         group: group.title,
         file: rel,
         toc: info.toc,
+        sourceHash: createHash('sha256').update(info.content).digest('hex').slice(0, 16),
       };
     }
     manifest.groups.push(entry);

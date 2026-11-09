@@ -1,0 +1,10 @@
+<h1>http_检查</h1><p>当 URL 检查完成时，会触发 <a href="/event/http_check/" class="reference"><code>http_check</code></a> 事件。</p>
+<p>该事件通常在<a href="/module/http/#v:checkURL" class="reference"><code>http.checkURL</code></a>内部处理，但在使用<a href="/module/http/#v:checkURLAsync" class="reference"><code>http.checkURLAsync</code></a>时仍然可以看到。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：请求检查的URL。</li>
+<li><span class="reference reference-unresolved"><code>boolean</code></span>：检查是否成功。</li>
+<li><span class="type"><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>|<span class="reference reference-unresolved"><code>nil</code></span></span>：如果检查失败，则说明检查失败的原因。</li>
+</ol>
+<h3>另请参阅</h3><ul><li><strong><a href="/module/http/#v:checkURLAsync" class="reference"><code>http.checkURLAsync</code></a></strong> 异步检查 URL。</li></ul>

@@ -83,6 +83,8 @@ The site therefore renders the game's own recipe cards through `emi-recipe-rende
 
 `scripts/fetch-cc-docs.mjs` reads the rendered page bodies from `tweaked.cc/mc-1.20.x` for the CC:T version pinned by the release, rewrites relative links to this site's clean URLs and caches the referenced item icons under `docs/public/images/`. The result is `docs/data/cc/pages.json` plus 95 page fragments, exactly the upstream reference with TerraFirmaGreg callouts inserted where recipes or turtle upgrades differ.
 
+The Chinese mirror is produced by `scripts/cc-translate.mjs`: it extracts prose units, protects HTML tags, code blocks and placeholders, translates the units, and writes `docs/data/cc/zh_cn/` plus a source hash per page. `verify-data.mjs` fails when a page has no Chinese copy, when the translation is stale, or when the English and Chinese pages link to different internal pages.
+
 ## Verification gate
 
 `scripts/verify-data.mjs` runs before every build and fails on:
@@ -94,6 +96,7 @@ The site therefore renders the game's own recipe cards through `emi-recipe-rende
 - a config key present in TFGM but absent from the upstream default table
 - a recipe with no EMI mapping, or a missing card image in `docs/data/emi/`
 - a mirrored CC:T page missing, or a CC:T version mismatch in `docs/data/cc/pages.json`
+- a Chinese CC:T page missing, stale or with a different internal link set
 
 The config check is what keeps the "no overrides" claim honest: add an override without teaching the extractor about it, and the build fails.
 
@@ -111,6 +114,9 @@ node scripts/fetch-cc-docs.mjs --version 1.121.0
 
 # 4. extract the matching EMI layouts and icons
 node scripts/fetch-emi-bundle.mjs
+
+# 4b. after the mirror changes, refresh the translation units
+node scripts/cc-translate.mjs extract
 
 # 5. verify and build
 npm run build

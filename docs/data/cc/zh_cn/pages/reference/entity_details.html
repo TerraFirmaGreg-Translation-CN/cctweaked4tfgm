@@ -1,0 +1,40 @@
+<h1>实体详情</h1><p>CC: Tweaked 中的一些函数（例如 <a href="/module/commands/#v:getEntities" class="reference"><code>commands.getEntities</code></a>）提供了一种获取有关实体的信息的方法。此页面详细介绍了 CC: Tweaked 可能返回的实体的信息。</p>
+<h2>基本信息</h2>
+<p>实体信息将<em>始终</em>包含：</p>
+<ul>
+<li><code>name: string</code>：该实体的命名空间 ID，例如<code>minecraft:player</code>。有关普通实体 ID 的列表，请参阅 <a href="https://minecraft.wiki/w/Java_Edition_data_values#Entities" title="Java Edition data values on the Minecraft Wiki">Minecraft wiki</a>。</li>
+</ul>
+<h3>例子</h3>
+<p>爬行者：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:creeper&quot;</span><span class="symbol">,</span>
+    <span class="ident">count</span> <span class="symbol">=</span> <span class="number">32</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>显示信息</h2>
+<p>实体的显示名称。</p>
+<ul>
+<li><code>displayName: string</code>：实体的翻译显示名称。这使用<em>服务器的</em>语言。在多人游戏服务器上通常为英语，在单人游戏服务器上通常为您当前的语言。</li>
+</ul>
+<h3>例子</h3>
+<p>爬行者：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:creeper&quot;</span><span class="symbol">,</span>
+    <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Creeper&quot;</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>健康</h2>
+<p>实体的健康状况。</p>
+<ul>
+<li><code>health: number</code>：实体的当前健康状况。</li>
+<li><code>maxHealth: number</code>：实体的最大生命值。</li>
+</ul>
+<h3>例子</h3>
+<p>处于最大生命值的玩家。</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="expr" data-no-run="1"><span class="symbol">{</span>
+    <span class="ident">name</span> <span class="symbol">=</span> <span class="string">&quot;minecraft:player&quot;</span><span class="symbol">,</span>
+    <span class="ident">displayName</span> <span class="symbol">=</span> <span class="string">&quot;Alex&quot;</span><span class="symbol">,</span>
+    <span class="ident">health</span> <span class="symbol">=</span> <span class="number">20</span><span class="symbol">,</span>
+    <span class="ident">maxHealth</span> <span class="symbol">=</span> <span class="number">20</span><span class="symbol">,</span>
+<span class="symbol">}</span><span class="symbol"></span></pre></div><h2>实体标签</h2>
+<p>该类型实体具有的<a href="https://minecraft.wiki/w/Entity_type_tag_%28Java_Edition%29" title="Entity type tags on the Minecraft Wiki">标签</a>。</p>
+<ul>
+<li><code>tags: { [string] = boolean }</code>：该实体的标签集。这是标签名称到 <code>true</code> 的映射。</li>
+</ul>
+<h3>更改</h3><ul><li><strong>1.118.0 版本新增</strong></li></ul>

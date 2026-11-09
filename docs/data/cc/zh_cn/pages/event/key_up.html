@@ -1,0 +1,14 @@
+<h1>按键向上</h1><p>每当释放按键（或在按住按键时关闭终端）时触发。</p>
+<p>此事件返回一个数字“键代码”（例如，<kbd>F1</kbd> 是 290）。该值可能因版本而异，因此建议使用 <a href="/module/keys/" class="reference"><code>keys</code></a> API 中的常量，而不是硬编码数值。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：按下的键的数字键值。</li>
+</ol>
+<h2>例子</h2>
+<p>每当触发 <a href="/event/key_up/" class="reference"><code>key_up</code></a> 事件时，打印键盘上释放的每个键。</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">key</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;key_up&quot;</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">name</span> <span class="symbol">=</span> <a title="Translates a numerical key code to a human-readable name." href="/module/keys/#v:getName"><span class="ident">keys</span><span class="symbol">.</span><span class="symbol">getName</span></a><span class="symbol">(</span><span class="ident">key</span><span class="symbol">)</span> <span class="operator-kw">or</span> <span class="string">&quot;unknown key&quot;</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="ident">name</span> <span class="symbol">..</span> <span class="string">&quot; was released.&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>另请参阅</h3><ul><li><strong><a href="/module/keys/" class="reference"><code>keys</code></a></strong> 用于给定键的查找表。</li></ul>

@@ -1,0 +1,12 @@
+<h1>外设分离</h1><p>当外设从某一侧或调制解调器上断开时，会触发 <a href="/event/peripheral_detach/" class="reference"><code>peripheral_detach</code></a> 事件。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：外设分离的一侧。</li>
+</ol>
+<h2>例子</h2>
+<p>当外设分离时打印一条消息：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">side</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;peripheral_detach&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;A peripheral was detached on side &quot;</span> <span class="symbol">..</span> <span class="ident">side</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>另请参阅</h3><ul><li><strong><a href="/module/peripheral/" class="reference"><code>peripheral</code></a></strong> 用于连接外设时触发的事件。</li></ul>

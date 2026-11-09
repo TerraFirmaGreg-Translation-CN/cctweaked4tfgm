@@ -1,0 +1,6217 @@
+{
+  "version": "1.121.0",
+  "source": "https://tweaked.cc/mc-1.20.x",
+  "groups": [
+    {
+      "title": "Globals",
+      "pages": [
+        {
+          "key": "module/_G.html",
+          "url": "/module/_G/",
+          "title": "_G",
+          "description": "全局环境中的函数，定义于 bios.lua。这不包括标准 Lua 函数。",
+          "file": "pages/module/_G.html",
+          "toc": [
+            {
+              "id": "v:sleep",
+              "title": "sleep([time=0])"
+            },
+            {
+              "id": "v:write",
+              "title": "write(text)"
+            },
+            {
+              "id": "v:print",
+              "title": "print(...)"
+            },
+            {
+              "id": "v:printError",
+              "title": "printError(...)"
+            },
+            {
+              "id": "v:read",
+              "title": "read([replaceChar [, history [, completeFn [, default]]]])"
+            },
+            {
+              "id": "v:_HOST",
+              "title": "_HOST"
+            },
+            {
+              "id": "v:_CC_DEFAULT_SETTINGS",
+              "title": "_CC_DEFAULT_SETTINGS"
+            }
+          ],
+          "sourceHash": "484f97864c3e0b85"
+        },
+        {
+          "key": "module/colors.html",
+          "url": "/module/colors/",
+          "title": "colors",
+          "description": "用于颜色值的常量和函数，适合与 term 和 redstone 配合使用。",
+          "file": "pages/module/colors.html",
+          "toc": [
+            {
+              "id": "v:white",
+              "title": "white = 0x1"
+            },
+            {
+              "id": "v:orange",
+              "title": "orange = 0x2"
+            },
+            {
+              "id": "v:magenta",
+              "title": "magenta = 0x4"
+            },
+            {
+              "id": "v:lightBlue",
+              "title": "lightBlue = 0x8"
+            },
+            {
+              "id": "v:yellow",
+              "title": "yellow = 0x10"
+            },
+            {
+              "id": "v:lime",
+              "title": "lime = 0x20"
+            },
+            {
+              "id": "v:pink",
+              "title": "pink = 0x40"
+            },
+            {
+              "id": "v:gray",
+              "title": "gray = 0x80"
+            },
+            {
+              "id": "v:lightGray",
+              "title": "lightGray = 0x100"
+            },
+            {
+              "id": "v:cyan",
+              "title": "cyan = 0x200"
+            },
+            {
+              "id": "v:purple",
+              "title": "purple = 0x400"
+            },
+            {
+              "id": "v:blue",
+              "title": "blue = 0x800"
+            },
+            {
+              "id": "v:brown",
+              "title": "brown = 0x1000"
+            },
+            {
+              "id": "v:green",
+              "title": "green = 0x2000"
+            },
+            {
+              "id": "v:red",
+              "title": "red = 0x4000"
+            },
+            {
+              "id": "v:black",
+              "title": "black = 0x8000"
+            },
+            {
+              "id": "v:combine",
+              "title": "combine(...)"
+            },
+            {
+              "id": "v:subtract",
+              "title": "subtract(colors, ...)"
+            },
+            {
+              "id": "v:test",
+              "title": "test(colors, color)"
+            },
+            {
+              "id": "v:packRGB",
+              "title": "packRGB(r, g, b)"
+            },
+            {
+              "id": "v:unpackRGB",
+              "title": "unpackRGB(rgb)"
+            },
+            {
+              "id": "v:toBlit",
+              "title": "toBlit(color)"
+            },
+            {
+              "id": "v:fromBlit",
+              "title": "fromBlit(hex)"
+            }
+          ],
+          "sourceHash": "18065437049ad315"
+        },
+        {
+          "key": "module/colours.html",
+          "url": "/module/colours/",
+          "title": "colours",
+          "description": "面向英式拼写爱好者的 colors 替代版本。",
+          "file": "pages/module/colours.html",
+          "toc": [
+            {
+              "id": "v:grey",
+              "title": "grey"
+            },
+            {
+              "id": "v:lightGrey",
+              "title": "lightGrey"
+            }
+          ],
+          "sourceHash": "63c8c8cce06b32b3"
+        },
+        {
+          "key": "module/commands.html",
+          "url": "/module/commands/",
+          "title": "commands",
+          "description": "执行 Minecraft 命令，并从命令计算机的结果中收集数据。",
+          "file": "pages/module/commands.html",
+          "toc": [
+            {
+              "id": "v:exec",
+              "title": "exec(command)"
+            },
+            {
+              "id": "v:execAsync",
+              "title": "execAsync(command)"
+            },
+            {
+              "id": "v:list",
+              "title": "list(...)"
+            },
+            {
+              "id": "v:getDimension",
+              "title": "getDimension()"
+            },
+            {
+              "id": "v:getBlockPosition",
+              "title": "getBlockPosition()"
+            },
+            {
+              "id": "v:getBlockInfos",
+              "title": "getBlockInfos(minX, minY, minZ, maxX, maxY, maxZ [, dimension])"
+            },
+            {
+              "id": "v:getBlockInfo",
+              "title": "getBlockInfo(x, y, z [, dimension])"
+            },
+            {
+              "id": "v:getEntities",
+              "title": "getEntities(selector)"
+            },
+            {
+              "id": "v:native",
+              "title": "native"
+            },
+            {
+              "id": "v:async",
+              "title": "async"
+            }
+          ],
+          "sourceHash": "6e7ad39200c48717"
+        },
+        {
+          "key": "module/disk.html",
+          "url": "/module/disk/",
+          "title": "disk",
+          "description": "与磁盘驱动器交互。",
+          "file": "pages/module/disk.html",
+          "toc": [
+            {
+              "id": "v:isPresent",
+              "title": "isPresent(name)"
+            },
+            {
+              "id": "v:getLabel",
+              "title": "getLabel(name)"
+            },
+            {
+              "id": "v:setLabel",
+              "title": "setLabel(name, label)"
+            },
+            {
+              "id": "v:hasData",
+              "title": "hasData(name)"
+            },
+            {
+              "id": "v:getMountPath",
+              "title": "getMountPath(name)"
+            },
+            {
+              "id": "v:hasAudio",
+              "title": "hasAudio(name)"
+            },
+            {
+              "id": "v:getAudioTitle",
+              "title": "getAudioTitle(name)"
+            },
+            {
+              "id": "v:playAudio",
+              "title": "playAudio(name)"
+            },
+            {
+              "id": "v:stopAudio",
+              "title": "stopAudio(name)"
+            },
+            {
+              "id": "v:eject",
+              "title": "eject(name)"
+            },
+            {
+              "id": "v:getID",
+              "title": "getID(name)"
+            }
+          ],
+          "sourceHash": "20b7bbfca605cc3e"
+        },
+        {
+          "key": "module/fs.html",
+          "url": "/module/fs/",
+          "title": "fs",
+          "description": "与计算机的文件和文件系统交互，允许你操作文件、目录和路径。这包括：",
+          "file": "pages/module/fs.html",
+          "toc": [
+            {
+              "id": "v:complete",
+              "title": "complete(...)"
+            },
+            {
+              "id": "v:find",
+              "title": "find(path)"
+            },
+            {
+              "id": "v:isDriveRoot",
+              "title": "isDriveRoot(path)"
+            },
+            {
+              "id": "v:list",
+              "title": "list(path)"
+            },
+            {
+              "id": "v:combine",
+              "title": "combine(path, ...)"
+            },
+            {
+              "id": "v:getName",
+              "title": "getName(path)"
+            },
+            {
+              "id": "v:getDir",
+              "title": "getDir(path)"
+            },
+            {
+              "id": "v:getSize",
+              "title": "getSize(path)"
+            },
+            {
+              "id": "v:exists",
+              "title": "exists(path)"
+            },
+            {
+              "id": "v:isDir",
+              "title": "isDir(path)"
+            },
+            {
+              "id": "v:isReadOnly",
+              "title": "isReadOnly(path)"
+            },
+            {
+              "id": "v:makeDir",
+              "title": "makeDir(path)"
+            },
+            {
+              "id": "v:move",
+              "title": "move(path, dest)"
+            },
+            {
+              "id": "v:copy",
+              "title": "copy(path, dest)"
+            },
+            {
+              "id": "v:delete",
+              "title": "delete(path)"
+            },
+            {
+              "id": "v:open",
+              "title": "open(path, mode)"
+            },
+            {
+              "id": "v:getDrive",
+              "title": "getDrive(path)"
+            },
+            {
+              "id": "v:getFreeSpace",
+              "title": "getFreeSpace(path)"
+            },
+            {
+              "id": "v:getCapacity",
+              "title": "getCapacity(path)"
+            },
+            {
+              "id": "v:attributes",
+              "title": "attributes(path)"
+            },
+            {
+              "id": "ty:ReadWriteHandle:read",
+              "title": "ReadWriteHandle.read([count])"
+            },
+            {
+              "id": "ty:ReadWriteHandle:readAll",
+              "title": "ReadWriteHandle.readAll()"
+            },
+            {
+              "id": "ty:ReadWriteHandle:readLine",
+              "title": "ReadWriteHandle.readLine([withTrailing])"
+            },
+            {
+              "id": "ty:ReadWriteHandle:seek",
+              "title": "ReadWriteHandle.seek([whence [, offset]])"
+            },
+            {
+              "id": "ty:ReadWriteHandle:write",
+              "title": "ReadWriteHandle.write(...)"
+            },
+            {
+              "id": "ty:ReadWriteHandle:writeLine",
+              "title": "ReadWriteHandle.writeLine(text)"
+            },
+            {
+              "id": "ty:ReadWriteHandle:flush",
+              "title": "ReadWriteHandle.flush()"
+            },
+            {
+              "id": "ty:ReadWriteHandle:close",
+              "title": "ReadWriteHandle.close()"
+            },
+            {
+              "id": "ty:WriteHandle:write",
+              "title": "WriteHandle.write(...)"
+            },
+            {
+              "id": "ty:WriteHandle:writeLine",
+              "title": "WriteHandle.writeLine(text)"
+            },
+            {
+              "id": "ty:WriteHandle:flush",
+              "title": "WriteHandle.flush()"
+            },
+            {
+              "id": "ty:WriteHandle:seek",
+              "title": "WriteHandle.seek([whence [, offset]])"
+            },
+            {
+              "id": "ty:WriteHandle:close",
+              "title": "WriteHandle.close()"
+            },
+            {
+              "id": "ty:ReadHandle:read",
+              "title": "ReadHandle.read([count])"
+            },
+            {
+              "id": "ty:ReadHandle:readAll",
+              "title": "ReadHandle.readAll()"
+            },
+            {
+              "id": "ty:ReadHandle:readLine",
+              "title": "ReadHandle.readLine([withTrailing])"
+            },
+            {
+              "id": "ty:ReadHandle:seek",
+              "title": "ReadHandle.seek([whence [, offset]])"
+            },
+            {
+              "id": "ty:ReadHandle:close",
+              "title": "ReadHandle.close()"
+            }
+          ],
+          "sourceHash": "0c91450d1d6eeb9e"
+        },
+        {
+          "key": "module/gps.html",
+          "url": "/module/gps/",
+          "title": "gps",
+          "description": "使用 调制解调器 定位当前海龟或计算机的位置。",
+          "file": "pages/module/gps.html",
+          "toc": [
+            {
+              "id": "v:CHANNEL_GPS",
+              "title": "CHANNEL_GPS = 65534"
+            },
+            {
+              "id": "v:locate",
+              "title": "locate([timeout=2 [, debug=false]])"
+            }
+          ],
+          "sourceHash": "3e3ab0a9447dc052"
+        },
+        {
+          "key": "module/help.html",
+          "url": "/module/help/",
+          "title": "help",
+          "description": "查找当前计算机上的帮助文件。",
+          "file": "pages/module/help.html",
+          "toc": [
+            {
+              "id": "v:path",
+              "title": "path()"
+            },
+            {
+              "id": "v:setPath",
+              "title": "setPath(newPath)"
+            },
+            {
+              "id": "v:lookup",
+              "title": "lookup(topic)"
+            },
+            {
+              "id": "v:topics",
+              "title": "topics()"
+            },
+            {
+              "id": "v:completeTopic",
+              "title": "completeTopic(prefix)"
+            }
+          ],
+          "sourceHash": "83c011cee0ca6501"
+        },
+        {
+          "key": "module/http.html",
+          "url": "/module/http/",
+          "title": "http",
+          "description": "发起 HTTP 请求，向远程 Web 服务器发送数据并从中接收数据。",
+          "file": "pages/module/http.html",
+          "toc": [
+            {
+              "id": "v:get",
+              "title": "get(...)"
+            },
+            {
+              "id": "v:post",
+              "title": "post(...)"
+            },
+            {
+              "id": "v:request",
+              "title": "request(...)"
+            },
+            {
+              "id": "v:checkURLAsync",
+              "title": "checkURLAsync(url)"
+            },
+            {
+              "id": "v:checkURL",
+              "title": "checkURL(url)"
+            },
+            {
+              "id": "v:websocketAsync",
+              "title": "websocketAsync(...)"
+            },
+            {
+              "id": "v:websocket",
+              "title": "websocket(...)"
+            },
+            {
+              "id": "ty:Response:getResponseCode",
+              "title": "Response.getResponseCode()"
+            },
+            {
+              "id": "ty:Response:getResponseHeaders",
+              "title": "Response.getResponseHeaders()"
+            },
+            {
+              "id": "ty:Websocket:receive",
+              "title": "Websocket.receive([timeout])"
+            },
+            {
+              "id": "ty:Websocket:send",
+              "title": "Websocket.send(message [, binary])"
+            },
+            {
+              "id": "ty:Websocket:close",
+              "title": "Websocket.close()"
+            },
+            {
+              "id": "ty:Websocket:getResponseHeaders",
+              "title": "Websocket.getResponseHeaders()"
+            }
+          ],
+          "sourceHash": "f405675f34594a35"
+        },
+        {
+          "key": "module/io.html",
+          "url": "/module/io/",
+          "title": "io",
+          "description": "模拟 Lua 的标准 io 库。",
+          "file": "pages/module/io.html",
+          "toc": [
+            {
+              "id": "v:stdin",
+              "title": "stdin"
+            },
+            {
+              "id": "v:stdout",
+              "title": "stdout"
+            },
+            {
+              "id": "v:stderr",
+              "title": "stderr"
+            },
+            {
+              "id": "v:close",
+              "title": "close([file])"
+            },
+            {
+              "id": "v:flush",
+              "title": "flush()"
+            },
+            {
+              "id": "v:input",
+              "title": "input([file])"
+            },
+            {
+              "id": "v:lines",
+              "title": "lines([filename, ...])"
+            },
+            {
+              "id": "v:open",
+              "title": "open(filename [, mode])"
+            },
+            {
+              "id": "v:output",
+              "title": "output([file])"
+            },
+            {
+              "id": "v:read",
+              "title": "read(...)"
+            },
+            {
+              "id": "v:type",
+              "title": "type(obj)"
+            },
+            {
+              "id": "v:write",
+              "title": "write(...)"
+            },
+            {
+              "id": "ty:Handle:close",
+              "title": "Handle.close()"
+            },
+            {
+              "id": "ty:Handle:flush",
+              "title": "Handle.flush()"
+            },
+            {
+              "id": "ty:Handle:lines",
+              "title": "Handle.lines(...)"
+            },
+            {
+              "id": "ty:Handle:read",
+              "title": "Handle.read(...)"
+            },
+            {
+              "id": "ty:Handle:seek",
+              "title": "Handle.seek([whence [, offset]])"
+            },
+            {
+              "id": "ty:Handle:write",
+              "title": "Handle.write(...)"
+            }
+          ],
+          "sourceHash": "d405ae4a16054094"
+        },
+        {
+          "key": "module/keys.html",
+          "url": "/module/keys/",
+          "title": "keys",
+          "description": "所有键盘“按键码”的常量，由 key 事件排队。",
+          "file": "pages/module/keys.html",
+          "toc": [
+            {
+              "id": "v:getName",
+              "title": "getName(code)"
+            }
+          ],
+          "sourceHash": "945b5717bceb81b0"
+        },
+        {
+          "key": "module/multishell.html",
+          "url": "/module/multishell/",
+          "title": "multishell",
+          "description": "Multishell 允许同时运行多个程序。",
+          "file": "pages/module/multishell.html",
+          "toc": [
+            {
+              "id": "v:getFocus",
+              "title": "getFocus()"
+            },
+            {
+              "id": "v:setFocus",
+              "title": "setFocus(n)"
+            },
+            {
+              "id": "v:getTitle",
+              "title": "getTitle(n)"
+            },
+            {
+              "id": "v:setTitle",
+              "title": "setTitle(n, title)"
+            },
+            {
+              "id": "v:getCurrent",
+              "title": "getCurrent()"
+            },
+            {
+              "id": "v:launch",
+              "title": "launch(tProgramEnv, sProgramPath, ...)"
+            },
+            {
+              "id": "v:getCount",
+              "title": "getCount()"
+            }
+          ],
+          "sourceHash": "5047c00748d4756e"
+        },
+        {
+          "key": "module/os.html",
+          "url": "/module/os/",
+          "title": "os",
+          "description": "os API 允许与当前计算机交互。",
+          "file": "pages/module/os.html",
+          "toc": [
+            {
+              "id": "v:pullEvent",
+              "title": "pullEvent([filter])"
+            },
+            {
+              "id": "v:pullEventRaw",
+              "title": "pullEventRaw([filter])"
+            },
+            {
+              "id": "v:sleep",
+              "title": "sleep([time=0])"
+            },
+            {
+              "id": "v:version",
+              "title": "version()"
+            },
+            {
+              "id": "v:run",
+              "title": "run(env, path, ...)"
+            },
+            {
+              "id": "v:queueEvent",
+              "title": "queueEvent(name, ...)"
+            },
+            {
+              "id": "v:startTimer",
+              "title": "startTimer(time)"
+            },
+            {
+              "id": "v:cancelTimer",
+              "title": "cancelTimer(token)"
+            },
+            {
+              "id": "v:setAlarm",
+              "title": "setAlarm(time)"
+            },
+            {
+              "id": "v:cancelAlarm",
+              "title": "cancelAlarm(token)"
+            },
+            {
+              "id": "v:shutdown",
+              "title": "shutdown()"
+            },
+            {
+              "id": "v:reboot",
+              "title": "reboot()"
+            },
+            {
+              "id": "v:getComputerID",
+              "title": "getComputerID()"
+            },
+            {
+              "id": "v:computerID",
+              "title": "computerID()"
+            },
+            {
+              "id": "v:getComputerLabel",
+              "title": "getComputerLabel()"
+            },
+            {
+              "id": "v:computerLabel",
+              "title": "computerLabel()"
+            },
+            {
+              "id": "v:setComputerLabel",
+              "title": "setComputerLabel([label])"
+            },
+            {
+              "id": "v:clock",
+              "title": "clock()"
+            },
+            {
+              "id": "v:time",
+              "title": "time([locale])"
+            },
+            {
+              "id": "v:day",
+              "title": "day([locale])"
+            },
+            {
+              "id": "v:epoch",
+              "title": "epoch([locale])"
+            },
+            {
+              "id": "v:date",
+              "title": "date([format [, time]])"
+            }
+          ],
+          "sourceHash": "25dac75e61b17542"
+        },
+        {
+          "key": "module/paintutils.html",
+          "url": "/module/paintutils/",
+          "title": "paintutils",
+          "description": "用于绘制更复杂图形（如像素、线条和图像）的实用工具。",
+          "file": "pages/module/paintutils.html",
+          "toc": [
+            {
+              "id": "v:parseImage",
+              "title": "parseImage(image)"
+            },
+            {
+              "id": "v:loadImage",
+              "title": "loadImage(path)"
+            },
+            {
+              "id": "v:drawPixel",
+              "title": "drawPixel(xPos, yPos [, colour])"
+            },
+            {
+              "id": "v:drawLine",
+              "title": "drawLine(startX, startY, endX, endY [, colour])"
+            },
+            {
+              "id": "v:drawBox",
+              "title": "drawBox(startX, startY, endX, endY [, colour])"
+            },
+            {
+              "id": "v:drawFilledBox",
+              "title": "drawFilledBox(startX, startY, endX, endY [, colour])"
+            },
+            {
+              "id": "v:drawImage",
+              "title": "drawImage(image, xPos, yPos)"
+            }
+          ],
+          "sourceHash": "7cb1c0e26cbff12b"
+        },
+        {
+          "key": "module/parallel.html",
+          "url": "/module/parallel/",
+          "title": "parallel",
+          "description": "一种同时运行多个函数的简单方法。",
+          "file": "pages/module/parallel.html",
+          "toc": [
+            {
+              "id": "v:waitForAny",
+              "title": "waitForAny(...)"
+            },
+            {
+              "id": "v:waitForAll",
+              "title": "waitForAll(...)"
+            }
+          ],
+          "sourceHash": "380bcca83fc53ad9"
+        },
+        {
+          "key": "module/peripheral.html",
+          "url": "/module/peripheral/",
+          "title": "peripheral",
+          "description": "查找并控制连接到此计算机的外设。",
+          "file": "pages/module/peripheral.html",
+          "toc": [
+            {
+              "id": "v:getNames",
+              "title": "getNames()"
+            },
+            {
+              "id": "v:isPresent",
+              "title": "isPresent(name)"
+            },
+            {
+              "id": "v:getType",
+              "title": "getType(peripheral)"
+            },
+            {
+              "id": "v:hasType",
+              "title": "hasType(peripheral, peripheral_type)"
+            },
+            {
+              "id": "v:getMethods",
+              "title": "getMethods(name)"
+            },
+            {
+              "id": "v:getName",
+              "title": "getName(peripheral)"
+            },
+            {
+              "id": "v:call",
+              "title": "call(name, method, ...)"
+            },
+            {
+              "id": "v:wrap",
+              "title": "wrap(name)"
+            },
+            {
+              "id": "v:find",
+              "title": "find(ty [, filter])"
+            }
+          ],
+          "sourceHash": "30e948d4a2ecf563"
+        },
+        {
+          "key": "module/pocket.html",
+          "url": "/module/pocket/",
+          "title": "pocket",
+          "description": "控制当前口袋计算机，添加或移除升级。",
+          "file": "pages/module/pocket.html",
+          "toc": [
+            {
+              "id": "v:equipBack",
+              "title": "equipBack()"
+            },
+            {
+              "id": "v:unequipBack",
+              "title": "unequipBack()"
+            }
+          ],
+          "sourceHash": "60765503888049dc"
+        },
+        {
+          "key": "module/rednet.html",
+          "url": "/module/rednet/",
+          "title": "rednet",
+          "description": "通过使用 调制解调器 与其他计算机通信。rednet 在主 modem 外设之上提供了一层抽象，使其使用起来稍微更容易。",
+          "file": "pages/module/rednet.html",
+          "toc": [
+            {
+              "id": "v:CHANNEL_BROADCAST",
+              "title": "CHANNEL_BROADCAST = 65535"
+            },
+            {
+              "id": "v:CHANNEL_REPEAT",
+              "title": "CHANNEL_REPEAT = 65533"
+            },
+            {
+              "id": "v:MAX_ID_CHANNELS",
+              "title": "MAX_ID_CHANNELS = 65500"
+            },
+            {
+              "id": "v:open",
+              "title": "open(modem)"
+            },
+            {
+              "id": "v:close",
+              "title": "close([modem])"
+            },
+            {
+              "id": "v:isOpen",
+              "title": "isOpen([modem])"
+            },
+            {
+              "id": "v:send",
+              "title": "send(recipient, message [, protocol])"
+            },
+            {
+              "id": "v:broadcast",
+              "title": "broadcast(message [, protocol])"
+            },
+            {
+              "id": "v:receive",
+              "title": "receive([protocol_filter [, timeout]])"
+            },
+            {
+              "id": "v:host",
+              "title": "host(protocol, hostname)"
+            },
+            {
+              "id": "v:unhost",
+              "title": "unhost(protocol)"
+            },
+            {
+              "id": "v:lookup",
+              "title": "lookup(protocol [, hostname [, timeout=2]])"
+            },
+            {
+              "id": "v:run",
+              "title": "run()"
+            }
+          ],
+          "sourceHash": "70e2f023a362be19"
+        },
+        {
+          "key": "module/redstone.html",
+          "url": "/module/redstone/",
+          "title": "redstone",
+          "description": "获取并设置与此计算机相邻的红石信号。",
+          "file": "pages/module/redstone.html",
+          "toc": [
+            {
+              "id": "v:getSides",
+              "title": "getSides()"
+            },
+            {
+              "id": "v:setOutput",
+              "title": "setOutput(side, on)"
+            },
+            {
+              "id": "v:getOutput",
+              "title": "getOutput(side)"
+            },
+            {
+              "id": "v:getInput",
+              "title": "getInput(side)"
+            },
+            {
+              "id": "v:setAnalogOutput",
+              "title": "setAnalogOutput(side, value)"
+            },
+            {
+              "id": "v:setAnalogueOutput",
+              "title": "setAnalogueOutput(side, value)"
+            },
+            {
+              "id": "v:getAnalogOutput",
+              "title": "getAnalogOutput(side)"
+            },
+            {
+              "id": "v:getAnalogueOutput",
+              "title": "getAnalogueOutput(side)"
+            },
+            {
+              "id": "v:getAnalogInput",
+              "title": "getAnalogInput(side)"
+            },
+            {
+              "id": "v:getAnalogueInput",
+              "title": "getAnalogueInput(side)"
+            },
+            {
+              "id": "v:setBundledOutput",
+              "title": "setBundledOutput(side, output)"
+            },
+            {
+              "id": "v:getBundledOutput",
+              "title": "getBundledOutput(side)"
+            },
+            {
+              "id": "v:getBundledInput",
+              "title": "getBundledInput(side)"
+            },
+            {
+              "id": "v:testBundledInput",
+              "title": "testBundledInput(side, mask)"
+            }
+          ],
+          "sourceHash": "19a8c4429db365c8"
+        },
+        {
+          "key": "module/settings.html",
+          "url": "/module/settings/",
+          "title": "settings",
+          "description": "读取和写入 CraftOS 及你的程序的配置选项。",
+          "file": "pages/module/settings.html",
+          "toc": [
+            {
+              "id": "v:define",
+              "title": "define(name [, options])"
+            },
+            {
+              "id": "v:undefine",
+              "title": "undefine(name)"
+            },
+            {
+              "id": "v:set",
+              "title": "set(name, value)"
+            },
+            {
+              "id": "v:get",
+              "title": "get(name [, default])"
+            },
+            {
+              "id": "v:getDetails",
+              "title": "getDetails(name)"
+            },
+            {
+              "id": "v:unset",
+              "title": "unset(name)"
+            },
+            {
+              "id": "v:clear",
+              "title": "clear()"
+            },
+            {
+              "id": "v:getNames",
+              "title": "getNames()"
+            },
+            {
+              "id": "v:load",
+              "title": "load([path=\".settings\"])"
+            },
+            {
+              "id": "v:save",
+              "title": "save([path=\".settings\"])"
+            }
+          ],
+          "sourceHash": "d33afb0e8e2955ca"
+        },
+        {
+          "key": "module/shell.html",
+          "url": "/module/shell/",
+          "title": "shell",
+          "description": "shell API 提供对 CraftOS 命令行界面的访问。",
+          "file": "pages/module/shell.html",
+          "toc": [
+            {
+              "id": "v:execute",
+              "title": "execute(command, ...)"
+            },
+            {
+              "id": "v:run",
+              "title": "run(...)"
+            },
+            {
+              "id": "v:exit",
+              "title": "exit()"
+            },
+            {
+              "id": "v:dir",
+              "title": "dir()"
+            },
+            {
+              "id": "v:setDir",
+              "title": "setDir(dir)"
+            },
+            {
+              "id": "v:path",
+              "title": "path()"
+            },
+            {
+              "id": "v:setPath",
+              "title": "setPath(path)"
+            },
+            {
+              "id": "v:resolve",
+              "title": "resolve(path)"
+            },
+            {
+              "id": "v:resolveProgram",
+              "title": "resolveProgram(command)"
+            },
+            {
+              "id": "v:programs",
+              "title": "programs([include_hidden])"
+            },
+            {
+              "id": "v:complete",
+              "title": "complete(sLine)"
+            },
+            {
+              "id": "v:completeProgram",
+              "title": "completeProgram(program)"
+            },
+            {
+              "id": "v:setCompletionFunction",
+              "title": "setCompletionFunction(program, complete)"
+            },
+            {
+              "id": "v:getCompletionInfo",
+              "title": "getCompletionInfo()"
+            },
+            {
+              "id": "v:getRunningProgram",
+              "title": "getRunningProgram()"
+            },
+            {
+              "id": "v:setAlias",
+              "title": "setAlias(command, program)"
+            },
+            {
+              "id": "v:clearAlias",
+              "title": "clearAlias(command)"
+            },
+            {
+              "id": "v:aliases",
+              "title": "aliases()"
+            },
+            {
+              "id": "v:openTab",
+              "title": "openTab(...)"
+            },
+            {
+              "id": "v:switchTab",
+              "title": "switchTab(id)"
+            }
+          ],
+          "sourceHash": "c7dbe02d1ae36151"
+        },
+        {
+          "key": "module/term.html",
+          "url": "/module/term/",
+          "title": "term",
+          "description": "与计算机的终端或显示器交互，写入文本并绘制 ASCII 图形。",
+          "file": "pages/module/term.html",
+          "toc": [
+            {
+              "id": "v:nativePaletteColour",
+              "title": "nativePaletteColour(colour)"
+            },
+            {
+              "id": "v:nativePaletteColor",
+              "title": "nativePaletteColor(colour)"
+            },
+            {
+              "id": "v:write",
+              "title": "write(text)"
+            },
+            {
+              "id": "v:scroll",
+              "title": "scroll(y)"
+            },
+            {
+              "id": "v:getCursorPos",
+              "title": "getCursorPos()"
+            },
+            {
+              "id": "v:setCursorPos",
+              "title": "setCursorPos(x, y)"
+            },
+            {
+              "id": "v:getCursorBlink",
+              "title": "getCursorBlink()"
+            },
+            {
+              "id": "v:setCursorBlink",
+              "title": "setCursorBlink(blink)"
+            },
+            {
+              "id": "v:getSize",
+              "title": "getSize()"
+            },
+            {
+              "id": "v:clear",
+              "title": "clear()"
+            },
+            {
+              "id": "v:clearLine",
+              "title": "clearLine()"
+            },
+            {
+              "id": "v:getTextColour",
+              "title": "getTextColour()"
+            },
+            {
+              "id": "v:getTextColor",
+              "title": "getTextColor()"
+            },
+            {
+              "id": "v:setTextColour",
+              "title": "setTextColour(colour)"
+            },
+            {
+              "id": "v:setTextColor",
+              "title": "setTextColor(colour)"
+            },
+            {
+              "id": "v:getBackgroundColour",
+              "title": "getBackgroundColour()"
+            },
+            {
+              "id": "v:getBackgroundColor",
+              "title": "getBackgroundColor()"
+            },
+            {
+              "id": "v:setBackgroundColour",
+              "title": "setBackgroundColour(colour)"
+            },
+            {
+              "id": "v:setBackgroundColor",
+              "title": "setBackgroundColor(colour)"
+            },
+            {
+              "id": "v:isColour",
+              "title": "isColour()"
+            },
+            {
+              "id": "v:isColor",
+              "title": "isColor()"
+            },
+            {
+              "id": "v:blit",
+              "title": "blit(text, textColour, backgroundColour)"
+            },
+            {
+              "id": "v:setPaletteColour",
+              "title": "setPaletteColour(...)"
+            },
+            {
+              "id": "v:setPaletteColor",
+              "title": "setPaletteColor(...)"
+            },
+            {
+              "id": "v:getPaletteColour",
+              "title": "getPaletteColour(colour)"
+            },
+            {
+              "id": "v:getPaletteColor",
+              "title": "getPaletteColor(colour)"
+            },
+            {
+              "id": "v:redirect",
+              "title": "redirect(target)"
+            },
+            {
+              "id": "v:current",
+              "title": "current()"
+            },
+            {
+              "id": "v:native",
+              "title": "native()"
+            },
+            {
+              "id": "ty:Redirect:write",
+              "title": "Redirect.write(text)"
+            },
+            {
+              "id": "ty:Redirect:scroll",
+              "title": "Redirect.scroll(y)"
+            },
+            {
+              "id": "ty:Redirect:getCursorPos",
+              "title": "Redirect.getCursorPos()"
+            },
+            {
+              "id": "ty:Redirect:setCursorPos",
+              "title": "Redirect.setCursorPos(x, y)"
+            },
+            {
+              "id": "ty:Redirect:getCursorBlink",
+              "title": "Redirect.getCursorBlink()"
+            },
+            {
+              "id": "ty:Redirect:setCursorBlink",
+              "title": "Redirect.setCursorBlink(blink)"
+            },
+            {
+              "id": "ty:Redirect:getSize",
+              "title": "Redirect.getSize()"
+            },
+            {
+              "id": "ty:Redirect:clear",
+              "title": "Redirect.clear()"
+            },
+            {
+              "id": "ty:Redirect:clearLine",
+              "title": "Redirect.clearLine()"
+            },
+            {
+              "id": "ty:Redirect:getTextColour",
+              "title": "Redirect.getTextColour()"
+            },
+            {
+              "id": "ty:Redirect:getTextColor",
+              "title": "Redirect.getTextColor()"
+            },
+            {
+              "id": "ty:Redirect:setTextColour",
+              "title": "Redirect.setTextColour(colour)"
+            },
+            {
+              "id": "ty:Redirect:setTextColor",
+              "title": "Redirect.setTextColor(colour)"
+            },
+            {
+              "id": "ty:Redirect:getBackgroundColour",
+              "title": "Redirect.getBackgroundColour()"
+            },
+            {
+              "id": "ty:Redirect:getBackgroundColor",
+              "title": "Redirect.getBackgroundColor()"
+            },
+            {
+              "id": "ty:Redirect:setBackgroundColour",
+              "title": "Redirect.setBackgroundColour(colour)"
+            },
+            {
+              "id": "ty:Redirect:setBackgroundColor",
+              "title": "Redirect.setBackgroundColor(colour)"
+            },
+            {
+              "id": "ty:Redirect:isColour",
+              "title": "Redirect.isColour()"
+            },
+            {
+              "id": "ty:Redirect:isColor",
+              "title": "Redirect.isColor()"
+            },
+            {
+              "id": "ty:Redirect:blit",
+              "title": "Redirect.blit(text, textColour, backgroundColour)"
+            },
+            {
+              "id": "ty:Redirect:setPaletteColour",
+              "title": "Redirect.setPaletteColour(...)"
+            },
+            {
+              "id": "ty:Redirect:setPaletteColor",
+              "title": "Redirect.setPaletteColor(...)"
+            },
+            {
+              "id": "ty:Redirect:getPaletteColour",
+              "title": "Redirect.getPaletteColour(colour)"
+            },
+            {
+              "id": "ty:Redirect:getPaletteColor",
+              "title": "Redirect.getPaletteColor(colour)"
+            }
+          ],
+          "sourceHash": "946493d737d5b95a"
+        },
+        {
+          "key": "module/textutils.html",
+          "url": "/module/textutils/",
+          "title": "textutils",
+          "description": "用于格式化和操作字符串的有用工具。",
+          "file": "pages/module/textutils.html",
+          "toc": [
+            {
+              "id": "v:slowWrite",
+              "title": "slowWrite(text [, rate])"
+            },
+            {
+              "id": "v:slowPrint",
+              "title": "slowPrint(sText [, nRate])"
+            },
+            {
+              "id": "v:formatTime",
+              "title": "formatTime(nTime [, bTwentyFourHour])"
+            },
+            {
+              "id": "v:pagedPrint",
+              "title": "pagedPrint(text [, free_lines])"
+            },
+            {
+              "id": "v:tabulate",
+              "title": "tabulate(...)"
+            },
+            {
+              "id": "v:pagedTabulate",
+              "title": "pagedTabulate(...)"
+            },
+            {
+              "id": "v:empty_json_array",
+              "title": "empty_json_array"
+            },
+            {
+              "id": "v:json_null",
+              "title": "json_null"
+            },
+            {
+              "id": "v:serialize",
+              "title": "serialize(t, opts)"
+            },
+            {
+              "id": "v:serialise",
+              "title": "serialise(t, opts)"
+            },
+            {
+              "id": "v:unserialize",
+              "title": "unserialize(s)"
+            },
+            {
+              "id": "v:unserialise",
+              "title": "unserialise(s)"
+            },
+            {
+              "id": "v:serializeJSON",
+              "title": "serializeJSON(...)"
+            },
+            {
+              "id": "v:serialiseJSON",
+              "title": "serialiseJSON(...)"
+            },
+            {
+              "id": "v:unserializeJSON",
+              "title": "unserializeJSON(s [, options])"
+            },
+            {
+              "id": "v:unserialiseJSON",
+              "title": "unserialiseJSON(s [, options])"
+            },
+            {
+              "id": "v:urlEncode",
+              "title": "urlEncode(str)"
+            },
+            {
+              "id": "v:complete",
+              "title": "complete(sSearchText [, tSearchTable])"
+            }
+          ],
+          "sourceHash": "e515383f8ecae3d0"
+        },
+        {
+          "key": "module/turtle.html",
+          "url": "/module/turtle/",
+          "title": "turtle",
+          "description": "海龟是一种机器人装置，可以破坏和放置方块、攻击生物并在世界中移动。它们有一个 16 格的内部物品栏，可用于存储它们已破坏或想要放置的方块。",
+          "file": "pages/module/turtle.html",
+          "toc": [
+            {
+              "id": "v:craft",
+              "title": "craft([limit=64])"
+            },
+            {
+              "id": "v:forward",
+              "title": "forward()"
+            },
+            {
+              "id": "v:back",
+              "title": "back()"
+            },
+            {
+              "id": "v:up",
+              "title": "up()"
+            },
+            {
+              "id": "v:down",
+              "title": "down()"
+            },
+            {
+              "id": "v:turnLeft",
+              "title": "turnLeft()"
+            },
+            {
+              "id": "v:turnRight",
+              "title": "turnRight()"
+            },
+            {
+              "id": "v:dig",
+              "title": "dig([side])"
+            },
+            {
+              "id": "v:digUp",
+              "title": "digUp([side])"
+            },
+            {
+              "id": "v:digDown",
+              "title": "digDown([side])"
+            },
+            {
+              "id": "v:place",
+              "title": "place([text])"
+            },
+            {
+              "id": "v:placeUp",
+              "title": "placeUp([text])"
+            },
+            {
+              "id": "v:placeDown",
+              "title": "placeDown([text])"
+            },
+            {
+              "id": "v:drop",
+              "title": "drop([count])"
+            },
+            {
+              "id": "v:dropUp",
+              "title": "dropUp([count])"
+            },
+            {
+              "id": "v:dropDown",
+              "title": "dropDown([count])"
+            },
+            {
+              "id": "v:select",
+              "title": "select(slot)"
+            },
+            {
+              "id": "v:getItemCount",
+              "title": "getItemCount([slot])"
+            },
+            {
+              "id": "v:getItemSpace",
+              "title": "getItemSpace([slot])"
+            },
+            {
+              "id": "v:detect",
+              "title": "detect()"
+            },
+            {
+              "id": "v:detectUp",
+              "title": "detectUp()"
+            },
+            {
+              "id": "v:detectDown",
+              "title": "detectDown()"
+            },
+            {
+              "id": "v:compare",
+              "title": "compare()"
+            },
+            {
+              "id": "v:compareUp",
+              "title": "compareUp()"
+            },
+            {
+              "id": "v:compareDown",
+              "title": "compareDown()"
+            },
+            {
+              "id": "v:attack",
+              "title": "attack([side])"
+            },
+            {
+              "id": "v:attackUp",
+              "title": "attackUp([side])"
+            },
+            {
+              "id": "v:attackDown",
+              "title": "attackDown([side])"
+            },
+            {
+              "id": "v:suck",
+              "title": "suck([count])"
+            },
+            {
+              "id": "v:suckUp",
+              "title": "suckUp([count])"
+            },
+            {
+              "id": "v:suckDown",
+              "title": "suckDown([count])"
+            },
+            {
+              "id": "v:getFuelLevel",
+              "title": "getFuelLevel()"
+            },
+            {
+              "id": "v:refuel",
+              "title": "refuel([count])"
+            },
+            {
+              "id": "v:compareTo",
+              "title": "compareTo(slot)"
+            },
+            {
+              "id": "v:transferTo",
+              "title": "transferTo(slot [, count])"
+            },
+            {
+              "id": "v:getSelectedSlot",
+              "title": "getSelectedSlot()"
+            },
+            {
+              "id": "v:getFuelLimit",
+              "title": "getFuelLimit()"
+            },
+            {
+              "id": "v:equipLeft",
+              "title": "equipLeft()"
+            },
+            {
+              "id": "v:equipRight",
+              "title": "equipRight()"
+            },
+            {
+              "id": "v:getEquippedLeft",
+              "title": "getEquippedLeft()"
+            },
+            {
+              "id": "v:getEquippedRight",
+              "title": "getEquippedRight()"
+            },
+            {
+              "id": "v:inspect",
+              "title": "inspect()"
+            },
+            {
+              "id": "v:inspectUp",
+              "title": "inspectUp()"
+            },
+            {
+              "id": "v:inspectDown",
+              "title": "inspectDown()"
+            },
+            {
+              "id": "v:getItemDetail",
+              "title": "getItemDetail([slot [, detailed]])"
+            }
+          ],
+          "sourceHash": "e3c56bdc14a73102"
+        },
+        {
+          "key": "module/vector.html",
+          "url": "/module/vector/",
+          "title": "向量",
+          "description": "基本的 3D 矢量类型和一些常见的矢量运算。当使用 Minecraft 世界中的坐标（例如来自 gps API 的坐标）时，这可能很有用。",
+          "file": "pages/module/vector.html",
+          "toc": [
+            {
+              "id": "v:new",
+              "title": "new(x, y, z)"
+            },
+            {
+              "id": "ty:Vector:add",
+              "title": "Vector:add(o)"
+            },
+            {
+              "id": "ty:Vector:sub",
+              "title": "Vector:sub(o)"
+            },
+            {
+              "id": "ty:Vector:mul",
+              "title": "Vector:mul(factor)"
+            },
+            {
+              "id": "ty:Vector:div",
+              "title": "Vector:div(factor)"
+            },
+            {
+              "id": "ty:Vector:unm",
+              "title": "Vector:unm()"
+            },
+            {
+              "id": "ty:Vector:dot",
+              "title": "Vector:dot(o)"
+            },
+            {
+              "id": "ty:Vector:cross",
+              "title": "Vector:cross(o)"
+            },
+            {
+              "id": "ty:Vector:length",
+              "title": "Vector:length()"
+            },
+            {
+              "id": "ty:Vector:normalize",
+              "title": "Vector:normalize()"
+            },
+            {
+              "id": "ty:Vector:round",
+              "title": "Vector:round([tolerance])"
+            },
+            {
+              "id": "ty:Vector:tostring",
+              "title": "Vector:tostring()"
+            },
+            {
+              "id": "ty:Vector:equals",
+              "title": "Vector:equals(other)"
+            }
+          ],
+          "sourceHash": "3f709495aee91c90"
+        },
+        {
+          "key": "module/window.html",
+          "url": "/module/window/",
+          "title": "窗户",
+          "description": "终端重定向占用现有终端较小的面积。这允许轻松定义显示器内可以写入/绘制的空间，然后根据需要重新绘制/重新定位/等等。 API 本身只包含一个函数，window.create，它返回窗口本身。",
+          "file": "pages/module/window.html",
+          "toc": [
+            {
+              "id": "v:create",
+              "title": "create(parent, nX, nY, nWidth, nHeight [, bStartVisible])"
+            },
+            {
+              "id": "ty:Window:write",
+              "title": "Window.write(sText)"
+            },
+            {
+              "id": "ty:Window:blit",
+              "title": "Window.blit(sText, sTextColor, sBackgroundColor)"
+            },
+            {
+              "id": "ty:Window:clear",
+              "title": "Window.clear()"
+            },
+            {
+              "id": "ty:Window:clearLine",
+              "title": "Window.clearLine()"
+            },
+            {
+              "id": "ty:Window:getCursorPos",
+              "title": "Window.getCursorPos()"
+            },
+            {
+              "id": "ty:Window:setCursorPos",
+              "title": "Window.setCursorPos(x, y)"
+            },
+            {
+              "id": "ty:Window:setCursorBlink",
+              "title": "Window.setCursorBlink(blink)"
+            },
+            {
+              "id": "ty:Window:getCursorBlink",
+              "title": "Window.getCursorBlink()"
+            },
+            {
+              "id": "ty:Window:isColor",
+              "title": "Window.isColor()"
+            },
+            {
+              "id": "ty:Window:isColour",
+              "title": "Window.isColour()"
+            },
+            {
+              "id": "ty:Window:setTextColor",
+              "title": "Window.setTextColor(color)"
+            },
+            {
+              "id": "ty:Window:setTextColour",
+              "title": "Window.setTextColour(color)"
+            },
+            {
+              "id": "ty:Window:setPaletteColour",
+              "title": "Window.setPaletteColour(colour, r, g, b)"
+            },
+            {
+              "id": "ty:Window:setPaletteColor",
+              "title": "Window.setPaletteColor(colour, r, g, b)"
+            },
+            {
+              "id": "ty:Window:getPaletteColour",
+              "title": "Window.getPaletteColour(colour)"
+            },
+            {
+              "id": "ty:Window:getPaletteColor",
+              "title": "Window.getPaletteColor(colour)"
+            },
+            {
+              "id": "ty:Window:setBackgroundColor",
+              "title": "Window.setBackgroundColor(color)"
+            },
+            {
+              "id": "ty:Window:setBackgroundColour",
+              "title": "Window.setBackgroundColour(color)"
+            },
+            {
+              "id": "ty:Window:getSize",
+              "title": "Window.getSize()"
+            },
+            {
+              "id": "ty:Window:scroll",
+              "title": "Window.scroll(n)"
+            },
+            {
+              "id": "ty:Window:getTextColor",
+              "title": "Window.getTextColor()"
+            },
+            {
+              "id": "ty:Window:getTextColour",
+              "title": "Window.getTextColour()"
+            },
+            {
+              "id": "ty:Window:getBackgroundColor",
+              "title": "Window.getBackgroundColor()"
+            },
+            {
+              "id": "ty:Window:getBackgroundColour",
+              "title": "Window.getBackgroundColour()"
+            },
+            {
+              "id": "ty:Window:getLine",
+              "title": "Window.getLine(y)"
+            },
+            {
+              "id": "ty:Window:setVisible",
+              "title": "Window.setVisible(visible)"
+            },
+            {
+              "id": "ty:Window:isVisible",
+              "title": "Window.isVisible()"
+            },
+            {
+              "id": "ty:Window:redraw",
+              "title": "Window.redraw()"
+            },
+            {
+              "id": "ty:Window:restoreCursor",
+              "title": "Window.restoreCursor()"
+            },
+            {
+              "id": "ty:Window:getPosition",
+              "title": "Window.getPosition()"
+            },
+            {
+              "id": "ty:Window:reposition",
+              "title": "Window.reposition(new_x, new_y [, new_width, new_height [, new_parent]])"
+            }
+          ],
+          "sourceHash": "c9da2e7735e9e9c9"
+        }
+      ]
+    },
+    {
+      "title": "Modules",
+      "pages": [
+        {
+          "key": "library/cc.audio.dfpwm.html",
+          "url": "/library/cc.audio.dfpwm/",
+          "title": "cc.音频.dfpwm",
+          "description": "在 DFPWM 音频数据流和振幅列表之间转换。",
+          "file": "pages/library/cc.audio.dfpwm.html",
+          "toc": [
+            {
+              "id": "v:make_encoder",
+              "title": "make_encoder()"
+            },
+            {
+              "id": "v:encode",
+              "title": "encode(input)"
+            },
+            {
+              "id": "v:make_decoder",
+              "title": "make_decoder()"
+            },
+            {
+              "id": "v:decode",
+              "title": "decode(input)"
+            }
+          ],
+          "sourceHash": "7610f55119d4bc63"
+        },
+        {
+          "key": "library/cc.base64.html",
+          "url": "/library/cc.base64/",
+          "title": "cc.base64",
+          "description": "cc.base64 模块提供了在二进制数据与 Base64 之间相互转换的函数。",
+          "file": "pages/library/cc.base64.html",
+          "toc": [
+            {
+              "id": "v:encode",
+              "title": "encode(str [, alt_chars=\"+/\"])"
+            },
+            {
+              "id": "v:decode",
+              "title": "decode(str [, alt_chars=\"+/\"])"
+            }
+          ],
+          "sourceHash": "71ca04d882e155e6"
+        },
+        {
+          "key": "library/cc.completion.html",
+          "url": "/library/cc.completion/",
+          "title": "抄送完成",
+          "description": "一组用于处理输入补全的辅助方法，例如 _G.read 所需的方法。",
+          "file": "pages/library/cc.completion.html",
+          "toc": [
+            {
+              "id": "v:choice",
+              "title": "choice(text, choices [, add_space])"
+            },
+            {
+              "id": "v:peripheral",
+              "title": "peripheral(text [, add_space])"
+            },
+            {
+              "id": "v:side",
+              "title": "side(text [, add_space])"
+            },
+            {
+              "id": "v:setting",
+              "title": "setting(text [, add_space])"
+            },
+            {
+              "id": "v:command",
+              "title": "command(text [, add_space])"
+            }
+          ],
+          "sourceHash": "c419dbec5801e3d7"
+        },
+        {
+          "key": "library/cc.expect.html",
+          "url": "/library/cc.expect/",
+          "title": "抄送期望",
+          "description": "cc.expect 库提供辅助函数，用于验证函数参数是否格式正确且类型正确。",
+          "file": "pages/library/cc.expect.html",
+          "toc": [
+            {
+              "id": "v:expect",
+              "title": "expect(index, value, ...)"
+            },
+            {
+              "id": "v:field",
+              "title": "field(tbl, index, ...)"
+            },
+            {
+              "id": "v:range",
+              "title": "range(num [, min=-math.huge [, max=math.huge]])"
+            }
+          ],
+          "sourceHash": "8a8918e9922fd1fe"
+        },
+        {
+          "key": "library/cc.image.nft.html",
+          "url": "/library/cc.image.nft/",
+          "title": "cc.image.nft",
+          "description": "读取并绘制 nft（“Nitrogen Fingers Text”）图像。",
+          "file": "pages/library/cc.image.nft.html",
+          "toc": [
+            {
+              "id": "v:parse",
+              "title": "parse(image)"
+            },
+            {
+              "id": "v:load",
+              "title": "load(path)"
+            },
+            {
+              "id": "v:draw",
+              "title": "draw(image, xPos, yPos [, target])"
+            }
+          ],
+          "sourceHash": "e1aa15a687c4e672"
+        },
+        {
+          "key": "library/cc.pretty.html",
+          "url": "/library/cc.pretty/",
+          "title": "cc.漂亮",
+          "description": "一个用于以美观方式渲染数据结构的格式化打印器。",
+          "file": "pages/library/cc.pretty.html",
+          "toc": [
+            {
+              "id": "v:empty",
+              "title": "empty"
+            },
+            {
+              "id": "v:space",
+              "title": "space"
+            },
+            {
+              "id": "v:line",
+              "title": "line"
+            },
+            {
+              "id": "v:space_line",
+              "title": "space_line"
+            },
+            {
+              "id": "v:text",
+              "title": "text(text [, colour])"
+            },
+            {
+              "id": "v:concat",
+              "title": "concat(...)"
+            },
+            {
+              "id": "v:nest",
+              "title": "nest(depth, doc)"
+            },
+            {
+              "id": "v:group",
+              "title": "group(doc)"
+            },
+            {
+              "id": "v:write",
+              "title": "write(doc [, ribbon_frac=0.6])"
+            },
+            {
+              "id": "v:print",
+              "title": "print(doc [, ribbon_frac=0.6])"
+            },
+            {
+              "id": "v:render",
+              "title": "render(doc [, width [, ribbon_frac=0.6]])"
+            },
+            {
+              "id": "v:pretty",
+              "title": "pretty(obj [, options])"
+            },
+            {
+              "id": "v:pretty_print",
+              "title": "pretty_print(obj [, options [, ribbon_frac=0.6]])"
+            }
+          ],
+          "sourceHash": "3f36aa724a19ca05"
+        },
+        {
+          "key": "library/cc.require.html",
+          "url": "/library/cc.require/",
+          "title": "抄送要求",
+          "description": "内置 require 函数和 package 库的纯 Lua 实现。",
+          "file": "pages/library/cc.require.html",
+          "toc": [
+            {
+              "id": "v:make",
+              "title": "make(env, dir)"
+            }
+          ],
+          "sourceHash": "5df950a2725786d6"
+        },
+        {
+          "key": "library/cc.shell.completion.html",
+          "url": "/library/cc.shell.completion/",
+          "title": "cc.shell.completion",
+          "description": "一组用于处理命令行补全的辅助方法。",
+          "file": "pages/library/cc.shell.completion.html",
+          "toc": [
+            {
+              "id": "v:file",
+              "title": "file(shell, text)"
+            },
+            {
+              "id": "v:dir",
+              "title": "dir(shell, text)"
+            },
+            {
+              "id": "v:dirOrFile",
+              "title": "dirOrFile(shell, text, previous [, add_space])"
+            },
+            {
+              "id": "v:program",
+              "title": "program(shell, text)"
+            },
+            {
+              "id": "v:programWithArgs",
+              "title": "programWithArgs(shell, text, previous, starting)"
+            },
+            {
+              "id": "v:help",
+              "title": "help"
+            },
+            {
+              "id": "v:choice",
+              "title": "choice"
+            },
+            {
+              "id": "v:peripheral",
+              "title": "peripheral"
+            },
+            {
+              "id": "v:side",
+              "title": "side"
+            },
+            {
+              "id": "v:setting",
+              "title": "setting"
+            },
+            {
+              "id": "v:command",
+              "title": "command"
+            },
+            {
+              "id": "v:build",
+              "title": "build(...)"
+            }
+          ],
+          "sourceHash": "14190b2d2e582920"
+        },
+        {
+          "key": "library/cc.strings.html",
+          "url": "/library/cc.strings/",
+          "title": "抄送字符串",
+          "description": "用于处理字符串和文本的各种实用工具。",
+          "file": "pages/library/cc.strings.html",
+          "toc": [
+            {
+              "id": "v:wrap",
+              "title": "wrap(text [, width])"
+            },
+            {
+              "id": "v:ensure_width",
+              "title": "ensure_width(line [, width])"
+            },
+            {
+              "id": "v:split",
+              "title": "split(str, deliminator [, plain=false [, limit]])"
+            }
+          ],
+          "sourceHash": "c09c7a044bc3e6f4"
+        }
+      ]
+    },
+    {
+      "title": "Peripherals",
+      "pages": [
+        {
+          "key": "peripheral/command.html",
+          "url": "/peripheral/command/",
+          "title": "命令",
+          "description": "该外设允许你与命令方块交互。",
+          "file": "pages/peripheral/command.html",
+          "toc": [
+            {
+              "id": "v:getCommand",
+              "title": "getCommand()"
+            },
+            {
+              "id": "v:setCommand",
+              "title": "setCommand(command)"
+            },
+            {
+              "id": "v:runCommand",
+              "title": "runCommand()"
+            }
+          ],
+          "sourceHash": "27f8eed6bab4a1e7"
+        },
+        {
+          "key": "peripheral/computer.html",
+          "url": "/peripheral/computer/",
+          "title": "计算机",
+          "description": "被包装为外设的计算机或海龟。",
+          "file": "pages/peripheral/computer.html",
+          "toc": [
+            {
+              "id": "v:turnOn",
+              "title": "turnOn()"
+            },
+            {
+              "id": "v:shutdown",
+              "title": "shutdown()"
+            },
+            {
+              "id": "v:reboot",
+              "title": "reboot()"
+            },
+            {
+              "id": "v:getID",
+              "title": "getID()"
+            },
+            {
+              "id": "v:isOn",
+              "title": "isOn()"
+            },
+            {
+              "id": "v:getLabel",
+              "title": "getLabel()"
+            }
+          ],
+          "sourceHash": "1317bbf32e1ce42c"
+        },
+        {
+          "key": "peripheral/drive.html",
+          "url": "/peripheral/drive/",
+          "title": "驾驶",
+          "description": "磁盘驱动器是一种外设，允许您读取和写入软盘和其他“可安装介质”（例如计算机或海龟）。它们还允许您播放唱片。",
+          "file": "pages/peripheral/drive.html",
+          "toc": [
+            {
+              "id": "v:isDiskPresent",
+              "title": "isDiskPresent()"
+            },
+            {
+              "id": "v:getDiskLabel",
+              "title": "getDiskLabel()"
+            },
+            {
+              "id": "v:setDiskLabel",
+              "title": "setDiskLabel([label])"
+            },
+            {
+              "id": "v:hasData",
+              "title": "hasData()"
+            },
+            {
+              "id": "v:getMountPath",
+              "title": "getMountPath()"
+            },
+            {
+              "id": "v:hasAudio",
+              "title": "hasAudio()"
+            },
+            {
+              "id": "v:getAudioTitle",
+              "title": "getAudioTitle()"
+            },
+            {
+              "id": "v:playAudio",
+              "title": "playAudio()"
+            },
+            {
+              "id": "v:stopAudio",
+              "title": "stopAudio()"
+            },
+            {
+              "id": "v:ejectDisk",
+              "title": "ejectDisk()"
+            },
+            {
+              "id": "v:getDiskID",
+              "title": "getDiskID()"
+            }
+          ],
+          "sourceHash": "5093924bc3a9a2a8"
+        },
+        {
+          "key": "peripheral/modem.html",
+          "url": "/peripheral/modem/",
+          "title": "调制解调器",
+          "description": "调制解调器允许你在计算机之间远距离发送消息。",
+          "file": "pages/peripheral/modem.html",
+          "toc": [
+            {
+              "id": "v:open",
+              "title": "open(channel)"
+            },
+            {
+              "id": "v:isOpen",
+              "title": "isOpen(channel)"
+            },
+            {
+              "id": "v:close",
+              "title": "close(channel)"
+            },
+            {
+              "id": "v:closeAll",
+              "title": "closeAll()"
+            },
+            {
+              "id": "v:transmit",
+              "title": "transmit(channel, replyChannel, payload)"
+            },
+            {
+              "id": "v:isWireless",
+              "title": "isWireless()"
+            },
+            {
+              "id": "v:getNamesRemote",
+              "title": "getNamesRemote()"
+            },
+            {
+              "id": "v:isPresentRemote",
+              "title": "isPresentRemote(name)"
+            },
+            {
+              "id": "v:getTypeRemote",
+              "title": "getTypeRemote(name)"
+            },
+            {
+              "id": "v:hasTypeRemote",
+              "title": "hasTypeRemote(name, type)"
+            },
+            {
+              "id": "v:getMethodsRemote",
+              "title": "getMethodsRemote(name)"
+            },
+            {
+              "id": "v:callRemote",
+              "title": "callRemote(remoteName, method, ...)"
+            },
+            {
+              "id": "v:getNameLocal",
+              "title": "getNameLocal()"
+            }
+          ],
+          "sourceHash": "cb227c77208b9c3b"
+        },
+        {
+          "key": "peripheral/monitor.html",
+          "url": "/peripheral/monitor/",
+          "title": "监视器",
+          "description": "监视器是一个充当终端的块，在一侧显示信息。这使得它们可以在不打开 GUI 的情况下在现实世界中被阅读和交互。",
+          "file": "pages/peripheral/monitor.html",
+          "toc": [
+            {
+              "id": "v:setTextScale",
+              "title": "setTextScale(scale)"
+            },
+            {
+              "id": "v:getTextScale",
+              "title": "getTextScale()"
+            },
+            {
+              "id": "v:write",
+              "title": "write(text)"
+            },
+            {
+              "id": "v:scroll",
+              "title": "scroll(y)"
+            },
+            {
+              "id": "v:getCursorPos",
+              "title": "getCursorPos()"
+            },
+            {
+              "id": "v:setCursorPos",
+              "title": "setCursorPos(x, y)"
+            },
+            {
+              "id": "v:getCursorBlink",
+              "title": "getCursorBlink()"
+            },
+            {
+              "id": "v:setCursorBlink",
+              "title": "setCursorBlink(blink)"
+            },
+            {
+              "id": "v:getSize",
+              "title": "getSize()"
+            },
+            {
+              "id": "v:clear",
+              "title": "clear()"
+            },
+            {
+              "id": "v:clearLine",
+              "title": "clearLine()"
+            },
+            {
+              "id": "v:getTextColour",
+              "title": "getTextColour()"
+            },
+            {
+              "id": "v:getTextColor",
+              "title": "getTextColor()"
+            },
+            {
+              "id": "v:setTextColour",
+              "title": "setTextColour(colour)"
+            },
+            {
+              "id": "v:setTextColor",
+              "title": "setTextColor(colour)"
+            },
+            {
+              "id": "v:getBackgroundColour",
+              "title": "getBackgroundColour()"
+            },
+            {
+              "id": "v:getBackgroundColor",
+              "title": "getBackgroundColor()"
+            },
+            {
+              "id": "v:setBackgroundColour",
+              "title": "setBackgroundColour(colour)"
+            },
+            {
+              "id": "v:setBackgroundColor",
+              "title": "setBackgroundColor(colour)"
+            },
+            {
+              "id": "v:isColour",
+              "title": "isColour()"
+            },
+            {
+              "id": "v:isColor",
+              "title": "isColor()"
+            },
+            {
+              "id": "v:blit",
+              "title": "blit(text, textColour, backgroundColour)"
+            },
+            {
+              "id": "v:setPaletteColour",
+              "title": "setPaletteColour(...)"
+            },
+            {
+              "id": "v:setPaletteColor",
+              "title": "setPaletteColor(...)"
+            },
+            {
+              "id": "v:getPaletteColour",
+              "title": "getPaletteColour(colour)"
+            },
+            {
+              "id": "v:getPaletteColor",
+              "title": "getPaletteColor(colour)"
+            }
+          ],
+          "sourceHash": "488459d22c67b3ec"
+        },
+        {
+          "key": "peripheral/printer.html",
+          "url": "/peripheral/printer/",
+          "title": "打印机",
+          "description": "打印机外设允许将文本打印到页面上。然后可以将这些页面一起制作成印刷页面或书籍。",
+          "file": "pages/peripheral/printer.html",
+          "toc": [
+            {
+              "id": "v:write",
+              "title": "write(text)"
+            },
+            {
+              "id": "v:getCursorPos",
+              "title": "getCursorPos()"
+            },
+            {
+              "id": "v:setCursorPos",
+              "title": "setCursorPos(x, y)"
+            },
+            {
+              "id": "v:getPageSize",
+              "title": "getPageSize()"
+            },
+            {
+              "id": "v:newPage",
+              "title": "newPage()"
+            },
+            {
+              "id": "v:endPage",
+              "title": "endPage()"
+            },
+            {
+              "id": "v:setPageTitle",
+              "title": "setPageTitle([title])"
+            },
+            {
+              "id": "v:getInkLevel",
+              "title": "getInkLevel()"
+            },
+            {
+              "id": "v:getPaperLevel",
+              "title": "getPaperLevel()"
+            }
+          ],
+          "sourceHash": "48d729877de595f8"
+        },
+        {
+          "key": "peripheral/redstone_relay.html",
+          "url": "/peripheral/redstone_relay/",
+          "title": "红石继电器",
+          "description": "红石继电器是一种允许读取和输出红石信号的外设。虽然这本身并不是很有用（因为计算机具有相同的功能内置），但它可以与有线调制解调器一起使用，与来自同一台计算机的多个红石信号进行交互。",
+          "file": "pages/peripheral/redstone_relay.html",
+          "toc": [
+            {
+              "id": "v:setOutput",
+              "title": "setOutput(side, on)"
+            },
+            {
+              "id": "v:getOutput",
+              "title": "getOutput(side)"
+            },
+            {
+              "id": "v:getInput",
+              "title": "getInput(side)"
+            },
+            {
+              "id": "v:setAnalogOutput",
+              "title": "setAnalogOutput(side, value)"
+            },
+            {
+              "id": "v:setAnalogueOutput",
+              "title": "setAnalogueOutput(side, value)"
+            },
+            {
+              "id": "v:getAnalogOutput",
+              "title": "getAnalogOutput(side)"
+            },
+            {
+              "id": "v:getAnalogueOutput",
+              "title": "getAnalogueOutput(side)"
+            },
+            {
+              "id": "v:getAnalogInput",
+              "title": "getAnalogInput(side)"
+            },
+            {
+              "id": "v:getAnalogueInput",
+              "title": "getAnalogueInput(side)"
+            },
+            {
+              "id": "v:setBundledOutput",
+              "title": "setBundledOutput(side, output)"
+            },
+            {
+              "id": "v:getBundledOutput",
+              "title": "getBundledOutput(side)"
+            },
+            {
+              "id": "v:getBundledInput",
+              "title": "getBundledInput(side)"
+            },
+            {
+              "id": "v:testBundledInput",
+              "title": "testBundledInput(side, mask)"
+            }
+          ],
+          "sourceHash": "fb1f725cabca049f"
+        },
+        {
+          "key": "peripheral/speaker.html",
+          "url": "/peripheral/speaker/",
+          "title": "扬声器",
+          "description": "扬声器外设允许你的计算机播放音符和其他声音。",
+          "file": "pages/peripheral/speaker.html",
+          "toc": [
+            {
+              "id": "v:playNote",
+              "title": "playNote(instrument [, volume [, pitch]])"
+            },
+            {
+              "id": "v:playSound",
+              "title": "playSound(name [, volume [, pitch]])"
+            },
+            {
+              "id": "v:playAudio",
+              "title": "playAudio(audio [, volume])"
+            },
+            {
+              "id": "v:stop",
+              "title": "stop()"
+            }
+          ],
+          "sourceHash": "aa8e28d415acaf31"
+        },
+        {
+          "key": "peripheral/turtle_storage.html",
+          "url": "/peripheral/turtle_storage/",
+          "title": "海龟存储",
+          "description": "turtle_storage 允许你为海龟装备潜影盒或其他存储物品并访问其内容。",
+          "file": "pages/peripheral/turtle_storage.html",
+          "toc": [
+            {
+              "id": "v:size",
+              "title": "size()"
+            },
+            {
+              "id": "v:list",
+              "title": "list()"
+            },
+            {
+              "id": "v:getItemDetail",
+              "title": "getItemDetail(slot)"
+            },
+            {
+              "id": "v:pushItems",
+              "title": "pushItems(fromSlot [, limit [, toSlot]])"
+            },
+            {
+              "id": "v:pullItems",
+              "title": "pullItems([fromSlot [, limit [, toSlot]]])"
+            }
+          ],
+          "sourceHash": "2a9743de35ddf448"
+        }
+      ]
+    },
+    {
+      "title": "Generic Peripherals",
+      "pages": [
+        {
+          "key": "generic_peripheral/energy_storage.html",
+          "url": "/generic_peripheral/energy_storage/",
+          "title": "能量存储",
+          "description": "用于与存储能量的方块交互的方法。",
+          "file": "pages/generic_peripheral/energy_storage.html",
+          "toc": [
+            {
+              "id": "v:getEnergy",
+              "title": "getEnergy()"
+            },
+            {
+              "id": "v:getEnergyCapacity",
+              "title": "getEnergyCapacity()"
+            }
+          ],
+          "sourceHash": "af7f76e1ec6db832"
+        },
+        {
+          "key": "generic_peripheral/fluid_storage.html",
+          "url": "/generic_peripheral/fluid_storage/",
+          "title": "流体存储",
+          "description": "用于与储罐和其他流体存储方块交互的方法。",
+          "file": "pages/generic_peripheral/fluid_storage.html",
+          "toc": [
+            {
+              "id": "v:tanks",
+              "title": "tanks()"
+            },
+            {
+              "id": "v:pushFluid",
+              "title": "pushFluid(toName [, limit [, fluidName]])"
+            },
+            {
+              "id": "v:pullFluid",
+              "title": "pullFluid(fromName [, limit [, fluidName]])"
+            }
+          ],
+          "sourceHash": "146fe109e7de73a2"
+        },
+        {
+          "key": "generic_peripheral/inventory.html",
+          "url": "/generic_peripheral/inventory/",
+          "title": "存货",
+          "description": "用于与物品栏交互的方法。",
+          "file": "pages/generic_peripheral/inventory.html",
+          "toc": [
+            {
+              "id": "v:size",
+              "title": "size()"
+            },
+            {
+              "id": "v:list",
+              "title": "list()"
+            },
+            {
+              "id": "v:getItemDetail",
+              "title": "getItemDetail(slot)"
+            },
+            {
+              "id": "v:getItemLimit",
+              "title": "getItemLimit(slot)"
+            },
+            {
+              "id": "v:pushItems",
+              "title": "pushItems(toName, fromSlot [, limit [, toSlot]])"
+            },
+            {
+              "id": "v:pullItems",
+              "title": "pullItems(fromName, fromSlot [, limit [, toSlot]])"
+            }
+          ],
+          "sourceHash": "01091cc75b03e5d3"
+        }
+      ]
+    },
+    {
+      "title": "Events",
+      "pages": [
+        {
+          "key": "event/alarm.html",
+          "url": "/event/alarm/",
+          "title": "警报",
+          "description": "alarm 事件会在用 os.setAlarm 启动的闹钟完成时触发。",
+          "file": "pages/event/alarm.html",
+          "toc": [],
+          "sourceHash": "a4a4667c24dfff83"
+        },
+        {
+          "key": "event/char.html",
+          "url": "/event/char/",
+          "title": "字符",
+          "description": "当在键盘上输入字符时，会触发 char 事件。",
+          "file": "pages/event/char.html",
+          "toc": [],
+          "sourceHash": "701fe10c4adee5cc"
+        },
+        {
+          "key": "event/computer_command.html",
+          "url": "/event/computer_command/",
+          "title": "计算机命令",
+          "description": "computer_command 事件会在为当前命令计算机运行 /computercraft queue command 时触发。",
+          "file": "pages/event/computer_command.html",
+          "toc": [],
+          "sourceHash": "bca183a8f5752398"
+        },
+        {
+          "key": "event/disk.html",
+          "url": "/event/disk/",
+          "title": "disk",
+          "description": "当磁盘被插入相邻或联网的磁盘驱动器时，会触发 disk 事件。",
+          "file": "pages/event/disk.html",
+          "toc": [],
+          "sourceHash": "c30418ed00ed96d6"
+        },
+        {
+          "key": "event/disk_eject.html",
+          "url": "/event/disk_eject/",
+          "title": "磁盘弹出",
+          "description": "当从相邻或联网的磁盘驱动器中取出磁盘时，会触发 disk_eject 事件。",
+          "file": "pages/event/disk_eject.html",
+          "toc": [],
+          "sourceHash": "f3e96789f65062ac"
+        },
+        {
+          "key": "event/file_transfer.html",
+          "url": "/event/file_transfer/",
+          "title": "文件传输",
+          "description": "当用户在打开的计算机上拖放文件时，file_transfer 事件会被加入队列。",
+          "file": "pages/event/file_transfer.html",
+          "toc": [
+            {
+              "id": "ty:TransferredFiles:getFiles",
+              "title": "TransferredFiles.getFiles()"
+            },
+            {
+              "id": "ty:TransferredFile:getName",
+              "title": "TransferredFile.getName()"
+            }
+          ],
+          "sourceHash": "694d3f1b72d13df5"
+        },
+        {
+          "key": "event/http_check.html",
+          "url": "/event/http_check/",
+          "title": "http_检查",
+          "description": "当 URL 检查完成时，会触发 http_check 事件。",
+          "file": "pages/event/http_check.html",
+          "toc": [],
+          "sourceHash": "26cfac3c2bddd288"
+        },
+        {
+          "key": "event/http_failure.html",
+          "url": "/event/http_failure/",
+          "title": "http_失败",
+          "description": "当 HTTP 请求失败时，会触发 http_failure 事件。",
+          "file": "pages/event/http_failure.html",
+          "toc": [],
+          "sourceHash": "69172f1c28f61833"
+        },
+        {
+          "key": "event/http_success.html",
+          "url": "/event/http_success/",
+          "title": "http_成功",
+          "description": "当 HTTP 请求成功返回时，会触发 http_success 事件。",
+          "file": "pages/event/http_success.html",
+          "toc": [],
+          "sourceHash": "fe6c3a6b09c33ee3"
+        },
+        {
+          "key": "event/key.html",
+          "url": "/event/key/",
+          "title": "钥匙",
+          "description": "当终端获得焦点时按下任意键，会触发此事件。",
+          "file": "pages/event/key.html",
+          "toc": [],
+          "sourceHash": "6db604c0e923edd3"
+        },
+        {
+          "key": "event/key_up.html",
+          "url": "/event/key_up/",
+          "title": "按键向上",
+          "description": "每当释放按键（或在按住按键时关闭终端）时触发。",
+          "file": "pages/event/key_up.html",
+          "toc": [],
+          "sourceHash": "e14b9de3d7408b49"
+        },
+        {
+          "key": "event/modem_message.html",
+          "url": "/event/modem_message/",
+          "title": "调制解调器消息",
+          "description": "modem_message 事件会在任意 modem 的开放频道上收到消息时触发。",
+          "file": "pages/event/modem_message.html",
+          "toc": [],
+          "sourceHash": "434e2ab897868305"
+        },
+        {
+          "key": "event/monitor_resize.html",
+          "url": "/event/monitor_resize/",
+          "title": "监视器调整大小",
+          "description": "monitor_resize 事件会在相邻或联网的 显示器的 尺寸改变时触发。",
+          "file": "pages/event/monitor_resize.html",
+          "toc": [],
+          "sourceHash": "7386b1fe5cca1ea6"
+        },
+        {
+          "key": "event/monitor_touch.html",
+          "url": "/event/monitor_touch/",
+          "title": "监听触摸",
+          "description": "monitor_touch 事件会在相邻或联网的 高级显示器 被右键点击时触发。",
+          "file": "pages/event/monitor_touch.html",
+          "toc": [],
+          "sourceHash": "92939821824b4935"
+        },
+        {
+          "key": "event/mouse_click.html",
+          "url": "/event/mouse_click/",
+          "title": "鼠标点击",
+          "description": "当用鼠标单击终端时会触发此事件。该事件仅在高级计算机（包括高级海龟和袖珍计算机）上触发。",
+          "file": "pages/event/mouse_click.html",
+          "toc": [],
+          "sourceHash": "41181bb8caa97c03"
+        },
+        {
+          "key": "event/mouse_drag.html",
+          "url": "/event/mouse_drag/",
+          "title": "鼠标拖动",
+          "description": "每当按住鼠标按钮并移动鼠标时，都会触发此事件。",
+          "file": "pages/event/mouse_drag.html",
+          "toc": [],
+          "sourceHash": "a73a768766dea210"
+        },
+        {
+          "key": "event/mouse_scroll.html",
+          "url": "/event/mouse_scroll/",
+          "title": "鼠标滚动",
+          "description": "当在终端中滚动鼠标滚轮时，会触发此事件。",
+          "file": "pages/event/mouse_scroll.html",
+          "toc": [],
+          "sourceHash": "cffaa6d422ac7997"
+        },
+        {
+          "key": "event/mouse_up.html",
+          "url": "/event/mouse_up/",
+          "title": "鼠标向上",
+          "description": "当释放鼠标按钮或按住的鼠标离开计算机终端时，会触发此事件。",
+          "file": "pages/event/mouse_up.html",
+          "toc": [],
+          "sourceHash": "6a82551e01624a5a"
+        },
+        {
+          "key": "event/paste.html",
+          "url": "/event/paste/",
+          "title": "粘贴",
+          "description": "当通过 Ctrl-V（或 Mac 上的 ⌘V）将文本粘贴到计算机中时，会触发 paste 事件。",
+          "file": "pages/event/paste.html",
+          "toc": [],
+          "sourceHash": "5f1925c3a1a77f9c"
+        },
+        {
+          "key": "event/peripheral.html",
+          "url": "/event/peripheral/",
+          "title": "peripheral",
+          "description": "当外设连接到某一侧或调制解调器时，会触发 peripheral 事件。",
+          "file": "pages/event/peripheral.html",
+          "toc": [],
+          "sourceHash": "3390d2a3966015e0"
+        },
+        {
+          "key": "event/peripheral_detach.html",
+          "url": "/event/peripheral_detach/",
+          "title": "外设分离",
+          "description": "当外设从某一侧或调制解调器上断开时，会触发 peripheral_detach 事件。",
+          "file": "pages/event/peripheral_detach.html",
+          "toc": [],
+          "sourceHash": "54835f9e26b60979"
+        },
+        {
+          "key": "event/rednet_message.html",
+          "url": "/event/rednet_message/",
+          "title": "红网消息",
+          "description": "当通过 Rednet 发送消息时，会触发 rednet_message 事件。",
+          "file": "pages/event/rednet_message.html",
+          "toc": [],
+          "sourceHash": "467b62c5724e6b5d"
+        },
+        {
+          "key": "event/redstone.html",
+          "url": "/event/redstone/",
+          "title": "redstone",
+          "description": "redstone 事件会在计算机或 继电器 上的任何红石输入发生变化时触发。",
+          "file": "pages/event/redstone.html",
+          "toc": [],
+          "sourceHash": "4ffa11e6e87287ff"
+        },
+        {
+          "key": "event/setting_changed.html",
+          "url": "/event/setting_changed/",
+          "title": "设置更改",
+          "description": "setting_changed 事件会在使用 settings API 修改设置时触发。",
+          "file": "pages/event/setting_changed.html",
+          "toc": [],
+          "sourceHash": "906b1b1e4841d765"
+        },
+        {
+          "key": "event/speaker_audio_empty.html",
+          "url": "/event/speaker_audio_empty/",
+          "title": "扬声器_音频_空",
+          "description": "它使用 io.lines 从“example_song.dfpwm”中读取 16KiB 块的音频数据，然后尝试使用 speaker.playAudio 播放它。如果扬声器的缓冲区已满，它将等待事件并重试。",
+          "file": "pages/event/speaker_audio_empty.html",
+          "toc": [],
+          "sourceHash": "f3cb3f2a70709d17"
+        },
+        {
+          "key": "event/task_complete.html",
+          "url": "/event/task_complete/",
+          "title": "任务完成",
+          "description": "异步任务完成时会触发 task_complete 事件。这通常在将任务排队的函数调用内部处理；然而，诸如 commands.execAsync 之类的函数会立即返回，以便用户可以等待完成。",
+          "file": "pages/event/task_complete.html",
+          "toc": [],
+          "sourceHash": "b8d3fdf4fbdebb9b"
+        },
+        {
+          "key": "event/term_resize.html",
+          "url": "/event/term_resize/",
+          "title": "术语调整大小",
+          "description": "调整主终端大小时会触发 term_resize 事件。例如：",
+          "file": "pages/event/term_resize.html",
+          "toc": [],
+          "sourceHash": "bf63ff8fd235df62"
+        },
+        {
+          "key": "event/terminate.html",
+          "url": "/event/terminate/",
+          "title": "终止",
+          "description": "terminate 事件在按住 Ctrl-T 时触发。",
+          "file": "pages/event/terminate.html",
+          "toc": [],
+          "sourceHash": "c93981a0889d5dbc"
+        },
+        {
+          "key": "event/timer.html",
+          "url": "/event/timer/",
+          "title": "定时器",
+          "description": "timer 事件在使用 os.startTimer 启动的计时器完成时触发。",
+          "file": "pages/event/timer.html",
+          "toc": [],
+          "sourceHash": "cf2c8b3287ac494a"
+        },
+        {
+          "key": "event/turtle_inventory.html",
+          "url": "/event/turtle_inventory/",
+          "title": "海龟库存",
+          "description": "turtle_inventory 事件在海龟的物品栏发生变化时触发。",
+          "file": "pages/event/turtle_inventory.html",
+          "toc": [],
+          "sourceHash": "14a563e436a6cebb"
+        },
+        {
+          "key": "event/websocket_closed.html",
+          "url": "/event/websocket_closed/",
+          "title": "websocket_关闭",
+          "description": "websocket_closed 事件在已打开的 WebSocket 连接关闭时触发。",
+          "file": "pages/event/websocket_closed.html",
+          "toc": [],
+          "sourceHash": "e8ba5b4b3bdafe2d"
+        },
+        {
+          "key": "event/websocket_failure.html",
+          "url": "/event/websocket_failure/",
+          "title": "websocket_失败",
+          "description": "websocket_failure 事件在 WebSocket 连接请求失败时触发。",
+          "file": "pages/event/websocket_failure.html",
+          "toc": [],
+          "sourceHash": "3bc3c9d33e4b2339"
+        },
+        {
+          "key": "event/websocket_message.html",
+          "url": "/event/websocket_message/",
+          "title": "websocket_消息",
+          "description": "websocket_message 事件在已打开的 WebSocket 连接上收到消息时触发。",
+          "file": "pages/event/websocket_message.html",
+          "toc": [],
+          "sourceHash": "55126297fae72499"
+        },
+        {
+          "key": "event/websocket_success.html",
+          "url": "/event/websocket_success/",
+          "title": "websocket_成功",
+          "description": "websocket_success 事件在 WebSocket 连接请求成功返回时触发。",
+          "file": "pages/event/websocket_success.html",
+          "toc": [],
+          "sourceHash": "ef160a53969e6d5c"
+        }
+      ]
+    },
+    {
+      "title": "Guides",
+      "pages": [
+        {
+          "key": "guide/gps_setup.html",
+          "url": "/guide/gps_setup/",
+          "title": "设置 GPS",
+          "description": "gps API 允许计算机使用 无线调制解调器找到其当前位置。其工作原理是与已经知道其位置的其他计算机（称为 GPS 主机）进行通信，找到到这些计算机的距离（使用 modem_message），并使用该距离从它们的位置推导出其位置（通过称为 三边测量 的过程。",
+          "file": "pages/guide/gps_setup.html",
+          "toc": [],
+          "sourceHash": "bd8ed0413220b028"
+        },
+        {
+          "key": "guide/local_ips.html",
+          "url": "/guide/local_ips/",
+          "title": "允许访问本地IP",
+          "description": "默认情况下，出于安全考虑，ComputerCraft 会阻止对本地 IP 地址的访问。这意味着您无法正常访问计算机上运行的任何 HTTP 服务器。但是，这对于在没有远程服务器的情况下测试程序可能很有用。您可以在 ComputerCraft 配置中取消阻止这些 IP。",
+          "file": "pages/guide/local_ips.html",
+          "toc": [],
+          "sourceHash": "dfbe34475aaebe57"
+        },
+        {
+          "key": "guide/speaker_audio.html",
+          "url": "/guide/speaker_audio/",
+          "title": "使用扬声器播放音频",
+          "description": "CC：Tweaked 的扬声器外设提供了一种强大的方式，可以使用 speaker.playAudio 方法播放您喜欢的任何音频。然而，对于不熟悉数字音频的人来说，这并不是最直观的使用方式。本指南介绍了数字音频，演示了如何使用 CC: Tweaked 的扬声器播放音乐，然后简要讨论了更复杂的音频处理主题。",
+          "file": "pages/guide/speaker_audio.html",
+          "toc": [],
+          "sourceHash": "596797ae4d8d4649"
+        },
+        {
+          "key": "guide/startup.html",
+          "url": "/guide/startup/",
+          "title": "在计算机启动时运行程序",
+          "description": "当计算机打开时自动开始运行程序通常很有用，例如运行 GPS 主机 时。这可以通过启动文件来完成。",
+          "file": "pages/guide/startup.html",
+          "toc": [],
+          "sourceHash": "9d6e38411406c481"
+        },
+        {
+          "key": "guide/using_require.html",
+          "url": "/guide/using_require/",
+          "title": "通过 require 重用代码",
+          "description": "库是有用函数和其他定义的集合，它们单独存储到主程序中。您可能想要创建一个库，因为您有一些在多个程序中使用的函数，或者只是将您的程序拆分为多个更模块化的文件。",
+          "file": "pages/guide/using_require.html",
+          "toc": [],
+          "sourceHash": "b2ff85708f1568ae"
+        }
+      ]
+    },
+    {
+      "title": "Reference",
+      "pages": [
+        {
+          "key": "reference/block_details.html",
+          "url": "/reference/block_details/",
+          "title": "区块详细信息",
+          "description": "CC: Tweaked 中的几个函数，例如 turtle.inspect 和 commands.getBlockInfo 提供了一种获取世界中某个方块信息的方法。本页详细介绍了 CC: Tweaked 可能返回的块的信息。",
+          "file": "pages/reference/block_details.html",
+          "toc": [],
+          "sourceHash": "44a667c4da843531"
+        },
+        {
+          "key": "reference/breaking_changes.html",
+          "url": "/reference/breaking_changes/",
+          "title": "版本之间的不兼容性",
+          "description": "CC：Tweaked 尝试尽可能保持版本之间的兼容性，这意味着为旧版本 模组 编写的大多数程序应该在更高版本上运行良好。",
+          "file": "pages/reference/breaking_changes.html",
+          "toc": [],
+          "sourceHash": "17e89fe59228cce2"
+        },
+        {
+          "key": "reference/computercraft_command.html",
+          "url": "/reference/computercraft_command/",
+          "title": "/computercraft 命令",
+          "description": "CC: Tweaked 为服务器所有者提供了一个 /computercraft 命令，用于管理服务器上正在运行的计算机。",
+          "file": "pages/reference/computercraft_command.html",
+          "toc": [],
+          "sourceHash": "9d49fbe61d6e27f3"
+        },
+        {
+          "key": "reference/data_pack.html",
+          "url": "/reference/data_pack/",
+          "title": "数据包",
+          "description": "CC：Tweaked 允许通过数据包自定义和扩展其许多功能，例如向 ROM 添加新程序，或提供新的海龟工具。此页面用作 CC:T 数据包功能的参考。",
+          "file": "pages/reference/data_pack.html",
+          "toc": [],
+          "sourceHash": "8b69f1d82ba78474"
+        },
+        {
+          "key": "reference/entity_details.html",
+          "url": "/reference/entity_details/",
+          "title": "实体详情",
+          "description": "CC: Tweaked 中的一些函数（例如 commands.getEntities）提供了一种获取有关实体的信息的方法。此页面详细介绍了 CC: Tweaked 可能返回的实体的信息。",
+          "file": "pages/reference/entity_details.html",
+          "toc": [],
+          "sourceHash": "1fe2fb2561ab4a6a"
+        },
+        {
+          "key": "reference/exceptions.html",
+          "url": "/reference/exceptions/",
+          "title": "CraftOS的异常协议",
+          "description": "默认情况下，Lua 表示错误是纯字符串。文件名和行号可能会附加到错误消息（例如 example.lua:12: error message），但所有其他信息（例如堆栈跟踪）都会丢失。",
+          "file": "pages/reference/exceptions.html",
+          "toc": [],
+          "sourceHash": "4d59ebd564f2a12c"
+        },
+        {
+          "key": "reference/feature_compat.html",
+          "url": "/reference/feature_compat/",
+          "title": "CC 中的 Lua 5.2/5.3 功能：调整",
+          "description": "CC：Tweaked 基于 Cobalt Lua 运行时，它使用 Lua 5.2。但是，Cobalt 和 CC:T 实现了 Lua 5.2 和 5.3 中的附加功能（以及一些已弃用的 5.0 和 5.1 功能）。此页面列出了这些较新版本的所有兼容性。",
+          "file": "pages/reference/feature_compat.html",
+          "toc": [],
+          "sourceHash": "0040be5fec0dc33c"
+        },
+        {
+          "key": "reference/item_details.html",
+          "url": "/reference/item_details/",
+          "title": "商品详情",
+          "description": "CC: Tweaked 中的几个函数，例如 turtle.getItemDetail 和 inventory.getItemDetail 提供了一种获取有关项目堆栈信息的方法。本页详细介绍了 CC: Tweaked 可能返回的物品的信息。",
+          "file": "pages/reference/item_details.html",
+          "toc": [],
+          "sourceHash": "1c8906c22a9e17bf"
+        },
+        {
+          "key": "reference/startup.html",
+          "url": "/reference/startup/",
+          "title": "计算机启动",
+          "description": "当计算机打开时，它会搜索要在启动过程中运行的文件。本页详细介绍了此过程。",
+          "file": "pages/reference/startup.html",
+          "toc": [],
+          "sourceHash": "69dcd5586c78fe96"
+        }
+      ]
+    }
+  ],
+  "pages": {
+    "/module/_G/": {
+      "key": "module/_G.html",
+      "url": "/module/_G/",
+      "title": "_G",
+      "description": "全局环境中的函数，定义于 bios.lua。这不包括标准 Lua 函数。",
+      "file": "pages/module/_G.html",
+      "toc": [
+        {
+          "id": "v:sleep",
+          "title": "sleep([time=0])"
+        },
+        {
+          "id": "v:write",
+          "title": "write(text)"
+        },
+        {
+          "id": "v:print",
+          "title": "print(...)"
+        },
+        {
+          "id": "v:printError",
+          "title": "printError(...)"
+        },
+        {
+          "id": "v:read",
+          "title": "read([replaceChar [, history [, completeFn [, default]]]])"
+        },
+        {
+          "id": "v:_HOST",
+          "title": "_HOST"
+        },
+        {
+          "id": "v:_CC_DEFAULT_SETTINGS",
+          "title": "_CC_DEFAULT_SETTINGS"
+        }
+      ],
+      "sourceHash": "484f97864c3e0b85"
+    },
+    "/module/colors/": {
+      "key": "module/colors.html",
+      "url": "/module/colors/",
+      "title": "colors",
+      "description": "用于颜色值的常量和函数，适合与 term 和 redstone 配合使用。",
+      "file": "pages/module/colors.html",
+      "toc": [
+        {
+          "id": "v:white",
+          "title": "white = 0x1"
+        },
+        {
+          "id": "v:orange",
+          "title": "orange = 0x2"
+        },
+        {
+          "id": "v:magenta",
+          "title": "magenta = 0x4"
+        },
+        {
+          "id": "v:lightBlue",
+          "title": "lightBlue = 0x8"
+        },
+        {
+          "id": "v:yellow",
+          "title": "yellow = 0x10"
+        },
+        {
+          "id": "v:lime",
+          "title": "lime = 0x20"
+        },
+        {
+          "id": "v:pink",
+          "title": "pink = 0x40"
+        },
+        {
+          "id": "v:gray",
+          "title": "gray = 0x80"
+        },
+        {
+          "id": "v:lightGray",
+          "title": "lightGray = 0x100"
+        },
+        {
+          "id": "v:cyan",
+          "title": "cyan = 0x200"
+        },
+        {
+          "id": "v:purple",
+          "title": "purple = 0x400"
+        },
+        {
+          "id": "v:blue",
+          "title": "blue = 0x800"
+        },
+        {
+          "id": "v:brown",
+          "title": "brown = 0x1000"
+        },
+        {
+          "id": "v:green",
+          "title": "green = 0x2000"
+        },
+        {
+          "id": "v:red",
+          "title": "red = 0x4000"
+        },
+        {
+          "id": "v:black",
+          "title": "black = 0x8000"
+        },
+        {
+          "id": "v:combine",
+          "title": "combine(...)"
+        },
+        {
+          "id": "v:subtract",
+          "title": "subtract(colors, ...)"
+        },
+        {
+          "id": "v:test",
+          "title": "test(colors, color)"
+        },
+        {
+          "id": "v:packRGB",
+          "title": "packRGB(r, g, b)"
+        },
+        {
+          "id": "v:unpackRGB",
+          "title": "unpackRGB(rgb)"
+        },
+        {
+          "id": "v:toBlit",
+          "title": "toBlit(color)"
+        },
+        {
+          "id": "v:fromBlit",
+          "title": "fromBlit(hex)"
+        }
+      ],
+      "sourceHash": "18065437049ad315"
+    },
+    "/module/colours/": {
+      "key": "module/colours.html",
+      "url": "/module/colours/",
+      "title": "colours",
+      "description": "面向英式拼写爱好者的 colors 替代版本。",
+      "file": "pages/module/colours.html",
+      "toc": [
+        {
+          "id": "v:grey",
+          "title": "grey"
+        },
+        {
+          "id": "v:lightGrey",
+          "title": "lightGrey"
+        }
+      ],
+      "sourceHash": "63c8c8cce06b32b3"
+    },
+    "/module/commands/": {
+      "key": "module/commands.html",
+      "url": "/module/commands/",
+      "title": "commands",
+      "description": "执行 Minecraft 命令，并从命令计算机的结果中收集数据。",
+      "file": "pages/module/commands.html",
+      "toc": [
+        {
+          "id": "v:exec",
+          "title": "exec(command)"
+        },
+        {
+          "id": "v:execAsync",
+          "title": "execAsync(command)"
+        },
+        {
+          "id": "v:list",
+          "title": "list(...)"
+        },
+        {
+          "id": "v:getDimension",
+          "title": "getDimension()"
+        },
+        {
+          "id": "v:getBlockPosition",
+          "title": "getBlockPosition()"
+        },
+        {
+          "id": "v:getBlockInfos",
+          "title": "getBlockInfos(minX, minY, minZ, maxX, maxY, maxZ [, dimension])"
+        },
+        {
+          "id": "v:getBlockInfo",
+          "title": "getBlockInfo(x, y, z [, dimension])"
+        },
+        {
+          "id": "v:getEntities",
+          "title": "getEntities(selector)"
+        },
+        {
+          "id": "v:native",
+          "title": "native"
+        },
+        {
+          "id": "v:async",
+          "title": "async"
+        }
+      ],
+      "sourceHash": "6e7ad39200c48717"
+    },
+    "/module/disk/": {
+      "key": "module/disk.html",
+      "url": "/module/disk/",
+      "title": "disk",
+      "description": "与磁盘驱动器交互。",
+      "file": "pages/module/disk.html",
+      "toc": [
+        {
+          "id": "v:isPresent",
+          "title": "isPresent(name)"
+        },
+        {
+          "id": "v:getLabel",
+          "title": "getLabel(name)"
+        },
+        {
+          "id": "v:setLabel",
+          "title": "setLabel(name, label)"
+        },
+        {
+          "id": "v:hasData",
+          "title": "hasData(name)"
+        },
+        {
+          "id": "v:getMountPath",
+          "title": "getMountPath(name)"
+        },
+        {
+          "id": "v:hasAudio",
+          "title": "hasAudio(name)"
+        },
+        {
+          "id": "v:getAudioTitle",
+          "title": "getAudioTitle(name)"
+        },
+        {
+          "id": "v:playAudio",
+          "title": "playAudio(name)"
+        },
+        {
+          "id": "v:stopAudio",
+          "title": "stopAudio(name)"
+        },
+        {
+          "id": "v:eject",
+          "title": "eject(name)"
+        },
+        {
+          "id": "v:getID",
+          "title": "getID(name)"
+        }
+      ],
+      "sourceHash": "20b7bbfca605cc3e"
+    },
+    "/module/fs/": {
+      "key": "module/fs.html",
+      "url": "/module/fs/",
+      "title": "fs",
+      "description": "与计算机的文件和文件系统交互，允许你操作文件、目录和路径。这包括：",
+      "file": "pages/module/fs.html",
+      "toc": [
+        {
+          "id": "v:complete",
+          "title": "complete(...)"
+        },
+        {
+          "id": "v:find",
+          "title": "find(path)"
+        },
+        {
+          "id": "v:isDriveRoot",
+          "title": "isDriveRoot(path)"
+        },
+        {
+          "id": "v:list",
+          "title": "list(path)"
+        },
+        {
+          "id": "v:combine",
+          "title": "combine(path, ...)"
+        },
+        {
+          "id": "v:getName",
+          "title": "getName(path)"
+        },
+        {
+          "id": "v:getDir",
+          "title": "getDir(path)"
+        },
+        {
+          "id": "v:getSize",
+          "title": "getSize(path)"
+        },
+        {
+          "id": "v:exists",
+          "title": "exists(path)"
+        },
+        {
+          "id": "v:isDir",
+          "title": "isDir(path)"
+        },
+        {
+          "id": "v:isReadOnly",
+          "title": "isReadOnly(path)"
+        },
+        {
+          "id": "v:makeDir",
+          "title": "makeDir(path)"
+        },
+        {
+          "id": "v:move",
+          "title": "move(path, dest)"
+        },
+        {
+          "id": "v:copy",
+          "title": "copy(path, dest)"
+        },
+        {
+          "id": "v:delete",
+          "title": "delete(path)"
+        },
+        {
+          "id": "v:open",
+          "title": "open(path, mode)"
+        },
+        {
+          "id": "v:getDrive",
+          "title": "getDrive(path)"
+        },
+        {
+          "id": "v:getFreeSpace",
+          "title": "getFreeSpace(path)"
+        },
+        {
+          "id": "v:getCapacity",
+          "title": "getCapacity(path)"
+        },
+        {
+          "id": "v:attributes",
+          "title": "attributes(path)"
+        },
+        {
+          "id": "ty:ReadWriteHandle:read",
+          "title": "ReadWriteHandle.read([count])"
+        },
+        {
+          "id": "ty:ReadWriteHandle:readAll",
+          "title": "ReadWriteHandle.readAll()"
+        },
+        {
+          "id": "ty:ReadWriteHandle:readLine",
+          "title": "ReadWriteHandle.readLine([withTrailing])"
+        },
+        {
+          "id": "ty:ReadWriteHandle:seek",
+          "title": "ReadWriteHandle.seek([whence [, offset]])"
+        },
+        {
+          "id": "ty:ReadWriteHandle:write",
+          "title": "ReadWriteHandle.write(...)"
+        },
+        {
+          "id": "ty:ReadWriteHandle:writeLine",
+          "title": "ReadWriteHandle.writeLine(text)"
+        },
+        {
+          "id": "ty:ReadWriteHandle:flush",
+          "title": "ReadWriteHandle.flush()"
+        },
+        {
+          "id": "ty:ReadWriteHandle:close",
+          "title": "ReadWriteHandle.close()"
+        },
+        {
+          "id": "ty:WriteHandle:write",
+          "title": "WriteHandle.write(...)"
+        },
+        {
+          "id": "ty:WriteHandle:writeLine",
+          "title": "WriteHandle.writeLine(text)"
+        },
+        {
+          "id": "ty:WriteHandle:flush",
+          "title": "WriteHandle.flush()"
+        },
+        {
+          "id": "ty:WriteHandle:seek",
+          "title": "WriteHandle.seek([whence [, offset]])"
+        },
+        {
+          "id": "ty:WriteHandle:close",
+          "title": "WriteHandle.close()"
+        },
+        {
+          "id": "ty:ReadHandle:read",
+          "title": "ReadHandle.read([count])"
+        },
+        {
+          "id": "ty:ReadHandle:readAll",
+          "title": "ReadHandle.readAll()"
+        },
+        {
+          "id": "ty:ReadHandle:readLine",
+          "title": "ReadHandle.readLine([withTrailing])"
+        },
+        {
+          "id": "ty:ReadHandle:seek",
+          "title": "ReadHandle.seek([whence [, offset]])"
+        },
+        {
+          "id": "ty:ReadHandle:close",
+          "title": "ReadHandle.close()"
+        }
+      ],
+      "sourceHash": "0c91450d1d6eeb9e"
+    },
+    "/module/gps/": {
+      "key": "module/gps.html",
+      "url": "/module/gps/",
+      "title": "gps",
+      "description": "使用 调制解调器 定位当前海龟或计算机的位置。",
+      "file": "pages/module/gps.html",
+      "toc": [
+        {
+          "id": "v:CHANNEL_GPS",
+          "title": "CHANNEL_GPS = 65534"
+        },
+        {
+          "id": "v:locate",
+          "title": "locate([timeout=2 [, debug=false]])"
+        }
+      ],
+      "sourceHash": "3e3ab0a9447dc052"
+    },
+    "/module/help/": {
+      "key": "module/help.html",
+      "url": "/module/help/",
+      "title": "help",
+      "description": "查找当前计算机上的帮助文件。",
+      "file": "pages/module/help.html",
+      "toc": [
+        {
+          "id": "v:path",
+          "title": "path()"
+        },
+        {
+          "id": "v:setPath",
+          "title": "setPath(newPath)"
+        },
+        {
+          "id": "v:lookup",
+          "title": "lookup(topic)"
+        },
+        {
+          "id": "v:topics",
+          "title": "topics()"
+        },
+        {
+          "id": "v:completeTopic",
+          "title": "completeTopic(prefix)"
+        }
+      ],
+      "sourceHash": "83c011cee0ca6501"
+    },
+    "/module/http/": {
+      "key": "module/http.html",
+      "url": "/module/http/",
+      "title": "http",
+      "description": "发起 HTTP 请求，向远程 Web 服务器发送数据并从中接收数据。",
+      "file": "pages/module/http.html",
+      "toc": [
+        {
+          "id": "v:get",
+          "title": "get(...)"
+        },
+        {
+          "id": "v:post",
+          "title": "post(...)"
+        },
+        {
+          "id": "v:request",
+          "title": "request(...)"
+        },
+        {
+          "id": "v:checkURLAsync",
+          "title": "checkURLAsync(url)"
+        },
+        {
+          "id": "v:checkURL",
+          "title": "checkURL(url)"
+        },
+        {
+          "id": "v:websocketAsync",
+          "title": "websocketAsync(...)"
+        },
+        {
+          "id": "v:websocket",
+          "title": "websocket(...)"
+        },
+        {
+          "id": "ty:Response:getResponseCode",
+          "title": "Response.getResponseCode()"
+        },
+        {
+          "id": "ty:Response:getResponseHeaders",
+          "title": "Response.getResponseHeaders()"
+        },
+        {
+          "id": "ty:Websocket:receive",
+          "title": "Websocket.receive([timeout])"
+        },
+        {
+          "id": "ty:Websocket:send",
+          "title": "Websocket.send(message [, binary])"
+        },
+        {
+          "id": "ty:Websocket:close",
+          "title": "Websocket.close()"
+        },
+        {
+          "id": "ty:Websocket:getResponseHeaders",
+          "title": "Websocket.getResponseHeaders()"
+        }
+      ],
+      "sourceHash": "f405675f34594a35"
+    },
+    "/module/io/": {
+      "key": "module/io.html",
+      "url": "/module/io/",
+      "title": "io",
+      "description": "模拟 Lua 的标准 io 库。",
+      "file": "pages/module/io.html",
+      "toc": [
+        {
+          "id": "v:stdin",
+          "title": "stdin"
+        },
+        {
+          "id": "v:stdout",
+          "title": "stdout"
+        },
+        {
+          "id": "v:stderr",
+          "title": "stderr"
+        },
+        {
+          "id": "v:close",
+          "title": "close([file])"
+        },
+        {
+          "id": "v:flush",
+          "title": "flush()"
+        },
+        {
+          "id": "v:input",
+          "title": "input([file])"
+        },
+        {
+          "id": "v:lines",
+          "title": "lines([filename, ...])"
+        },
+        {
+          "id": "v:open",
+          "title": "open(filename [, mode])"
+        },
+        {
+          "id": "v:output",
+          "title": "output([file])"
+        },
+        {
+          "id": "v:read",
+          "title": "read(...)"
+        },
+        {
+          "id": "v:type",
+          "title": "type(obj)"
+        },
+        {
+          "id": "v:write",
+          "title": "write(...)"
+        },
+        {
+          "id": "ty:Handle:close",
+          "title": "Handle.close()"
+        },
+        {
+          "id": "ty:Handle:flush",
+          "title": "Handle.flush()"
+        },
+        {
+          "id": "ty:Handle:lines",
+          "title": "Handle.lines(...)"
+        },
+        {
+          "id": "ty:Handle:read",
+          "title": "Handle.read(...)"
+        },
+        {
+          "id": "ty:Handle:seek",
+          "title": "Handle.seek([whence [, offset]])"
+        },
+        {
+          "id": "ty:Handle:write",
+          "title": "Handle.write(...)"
+        }
+      ],
+      "sourceHash": "d405ae4a16054094"
+    },
+    "/module/keys/": {
+      "key": "module/keys.html",
+      "url": "/module/keys/",
+      "title": "keys",
+      "description": "所有键盘“按键码”的常量，由 key 事件排队。",
+      "file": "pages/module/keys.html",
+      "toc": [
+        {
+          "id": "v:getName",
+          "title": "getName(code)"
+        }
+      ],
+      "sourceHash": "945b5717bceb81b0"
+    },
+    "/module/multishell/": {
+      "key": "module/multishell.html",
+      "url": "/module/multishell/",
+      "title": "multishell",
+      "description": "Multishell 允许同时运行多个程序。",
+      "file": "pages/module/multishell.html",
+      "toc": [
+        {
+          "id": "v:getFocus",
+          "title": "getFocus()"
+        },
+        {
+          "id": "v:setFocus",
+          "title": "setFocus(n)"
+        },
+        {
+          "id": "v:getTitle",
+          "title": "getTitle(n)"
+        },
+        {
+          "id": "v:setTitle",
+          "title": "setTitle(n, title)"
+        },
+        {
+          "id": "v:getCurrent",
+          "title": "getCurrent()"
+        },
+        {
+          "id": "v:launch",
+          "title": "launch(tProgramEnv, sProgramPath, ...)"
+        },
+        {
+          "id": "v:getCount",
+          "title": "getCount()"
+        }
+      ],
+      "sourceHash": "5047c00748d4756e"
+    },
+    "/module/os/": {
+      "key": "module/os.html",
+      "url": "/module/os/",
+      "title": "os",
+      "description": "os API 允许与当前计算机交互。",
+      "file": "pages/module/os.html",
+      "toc": [
+        {
+          "id": "v:pullEvent",
+          "title": "pullEvent([filter])"
+        },
+        {
+          "id": "v:pullEventRaw",
+          "title": "pullEventRaw([filter])"
+        },
+        {
+          "id": "v:sleep",
+          "title": "sleep([time=0])"
+        },
+        {
+          "id": "v:version",
+          "title": "version()"
+        },
+        {
+          "id": "v:run",
+          "title": "run(env, path, ...)"
+        },
+        {
+          "id": "v:queueEvent",
+          "title": "queueEvent(name, ...)"
+        },
+        {
+          "id": "v:startTimer",
+          "title": "startTimer(time)"
+        },
+        {
+          "id": "v:cancelTimer",
+          "title": "cancelTimer(token)"
+        },
+        {
+          "id": "v:setAlarm",
+          "title": "setAlarm(time)"
+        },
+        {
+          "id": "v:cancelAlarm",
+          "title": "cancelAlarm(token)"
+        },
+        {
+          "id": "v:shutdown",
+          "title": "shutdown()"
+        },
+        {
+          "id": "v:reboot",
+          "title": "reboot()"
+        },
+        {
+          "id": "v:getComputerID",
+          "title": "getComputerID()"
+        },
+        {
+          "id": "v:computerID",
+          "title": "computerID()"
+        },
+        {
+          "id": "v:getComputerLabel",
+          "title": "getComputerLabel()"
+        },
+        {
+          "id": "v:computerLabel",
+          "title": "computerLabel()"
+        },
+        {
+          "id": "v:setComputerLabel",
+          "title": "setComputerLabel([label])"
+        },
+        {
+          "id": "v:clock",
+          "title": "clock()"
+        },
+        {
+          "id": "v:time",
+          "title": "time([locale])"
+        },
+        {
+          "id": "v:day",
+          "title": "day([locale])"
+        },
+        {
+          "id": "v:epoch",
+          "title": "epoch([locale])"
+        },
+        {
+          "id": "v:date",
+          "title": "date([format [, time]])"
+        }
+      ],
+      "sourceHash": "25dac75e61b17542"
+    },
+    "/module/paintutils/": {
+      "key": "module/paintutils.html",
+      "url": "/module/paintutils/",
+      "title": "paintutils",
+      "description": "用于绘制更复杂图形（如像素、线条和图像）的实用工具。",
+      "file": "pages/module/paintutils.html",
+      "toc": [
+        {
+          "id": "v:parseImage",
+          "title": "parseImage(image)"
+        },
+        {
+          "id": "v:loadImage",
+          "title": "loadImage(path)"
+        },
+        {
+          "id": "v:drawPixel",
+          "title": "drawPixel(xPos, yPos [, colour])"
+        },
+        {
+          "id": "v:drawLine",
+          "title": "drawLine(startX, startY, endX, endY [, colour])"
+        },
+        {
+          "id": "v:drawBox",
+          "title": "drawBox(startX, startY, endX, endY [, colour])"
+        },
+        {
+          "id": "v:drawFilledBox",
+          "title": "drawFilledBox(startX, startY, endX, endY [, colour])"
+        },
+        {
+          "id": "v:drawImage",
+          "title": "drawImage(image, xPos, yPos)"
+        }
+      ],
+      "sourceHash": "7cb1c0e26cbff12b"
+    },
+    "/module/parallel/": {
+      "key": "module/parallel.html",
+      "url": "/module/parallel/",
+      "title": "parallel",
+      "description": "一种同时运行多个函数的简单方法。",
+      "file": "pages/module/parallel.html",
+      "toc": [
+        {
+          "id": "v:waitForAny",
+          "title": "waitForAny(...)"
+        },
+        {
+          "id": "v:waitForAll",
+          "title": "waitForAll(...)"
+        }
+      ],
+      "sourceHash": "380bcca83fc53ad9"
+    },
+    "/module/peripheral/": {
+      "key": "module/peripheral.html",
+      "url": "/module/peripheral/",
+      "title": "peripheral",
+      "description": "查找并控制连接到此计算机的外设。",
+      "file": "pages/module/peripheral.html",
+      "toc": [
+        {
+          "id": "v:getNames",
+          "title": "getNames()"
+        },
+        {
+          "id": "v:isPresent",
+          "title": "isPresent(name)"
+        },
+        {
+          "id": "v:getType",
+          "title": "getType(peripheral)"
+        },
+        {
+          "id": "v:hasType",
+          "title": "hasType(peripheral, peripheral_type)"
+        },
+        {
+          "id": "v:getMethods",
+          "title": "getMethods(name)"
+        },
+        {
+          "id": "v:getName",
+          "title": "getName(peripheral)"
+        },
+        {
+          "id": "v:call",
+          "title": "call(name, method, ...)"
+        },
+        {
+          "id": "v:wrap",
+          "title": "wrap(name)"
+        },
+        {
+          "id": "v:find",
+          "title": "find(ty [, filter])"
+        }
+      ],
+      "sourceHash": "30e948d4a2ecf563"
+    },
+    "/module/pocket/": {
+      "key": "module/pocket.html",
+      "url": "/module/pocket/",
+      "title": "pocket",
+      "description": "控制当前口袋计算机，添加或移除升级。",
+      "file": "pages/module/pocket.html",
+      "toc": [
+        {
+          "id": "v:equipBack",
+          "title": "equipBack()"
+        },
+        {
+          "id": "v:unequipBack",
+          "title": "unequipBack()"
+        }
+      ],
+      "sourceHash": "60765503888049dc"
+    },
+    "/module/rednet/": {
+      "key": "module/rednet.html",
+      "url": "/module/rednet/",
+      "title": "rednet",
+      "description": "通过使用 调制解调器 与其他计算机通信。rednet 在主 modem 外设之上提供了一层抽象，使其使用起来稍微更容易。",
+      "file": "pages/module/rednet.html",
+      "toc": [
+        {
+          "id": "v:CHANNEL_BROADCAST",
+          "title": "CHANNEL_BROADCAST = 65535"
+        },
+        {
+          "id": "v:CHANNEL_REPEAT",
+          "title": "CHANNEL_REPEAT = 65533"
+        },
+        {
+          "id": "v:MAX_ID_CHANNELS",
+          "title": "MAX_ID_CHANNELS = 65500"
+        },
+        {
+          "id": "v:open",
+          "title": "open(modem)"
+        },
+        {
+          "id": "v:close",
+          "title": "close([modem])"
+        },
+        {
+          "id": "v:isOpen",
+          "title": "isOpen([modem])"
+        },
+        {
+          "id": "v:send",
+          "title": "send(recipient, message [, protocol])"
+        },
+        {
+          "id": "v:broadcast",
+          "title": "broadcast(message [, protocol])"
+        },
+        {
+          "id": "v:receive",
+          "title": "receive([protocol_filter [, timeout]])"
+        },
+        {
+          "id": "v:host",
+          "title": "host(protocol, hostname)"
+        },
+        {
+          "id": "v:unhost",
+          "title": "unhost(protocol)"
+        },
+        {
+          "id": "v:lookup",
+          "title": "lookup(protocol [, hostname [, timeout=2]])"
+        },
+        {
+          "id": "v:run",
+          "title": "run()"
+        }
+      ],
+      "sourceHash": "70e2f023a362be19"
+    },
+    "/module/redstone/": {
+      "key": "module/redstone.html",
+      "url": "/module/redstone/",
+      "title": "redstone",
+      "description": "获取并设置与此计算机相邻的红石信号。",
+      "file": "pages/module/redstone.html",
+      "toc": [
+        {
+          "id": "v:getSides",
+          "title": "getSides()"
+        },
+        {
+          "id": "v:setOutput",
+          "title": "setOutput(side, on)"
+        },
+        {
+          "id": "v:getOutput",
+          "title": "getOutput(side)"
+        },
+        {
+          "id": "v:getInput",
+          "title": "getInput(side)"
+        },
+        {
+          "id": "v:setAnalogOutput",
+          "title": "setAnalogOutput(side, value)"
+        },
+        {
+          "id": "v:setAnalogueOutput",
+          "title": "setAnalogueOutput(side, value)"
+        },
+        {
+          "id": "v:getAnalogOutput",
+          "title": "getAnalogOutput(side)"
+        },
+        {
+          "id": "v:getAnalogueOutput",
+          "title": "getAnalogueOutput(side)"
+        },
+        {
+          "id": "v:getAnalogInput",
+          "title": "getAnalogInput(side)"
+        },
+        {
+          "id": "v:getAnalogueInput",
+          "title": "getAnalogueInput(side)"
+        },
+        {
+          "id": "v:setBundledOutput",
+          "title": "setBundledOutput(side, output)"
+        },
+        {
+          "id": "v:getBundledOutput",
+          "title": "getBundledOutput(side)"
+        },
+        {
+          "id": "v:getBundledInput",
+          "title": "getBundledInput(side)"
+        },
+        {
+          "id": "v:testBundledInput",
+          "title": "testBundledInput(side, mask)"
+        }
+      ],
+      "sourceHash": "19a8c4429db365c8"
+    },
+    "/module/settings/": {
+      "key": "module/settings.html",
+      "url": "/module/settings/",
+      "title": "settings",
+      "description": "读取和写入 CraftOS 及你的程序的配置选项。",
+      "file": "pages/module/settings.html",
+      "toc": [
+        {
+          "id": "v:define",
+          "title": "define(name [, options])"
+        },
+        {
+          "id": "v:undefine",
+          "title": "undefine(name)"
+        },
+        {
+          "id": "v:set",
+          "title": "set(name, value)"
+        },
+        {
+          "id": "v:get",
+          "title": "get(name [, default])"
+        },
+        {
+          "id": "v:getDetails",
+          "title": "getDetails(name)"
+        },
+        {
+          "id": "v:unset",
+          "title": "unset(name)"
+        },
+        {
+          "id": "v:clear",
+          "title": "clear()"
+        },
+        {
+          "id": "v:getNames",
+          "title": "getNames()"
+        },
+        {
+          "id": "v:load",
+          "title": "load([path=\".settings\"])"
+        },
+        {
+          "id": "v:save",
+          "title": "save([path=\".settings\"])"
+        }
+      ],
+      "sourceHash": "d33afb0e8e2955ca"
+    },
+    "/module/shell/": {
+      "key": "module/shell.html",
+      "url": "/module/shell/",
+      "title": "shell",
+      "description": "shell API 提供对 CraftOS 命令行界面的访问。",
+      "file": "pages/module/shell.html",
+      "toc": [
+        {
+          "id": "v:execute",
+          "title": "execute(command, ...)"
+        },
+        {
+          "id": "v:run",
+          "title": "run(...)"
+        },
+        {
+          "id": "v:exit",
+          "title": "exit()"
+        },
+        {
+          "id": "v:dir",
+          "title": "dir()"
+        },
+        {
+          "id": "v:setDir",
+          "title": "setDir(dir)"
+        },
+        {
+          "id": "v:path",
+          "title": "path()"
+        },
+        {
+          "id": "v:setPath",
+          "title": "setPath(path)"
+        },
+        {
+          "id": "v:resolve",
+          "title": "resolve(path)"
+        },
+        {
+          "id": "v:resolveProgram",
+          "title": "resolveProgram(command)"
+        },
+        {
+          "id": "v:programs",
+          "title": "programs([include_hidden])"
+        },
+        {
+          "id": "v:complete",
+          "title": "complete(sLine)"
+        },
+        {
+          "id": "v:completeProgram",
+          "title": "completeProgram(program)"
+        },
+        {
+          "id": "v:setCompletionFunction",
+          "title": "setCompletionFunction(program, complete)"
+        },
+        {
+          "id": "v:getCompletionInfo",
+          "title": "getCompletionInfo()"
+        },
+        {
+          "id": "v:getRunningProgram",
+          "title": "getRunningProgram()"
+        },
+        {
+          "id": "v:setAlias",
+          "title": "setAlias(command, program)"
+        },
+        {
+          "id": "v:clearAlias",
+          "title": "clearAlias(command)"
+        },
+        {
+          "id": "v:aliases",
+          "title": "aliases()"
+        },
+        {
+          "id": "v:openTab",
+          "title": "openTab(...)"
+        },
+        {
+          "id": "v:switchTab",
+          "title": "switchTab(id)"
+        }
+      ],
+      "sourceHash": "c7dbe02d1ae36151"
+    },
+    "/module/term/": {
+      "key": "module/term.html",
+      "url": "/module/term/",
+      "title": "term",
+      "description": "与计算机的终端或显示器交互，写入文本并绘制 ASCII 图形。",
+      "file": "pages/module/term.html",
+      "toc": [
+        {
+          "id": "v:nativePaletteColour",
+          "title": "nativePaletteColour(colour)"
+        },
+        {
+          "id": "v:nativePaletteColor",
+          "title": "nativePaletteColor(colour)"
+        },
+        {
+          "id": "v:write",
+          "title": "write(text)"
+        },
+        {
+          "id": "v:scroll",
+          "title": "scroll(y)"
+        },
+        {
+          "id": "v:getCursorPos",
+          "title": "getCursorPos()"
+        },
+        {
+          "id": "v:setCursorPos",
+          "title": "setCursorPos(x, y)"
+        },
+        {
+          "id": "v:getCursorBlink",
+          "title": "getCursorBlink()"
+        },
+        {
+          "id": "v:setCursorBlink",
+          "title": "setCursorBlink(blink)"
+        },
+        {
+          "id": "v:getSize",
+          "title": "getSize()"
+        },
+        {
+          "id": "v:clear",
+          "title": "clear()"
+        },
+        {
+          "id": "v:clearLine",
+          "title": "clearLine()"
+        },
+        {
+          "id": "v:getTextColour",
+          "title": "getTextColour()"
+        },
+        {
+          "id": "v:getTextColor",
+          "title": "getTextColor()"
+        },
+        {
+          "id": "v:setTextColour",
+          "title": "setTextColour(colour)"
+        },
+        {
+          "id": "v:setTextColor",
+          "title": "setTextColor(colour)"
+        },
+        {
+          "id": "v:getBackgroundColour",
+          "title": "getBackgroundColour()"
+        },
+        {
+          "id": "v:getBackgroundColor",
+          "title": "getBackgroundColor()"
+        },
+        {
+          "id": "v:setBackgroundColour",
+          "title": "setBackgroundColour(colour)"
+        },
+        {
+          "id": "v:setBackgroundColor",
+          "title": "setBackgroundColor(colour)"
+        },
+        {
+          "id": "v:isColour",
+          "title": "isColour()"
+        },
+        {
+          "id": "v:isColor",
+          "title": "isColor()"
+        },
+        {
+          "id": "v:blit",
+          "title": "blit(text, textColour, backgroundColour)"
+        },
+        {
+          "id": "v:setPaletteColour",
+          "title": "setPaletteColour(...)"
+        },
+        {
+          "id": "v:setPaletteColor",
+          "title": "setPaletteColor(...)"
+        },
+        {
+          "id": "v:getPaletteColour",
+          "title": "getPaletteColour(colour)"
+        },
+        {
+          "id": "v:getPaletteColor",
+          "title": "getPaletteColor(colour)"
+        },
+        {
+          "id": "v:redirect",
+          "title": "redirect(target)"
+        },
+        {
+          "id": "v:current",
+          "title": "current()"
+        },
+        {
+          "id": "v:native",
+          "title": "native()"
+        },
+        {
+          "id": "ty:Redirect:write",
+          "title": "Redirect.write(text)"
+        },
+        {
+          "id": "ty:Redirect:scroll",
+          "title": "Redirect.scroll(y)"
+        },
+        {
+          "id": "ty:Redirect:getCursorPos",
+          "title": "Redirect.getCursorPos()"
+        },
+        {
+          "id": "ty:Redirect:setCursorPos",
+          "title": "Redirect.setCursorPos(x, y)"
+        },
+        {
+          "id": "ty:Redirect:getCursorBlink",
+          "title": "Redirect.getCursorBlink()"
+        },
+        {
+          "id": "ty:Redirect:setCursorBlink",
+          "title": "Redirect.setCursorBlink(blink)"
+        },
+        {
+          "id": "ty:Redirect:getSize",
+          "title": "Redirect.getSize()"
+        },
+        {
+          "id": "ty:Redirect:clear",
+          "title": "Redirect.clear()"
+        },
+        {
+          "id": "ty:Redirect:clearLine",
+          "title": "Redirect.clearLine()"
+        },
+        {
+          "id": "ty:Redirect:getTextColour",
+          "title": "Redirect.getTextColour()"
+        },
+        {
+          "id": "ty:Redirect:getTextColor",
+          "title": "Redirect.getTextColor()"
+        },
+        {
+          "id": "ty:Redirect:setTextColour",
+          "title": "Redirect.setTextColour(colour)"
+        },
+        {
+          "id": "ty:Redirect:setTextColor",
+          "title": "Redirect.setTextColor(colour)"
+        },
+        {
+          "id": "ty:Redirect:getBackgroundColour",
+          "title": "Redirect.getBackgroundColour()"
+        },
+        {
+          "id": "ty:Redirect:getBackgroundColor",
+          "title": "Redirect.getBackgroundColor()"
+        },
+        {
+          "id": "ty:Redirect:setBackgroundColour",
+          "title": "Redirect.setBackgroundColour(colour)"
+        },
+        {
+          "id": "ty:Redirect:setBackgroundColor",
+          "title": "Redirect.setBackgroundColor(colour)"
+        },
+        {
+          "id": "ty:Redirect:isColour",
+          "title": "Redirect.isColour()"
+        },
+        {
+          "id": "ty:Redirect:isColor",
+          "title": "Redirect.isColor()"
+        },
+        {
+          "id": "ty:Redirect:blit",
+          "title": "Redirect.blit(text, textColour, backgroundColour)"
+        },
+        {
+          "id": "ty:Redirect:setPaletteColour",
+          "title": "Redirect.setPaletteColour(...)"
+        },
+        {
+          "id": "ty:Redirect:setPaletteColor",
+          "title": "Redirect.setPaletteColor(...)"
+        },
+        {
+          "id": "ty:Redirect:getPaletteColour",
+          "title": "Redirect.getPaletteColour(colour)"
+        },
+        {
+          "id": "ty:Redirect:getPaletteColor",
+          "title": "Redirect.getPaletteColor(colour)"
+        }
+      ],
+      "sourceHash": "946493d737d5b95a"
+    },
+    "/module/textutils/": {
+      "key": "module/textutils.html",
+      "url": "/module/textutils/",
+      "title": "textutils",
+      "description": "用于格式化和操作字符串的有用工具。",
+      "file": "pages/module/textutils.html",
+      "toc": [
+        {
+          "id": "v:slowWrite",
+          "title": "slowWrite(text [, rate])"
+        },
+        {
+          "id": "v:slowPrint",
+          "title": "slowPrint(sText [, nRate])"
+        },
+        {
+          "id": "v:formatTime",
+          "title": "formatTime(nTime [, bTwentyFourHour])"
+        },
+        {
+          "id": "v:pagedPrint",
+          "title": "pagedPrint(text [, free_lines])"
+        },
+        {
+          "id": "v:tabulate",
+          "title": "tabulate(...)"
+        },
+        {
+          "id": "v:pagedTabulate",
+          "title": "pagedTabulate(...)"
+        },
+        {
+          "id": "v:empty_json_array",
+          "title": "empty_json_array"
+        },
+        {
+          "id": "v:json_null",
+          "title": "json_null"
+        },
+        {
+          "id": "v:serialize",
+          "title": "serialize(t, opts)"
+        },
+        {
+          "id": "v:serialise",
+          "title": "serialise(t, opts)"
+        },
+        {
+          "id": "v:unserialize",
+          "title": "unserialize(s)"
+        },
+        {
+          "id": "v:unserialise",
+          "title": "unserialise(s)"
+        },
+        {
+          "id": "v:serializeJSON",
+          "title": "serializeJSON(...)"
+        },
+        {
+          "id": "v:serialiseJSON",
+          "title": "serialiseJSON(...)"
+        },
+        {
+          "id": "v:unserializeJSON",
+          "title": "unserializeJSON(s [, options])"
+        },
+        {
+          "id": "v:unserialiseJSON",
+          "title": "unserialiseJSON(s [, options])"
+        },
+        {
+          "id": "v:urlEncode",
+          "title": "urlEncode(str)"
+        },
+        {
+          "id": "v:complete",
+          "title": "complete(sSearchText [, tSearchTable])"
+        }
+      ],
+      "sourceHash": "e515383f8ecae3d0"
+    },
+    "/module/turtle/": {
+      "key": "module/turtle.html",
+      "url": "/module/turtle/",
+      "title": "turtle",
+      "description": "海龟是一种机器人装置，可以破坏和放置方块、攻击生物并在世界中移动。它们有一个 16 格的内部物品栏，可用于存储它们已破坏或想要放置的方块。",
+      "file": "pages/module/turtle.html",
+      "toc": [
+        {
+          "id": "v:craft",
+          "title": "craft([limit=64])"
+        },
+        {
+          "id": "v:forward",
+          "title": "forward()"
+        },
+        {
+          "id": "v:back",
+          "title": "back()"
+        },
+        {
+          "id": "v:up",
+          "title": "up()"
+        },
+        {
+          "id": "v:down",
+          "title": "down()"
+        },
+        {
+          "id": "v:turnLeft",
+          "title": "turnLeft()"
+        },
+        {
+          "id": "v:turnRight",
+          "title": "turnRight()"
+        },
+        {
+          "id": "v:dig",
+          "title": "dig([side])"
+        },
+        {
+          "id": "v:digUp",
+          "title": "digUp([side])"
+        },
+        {
+          "id": "v:digDown",
+          "title": "digDown([side])"
+        },
+        {
+          "id": "v:place",
+          "title": "place([text])"
+        },
+        {
+          "id": "v:placeUp",
+          "title": "placeUp([text])"
+        },
+        {
+          "id": "v:placeDown",
+          "title": "placeDown([text])"
+        },
+        {
+          "id": "v:drop",
+          "title": "drop([count])"
+        },
+        {
+          "id": "v:dropUp",
+          "title": "dropUp([count])"
+        },
+        {
+          "id": "v:dropDown",
+          "title": "dropDown([count])"
+        },
+        {
+          "id": "v:select",
+          "title": "select(slot)"
+        },
+        {
+          "id": "v:getItemCount",
+          "title": "getItemCount([slot])"
+        },
+        {
+          "id": "v:getItemSpace",
+          "title": "getItemSpace([slot])"
+        },
+        {
+          "id": "v:detect",
+          "title": "detect()"
+        },
+        {
+          "id": "v:detectUp",
+          "title": "detectUp()"
+        },
+        {
+          "id": "v:detectDown",
+          "title": "detectDown()"
+        },
+        {
+          "id": "v:compare",
+          "title": "compare()"
+        },
+        {
+          "id": "v:compareUp",
+          "title": "compareUp()"
+        },
+        {
+          "id": "v:compareDown",
+          "title": "compareDown()"
+        },
+        {
+          "id": "v:attack",
+          "title": "attack([side])"
+        },
+        {
+          "id": "v:attackUp",
+          "title": "attackUp([side])"
+        },
+        {
+          "id": "v:attackDown",
+          "title": "attackDown([side])"
+        },
+        {
+          "id": "v:suck",
+          "title": "suck([count])"
+        },
+        {
+          "id": "v:suckUp",
+          "title": "suckUp([count])"
+        },
+        {
+          "id": "v:suckDown",
+          "title": "suckDown([count])"
+        },
+        {
+          "id": "v:getFuelLevel",
+          "title": "getFuelLevel()"
+        },
+        {
+          "id": "v:refuel",
+          "title": "refuel([count])"
+        },
+        {
+          "id": "v:compareTo",
+          "title": "compareTo(slot)"
+        },
+        {
+          "id": "v:transferTo",
+          "title": "transferTo(slot [, count])"
+        },
+        {
+          "id": "v:getSelectedSlot",
+          "title": "getSelectedSlot()"
+        },
+        {
+          "id": "v:getFuelLimit",
+          "title": "getFuelLimit()"
+        },
+        {
+          "id": "v:equipLeft",
+          "title": "equipLeft()"
+        },
+        {
+          "id": "v:equipRight",
+          "title": "equipRight()"
+        },
+        {
+          "id": "v:getEquippedLeft",
+          "title": "getEquippedLeft()"
+        },
+        {
+          "id": "v:getEquippedRight",
+          "title": "getEquippedRight()"
+        },
+        {
+          "id": "v:inspect",
+          "title": "inspect()"
+        },
+        {
+          "id": "v:inspectUp",
+          "title": "inspectUp()"
+        },
+        {
+          "id": "v:inspectDown",
+          "title": "inspectDown()"
+        },
+        {
+          "id": "v:getItemDetail",
+          "title": "getItemDetail([slot [, detailed]])"
+        }
+      ],
+      "sourceHash": "e3c56bdc14a73102"
+    },
+    "/module/vector/": {
+      "key": "module/vector.html",
+      "url": "/module/vector/",
+      "title": "向量",
+      "description": "基本的 3D 矢量类型和一些常见的矢量运算。当使用 Minecraft 世界中的坐标（例如来自 gps API 的坐标）时，这可能很有用。",
+      "file": "pages/module/vector.html",
+      "toc": [
+        {
+          "id": "v:new",
+          "title": "new(x, y, z)"
+        },
+        {
+          "id": "ty:Vector:add",
+          "title": "Vector:add(o)"
+        },
+        {
+          "id": "ty:Vector:sub",
+          "title": "Vector:sub(o)"
+        },
+        {
+          "id": "ty:Vector:mul",
+          "title": "Vector:mul(factor)"
+        },
+        {
+          "id": "ty:Vector:div",
+          "title": "Vector:div(factor)"
+        },
+        {
+          "id": "ty:Vector:unm",
+          "title": "Vector:unm()"
+        },
+        {
+          "id": "ty:Vector:dot",
+          "title": "Vector:dot(o)"
+        },
+        {
+          "id": "ty:Vector:cross",
+          "title": "Vector:cross(o)"
+        },
+        {
+          "id": "ty:Vector:length",
+          "title": "Vector:length()"
+        },
+        {
+          "id": "ty:Vector:normalize",
+          "title": "Vector:normalize()"
+        },
+        {
+          "id": "ty:Vector:round",
+          "title": "Vector:round([tolerance])"
+        },
+        {
+          "id": "ty:Vector:tostring",
+          "title": "Vector:tostring()"
+        },
+        {
+          "id": "ty:Vector:equals",
+          "title": "Vector:equals(other)"
+        }
+      ],
+      "sourceHash": "3f709495aee91c90"
+    },
+    "/module/window/": {
+      "key": "module/window.html",
+      "url": "/module/window/",
+      "title": "窗户",
+      "description": "终端重定向占用现有终端较小的面积。这允许轻松定义显示器内可以写入/绘制的空间，然后根据需要重新绘制/重新定位/等等。 API 本身只包含一个函数，window.create，它返回窗口本身。",
+      "file": "pages/module/window.html",
+      "toc": [
+        {
+          "id": "v:create",
+          "title": "create(parent, nX, nY, nWidth, nHeight [, bStartVisible])"
+        },
+        {
+          "id": "ty:Window:write",
+          "title": "Window.write(sText)"
+        },
+        {
+          "id": "ty:Window:blit",
+          "title": "Window.blit(sText, sTextColor, sBackgroundColor)"
+        },
+        {
+          "id": "ty:Window:clear",
+          "title": "Window.clear()"
+        },
+        {
+          "id": "ty:Window:clearLine",
+          "title": "Window.clearLine()"
+        },
+        {
+          "id": "ty:Window:getCursorPos",
+          "title": "Window.getCursorPos()"
+        },
+        {
+          "id": "ty:Window:setCursorPos",
+          "title": "Window.setCursorPos(x, y)"
+        },
+        {
+          "id": "ty:Window:setCursorBlink",
+          "title": "Window.setCursorBlink(blink)"
+        },
+        {
+          "id": "ty:Window:getCursorBlink",
+          "title": "Window.getCursorBlink()"
+        },
+        {
+          "id": "ty:Window:isColor",
+          "title": "Window.isColor()"
+        },
+        {
+          "id": "ty:Window:isColour",
+          "title": "Window.isColour()"
+        },
+        {
+          "id": "ty:Window:setTextColor",
+          "title": "Window.setTextColor(color)"
+        },
+        {
+          "id": "ty:Window:setTextColour",
+          "title": "Window.setTextColour(color)"
+        },
+        {
+          "id": "ty:Window:setPaletteColour",
+          "title": "Window.setPaletteColour(colour, r, g, b)"
+        },
+        {
+          "id": "ty:Window:setPaletteColor",
+          "title": "Window.setPaletteColor(colour, r, g, b)"
+        },
+        {
+          "id": "ty:Window:getPaletteColour",
+          "title": "Window.getPaletteColour(colour)"
+        },
+        {
+          "id": "ty:Window:getPaletteColor",
+          "title": "Window.getPaletteColor(colour)"
+        },
+        {
+          "id": "ty:Window:setBackgroundColor",
+          "title": "Window.setBackgroundColor(color)"
+        },
+        {
+          "id": "ty:Window:setBackgroundColour",
+          "title": "Window.setBackgroundColour(color)"
+        },
+        {
+          "id": "ty:Window:getSize",
+          "title": "Window.getSize()"
+        },
+        {
+          "id": "ty:Window:scroll",
+          "title": "Window.scroll(n)"
+        },
+        {
+          "id": "ty:Window:getTextColor",
+          "title": "Window.getTextColor()"
+        },
+        {
+          "id": "ty:Window:getTextColour",
+          "title": "Window.getTextColour()"
+        },
+        {
+          "id": "ty:Window:getBackgroundColor",
+          "title": "Window.getBackgroundColor()"
+        },
+        {
+          "id": "ty:Window:getBackgroundColour",
+          "title": "Window.getBackgroundColour()"
+        },
+        {
+          "id": "ty:Window:getLine",
+          "title": "Window.getLine(y)"
+        },
+        {
+          "id": "ty:Window:setVisible",
+          "title": "Window.setVisible(visible)"
+        },
+        {
+          "id": "ty:Window:isVisible",
+          "title": "Window.isVisible()"
+        },
+        {
+          "id": "ty:Window:redraw",
+          "title": "Window.redraw()"
+        },
+        {
+          "id": "ty:Window:restoreCursor",
+          "title": "Window.restoreCursor()"
+        },
+        {
+          "id": "ty:Window:getPosition",
+          "title": "Window.getPosition()"
+        },
+        {
+          "id": "ty:Window:reposition",
+          "title": "Window.reposition(new_x, new_y [, new_width, new_height [, new_parent]])"
+        }
+      ],
+      "sourceHash": "c9da2e7735e9e9c9"
+    },
+    "/library/cc.audio.dfpwm/": {
+      "key": "library/cc.audio.dfpwm.html",
+      "url": "/library/cc.audio.dfpwm/",
+      "title": "cc.音频.dfpwm",
+      "description": "在 DFPWM 音频数据流和振幅列表之间转换。",
+      "file": "pages/library/cc.audio.dfpwm.html",
+      "toc": [
+        {
+          "id": "v:make_encoder",
+          "title": "make_encoder()"
+        },
+        {
+          "id": "v:encode",
+          "title": "encode(input)"
+        },
+        {
+          "id": "v:make_decoder",
+          "title": "make_decoder()"
+        },
+        {
+          "id": "v:decode",
+          "title": "decode(input)"
+        }
+      ],
+      "sourceHash": "7610f55119d4bc63"
+    },
+    "/library/cc.base64/": {
+      "key": "library/cc.base64.html",
+      "url": "/library/cc.base64/",
+      "title": "cc.base64",
+      "description": "cc.base64 模块提供了在二进制数据与 Base64 之间相互转换的函数。",
+      "file": "pages/library/cc.base64.html",
+      "toc": [
+        {
+          "id": "v:encode",
+          "title": "encode(str [, alt_chars=\"+/\"])"
+        },
+        {
+          "id": "v:decode",
+          "title": "decode(str [, alt_chars=\"+/\"])"
+        }
+      ],
+      "sourceHash": "71ca04d882e155e6"
+    },
+    "/library/cc.completion/": {
+      "key": "library/cc.completion.html",
+      "url": "/library/cc.completion/",
+      "title": "抄送完成",
+      "description": "一组用于处理输入补全的辅助方法，例如 _G.read 所需的方法。",
+      "file": "pages/library/cc.completion.html",
+      "toc": [
+        {
+          "id": "v:choice",
+          "title": "choice(text, choices [, add_space])"
+        },
+        {
+          "id": "v:peripheral",
+          "title": "peripheral(text [, add_space])"
+        },
+        {
+          "id": "v:side",
+          "title": "side(text [, add_space])"
+        },
+        {
+          "id": "v:setting",
+          "title": "setting(text [, add_space])"
+        },
+        {
+          "id": "v:command",
+          "title": "command(text [, add_space])"
+        }
+      ],
+      "sourceHash": "c419dbec5801e3d7"
+    },
+    "/library/cc.expect/": {
+      "key": "library/cc.expect.html",
+      "url": "/library/cc.expect/",
+      "title": "抄送期望",
+      "description": "cc.expect 库提供辅助函数，用于验证函数参数是否格式正确且类型正确。",
+      "file": "pages/library/cc.expect.html",
+      "toc": [
+        {
+          "id": "v:expect",
+          "title": "expect(index, value, ...)"
+        },
+        {
+          "id": "v:field",
+          "title": "field(tbl, index, ...)"
+        },
+        {
+          "id": "v:range",
+          "title": "range(num [, min=-math.huge [, max=math.huge]])"
+        }
+      ],
+      "sourceHash": "8a8918e9922fd1fe"
+    },
+    "/library/cc.image.nft/": {
+      "key": "library/cc.image.nft.html",
+      "url": "/library/cc.image.nft/",
+      "title": "cc.image.nft",
+      "description": "读取并绘制 nft（“Nitrogen Fingers Text”）图像。",
+      "file": "pages/library/cc.image.nft.html",
+      "toc": [
+        {
+          "id": "v:parse",
+          "title": "parse(image)"
+        },
+        {
+          "id": "v:load",
+          "title": "load(path)"
+        },
+        {
+          "id": "v:draw",
+          "title": "draw(image, xPos, yPos [, target])"
+        }
+      ],
+      "sourceHash": "e1aa15a687c4e672"
+    },
+    "/library/cc.pretty/": {
+      "key": "library/cc.pretty.html",
+      "url": "/library/cc.pretty/",
+      "title": "cc.漂亮",
+      "description": "一个用于以美观方式渲染数据结构的格式化打印器。",
+      "file": "pages/library/cc.pretty.html",
+      "toc": [
+        {
+          "id": "v:empty",
+          "title": "empty"
+        },
+        {
+          "id": "v:space",
+          "title": "space"
+        },
+        {
+          "id": "v:line",
+          "title": "line"
+        },
+        {
+          "id": "v:space_line",
+          "title": "space_line"
+        },
+        {
+          "id": "v:text",
+          "title": "text(text [, colour])"
+        },
+        {
+          "id": "v:concat",
+          "title": "concat(...)"
+        },
+        {
+          "id": "v:nest",
+          "title": "nest(depth, doc)"
+        },
+        {
+          "id": "v:group",
+          "title": "group(doc)"
+        },
+        {
+          "id": "v:write",
+          "title": "write(doc [, ribbon_frac=0.6])"
+        },
+        {
+          "id": "v:print",
+          "title": "print(doc [, ribbon_frac=0.6])"
+        },
+        {
+          "id": "v:render",
+          "title": "render(doc [, width [, ribbon_frac=0.6]])"
+        },
+        {
+          "id": "v:pretty",
+          "title": "pretty(obj [, options])"
+        },
+        {
+          "id": "v:pretty_print",
+          "title": "pretty_print(obj [, options [, ribbon_frac=0.6]])"
+        }
+      ],
+      "sourceHash": "3f36aa724a19ca05"
+    },
+    "/library/cc.require/": {
+      "key": "library/cc.require.html",
+      "url": "/library/cc.require/",
+      "title": "抄送要求",
+      "description": "内置 require 函数和 package 库的纯 Lua 实现。",
+      "file": "pages/library/cc.require.html",
+      "toc": [
+        {
+          "id": "v:make",
+          "title": "make(env, dir)"
+        }
+      ],
+      "sourceHash": "5df950a2725786d6"
+    },
+    "/library/cc.shell.completion/": {
+      "key": "library/cc.shell.completion.html",
+      "url": "/library/cc.shell.completion/",
+      "title": "cc.shell.completion",
+      "description": "一组用于处理命令行补全的辅助方法。",
+      "file": "pages/library/cc.shell.completion.html",
+      "toc": [
+        {
+          "id": "v:file",
+          "title": "file(shell, text)"
+        },
+        {
+          "id": "v:dir",
+          "title": "dir(shell, text)"
+        },
+        {
+          "id": "v:dirOrFile",
+          "title": "dirOrFile(shell, text, previous [, add_space])"
+        },
+        {
+          "id": "v:program",
+          "title": "program(shell, text)"
+        },
+        {
+          "id": "v:programWithArgs",
+          "title": "programWithArgs(shell, text, previous, starting)"
+        },
+        {
+          "id": "v:help",
+          "title": "help"
+        },
+        {
+          "id": "v:choice",
+          "title": "choice"
+        },
+        {
+          "id": "v:peripheral",
+          "title": "peripheral"
+        },
+        {
+          "id": "v:side",
+          "title": "side"
+        },
+        {
+          "id": "v:setting",
+          "title": "setting"
+        },
+        {
+          "id": "v:command",
+          "title": "command"
+        },
+        {
+          "id": "v:build",
+          "title": "build(...)"
+        }
+      ],
+      "sourceHash": "14190b2d2e582920"
+    },
+    "/library/cc.strings/": {
+      "key": "library/cc.strings.html",
+      "url": "/library/cc.strings/",
+      "title": "抄送字符串",
+      "description": "用于处理字符串和文本的各种实用工具。",
+      "file": "pages/library/cc.strings.html",
+      "toc": [
+        {
+          "id": "v:wrap",
+          "title": "wrap(text [, width])"
+        },
+        {
+          "id": "v:ensure_width",
+          "title": "ensure_width(line [, width])"
+        },
+        {
+          "id": "v:split",
+          "title": "split(str, deliminator [, plain=false [, limit]])"
+        }
+      ],
+      "sourceHash": "c09c7a044bc3e6f4"
+    },
+    "/peripheral/command/": {
+      "key": "peripheral/command.html",
+      "url": "/peripheral/command/",
+      "title": "命令",
+      "description": "该外设允许你与命令方块交互。",
+      "file": "pages/peripheral/command.html",
+      "toc": [
+        {
+          "id": "v:getCommand",
+          "title": "getCommand()"
+        },
+        {
+          "id": "v:setCommand",
+          "title": "setCommand(command)"
+        },
+        {
+          "id": "v:runCommand",
+          "title": "runCommand()"
+        }
+      ],
+      "sourceHash": "27f8eed6bab4a1e7"
+    },
+    "/peripheral/computer/": {
+      "key": "peripheral/computer.html",
+      "url": "/peripheral/computer/",
+      "title": "计算机",
+      "description": "被包装为外设的计算机或海龟。",
+      "file": "pages/peripheral/computer.html",
+      "toc": [
+        {
+          "id": "v:turnOn",
+          "title": "turnOn()"
+        },
+        {
+          "id": "v:shutdown",
+          "title": "shutdown()"
+        },
+        {
+          "id": "v:reboot",
+          "title": "reboot()"
+        },
+        {
+          "id": "v:getID",
+          "title": "getID()"
+        },
+        {
+          "id": "v:isOn",
+          "title": "isOn()"
+        },
+        {
+          "id": "v:getLabel",
+          "title": "getLabel()"
+        }
+      ],
+      "sourceHash": "1317bbf32e1ce42c"
+    },
+    "/peripheral/drive/": {
+      "key": "peripheral/drive.html",
+      "url": "/peripheral/drive/",
+      "title": "驾驶",
+      "description": "磁盘驱动器是一种外设，允许您读取和写入软盘和其他“可安装介质”（例如计算机或海龟）。它们还允许您播放唱片。",
+      "file": "pages/peripheral/drive.html",
+      "toc": [
+        {
+          "id": "v:isDiskPresent",
+          "title": "isDiskPresent()"
+        },
+        {
+          "id": "v:getDiskLabel",
+          "title": "getDiskLabel()"
+        },
+        {
+          "id": "v:setDiskLabel",
+          "title": "setDiskLabel([label])"
+        },
+        {
+          "id": "v:hasData",
+          "title": "hasData()"
+        },
+        {
+          "id": "v:getMountPath",
+          "title": "getMountPath()"
+        },
+        {
+          "id": "v:hasAudio",
+          "title": "hasAudio()"
+        },
+        {
+          "id": "v:getAudioTitle",
+          "title": "getAudioTitle()"
+        },
+        {
+          "id": "v:playAudio",
+          "title": "playAudio()"
+        },
+        {
+          "id": "v:stopAudio",
+          "title": "stopAudio()"
+        },
+        {
+          "id": "v:ejectDisk",
+          "title": "ejectDisk()"
+        },
+        {
+          "id": "v:getDiskID",
+          "title": "getDiskID()"
+        }
+      ],
+      "sourceHash": "5093924bc3a9a2a8"
+    },
+    "/peripheral/modem/": {
+      "key": "peripheral/modem.html",
+      "url": "/peripheral/modem/",
+      "title": "调制解调器",
+      "description": "调制解调器允许你在计算机之间远距离发送消息。",
+      "file": "pages/peripheral/modem.html",
+      "toc": [
+        {
+          "id": "v:open",
+          "title": "open(channel)"
+        },
+        {
+          "id": "v:isOpen",
+          "title": "isOpen(channel)"
+        },
+        {
+          "id": "v:close",
+          "title": "close(channel)"
+        },
+        {
+          "id": "v:closeAll",
+          "title": "closeAll()"
+        },
+        {
+          "id": "v:transmit",
+          "title": "transmit(channel, replyChannel, payload)"
+        },
+        {
+          "id": "v:isWireless",
+          "title": "isWireless()"
+        },
+        {
+          "id": "v:getNamesRemote",
+          "title": "getNamesRemote()"
+        },
+        {
+          "id": "v:isPresentRemote",
+          "title": "isPresentRemote(name)"
+        },
+        {
+          "id": "v:getTypeRemote",
+          "title": "getTypeRemote(name)"
+        },
+        {
+          "id": "v:hasTypeRemote",
+          "title": "hasTypeRemote(name, type)"
+        },
+        {
+          "id": "v:getMethodsRemote",
+          "title": "getMethodsRemote(name)"
+        },
+        {
+          "id": "v:callRemote",
+          "title": "callRemote(remoteName, method, ...)"
+        },
+        {
+          "id": "v:getNameLocal",
+          "title": "getNameLocal()"
+        }
+      ],
+      "sourceHash": "cb227c77208b9c3b"
+    },
+    "/peripheral/monitor/": {
+      "key": "peripheral/monitor.html",
+      "url": "/peripheral/monitor/",
+      "title": "监视器",
+      "description": "监视器是一个充当终端的块，在一侧显示信息。这使得它们可以在不打开 GUI 的情况下在现实世界中被阅读和交互。",
+      "file": "pages/peripheral/monitor.html",
+      "toc": [
+        {
+          "id": "v:setTextScale",
+          "title": "setTextScale(scale)"
+        },
+        {
+          "id": "v:getTextScale",
+          "title": "getTextScale()"
+        },
+        {
+          "id": "v:write",
+          "title": "write(text)"
+        },
+        {
+          "id": "v:scroll",
+          "title": "scroll(y)"
+        },
+        {
+          "id": "v:getCursorPos",
+          "title": "getCursorPos()"
+        },
+        {
+          "id": "v:setCursorPos",
+          "title": "setCursorPos(x, y)"
+        },
+        {
+          "id": "v:getCursorBlink",
+          "title": "getCursorBlink()"
+        },
+        {
+          "id": "v:setCursorBlink",
+          "title": "setCursorBlink(blink)"
+        },
+        {
+          "id": "v:getSize",
+          "title": "getSize()"
+        },
+        {
+          "id": "v:clear",
+          "title": "clear()"
+        },
+        {
+          "id": "v:clearLine",
+          "title": "clearLine()"
+        },
+        {
+          "id": "v:getTextColour",
+          "title": "getTextColour()"
+        },
+        {
+          "id": "v:getTextColor",
+          "title": "getTextColor()"
+        },
+        {
+          "id": "v:setTextColour",
+          "title": "setTextColour(colour)"
+        },
+        {
+          "id": "v:setTextColor",
+          "title": "setTextColor(colour)"
+        },
+        {
+          "id": "v:getBackgroundColour",
+          "title": "getBackgroundColour()"
+        },
+        {
+          "id": "v:getBackgroundColor",
+          "title": "getBackgroundColor()"
+        },
+        {
+          "id": "v:setBackgroundColour",
+          "title": "setBackgroundColour(colour)"
+        },
+        {
+          "id": "v:setBackgroundColor",
+          "title": "setBackgroundColor(colour)"
+        },
+        {
+          "id": "v:isColour",
+          "title": "isColour()"
+        },
+        {
+          "id": "v:isColor",
+          "title": "isColor()"
+        },
+        {
+          "id": "v:blit",
+          "title": "blit(text, textColour, backgroundColour)"
+        },
+        {
+          "id": "v:setPaletteColour",
+          "title": "setPaletteColour(...)"
+        },
+        {
+          "id": "v:setPaletteColor",
+          "title": "setPaletteColor(...)"
+        },
+        {
+          "id": "v:getPaletteColour",
+          "title": "getPaletteColour(colour)"
+        },
+        {
+          "id": "v:getPaletteColor",
+          "title": "getPaletteColor(colour)"
+        }
+      ],
+      "sourceHash": "488459d22c67b3ec"
+    },
+    "/peripheral/printer/": {
+      "key": "peripheral/printer.html",
+      "url": "/peripheral/printer/",
+      "title": "打印机",
+      "description": "打印机外设允许将文本打印到页面上。然后可以将这些页面一起制作成印刷页面或书籍。",
+      "file": "pages/peripheral/printer.html",
+      "toc": [
+        {
+          "id": "v:write",
+          "title": "write(text)"
+        },
+        {
+          "id": "v:getCursorPos",
+          "title": "getCursorPos()"
+        },
+        {
+          "id": "v:setCursorPos",
+          "title": "setCursorPos(x, y)"
+        },
+        {
+          "id": "v:getPageSize",
+          "title": "getPageSize()"
+        },
+        {
+          "id": "v:newPage",
+          "title": "newPage()"
+        },
+        {
+          "id": "v:endPage",
+          "title": "endPage()"
+        },
+        {
+          "id": "v:setPageTitle",
+          "title": "setPageTitle([title])"
+        },
+        {
+          "id": "v:getInkLevel",
+          "title": "getInkLevel()"
+        },
+        {
+          "id": "v:getPaperLevel",
+          "title": "getPaperLevel()"
+        }
+      ],
+      "sourceHash": "48d729877de595f8"
+    },
+    "/peripheral/redstone_relay/": {
+      "key": "peripheral/redstone_relay.html",
+      "url": "/peripheral/redstone_relay/",
+      "title": "红石继电器",
+      "description": "红石继电器是一种允许读取和输出红石信号的外设。虽然这本身并不是很有用（因为计算机具有相同的功能内置），但它可以与有线调制解调器一起使用，与来自同一台计算机的多个红石信号进行交互。",
+      "file": "pages/peripheral/redstone_relay.html",
+      "toc": [
+        {
+          "id": "v:setOutput",
+          "title": "setOutput(side, on)"
+        },
+        {
+          "id": "v:getOutput",
+          "title": "getOutput(side)"
+        },
+        {
+          "id": "v:getInput",
+          "title": "getInput(side)"
+        },
+        {
+          "id": "v:setAnalogOutput",
+          "title": "setAnalogOutput(side, value)"
+        },
+        {
+          "id": "v:setAnalogueOutput",
+          "title": "setAnalogueOutput(side, value)"
+        },
+        {
+          "id": "v:getAnalogOutput",
+          "title": "getAnalogOutput(side)"
+        },
+        {
+          "id": "v:getAnalogueOutput",
+          "title": "getAnalogueOutput(side)"
+        },
+        {
+          "id": "v:getAnalogInput",
+          "title": "getAnalogInput(side)"
+        },
+        {
+          "id": "v:getAnalogueInput",
+          "title": "getAnalogueInput(side)"
+        },
+        {
+          "id": "v:setBundledOutput",
+          "title": "setBundledOutput(side, output)"
+        },
+        {
+          "id": "v:getBundledOutput",
+          "title": "getBundledOutput(side)"
+        },
+        {
+          "id": "v:getBundledInput",
+          "title": "getBundledInput(side)"
+        },
+        {
+          "id": "v:testBundledInput",
+          "title": "testBundledInput(side, mask)"
+        }
+      ],
+      "sourceHash": "fb1f725cabca049f"
+    },
+    "/peripheral/speaker/": {
+      "key": "peripheral/speaker.html",
+      "url": "/peripheral/speaker/",
+      "title": "扬声器",
+      "description": "扬声器外设允许你的计算机播放音符和其他声音。",
+      "file": "pages/peripheral/speaker.html",
+      "toc": [
+        {
+          "id": "v:playNote",
+          "title": "playNote(instrument [, volume [, pitch]])"
+        },
+        {
+          "id": "v:playSound",
+          "title": "playSound(name [, volume [, pitch]])"
+        },
+        {
+          "id": "v:playAudio",
+          "title": "playAudio(audio [, volume])"
+        },
+        {
+          "id": "v:stop",
+          "title": "stop()"
+        }
+      ],
+      "sourceHash": "aa8e28d415acaf31"
+    },
+    "/peripheral/turtle_storage/": {
+      "key": "peripheral/turtle_storage.html",
+      "url": "/peripheral/turtle_storage/",
+      "title": "海龟存储",
+      "description": "turtle_storage 允许你为海龟装备潜影盒或其他存储物品并访问其内容。",
+      "file": "pages/peripheral/turtle_storage.html",
+      "toc": [
+        {
+          "id": "v:size",
+          "title": "size()"
+        },
+        {
+          "id": "v:list",
+          "title": "list()"
+        },
+        {
+          "id": "v:getItemDetail",
+          "title": "getItemDetail(slot)"
+        },
+        {
+          "id": "v:pushItems",
+          "title": "pushItems(fromSlot [, limit [, toSlot]])"
+        },
+        {
+          "id": "v:pullItems",
+          "title": "pullItems([fromSlot [, limit [, toSlot]]])"
+        }
+      ],
+      "sourceHash": "2a9743de35ddf448"
+    },
+    "/generic_peripheral/energy_storage/": {
+      "key": "generic_peripheral/energy_storage.html",
+      "url": "/generic_peripheral/energy_storage/",
+      "title": "能量存储",
+      "description": "用于与存储能量的方块交互的方法。",
+      "file": "pages/generic_peripheral/energy_storage.html",
+      "toc": [
+        {
+          "id": "v:getEnergy",
+          "title": "getEnergy()"
+        },
+        {
+          "id": "v:getEnergyCapacity",
+          "title": "getEnergyCapacity()"
+        }
+      ],
+      "sourceHash": "af7f76e1ec6db832"
+    },
+    "/generic_peripheral/fluid_storage/": {
+      "key": "generic_peripheral/fluid_storage.html",
+      "url": "/generic_peripheral/fluid_storage/",
+      "title": "流体存储",
+      "description": "用于与储罐和其他流体存储方块交互的方法。",
+      "file": "pages/generic_peripheral/fluid_storage.html",
+      "toc": [
+        {
+          "id": "v:tanks",
+          "title": "tanks()"
+        },
+        {
+          "id": "v:pushFluid",
+          "title": "pushFluid(toName [, limit [, fluidName]])"
+        },
+        {
+          "id": "v:pullFluid",
+          "title": "pullFluid(fromName [, limit [, fluidName]])"
+        }
+      ],
+      "sourceHash": "146fe109e7de73a2"
+    },
+    "/generic_peripheral/inventory/": {
+      "key": "generic_peripheral/inventory.html",
+      "url": "/generic_peripheral/inventory/",
+      "title": "存货",
+      "description": "用于与物品栏交互的方法。",
+      "file": "pages/generic_peripheral/inventory.html",
+      "toc": [
+        {
+          "id": "v:size",
+          "title": "size()"
+        },
+        {
+          "id": "v:list",
+          "title": "list()"
+        },
+        {
+          "id": "v:getItemDetail",
+          "title": "getItemDetail(slot)"
+        },
+        {
+          "id": "v:getItemLimit",
+          "title": "getItemLimit(slot)"
+        },
+        {
+          "id": "v:pushItems",
+          "title": "pushItems(toName, fromSlot [, limit [, toSlot]])"
+        },
+        {
+          "id": "v:pullItems",
+          "title": "pullItems(fromName, fromSlot [, limit [, toSlot]])"
+        }
+      ],
+      "sourceHash": "01091cc75b03e5d3"
+    },
+    "/event/alarm/": {
+      "key": "event/alarm.html",
+      "url": "/event/alarm/",
+      "title": "警报",
+      "description": "alarm 事件会在用 os.setAlarm 启动的闹钟完成时触发。",
+      "file": "pages/event/alarm.html",
+      "toc": [],
+      "sourceHash": "a4a4667c24dfff83"
+    },
+    "/event/char/": {
+      "key": "event/char.html",
+      "url": "/event/char/",
+      "title": "字符",
+      "description": "当在键盘上输入字符时，会触发 char 事件。",
+      "file": "pages/event/char.html",
+      "toc": [],
+      "sourceHash": "701fe10c4adee5cc"
+    },
+    "/event/computer_command/": {
+      "key": "event/computer_command.html",
+      "url": "/event/computer_command/",
+      "title": "计算机命令",
+      "description": "computer_command 事件会在为当前命令计算机运行 /computercraft queue command 时触发。",
+      "file": "pages/event/computer_command.html",
+      "toc": [],
+      "sourceHash": "bca183a8f5752398"
+    },
+    "/event/disk/": {
+      "key": "event/disk.html",
+      "url": "/event/disk/",
+      "title": "disk",
+      "description": "当磁盘被插入相邻或联网的磁盘驱动器时，会触发 disk 事件。",
+      "file": "pages/event/disk.html",
+      "toc": [],
+      "sourceHash": "c30418ed00ed96d6"
+    },
+    "/event/disk_eject/": {
+      "key": "event/disk_eject.html",
+      "url": "/event/disk_eject/",
+      "title": "磁盘弹出",
+      "description": "当从相邻或联网的磁盘驱动器中取出磁盘时，会触发 disk_eject 事件。",
+      "file": "pages/event/disk_eject.html",
+      "toc": [],
+      "sourceHash": "f3e96789f65062ac"
+    },
+    "/event/file_transfer/": {
+      "key": "event/file_transfer.html",
+      "url": "/event/file_transfer/",
+      "title": "文件传输",
+      "description": "当用户在打开的计算机上拖放文件时，file_transfer 事件会被加入队列。",
+      "file": "pages/event/file_transfer.html",
+      "toc": [
+        {
+          "id": "ty:TransferredFiles:getFiles",
+          "title": "TransferredFiles.getFiles()"
+        },
+        {
+          "id": "ty:TransferredFile:getName",
+          "title": "TransferredFile.getName()"
+        }
+      ],
+      "sourceHash": "694d3f1b72d13df5"
+    },
+    "/event/http_check/": {
+      "key": "event/http_check.html",
+      "url": "/event/http_check/",
+      "title": "http_检查",
+      "description": "当 URL 检查完成时，会触发 http_check 事件。",
+      "file": "pages/event/http_check.html",
+      "toc": [],
+      "sourceHash": "26cfac3c2bddd288"
+    },
+    "/event/http_failure/": {
+      "key": "event/http_failure.html",
+      "url": "/event/http_failure/",
+      "title": "http_失败",
+      "description": "当 HTTP 请求失败时，会触发 http_failure 事件。",
+      "file": "pages/event/http_failure.html",
+      "toc": [],
+      "sourceHash": "69172f1c28f61833"
+    },
+    "/event/http_success/": {
+      "key": "event/http_success.html",
+      "url": "/event/http_success/",
+      "title": "http_成功",
+      "description": "当 HTTP 请求成功返回时，会触发 http_success 事件。",
+      "file": "pages/event/http_success.html",
+      "toc": [],
+      "sourceHash": "fe6c3a6b09c33ee3"
+    },
+    "/event/key/": {
+      "key": "event/key.html",
+      "url": "/event/key/",
+      "title": "钥匙",
+      "description": "当终端获得焦点时按下任意键，会触发此事件。",
+      "file": "pages/event/key.html",
+      "toc": [],
+      "sourceHash": "6db604c0e923edd3"
+    },
+    "/event/key_up/": {
+      "key": "event/key_up.html",
+      "url": "/event/key_up/",
+      "title": "按键向上",
+      "description": "每当释放按键（或在按住按键时关闭终端）时触发。",
+      "file": "pages/event/key_up.html",
+      "toc": [],
+      "sourceHash": "e14b9de3d7408b49"
+    },
+    "/event/modem_message/": {
+      "key": "event/modem_message.html",
+      "url": "/event/modem_message/",
+      "title": "调制解调器消息",
+      "description": "modem_message 事件会在任意 modem 的开放频道上收到消息时触发。",
+      "file": "pages/event/modem_message.html",
+      "toc": [],
+      "sourceHash": "434e2ab897868305"
+    },
+    "/event/monitor_resize/": {
+      "key": "event/monitor_resize.html",
+      "url": "/event/monitor_resize/",
+      "title": "监视器调整大小",
+      "description": "monitor_resize 事件会在相邻或联网的 显示器的 尺寸改变时触发。",
+      "file": "pages/event/monitor_resize.html",
+      "toc": [],
+      "sourceHash": "7386b1fe5cca1ea6"
+    },
+    "/event/monitor_touch/": {
+      "key": "event/monitor_touch.html",
+      "url": "/event/monitor_touch/",
+      "title": "监听触摸",
+      "description": "monitor_touch 事件会在相邻或联网的 高级显示器 被右键点击时触发。",
+      "file": "pages/event/monitor_touch.html",
+      "toc": [],
+      "sourceHash": "92939821824b4935"
+    },
+    "/event/mouse_click/": {
+      "key": "event/mouse_click.html",
+      "url": "/event/mouse_click/",
+      "title": "鼠标点击",
+      "description": "当用鼠标单击终端时会触发此事件。该事件仅在高级计算机（包括高级海龟和袖珍计算机）上触发。",
+      "file": "pages/event/mouse_click.html",
+      "toc": [],
+      "sourceHash": "41181bb8caa97c03"
+    },
+    "/event/mouse_drag/": {
+      "key": "event/mouse_drag.html",
+      "url": "/event/mouse_drag/",
+      "title": "鼠标拖动",
+      "description": "每当按住鼠标按钮并移动鼠标时，都会触发此事件。",
+      "file": "pages/event/mouse_drag.html",
+      "toc": [],
+      "sourceHash": "a73a768766dea210"
+    },
+    "/event/mouse_scroll/": {
+      "key": "event/mouse_scroll.html",
+      "url": "/event/mouse_scroll/",
+      "title": "鼠标滚动",
+      "description": "当在终端中滚动鼠标滚轮时，会触发此事件。",
+      "file": "pages/event/mouse_scroll.html",
+      "toc": [],
+      "sourceHash": "cffaa6d422ac7997"
+    },
+    "/event/mouse_up/": {
+      "key": "event/mouse_up.html",
+      "url": "/event/mouse_up/",
+      "title": "鼠标向上",
+      "description": "当释放鼠标按钮或按住的鼠标离开计算机终端时，会触发此事件。",
+      "file": "pages/event/mouse_up.html",
+      "toc": [],
+      "sourceHash": "6a82551e01624a5a"
+    },
+    "/event/paste/": {
+      "key": "event/paste.html",
+      "url": "/event/paste/",
+      "title": "粘贴",
+      "description": "当通过 Ctrl-V（或 Mac 上的 ⌘V）将文本粘贴到计算机中时，会触发 paste 事件。",
+      "file": "pages/event/paste.html",
+      "toc": [],
+      "sourceHash": "5f1925c3a1a77f9c"
+    },
+    "/event/peripheral/": {
+      "key": "event/peripheral.html",
+      "url": "/event/peripheral/",
+      "title": "peripheral",
+      "description": "当外设连接到某一侧或调制解调器时，会触发 peripheral 事件。",
+      "file": "pages/event/peripheral.html",
+      "toc": [],
+      "sourceHash": "3390d2a3966015e0"
+    },
+    "/event/peripheral_detach/": {
+      "key": "event/peripheral_detach.html",
+      "url": "/event/peripheral_detach/",
+      "title": "外设分离",
+      "description": "当外设从某一侧或调制解调器上断开时，会触发 peripheral_detach 事件。",
+      "file": "pages/event/peripheral_detach.html",
+      "toc": [],
+      "sourceHash": "54835f9e26b60979"
+    },
+    "/event/rednet_message/": {
+      "key": "event/rednet_message.html",
+      "url": "/event/rednet_message/",
+      "title": "红网消息",
+      "description": "当通过 Rednet 发送消息时，会触发 rednet_message 事件。",
+      "file": "pages/event/rednet_message.html",
+      "toc": [],
+      "sourceHash": "467b62c5724e6b5d"
+    },
+    "/event/redstone/": {
+      "key": "event/redstone.html",
+      "url": "/event/redstone/",
+      "title": "redstone",
+      "description": "redstone 事件会在计算机或 继电器 上的任何红石输入发生变化时触发。",
+      "file": "pages/event/redstone.html",
+      "toc": [],
+      "sourceHash": "4ffa11e6e87287ff"
+    },
+    "/event/setting_changed/": {
+      "key": "event/setting_changed.html",
+      "url": "/event/setting_changed/",
+      "title": "设置更改",
+      "description": "setting_changed 事件会在使用 settings API 修改设置时触发。",
+      "file": "pages/event/setting_changed.html",
+      "toc": [],
+      "sourceHash": "906b1b1e4841d765"
+    },
+    "/event/speaker_audio_empty/": {
+      "key": "event/speaker_audio_empty.html",
+      "url": "/event/speaker_audio_empty/",
+      "title": "扬声器_音频_空",
+      "description": "它使用 io.lines 从“example_song.dfpwm”中读取 16KiB 块的音频数据，然后尝试使用 speaker.playAudio 播放它。如果扬声器的缓冲区已满，它将等待事件并重试。",
+      "file": "pages/event/speaker_audio_empty.html",
+      "toc": [],
+      "sourceHash": "f3cb3f2a70709d17"
+    },
+    "/event/task_complete/": {
+      "key": "event/task_complete.html",
+      "url": "/event/task_complete/",
+      "title": "任务完成",
+      "description": "异步任务完成时会触发 task_complete 事件。这通常在将任务排队的函数调用内部处理；然而，诸如 commands.execAsync 之类的函数会立即返回，以便用户可以等待完成。",
+      "file": "pages/event/task_complete.html",
+      "toc": [],
+      "sourceHash": "b8d3fdf4fbdebb9b"
+    },
+    "/event/term_resize/": {
+      "key": "event/term_resize.html",
+      "url": "/event/term_resize/",
+      "title": "术语调整大小",
+      "description": "调整主终端大小时会触发 term_resize 事件。例如：",
+      "file": "pages/event/term_resize.html",
+      "toc": [],
+      "sourceHash": "bf63ff8fd235df62"
+    },
+    "/event/terminate/": {
+      "key": "event/terminate.html",
+      "url": "/event/terminate/",
+      "title": "终止",
+      "description": "terminate 事件在按住 Ctrl-T 时触发。",
+      "file": "pages/event/terminate.html",
+      "toc": [],
+      "sourceHash": "c93981a0889d5dbc"
+    },
+    "/event/timer/": {
+      "key": "event/timer.html",
+      "url": "/event/timer/",
+      "title": "定时器",
+      "description": "timer 事件在使用 os.startTimer 启动的计时器完成时触发。",
+      "file": "pages/event/timer.html",
+      "toc": [],
+      "sourceHash": "cf2c8b3287ac494a"
+    },
+    "/event/turtle_inventory/": {
+      "key": "event/turtle_inventory.html",
+      "url": "/event/turtle_inventory/",
+      "title": "海龟库存",
+      "description": "turtle_inventory 事件在海龟的物品栏发生变化时触发。",
+      "file": "pages/event/turtle_inventory.html",
+      "toc": [],
+      "sourceHash": "14a563e436a6cebb"
+    },
+    "/event/websocket_closed/": {
+      "key": "event/websocket_closed.html",
+      "url": "/event/websocket_closed/",
+      "title": "websocket_关闭",
+      "description": "websocket_closed 事件在已打开的 WebSocket 连接关闭时触发。",
+      "file": "pages/event/websocket_closed.html",
+      "toc": [],
+      "sourceHash": "e8ba5b4b3bdafe2d"
+    },
+    "/event/websocket_failure/": {
+      "key": "event/websocket_failure.html",
+      "url": "/event/websocket_failure/",
+      "title": "websocket_失败",
+      "description": "websocket_failure 事件在 WebSocket 连接请求失败时触发。",
+      "file": "pages/event/websocket_failure.html",
+      "toc": [],
+      "sourceHash": "3bc3c9d33e4b2339"
+    },
+    "/event/websocket_message/": {
+      "key": "event/websocket_message.html",
+      "url": "/event/websocket_message/",
+      "title": "websocket_消息",
+      "description": "websocket_message 事件在已打开的 WebSocket 连接上收到消息时触发。",
+      "file": "pages/event/websocket_message.html",
+      "toc": [],
+      "sourceHash": "55126297fae72499"
+    },
+    "/event/websocket_success/": {
+      "key": "event/websocket_success.html",
+      "url": "/event/websocket_success/",
+      "title": "websocket_成功",
+      "description": "websocket_success 事件在 WebSocket 连接请求成功返回时触发。",
+      "file": "pages/event/websocket_success.html",
+      "toc": [],
+      "sourceHash": "ef160a53969e6d5c"
+    },
+    "/guide/gps_setup/": {
+      "key": "guide/gps_setup.html",
+      "url": "/guide/gps_setup/",
+      "title": "设置 GPS",
+      "description": "gps API 允许计算机使用 无线调制解调器找到其当前位置。其工作原理是与已经知道其位置的其他计算机（称为 GPS 主机）进行通信，找到到这些计算机的距离（使用 modem_message），并使用该距离从它们的位置推导出其位置（通过称为 三边测量 的过程。",
+      "file": "pages/guide/gps_setup.html",
+      "toc": [],
+      "sourceHash": "bd8ed0413220b028"
+    },
+    "/guide/local_ips/": {
+      "key": "guide/local_ips.html",
+      "url": "/guide/local_ips/",
+      "title": "允许访问本地IP",
+      "description": "默认情况下，出于安全考虑，ComputerCraft 会阻止对本地 IP 地址的访问。这意味着您无法正常访问计算机上运行的任何 HTTP 服务器。但是，这对于在没有远程服务器的情况下测试程序可能很有用。您可以在 ComputerCraft 配置中取消阻止这些 IP。",
+      "file": "pages/guide/local_ips.html",
+      "toc": [],
+      "sourceHash": "dfbe34475aaebe57"
+    },
+    "/guide/speaker_audio/": {
+      "key": "guide/speaker_audio.html",
+      "url": "/guide/speaker_audio/",
+      "title": "使用扬声器播放音频",
+      "description": "CC：Tweaked 的扬声器外设提供了一种强大的方式，可以使用 speaker.playAudio 方法播放您喜欢的任何音频。然而，对于不熟悉数字音频的人来说，这并不是最直观的使用方式。本指南介绍了数字音频，演示了如何使用 CC: Tweaked 的扬声器播放音乐，然后简要讨论了更复杂的音频处理主题。",
+      "file": "pages/guide/speaker_audio.html",
+      "toc": [],
+      "sourceHash": "596797ae4d8d4649"
+    },
+    "/guide/startup/": {
+      "key": "guide/startup.html",
+      "url": "/guide/startup/",
+      "title": "在计算机启动时运行程序",
+      "description": "当计算机打开时自动开始运行程序通常很有用，例如运行 GPS 主机 时。这可以通过启动文件来完成。",
+      "file": "pages/guide/startup.html",
+      "toc": [],
+      "sourceHash": "9d6e38411406c481"
+    },
+    "/guide/using_require/": {
+      "key": "guide/using_require.html",
+      "url": "/guide/using_require/",
+      "title": "通过 require 重用代码",
+      "description": "库是有用函数和其他定义的集合，它们单独存储到主程序中。您可能想要创建一个库，因为您有一些在多个程序中使用的函数，或者只是将您的程序拆分为多个更模块化的文件。",
+      "file": "pages/guide/using_require.html",
+      "toc": [],
+      "sourceHash": "b2ff85708f1568ae"
+    },
+    "/reference/block_details/": {
+      "key": "reference/block_details.html",
+      "url": "/reference/block_details/",
+      "title": "区块详细信息",
+      "description": "CC: Tweaked 中的几个函数，例如 turtle.inspect 和 commands.getBlockInfo 提供了一种获取世界中某个方块信息的方法。本页详细介绍了 CC: Tweaked 可能返回的块的信息。",
+      "file": "pages/reference/block_details.html",
+      "toc": [],
+      "sourceHash": "44a667c4da843531"
+    },
+    "/reference/breaking_changes/": {
+      "key": "reference/breaking_changes.html",
+      "url": "/reference/breaking_changes/",
+      "title": "版本之间的不兼容性",
+      "description": "CC：Tweaked 尝试尽可能保持版本之间的兼容性，这意味着为旧版本 模组 编写的大多数程序应该在更高版本上运行良好。",
+      "file": "pages/reference/breaking_changes.html",
+      "toc": [],
+      "sourceHash": "17e89fe59228cce2"
+    },
+    "/reference/computercraft_command/": {
+      "key": "reference/computercraft_command.html",
+      "url": "/reference/computercraft_command/",
+      "title": "/computercraft 命令",
+      "description": "CC: Tweaked 为服务器所有者提供了一个 /computercraft 命令，用于管理服务器上正在运行的计算机。",
+      "file": "pages/reference/computercraft_command.html",
+      "toc": [],
+      "sourceHash": "9d49fbe61d6e27f3"
+    },
+    "/reference/data_pack/": {
+      "key": "reference/data_pack.html",
+      "url": "/reference/data_pack/",
+      "title": "数据包",
+      "description": "CC：Tweaked 允许通过数据包自定义和扩展其许多功能，例如向 ROM 添加新程序，或提供新的海龟工具。此页面用作 CC:T 数据包功能的参考。",
+      "file": "pages/reference/data_pack.html",
+      "toc": [],
+      "sourceHash": "8b69f1d82ba78474"
+    },
+    "/reference/entity_details/": {
+      "key": "reference/entity_details.html",
+      "url": "/reference/entity_details/",
+      "title": "实体详情",
+      "description": "CC: Tweaked 中的一些函数（例如 commands.getEntities）提供了一种获取有关实体的信息的方法。此页面详细介绍了 CC: Tweaked 可能返回的实体的信息。",
+      "file": "pages/reference/entity_details.html",
+      "toc": [],
+      "sourceHash": "1fe2fb2561ab4a6a"
+    },
+    "/reference/exceptions/": {
+      "key": "reference/exceptions.html",
+      "url": "/reference/exceptions/",
+      "title": "CraftOS的异常协议",
+      "description": "默认情况下，Lua 表示错误是纯字符串。文件名和行号可能会附加到错误消息（例如 example.lua:12: error message），但所有其他信息（例如堆栈跟踪）都会丢失。",
+      "file": "pages/reference/exceptions.html",
+      "toc": [],
+      "sourceHash": "4d59ebd564f2a12c"
+    },
+    "/reference/feature_compat/": {
+      "key": "reference/feature_compat.html",
+      "url": "/reference/feature_compat/",
+      "title": "CC 中的 Lua 5.2/5.3 功能：调整",
+      "description": "CC：Tweaked 基于 Cobalt Lua 运行时，它使用 Lua 5.2。但是，Cobalt 和 CC:T 实现了 Lua 5.2 和 5.3 中的附加功能（以及一些已弃用的 5.0 和 5.1 功能）。此页面列出了这些较新版本的所有兼容性。",
+      "file": "pages/reference/feature_compat.html",
+      "toc": [],
+      "sourceHash": "0040be5fec0dc33c"
+    },
+    "/reference/item_details/": {
+      "key": "reference/item_details.html",
+      "url": "/reference/item_details/",
+      "title": "商品详情",
+      "description": "CC: Tweaked 中的几个函数，例如 turtle.getItemDetail 和 inventory.getItemDetail 提供了一种获取有关项目堆栈信息的方法。本页详细介绍了 CC: Tweaked 可能返回的物品的信息。",
+      "file": "pages/reference/item_details.html",
+      "toc": [],
+      "sourceHash": "1c8906c22a9e17bf"
+    },
+    "/reference/startup/": {
+      "key": "reference/startup.html",
+      "url": "/reference/startup/",
+      "title": "计算机启动",
+      "description": "当计算机打开时，它会搜索要在启动过程中运行的文件。本页详细介绍了此过程。",
+      "file": "pages/reference/startup.html",
+      "toc": [],
+      "sourceHash": "69dcd5586c78fe96"
+    }
+  }
+}

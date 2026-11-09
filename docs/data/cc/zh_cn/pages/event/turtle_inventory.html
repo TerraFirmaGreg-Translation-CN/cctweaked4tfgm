@@ -1,0 +1,11 @@
+<h1>海龟库存</h1><p><a href="/event/turtle_inventory/" class="reference"><code>turtle_inventory</code></a> 事件在海龟的物品栏发生变化时触发。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+</ol>
+<h2>例子</h2>
+<p>库存更改时打印一条消息：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+<a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent">  <span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;turtle_inventory&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;The inventory was changed.&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

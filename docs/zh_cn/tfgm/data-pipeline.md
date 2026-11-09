@@ -83,6 +83,8 @@ event.recipes.gtceu.assembler('computercraft:assembler/computer_normal')
 
 `scripts/fetch-cc-docs.mjs` 从 `tweaked.cc/mc-1.20.x` 读取发行版锁定的 CC:T 版本对应的页面主体，把相对链接改写成本站的干净 URL，并把引用的物品图标缓存到 `docs/public/images/`。产物是 `docs/data/cc/pages.json` 和 95 个页面片段——即上游参考文档原文，只在配方或海龟升级不同处插入 TerraFirmaGreg 提示。
 
+中文镜像由 `scripts/cc-translate.mjs` 生成：抽取正文单元、保护 HTML 标签/代码块/占位符、翻译后写入 `docs/data/cc/zh_cn/`，并为每页记录源哈希。`verify-data.mjs` 会在中文页缺失、译文过期，或中英文页面内部链接集合不一致时让构建失败。
+
 ## 构建前的校验
 
 `scripts/verify-data.mjs` 在每次构建前运行，以下情况判定失败：
@@ -94,6 +96,7 @@ event.recipes.gtceu.assembler('computercraft:assembler/computer_normal')
 - TFGM 配置里出现上游默认表中没有的键
 - 某个配方没有 EMI 映射，或 `docs/data/emi/` 里缺少对应卡片图
 - 镜像的 CC:T 页面缺失，或 `docs/data/cc/pages.json` 的版本不一致
+- 中文 CC:T 页面缺失、过期，或中英文内部链接集合不一致
 
 配置检查是“零覆盖”这个结论的保险：如果有人加了覆盖却没让提取器知道，构建会失败。
 
@@ -111,6 +114,9 @@ node scripts/fetch-cc-docs.mjs --version 1.121.0
 
 # 4. 抽取对应的 EMI 布局与图标
 node scripts/fetch-emi-bundle.mjs
+
+# 4b. 镜像内容变化后，刷新翻译单元
+node scripts/cc-translate.mjs extract
 
 # 5. 校验并构建
 npm run build

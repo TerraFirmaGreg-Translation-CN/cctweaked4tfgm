@@ -1,0 +1,14 @@
+<h1>鼠标拖动</h1><p>每当按住鼠标按钮并移动鼠标时，都会触发此事件。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：正在按下的<a href="/event/mouse_click/#Mouse_buttons">鼠标按钮</a>。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：鼠标的 X 坐标。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：鼠标的 Y 坐标。</li>
+</ol>
+<h2>例子</h2>
+<p>每当拖动鼠标时都会打印按钮和坐标。</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">button</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;mouse_drag&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="symbol">(</span><span class="string">&quot;The mouse button %s was dragged at %d, %d&quot;</span><span class="symbol">)</span><span class="symbol">:</span><span class="symbol">format</span><span class="symbol">(</span><span class="ident">button</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>另请参阅</h3><ul><li><strong><a href="/event/mouse_click/" class="reference"><code>mouse_click</code></a></strong> 最初按下鼠标按钮时。</li></ul>

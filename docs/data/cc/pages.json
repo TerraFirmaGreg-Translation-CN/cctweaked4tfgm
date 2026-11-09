@@ -5,7 +5,8 @@
   "home": {
     "file": "home.html",
     "title": "CC: Tweaked",
-    "description": "Documentation index for CC: Tweaked"
+    "description": "Documentation index for CC: Tweaked",
+    "sourceHash": "b1aa584d02b9107c"
   },
   "groups": [
     {
@@ -46,7 +47,8 @@
               "id": "v:_CC_DEFAULT_SETTINGS",
               "title": "_CC_DEFAULT_SETTINGS"
             }
-          ]
+          ],
+          "sourceHash": "484f97864c3e0b85"
         },
         {
           "key": "module/colors.html",
@@ -147,7 +149,8 @@
               "id": "v:fromBlit",
               "title": "fromBlit(hex)"
             }
-          ]
+          ],
+          "sourceHash": "18065437049ad315"
         },
         {
           "key": "module/colours.html",
@@ -164,7 +167,8 @@
               "id": "v:lightGrey",
               "title": "lightGrey"
             }
-          ]
+          ],
+          "sourceHash": "63c8c8cce06b32b3"
         },
         {
           "key": "module/commands.html",
@@ -213,7 +217,8 @@
               "id": "v:async",
               "title": "async"
             }
-          ]
+          ],
+          "sourceHash": "6e7ad39200c48717"
         },
         {
           "key": "module/disk.html",
@@ -266,7 +271,8 @@
               "id": "v:getID",
               "title": "getID(name)"
             }
-          ]
+          ],
+          "sourceHash": "20b7bbfca605cc3e"
         },
         {
           "key": "module/fs.html",
@@ -427,7 +433,8 @@
               "id": "ty:ReadHandle:close",
               "title": "ReadHandle.close()"
             }
-          ]
+          ],
+          "sourceHash": "0c91450d1d6eeb9e"
         },
         {
           "key": "module/gps.html",
@@ -444,7 +451,8 @@
               "id": "v:locate",
               "title": "locate([timeout=2 [, debug=false]])"
             }
-          ]
+          ],
+          "sourceHash": "3e3ab0a9447dc052"
         },
         {
           "key": "module/help.html",
@@ -473,7 +481,8 @@
               "id": "v:completeTopic",
               "title": "completeTopic(prefix)"
             }
-          ]
+          ],
+          "sourceHash": "83c011cee0ca6501"
         },
         {
           "key": "module/http.html",
@@ -534,7 +543,8 @@
               "id": "ty:Websocket:getResponseHeaders",
               "title": "Websocket.getResponseHeaders()"
             }
-          ]
+          ],
+          "sourceHash": "f405675f34594a35"
         },
         {
           "key": "module/io.html",
@@ -615,7 +625,8 @@
               "id": "ty:Handle:write",
               "title": "Handle.write(...)"
             }
-          ]
+          ],
+          "sourceHash": "d405ae4a16054094"
         },
         {
           "key": "module/keys.html",
@@ -628,7 +639,8 @@
               "id": "v:getName",
               "title": "getName(code)"
             }
-          ]
+          ],
+          "sourceHash": "945b5717bceb81b0"
         },
         {
           "key": "module/multishell.html",
@@ -665,7 +677,8 @@
               "id": "v:getCount",
               "title": "getCount()"
             }
-          ]
+          ],
+          "sourceHash": "5047c00748d4756e"
         },
         {
           "key": "module/os.html",
@@ -762,7 +775,8 @@
               "id": "v:date",
               "title": "date([format [, time]])"
             }
-          ]
+          ],
+          "sourceHash": "25dac75e61b17542"
         },
         {
           "key": "module/paintutils.html",
@@ -799,7 +813,8 @@
               "id": "v:drawImage",
               "title": "drawImage(image, xPos, yPos)"
             }
-          ]
+          ],
+          "sourceHash": "7cb1c0e26cbff12b"
         },
         {
           "key": "module/parallel.html",
@@ -816,7 +831,8 @@
               "id": "v:waitForAll",
               "title": "waitForAll(...)"
             }
-          ]
+          ],
+          "sourceHash": "380bcca83fc53ad9"
         },
         {
           "key": "module/peripheral.html",
@@ -861,7 +877,8 @@
               "id": "v:find",
               "title": "find(ty [, filter])"
             }
-          ]
+          ],
+          "sourceHash": "30e948d4a2ecf563"
         },
         {
           "key": "module/pocket.html",
@@ -878,7 +895,8 @@
               "id": "v:unequipBack",
               "title": "unequipBack()"
             }
-          ]
+          ],
+          "sourceHash": "60765503888049dc"
         },
         {
           "key": "module/rednet.html",
@@ -939,7 +957,8 @@
               "id": "v:run",
               "title": "run()"
             }
-          ]
+          ],
+          "sourceHash": "70e2f023a362be19"
         },
         {
           "key": "module/redstone.html",
@@ -1004,7 +1023,8 @@
               "id": "v:testBundledInput",
               "title": "testBundledInput(side, mask)"
             }
-          ]
+          ],
+          "sourceHash": "19a8c4429db365c8"
         },
         {
           "key": "module/settings.html",
@@ -1053,7 +1073,8 @@
               "id": "v:save",
               "title": "save([path=\".settings\"])"
             }
-          ]
+          ],
+          "sourceHash": "d33afb0e8e2955ca"
         },
         {
           "key": "module/shell.html",
@@ -1142,7 +1163,8 @@
               "id": "v:switchTab",
               "title": "switchTab(id)"
             }
-          ]
+          ],
+          "sourceHash": "c7dbe02d1ae36151"
         },
         {
           "key": "module/term.html",
@@ -1363,7 +1385,8 @@
               "id": "ty:Redirect:getPaletteColor",
               "title": "Redirect.getPaletteColor(colour)"
             }
-          ]
+          ],
+          "sourceHash": "946493d737d5b95a"
         },
         {
           "key": "module/textutils.html",
@@ -1444,7 +1467,8 @@
               "id": "v:complete",
               "title": "complete(sSearchText [, tSearchTable])"
             }
-          ]
+          ],
+          "sourceHash": "e515383f8ecae3d0"
         },
         {
           "key": "module/turtle.html",
@@ -1633,7 +1657,8 @@
               "id": "v:getItemDetail",
               "title": "getItemDetail([slot [, detailed]])"
             }
-          ]
+          ],
+          "sourceHash": "e3c56bdc14a73102"
         },
         {
           "key": "module/vector.html",
@@ -1694,7 +1719,8 @@
               "id": "ty:Vector:equals",
               "title": "Vector:equals(other)"
             }
-          ]
+          ],
+          "sourceHash": "3f709495aee91c90"
         },
         {
           "key": "module/window.html",
@@ -1831,7 +1857,8 @@
               "id": "ty:Window:reposition",
               "title": "Window.reposition(new_x, new_y [, new_width, new_height [, new_parent]])"
             }
-          ]
+          ],
+          "sourceHash": "c9da2e7735e9e9c9"
         }
       ]
     },
@@ -1861,7 +1888,8 @@
               "id": "v:decode",
               "title": "decode(input)"
             }
-          ]
+          ],
+          "sourceHash": "7610f55119d4bc63"
         },
         {
           "key": "library/cc.base64.html",
@@ -1878,7 +1906,8 @@
               "id": "v:decode",
               "title": "decode(str [, alt_chars=\"+/\"])"
             }
-          ]
+          ],
+          "sourceHash": "71ca04d882e155e6"
         },
         {
           "key": "library/cc.completion.html",
@@ -1907,7 +1936,8 @@
               "id": "v:command",
               "title": "command(text [, add_space])"
             }
-          ]
+          ],
+          "sourceHash": "c419dbec5801e3d7"
         },
         {
           "key": "library/cc.expect.html",
@@ -1928,7 +1958,8 @@
               "id": "v:range",
               "title": "range(num [, min=-math.huge [, max=math.huge]])"
             }
-          ]
+          ],
+          "sourceHash": "8a8918e9922fd1fe"
         },
         {
           "key": "library/cc.image.nft.html",
@@ -1949,7 +1980,8 @@
               "id": "v:draw",
               "title": "draw(image, xPos, yPos [, target])"
             }
-          ]
+          ],
+          "sourceHash": "e1aa15a687c4e672"
         },
         {
           "key": "library/cc.pretty.html",
@@ -2010,7 +2042,8 @@
               "id": "v:pretty_print",
               "title": "pretty_print(obj [, options [, ribbon_frac=0.6]])"
             }
-          ]
+          ],
+          "sourceHash": "3f36aa724a19ca05"
         },
         {
           "key": "library/cc.require.html",
@@ -2023,7 +2056,8 @@
               "id": "v:make",
               "title": "make(env, dir)"
             }
-          ]
+          ],
+          "sourceHash": "5df950a2725786d6"
         },
         {
           "key": "library/cc.shell.completion.html",
@@ -2080,7 +2114,8 @@
               "id": "v:build",
               "title": "build(...)"
             }
-          ]
+          ],
+          "sourceHash": "14190b2d2e582920"
         },
         {
           "key": "library/cc.strings.html",
@@ -2101,7 +2136,8 @@
               "id": "v:split",
               "title": "split(str, deliminator [, plain=false [, limit]])"
             }
-          ]
+          ],
+          "sourceHash": "c09c7a044bc3e6f4"
         }
       ]
     },
@@ -2127,7 +2163,8 @@
               "id": "v:runCommand",
               "title": "runCommand()"
             }
-          ]
+          ],
+          "sourceHash": "27f8eed6bab4a1e7"
         },
         {
           "key": "peripheral/computer.html",
@@ -2160,7 +2197,8 @@
               "id": "v:getLabel",
               "title": "getLabel()"
             }
-          ]
+          ],
+          "sourceHash": "1317bbf32e1ce42c"
         },
         {
           "key": "peripheral/drive.html",
@@ -2213,7 +2251,8 @@
               "id": "v:getDiskID",
               "title": "getDiskID()"
             }
-          ]
+          ],
+          "sourceHash": "5093924bc3a9a2a8"
         },
         {
           "key": "peripheral/modem.html",
@@ -2274,7 +2313,8 @@
               "id": "v:getNameLocal",
               "title": "getNameLocal()"
             }
-          ]
+          ],
+          "sourceHash": "cb227c77208b9c3b"
         },
         {
           "key": "peripheral/monitor.html",
@@ -2387,7 +2427,8 @@
               "id": "v:getPaletteColor",
               "title": "getPaletteColor(colour)"
             }
-          ]
+          ],
+          "sourceHash": "488459d22c67b3ec"
         },
         {
           "key": "peripheral/printer.html",
@@ -2432,7 +2473,8 @@
               "id": "v:getPaperLevel",
               "title": "getPaperLevel()"
             }
-          ]
+          ],
+          "sourceHash": "48d729877de595f8"
         },
         {
           "key": "peripheral/redstone_relay.html",
@@ -2493,7 +2535,8 @@
               "id": "v:testBundledInput",
               "title": "testBundledInput(side, mask)"
             }
-          ]
+          ],
+          "sourceHash": "fb1f725cabca049f"
         },
         {
           "key": "peripheral/speaker.html",
@@ -2518,7 +2561,8 @@
               "id": "v:stop",
               "title": "stop()"
             }
-          ]
+          ],
+          "sourceHash": "aa8e28d415acaf31"
         },
         {
           "key": "peripheral/turtle_storage.html",
@@ -2547,7 +2591,8 @@
               "id": "v:pullItems",
               "title": "pullItems([fromSlot [, limit [, toSlot]]])"
             }
-          ]
+          ],
+          "sourceHash": "2a9743de35ddf448"
         }
       ]
     },
@@ -2569,7 +2614,8 @@
               "id": "v:getEnergyCapacity",
               "title": "getEnergyCapacity()"
             }
-          ]
+          ],
+          "sourceHash": "af7f76e1ec6db832"
         },
         {
           "key": "generic_peripheral/fluid_storage.html",
@@ -2590,7 +2636,8 @@
               "id": "v:pullFluid",
               "title": "pullFluid(fromName [, limit [, fluidName]])"
             }
-          ]
+          ],
+          "sourceHash": "146fe109e7de73a2"
         },
         {
           "key": "generic_peripheral/inventory.html",
@@ -2623,7 +2670,8 @@
               "id": "v:pullItems",
               "title": "pullItems(fromName, fromSlot [, limit [, toSlot]])"
             }
-          ]
+          ],
+          "sourceHash": "01091cc75b03e5d3"
         }
       ]
     },
@@ -2636,7 +2684,8 @@
           "title": "alarm",
           "description": "The alarm event is fired when an alarm started with os.setAlarm completes.",
           "file": "pages/event/alarm.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "a4a4667c24dfff83"
         },
         {
           "key": "event/char.html",
@@ -2644,7 +2693,8 @@
           "title": "char",
           "description": "The char event is fired when a character is typed on the keyboard.",
           "file": "pages/event/char.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "701fe10c4adee5cc"
         },
         {
           "key": "event/computer_command.html",
@@ -2652,7 +2702,8 @@
           "title": "computer_command",
           "description": "The computer_command event is fired when the /computercraft queue command is run for the current command computer.",
           "file": "pages/event/computer_command.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "bca183a8f5752398"
         },
         {
           "key": "event/disk.html",
@@ -2660,7 +2711,8 @@
           "title": "disk",
           "description": "The disk event is fired when a disk is inserted into an adjacent or networked disk drive.",
           "file": "pages/event/disk.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "c30418ed00ed96d6"
         },
         {
           "key": "event/disk_eject.html",
@@ -2668,7 +2720,8 @@
           "title": "disk_eject",
           "description": "The disk_eject event is fired when a disk is removed from an adjacent or networked disk drive.",
           "file": "pages/event/disk_eject.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "f3e96789f65062ac"
         },
         {
           "key": "event/file_transfer.html",
@@ -2685,7 +2738,8 @@
               "id": "ty:TransferredFile:getName",
               "title": "TransferredFile.getName()"
             }
-          ]
+          ],
+          "sourceHash": "694d3f1b72d13df5"
         },
         {
           "key": "event/http_check.html",
@@ -2693,7 +2747,8 @@
           "title": "http_check",
           "description": "The http_check event is fired when a URL check finishes.",
           "file": "pages/event/http_check.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "26cfac3c2bddd288"
         },
         {
           "key": "event/http_failure.html",
@@ -2701,7 +2756,8 @@
           "title": "http_failure",
           "description": "The http_failure event is fired when an HTTP request fails.",
           "file": "pages/event/http_failure.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "69172f1c28f61833"
         },
         {
           "key": "event/http_success.html",
@@ -2709,7 +2765,8 @@
           "title": "http_success",
           "description": "The http_success event is fired when an HTTP request returns successfully.",
           "file": "pages/event/http_success.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "fe6c3a6b09c33ee3"
         },
         {
           "key": "event/key.html",
@@ -2717,7 +2774,8 @@
           "title": "key",
           "description": "This event is fired when any key is pressed while the terminal is focused.",
           "file": "pages/event/key.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "6db604c0e923edd3"
         },
         {
           "key": "event/key_up.html",
@@ -2725,7 +2783,8 @@
           "title": "key_up",
           "description": "Fired whenever a key is released (or the terminal is closed while a key was being pressed).",
           "file": "pages/event/key_up.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "e14b9de3d7408b49"
         },
         {
           "key": "event/modem_message.html",
@@ -2733,7 +2792,8 @@
           "title": "modem_message",
           "description": "The modem_message event is fired when a message is received on an open channel on any modem.",
           "file": "pages/event/modem_message.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "434e2ab897868305"
         },
         {
           "key": "event/monitor_resize.html",
@@ -2741,7 +2801,8 @@
           "title": "monitor_resize",
           "description": "The monitor_resize event is fired when an adjacent or networked monitor's size is changed.",
           "file": "pages/event/monitor_resize.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "7386b1fe5cca1ea6"
         },
         {
           "key": "event/monitor_touch.html",
@@ -2749,7 +2810,8 @@
           "title": "monitor_touch",
           "description": "The monitor_touch event is fired when an adjacent or networked Advanced Monitor is right-clicked.",
           "file": "pages/event/monitor_touch.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "92939821824b4935"
         },
         {
           "key": "event/mouse_click.html",
@@ -2757,7 +2819,8 @@
           "title": "mouse_click",
           "description": "This event is fired when the terminal is clicked with a mouse.",
           "file": "pages/event/mouse_click.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "41181bb8caa97c03"
         },
         {
           "key": "event/mouse_drag.html",
@@ -2765,7 +2828,8 @@
           "title": "mouse_drag",
           "description": "This event is fired every time the mouse is moved while a mouse button is being held.",
           "file": "pages/event/mouse_drag.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "a73a768766dea210"
         },
         {
           "key": "event/mouse_scroll.html",
@@ -2773,7 +2837,8 @@
           "title": "mouse_scroll",
           "description": "This event is fired when a mouse wheel is scrolled in the terminal.",
           "file": "pages/event/mouse_scroll.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "cffaa6d422ac7997"
         },
         {
           "key": "event/mouse_up.html",
@@ -2781,7 +2846,8 @@
           "title": "mouse_up",
           "description": "This event is fired when a mouse button is released or a held mouse leaves the computer's terminal.",
           "file": "pages/event/mouse_up.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "6a82551e01624a5a"
         },
         {
           "key": "event/paste.html",
@@ -2789,7 +2855,8 @@
           "title": "paste",
           "description": "The paste event is fired when text is pasted into the computer through Ctrl-V (or ⌘V on Mac).",
           "file": "pages/event/paste.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "5f1925c3a1a77f9c"
         },
         {
           "key": "event/peripheral.html",
@@ -2797,7 +2864,8 @@
           "title": "peripheral",
           "description": "The peripheral event is fired when a peripheral is attached on a side or to a modem.",
           "file": "pages/event/peripheral.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "3390d2a3966015e0"
         },
         {
           "key": "event/peripheral_detach.html",
@@ -2805,7 +2873,8 @@
           "title": "peripheral_detach",
           "description": "The peripheral_detach event is fired when a peripheral is detached from a side or from a modem.",
           "file": "pages/event/peripheral_detach.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "54835f9e26b60979"
         },
         {
           "key": "event/rednet_message.html",
@@ -2813,7 +2882,8 @@
           "title": "rednet_message",
           "description": "The rednet_message event is fired when a message is sent over Rednet.",
           "file": "pages/event/rednet_message.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "467b62c5724e6b5d"
         },
         {
           "key": "event/redstone.html",
@@ -2821,7 +2891,8 @@
           "title": "redstone",
           "description": "The redstone event is fired whenever any redstone inputs on the computer or relay change.",
           "file": "pages/event/redstone.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "4ffa11e6e87287ff"
         },
         {
           "key": "event/setting_changed.html",
@@ -2829,7 +2900,8 @@
           "title": "setting_changed",
           "description": "The setting_changed event is fired when a setting is modified with the settings API.",
           "file": "pages/event/setting_changed.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "906b1b1e4841d765"
         },
         {
           "key": "event/speaker_audio_empty.html",
@@ -2837,7 +2909,8 @@
           "title": "speaker_audio_empty",
           "description": "Return Values",
           "file": "pages/event/speaker_audio_empty.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "f3cb3f2a70709d17"
         },
         {
           "key": "event/task_complete.html",
@@ -2845,7 +2918,8 @@
           "title": "task_complete",
           "description": "The task_complete event is fired when an asynchronous task completes.",
           "file": "pages/event/task_complete.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "b8d3fdf4fbdebb9b"
         },
         {
           "key": "event/term_resize.html",
@@ -2853,7 +2927,8 @@
           "title": "term_resize",
           "description": "The term_resize event is fired when the main terminal is resized.",
           "file": "pages/event/term_resize.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "bf63ff8fd235df62"
         },
         {
           "key": "event/terminate.html",
@@ -2861,7 +2936,8 @@
           "title": "terminate",
           "description": "The terminate event is fired when Ctrl-T is held down.",
           "file": "pages/event/terminate.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "c93981a0889d5dbc"
         },
         {
           "key": "event/timer.html",
@@ -2869,7 +2945,8 @@
           "title": "timer",
           "description": "The timer event is fired when a timer started with os.startTimer completes.",
           "file": "pages/event/timer.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "cf2c8b3287ac494a"
         },
         {
           "key": "event/turtle_inventory.html",
@@ -2877,7 +2954,8 @@
           "title": "turtle_inventory",
           "description": "The turtle_inventory event is fired when a turtle's inventory is changed.",
           "file": "pages/event/turtle_inventory.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "14a563e436a6cebb"
         },
         {
           "key": "event/websocket_closed.html",
@@ -2885,7 +2963,8 @@
           "title": "websocket_closed",
           "description": "The websocket_closed event is fired when an open WebSocket connection is closed.",
           "file": "pages/event/websocket_closed.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "e8ba5b4b3bdafe2d"
         },
         {
           "key": "event/websocket_failure.html",
@@ -2893,7 +2972,8 @@
           "title": "websocket_failure",
           "description": "The websocket_failure event is fired when a WebSocket connection request fails.",
           "file": "pages/event/websocket_failure.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "3bc3c9d33e4b2339"
         },
         {
           "key": "event/websocket_message.html",
@@ -2901,7 +2981,8 @@
           "title": "websocket_message",
           "description": "The websocket_message event is fired when a message is received on an open WebSocket connection.",
           "file": "pages/event/websocket_message.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "55126297fae72499"
         },
         {
           "key": "event/websocket_success.html",
@@ -2909,7 +2990,8 @@
           "title": "websocket_success",
           "description": "The websocket_success event is fired when a WebSocket connection request returns successfully.",
           "file": "pages/event/websocket_success.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "ef160a53969e6d5c"
         }
       ]
     },
@@ -2922,7 +3004,8 @@
           "title": "Setting up GPS",
           "description": "The gps API allows a computer to find its current position using a wireless modem.",
           "file": "pages/guide/gps_setup.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "bd8ed0413220b028"
         },
         {
           "key": "guide/local_ips.html",
@@ -2930,7 +3013,8 @@
           "title": "Allowing access to local IPs",
           "description": "By default, ComputerCraft blocks access to local IP addresses for security.",
           "file": "pages/guide/local_ips.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "dfbe34475aaebe57"
         },
         {
           "key": "guide/speaker_audio.html",
@@ -2938,7 +3022,8 @@
           "title": "Playing audio with speakers",
           "description": "CC: Tweaked's speaker peripheral provides a powerful way to play any audio you like with the speaker.playAudio method.",
           "file": "pages/guide/speaker_audio.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "596797ae4d8d4649"
         },
         {
           "key": "guide/startup.html",
@@ -2946,7 +3031,8 @@
           "title": "Running programs on computer startup",
           "description": "It's often useful to automatically start running a program when a computer is turned on, such as when running a GPS host...",
           "file": "pages/guide/startup.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "9d6e38411406c481"
         },
         {
           "key": "guide/using_require.html",
@@ -2954,7 +3040,8 @@
           "title": "Reusing code with require",
           "description": "A library is a collection of useful functions and other definitions which is stored separately to your main program.",
           "file": "pages/guide/using_require.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "b2ff85708f1568ae"
         }
       ]
     },
@@ -2967,7 +3054,8 @@
           "title": "Block details",
           "description": "Several functions in CC: Tweaked, such as turtle.inspect and commands.getBlockInfo provide a way to get information about a block in the world.",
           "file": "pages/reference/block_details.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "44a667c4da843531"
         },
         {
           "key": "reference/breaking_changes.html",
@@ -2975,7 +3063,8 @@
           "title": "Incompatibilities between versions",
           "description": "CC: Tweaked tries to remain as compatible between versions as possible, meaning most programs written for older versions...",
           "file": "pages/reference/breaking_changes.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "17e89fe59228cce2"
         },
         {
           "key": "reference/computercraft_command.html",
@@ -2983,7 +3072,8 @@
           "title": "The /computercraft command",
           "description": "CC: Tweaked provides a /computercraft command for server owners to manage running computers on a server.",
           "file": "pages/reference/computercraft_command.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "9d49fbe61d6e27f3"
         },
         {
           "key": "reference/data_pack.html",
@@ -2991,7 +3081,8 @@
           "title": "Data packs",
           "description": "CC: Tweaked allows customising and extending many of its features via data packs, such as adding new programs to the ROM, or providing new turtle tools.",
           "file": "pages/reference/data_pack.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "8b69f1d82ba78474"
         },
         {
           "key": "reference/entity_details.html",
@@ -2999,7 +3090,8 @@
           "title": "Entity details",
           "description": "Some functions in CC: Tweaked (such as commands.getEntities) provide a way to get information about an entity.",
           "file": "pages/reference/entity_details.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "1fe2fb2561ab4a6a"
         },
         {
           "key": "reference/exceptions.html",
@@ -3007,7 +3099,8 @@
           "title": "CraftOS's exception protocol",
           "description": "By default, Lua represents errors are plain strings.",
           "file": "pages/reference/exceptions.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "4d59ebd564f2a12c"
         },
         {
           "key": "reference/feature_compat.html",
@@ -3015,7 +3108,8 @@
           "title": "Lua 5.2/5.3 features in CC: Tweaked",
           "description": "CC: Tweaked is based off of the Cobalt Lua runtime, which uses Lua 5.",
           "file": "pages/reference/feature_compat.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "0040be5fec0dc33c"
         },
         {
           "key": "reference/item_details.html",
@@ -3023,7 +3117,8 @@
           "title": "Item details",
           "description": "Several functions in CC: Tweaked, such as turtle.getItemDetail and inventory.getItemDetail provide a way to get information about an item stack.",
           "file": "pages/reference/item_details.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "1c8906c22a9e17bf"
         },
         {
           "key": "reference/startup.html",
@@ -3031,7 +3126,8 @@
           "title": "Computer startup",
           "description": "When a computer turns on, it searches for files to run as part of the startup process.",
           "file": "pages/reference/startup.html",
-          "toc": []
+          "toc": [],
+          "sourceHash": "69dcd5586c78fe96"
         }
       ]
     }
@@ -3071,7 +3167,8 @@
           "id": "v:_CC_DEFAULT_SETTINGS",
           "title": "_CC_DEFAULT_SETTINGS"
         }
-      ]
+      ],
+      "sourceHash": "484f97864c3e0b85"
     },
     "/module/colors/": {
       "title": "colors",
@@ -3171,7 +3268,8 @@
           "id": "v:fromBlit",
           "title": "fromBlit(hex)"
         }
-      ]
+      ],
+      "sourceHash": "18065437049ad315"
     },
     "/module/colours/": {
       "title": "colours",
@@ -3187,7 +3285,8 @@
           "id": "v:lightGrey",
           "title": "lightGrey"
         }
-      ]
+      ],
+      "sourceHash": "63c8c8cce06b32b3"
     },
     "/module/commands/": {
       "title": "commands",
@@ -3235,7 +3334,8 @@
           "id": "v:async",
           "title": "async"
         }
-      ]
+      ],
+      "sourceHash": "6e7ad39200c48717"
     },
     "/module/disk/": {
       "title": "disk",
@@ -3287,7 +3387,8 @@
           "id": "v:getID",
           "title": "getID(name)"
         }
-      ]
+      ],
+      "sourceHash": "20b7bbfca605cc3e"
     },
     "/module/fs/": {
       "title": "fs",
@@ -3447,7 +3548,8 @@
           "id": "ty:ReadHandle:close",
           "title": "ReadHandle.close()"
         }
-      ]
+      ],
+      "sourceHash": "0c91450d1d6eeb9e"
     },
     "/module/gps/": {
       "title": "gps",
@@ -3463,7 +3565,8 @@
           "id": "v:locate",
           "title": "locate([timeout=2 [, debug=false]])"
         }
-      ]
+      ],
+      "sourceHash": "3e3ab0a9447dc052"
     },
     "/module/help/": {
       "title": "help",
@@ -3491,7 +3594,8 @@
           "id": "v:completeTopic",
           "title": "completeTopic(prefix)"
         }
-      ]
+      ],
+      "sourceHash": "83c011cee0ca6501"
     },
     "/module/http/": {
       "title": "http",
@@ -3551,7 +3655,8 @@
           "id": "ty:Websocket:getResponseHeaders",
           "title": "Websocket.getResponseHeaders()"
         }
-      ]
+      ],
+      "sourceHash": "f405675f34594a35"
     },
     "/module/io/": {
       "title": "io",
@@ -3631,7 +3736,8 @@
           "id": "ty:Handle:write",
           "title": "Handle.write(...)"
         }
-      ]
+      ],
+      "sourceHash": "d405ae4a16054094"
     },
     "/module/keys/": {
       "title": "keys",
@@ -3643,7 +3749,8 @@
           "id": "v:getName",
           "title": "getName(code)"
         }
-      ]
+      ],
+      "sourceHash": "945b5717bceb81b0"
     },
     "/module/multishell/": {
       "title": "multishell",
@@ -3679,7 +3786,8 @@
           "id": "v:getCount",
           "title": "getCount()"
         }
-      ]
+      ],
+      "sourceHash": "5047c00748d4756e"
     },
     "/module/os/": {
       "title": "os",
@@ -3775,7 +3883,8 @@
           "id": "v:date",
           "title": "date([format [, time]])"
         }
-      ]
+      ],
+      "sourceHash": "25dac75e61b17542"
     },
     "/module/paintutils/": {
       "title": "paintutils",
@@ -3811,7 +3920,8 @@
           "id": "v:drawImage",
           "title": "drawImage(image, xPos, yPos)"
         }
-      ]
+      ],
+      "sourceHash": "7cb1c0e26cbff12b"
     },
     "/module/parallel/": {
       "title": "parallel",
@@ -3827,7 +3937,8 @@
           "id": "v:waitForAll",
           "title": "waitForAll(...)"
         }
-      ]
+      ],
+      "sourceHash": "380bcca83fc53ad9"
     },
     "/module/peripheral/": {
       "title": "peripheral",
@@ -3871,7 +3982,8 @@
           "id": "v:find",
           "title": "find(ty [, filter])"
         }
-      ]
+      ],
+      "sourceHash": "30e948d4a2ecf563"
     },
     "/module/pocket/": {
       "title": "pocket",
@@ -3887,7 +3999,8 @@
           "id": "v:unequipBack",
           "title": "unequipBack()"
         }
-      ]
+      ],
+      "sourceHash": "60765503888049dc"
     },
     "/module/rednet/": {
       "title": "rednet",
@@ -3947,7 +4060,8 @@
           "id": "v:run",
           "title": "run()"
         }
-      ]
+      ],
+      "sourceHash": "70e2f023a362be19"
     },
     "/module/redstone/": {
       "title": "redstone",
@@ -4011,7 +4125,8 @@
           "id": "v:testBundledInput",
           "title": "testBundledInput(side, mask)"
         }
-      ]
+      ],
+      "sourceHash": "19a8c4429db365c8"
     },
     "/module/settings/": {
       "title": "settings",
@@ -4059,7 +4174,8 @@
           "id": "v:save",
           "title": "save([path=\".settings\"])"
         }
-      ]
+      ],
+      "sourceHash": "d33afb0e8e2955ca"
     },
     "/module/shell/": {
       "title": "shell",
@@ -4147,7 +4263,8 @@
           "id": "v:switchTab",
           "title": "switchTab(id)"
         }
-      ]
+      ],
+      "sourceHash": "c7dbe02d1ae36151"
     },
     "/module/term/": {
       "title": "term",
@@ -4367,7 +4484,8 @@
           "id": "ty:Redirect:getPaletteColor",
           "title": "Redirect.getPaletteColor(colour)"
         }
-      ]
+      ],
+      "sourceHash": "946493d737d5b95a"
     },
     "/module/textutils/": {
       "title": "textutils",
@@ -4447,7 +4565,8 @@
           "id": "v:complete",
           "title": "complete(sSearchText [, tSearchTable])"
         }
-      ]
+      ],
+      "sourceHash": "e515383f8ecae3d0"
     },
     "/module/turtle/": {
       "title": "turtle",
@@ -4635,7 +4754,8 @@
           "id": "v:getItemDetail",
           "title": "getItemDetail([slot [, detailed]])"
         }
-      ]
+      ],
+      "sourceHash": "e3c56bdc14a73102"
     },
     "/module/vector/": {
       "title": "vector",
@@ -4695,7 +4815,8 @@
           "id": "ty:Vector:equals",
           "title": "Vector:equals(other)"
         }
-      ]
+      ],
+      "sourceHash": "3f709495aee91c90"
     },
     "/module/window/": {
       "title": "window",
@@ -4831,7 +4952,8 @@
           "id": "ty:Window:reposition",
           "title": "Window.reposition(new_x, new_y [, new_width, new_height [, new_parent]])"
         }
-      ]
+      ],
+      "sourceHash": "c9da2e7735e9e9c9"
     },
     "/library/cc.audio.dfpwm/": {
       "title": "cc.audio.dfpwm",
@@ -4855,7 +4977,8 @@
           "id": "v:decode",
           "title": "decode(input)"
         }
-      ]
+      ],
+      "sourceHash": "7610f55119d4bc63"
     },
     "/library/cc.base64/": {
       "title": "cc.base64",
@@ -4871,7 +4994,8 @@
           "id": "v:decode",
           "title": "decode(str [, alt_chars=\"+/\"])"
         }
-      ]
+      ],
+      "sourceHash": "71ca04d882e155e6"
     },
     "/library/cc.completion/": {
       "title": "cc.completion",
@@ -4899,7 +5023,8 @@
           "id": "v:command",
           "title": "command(text [, add_space])"
         }
-      ]
+      ],
+      "sourceHash": "c419dbec5801e3d7"
     },
     "/library/cc.expect/": {
       "title": "cc.expect",
@@ -4919,7 +5044,8 @@
           "id": "v:range",
           "title": "range(num [, min=-math.huge [, max=math.huge]])"
         }
-      ]
+      ],
+      "sourceHash": "8a8918e9922fd1fe"
     },
     "/library/cc.image.nft/": {
       "title": "cc.image.nft",
@@ -4939,7 +5065,8 @@
           "id": "v:draw",
           "title": "draw(image, xPos, yPos [, target])"
         }
-      ]
+      ],
+      "sourceHash": "e1aa15a687c4e672"
     },
     "/library/cc.pretty/": {
       "title": "cc.pretty",
@@ -4999,7 +5126,8 @@
           "id": "v:pretty_print",
           "title": "pretty_print(obj [, options [, ribbon_frac=0.6]])"
         }
-      ]
+      ],
+      "sourceHash": "3f36aa724a19ca05"
     },
     "/library/cc.require/": {
       "title": "cc.require",
@@ -5011,7 +5139,8 @@
           "id": "v:make",
           "title": "make(env, dir)"
         }
-      ]
+      ],
+      "sourceHash": "5df950a2725786d6"
     },
     "/library/cc.shell.completion/": {
       "title": "cc.shell.completion",
@@ -5067,7 +5196,8 @@
           "id": "v:build",
           "title": "build(...)"
         }
-      ]
+      ],
+      "sourceHash": "14190b2d2e582920"
     },
     "/library/cc.strings/": {
       "title": "cc.strings",
@@ -5087,7 +5217,8 @@
           "id": "v:split",
           "title": "split(str, deliminator [, plain=false [, limit]])"
         }
-      ]
+      ],
+      "sourceHash": "c09c7a044bc3e6f4"
     },
     "/peripheral/command/": {
       "title": "command",
@@ -5107,7 +5238,8 @@
           "id": "v:runCommand",
           "title": "runCommand()"
         }
-      ]
+      ],
+      "sourceHash": "27f8eed6bab4a1e7"
     },
     "/peripheral/computer/": {
       "title": "computer",
@@ -5139,7 +5271,8 @@
           "id": "v:getLabel",
           "title": "getLabel()"
         }
-      ]
+      ],
+      "sourceHash": "1317bbf32e1ce42c"
     },
     "/peripheral/drive/": {
       "title": "drive",
@@ -5191,7 +5324,8 @@
           "id": "v:getDiskID",
           "title": "getDiskID()"
         }
-      ]
+      ],
+      "sourceHash": "5093924bc3a9a2a8"
     },
     "/peripheral/modem/": {
       "title": "modem",
@@ -5251,7 +5385,8 @@
           "id": "v:getNameLocal",
           "title": "getNameLocal()"
         }
-      ]
+      ],
+      "sourceHash": "cb227c77208b9c3b"
     },
     "/peripheral/monitor/": {
       "title": "monitor",
@@ -5363,7 +5498,8 @@
           "id": "v:getPaletteColor",
           "title": "getPaletteColor(colour)"
         }
-      ]
+      ],
+      "sourceHash": "488459d22c67b3ec"
     },
     "/peripheral/printer/": {
       "title": "printer",
@@ -5407,7 +5543,8 @@
           "id": "v:getPaperLevel",
           "title": "getPaperLevel()"
         }
-      ]
+      ],
+      "sourceHash": "48d729877de595f8"
     },
     "/peripheral/redstone_relay/": {
       "title": "redstone_relay",
@@ -5467,7 +5604,8 @@
           "id": "v:testBundledInput",
           "title": "testBundledInput(side, mask)"
         }
-      ]
+      ],
+      "sourceHash": "fb1f725cabca049f"
     },
     "/peripheral/speaker/": {
       "title": "speaker",
@@ -5491,7 +5629,8 @@
           "id": "v:stop",
           "title": "stop()"
         }
-      ]
+      ],
+      "sourceHash": "aa8e28d415acaf31"
     },
     "/peripheral/turtle_storage/": {
       "title": "turtle_storage",
@@ -5519,7 +5658,8 @@
           "id": "v:pullItems",
           "title": "pullItems([fromSlot [, limit [, toSlot]]])"
         }
-      ]
+      ],
+      "sourceHash": "2a9743de35ddf448"
     },
     "/generic_peripheral/energy_storage/": {
       "title": "energy_storage",
@@ -5535,7 +5675,8 @@
           "id": "v:getEnergyCapacity",
           "title": "getEnergyCapacity()"
         }
-      ]
+      ],
+      "sourceHash": "af7f76e1ec6db832"
     },
     "/generic_peripheral/fluid_storage/": {
       "title": "fluid_storage",
@@ -5555,7 +5696,8 @@
           "id": "v:pullFluid",
           "title": "pullFluid(fromName [, limit [, fluidName]])"
         }
-      ]
+      ],
+      "sourceHash": "146fe109e7de73a2"
     },
     "/generic_peripheral/inventory/": {
       "title": "inventory",
@@ -5587,42 +5729,48 @@
           "id": "v:pullItems",
           "title": "pullItems(fromName, fromSlot [, limit [, toSlot]])"
         }
-      ]
+      ],
+      "sourceHash": "01091cc75b03e5d3"
     },
     "/event/alarm/": {
       "title": "alarm",
       "description": "The alarm event is fired when an alarm started with os.setAlarm completes.",
       "group": "Events",
       "file": "pages/event/alarm.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "a4a4667c24dfff83"
     },
     "/event/char/": {
       "title": "char",
       "description": "The char event is fired when a character is typed on the keyboard.",
       "group": "Events",
       "file": "pages/event/char.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "701fe10c4adee5cc"
     },
     "/event/computer_command/": {
       "title": "computer_command",
       "description": "The computer_command event is fired when the /computercraft queue command is run for the current command computer.",
       "group": "Events",
       "file": "pages/event/computer_command.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "bca183a8f5752398"
     },
     "/event/disk/": {
       "title": "disk",
       "description": "The disk event is fired when a disk is inserted into an adjacent or networked disk drive.",
       "group": "Events",
       "file": "pages/event/disk.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "c30418ed00ed96d6"
     },
     "/event/disk_eject/": {
       "title": "disk_eject",
       "description": "The disk_eject event is fired when a disk is removed from an adjacent or networked disk drive.",
       "group": "Events",
       "file": "pages/event/disk_eject.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "f3e96789f65062ac"
     },
     "/event/file_transfer/": {
       "title": "file_transfer",
@@ -5638,301 +5786,344 @@
           "id": "ty:TransferredFile:getName",
           "title": "TransferredFile.getName()"
         }
-      ]
+      ],
+      "sourceHash": "694d3f1b72d13df5"
     },
     "/event/http_check/": {
       "title": "http_check",
       "description": "The http_check event is fired when a URL check finishes.",
       "group": "Events",
       "file": "pages/event/http_check.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "26cfac3c2bddd288"
     },
     "/event/http_failure/": {
       "title": "http_failure",
       "description": "The http_failure event is fired when an HTTP request fails.",
       "group": "Events",
       "file": "pages/event/http_failure.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "69172f1c28f61833"
     },
     "/event/http_success/": {
       "title": "http_success",
       "description": "The http_success event is fired when an HTTP request returns successfully.",
       "group": "Events",
       "file": "pages/event/http_success.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "fe6c3a6b09c33ee3"
     },
     "/event/key/": {
       "title": "key",
       "description": "This event is fired when any key is pressed while the terminal is focused.",
       "group": "Events",
       "file": "pages/event/key.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "6db604c0e923edd3"
     },
     "/event/key_up/": {
       "title": "key_up",
       "description": "Fired whenever a key is released (or the terminal is closed while a key was being pressed).",
       "group": "Events",
       "file": "pages/event/key_up.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "e14b9de3d7408b49"
     },
     "/event/modem_message/": {
       "title": "modem_message",
       "description": "The modem_message event is fired when a message is received on an open channel on any modem.",
       "group": "Events",
       "file": "pages/event/modem_message.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "434e2ab897868305"
     },
     "/event/monitor_resize/": {
       "title": "monitor_resize",
       "description": "The monitor_resize event is fired when an adjacent or networked monitor's size is changed.",
       "group": "Events",
       "file": "pages/event/monitor_resize.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "7386b1fe5cca1ea6"
     },
     "/event/monitor_touch/": {
       "title": "monitor_touch",
       "description": "The monitor_touch event is fired when an adjacent or networked Advanced Monitor is right-clicked.",
       "group": "Events",
       "file": "pages/event/monitor_touch.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "92939821824b4935"
     },
     "/event/mouse_click/": {
       "title": "mouse_click",
       "description": "This event is fired when the terminal is clicked with a mouse.",
       "group": "Events",
       "file": "pages/event/mouse_click.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "41181bb8caa97c03"
     },
     "/event/mouse_drag/": {
       "title": "mouse_drag",
       "description": "This event is fired every time the mouse is moved while a mouse button is being held.",
       "group": "Events",
       "file": "pages/event/mouse_drag.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "a73a768766dea210"
     },
     "/event/mouse_scroll/": {
       "title": "mouse_scroll",
       "description": "This event is fired when a mouse wheel is scrolled in the terminal.",
       "group": "Events",
       "file": "pages/event/mouse_scroll.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "cffaa6d422ac7997"
     },
     "/event/mouse_up/": {
       "title": "mouse_up",
       "description": "This event is fired when a mouse button is released or a held mouse leaves the computer's terminal.",
       "group": "Events",
       "file": "pages/event/mouse_up.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "6a82551e01624a5a"
     },
     "/event/paste/": {
       "title": "paste",
       "description": "The paste event is fired when text is pasted into the computer through Ctrl-V (or ⌘V on Mac).",
       "group": "Events",
       "file": "pages/event/paste.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "5f1925c3a1a77f9c"
     },
     "/event/peripheral/": {
       "title": "peripheral",
       "description": "The peripheral event is fired when a peripheral is attached on a side or to a modem.",
       "group": "Events",
       "file": "pages/event/peripheral.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "3390d2a3966015e0"
     },
     "/event/peripheral_detach/": {
       "title": "peripheral_detach",
       "description": "The peripheral_detach event is fired when a peripheral is detached from a side or from a modem.",
       "group": "Events",
       "file": "pages/event/peripheral_detach.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "54835f9e26b60979"
     },
     "/event/rednet_message/": {
       "title": "rednet_message",
       "description": "The rednet_message event is fired when a message is sent over Rednet.",
       "group": "Events",
       "file": "pages/event/rednet_message.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "467b62c5724e6b5d"
     },
     "/event/redstone/": {
       "title": "redstone",
       "description": "The redstone event is fired whenever any redstone inputs on the computer or relay change.",
       "group": "Events",
       "file": "pages/event/redstone.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "4ffa11e6e87287ff"
     },
     "/event/setting_changed/": {
       "title": "setting_changed",
       "description": "The setting_changed event is fired when a setting is modified with the settings API.",
       "group": "Events",
       "file": "pages/event/setting_changed.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "906b1b1e4841d765"
     },
     "/event/speaker_audio_empty/": {
       "title": "speaker_audio_empty",
       "description": "Return Values",
       "group": "Events",
       "file": "pages/event/speaker_audio_empty.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "f3cb3f2a70709d17"
     },
     "/event/task_complete/": {
       "title": "task_complete",
       "description": "The task_complete event is fired when an asynchronous task completes.",
       "group": "Events",
       "file": "pages/event/task_complete.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "b8d3fdf4fbdebb9b"
     },
     "/event/term_resize/": {
       "title": "term_resize",
       "description": "The term_resize event is fired when the main terminal is resized.",
       "group": "Events",
       "file": "pages/event/term_resize.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "bf63ff8fd235df62"
     },
     "/event/terminate/": {
       "title": "terminate",
       "description": "The terminate event is fired when Ctrl-T is held down.",
       "group": "Events",
       "file": "pages/event/terminate.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "c93981a0889d5dbc"
     },
     "/event/timer/": {
       "title": "timer",
       "description": "The timer event is fired when a timer started with os.startTimer completes.",
       "group": "Events",
       "file": "pages/event/timer.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "cf2c8b3287ac494a"
     },
     "/event/turtle_inventory/": {
       "title": "turtle_inventory",
       "description": "The turtle_inventory event is fired when a turtle's inventory is changed.",
       "group": "Events",
       "file": "pages/event/turtle_inventory.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "14a563e436a6cebb"
     },
     "/event/websocket_closed/": {
       "title": "websocket_closed",
       "description": "The websocket_closed event is fired when an open WebSocket connection is closed.",
       "group": "Events",
       "file": "pages/event/websocket_closed.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "e8ba5b4b3bdafe2d"
     },
     "/event/websocket_failure/": {
       "title": "websocket_failure",
       "description": "The websocket_failure event is fired when a WebSocket connection request fails.",
       "group": "Events",
       "file": "pages/event/websocket_failure.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "3bc3c9d33e4b2339"
     },
     "/event/websocket_message/": {
       "title": "websocket_message",
       "description": "The websocket_message event is fired when a message is received on an open WebSocket connection.",
       "group": "Events",
       "file": "pages/event/websocket_message.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "55126297fae72499"
     },
     "/event/websocket_success/": {
       "title": "websocket_success",
       "description": "The websocket_success event is fired when a WebSocket connection request returns successfully.",
       "group": "Events",
       "file": "pages/event/websocket_success.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "ef160a53969e6d5c"
     },
     "/guide/gps_setup/": {
       "title": "Setting up GPS",
       "description": "The gps API allows a computer to find its current position using a wireless modem.",
       "group": "Guides",
       "file": "pages/guide/gps_setup.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "bd8ed0413220b028"
     },
     "/guide/local_ips/": {
       "title": "Allowing access to local IPs",
       "description": "By default, ComputerCraft blocks access to local IP addresses for security.",
       "group": "Guides",
       "file": "pages/guide/local_ips.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "dfbe34475aaebe57"
     },
     "/guide/speaker_audio/": {
       "title": "Playing audio with speakers",
       "description": "CC: Tweaked's speaker peripheral provides a powerful way to play any audio you like with the speaker.playAudio method.",
       "group": "Guides",
       "file": "pages/guide/speaker_audio.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "596797ae4d8d4649"
     },
     "/guide/startup/": {
       "title": "Running programs on computer startup",
       "description": "It's often useful to automatically start running a program when a computer is turned on, such as when running a GPS host...",
       "group": "Guides",
       "file": "pages/guide/startup.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "9d6e38411406c481"
     },
     "/guide/using_require/": {
       "title": "Reusing code with require",
       "description": "A library is a collection of useful functions and other definitions which is stored separately to your main program.",
       "group": "Guides",
       "file": "pages/guide/using_require.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "b2ff85708f1568ae"
     },
     "/reference/block_details/": {
       "title": "Block details",
       "description": "Several functions in CC: Tweaked, such as turtle.inspect and commands.getBlockInfo provide a way to get information about a block in the world.",
       "group": "Reference",
       "file": "pages/reference/block_details.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "44a667c4da843531"
     },
     "/reference/breaking_changes/": {
       "title": "Incompatibilities between versions",
       "description": "CC: Tweaked tries to remain as compatible between versions as possible, meaning most programs written for older versions...",
       "group": "Reference",
       "file": "pages/reference/breaking_changes.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "17e89fe59228cce2"
     },
     "/reference/computercraft_command/": {
       "title": "The /computercraft command",
       "description": "CC: Tweaked provides a /computercraft command for server owners to manage running computers on a server.",
       "group": "Reference",
       "file": "pages/reference/computercraft_command.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "9d49fbe61d6e27f3"
     },
     "/reference/data_pack/": {
       "title": "Data packs",
       "description": "CC: Tweaked allows customising and extending many of its features via data packs, such as adding new programs to the ROM, or providing new turtle tools.",
       "group": "Reference",
       "file": "pages/reference/data_pack.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "8b69f1d82ba78474"
     },
     "/reference/entity_details/": {
       "title": "Entity details",
       "description": "Some functions in CC: Tweaked (such as commands.getEntities) provide a way to get information about an entity.",
       "group": "Reference",
       "file": "pages/reference/entity_details.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "1fe2fb2561ab4a6a"
     },
     "/reference/exceptions/": {
       "title": "CraftOS's exception protocol",
       "description": "By default, Lua represents errors are plain strings.",
       "group": "Reference",
       "file": "pages/reference/exceptions.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "4d59ebd564f2a12c"
     },
     "/reference/feature_compat/": {
       "title": "Lua 5.2/5.3 features in CC: Tweaked",
       "description": "CC: Tweaked is based off of the Cobalt Lua runtime, which uses Lua 5.",
       "group": "Reference",
       "file": "pages/reference/feature_compat.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "0040be5fec0dc33c"
     },
     "/reference/item_details/": {
       "title": "Item details",
       "description": "Several functions in CC: Tweaked, such as turtle.getItemDetail and inventory.getItemDetail provide a way to get information about an item stack.",
       "group": "Reference",
       "file": "pages/reference/item_details.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "1c8906c22a9e17bf"
     },
     "/reference/startup/": {
       "title": "Computer startup",
       "description": "When a computer turns on, it searches for files to run as part of the startup process.",
       "group": "Reference",
       "file": "pages/reference/startup.html",
-      "toc": []
+      "toc": [],
+      "sourceHash": "69dcd5586c78fe96"
     }
   }
 }

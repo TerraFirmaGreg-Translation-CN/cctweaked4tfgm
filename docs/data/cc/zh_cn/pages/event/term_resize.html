@@ -1,0 +1,17 @@
+<h1>术语调整大小</h1><p>调整主终端大小时会触发 <a href="/event/term_resize/" class="reference"><code>term_resize</code></a> 事件。例如：</p>
+<ul>
+<li>当标签栏在 <a href="/module/multishell/" class="reference"><code>multishell</code></a> 中显示或隐藏时。</li>
+<li>当终端通过“monitor”程序重定向到监视器并且监视器大小被调整时。</li>
+</ul>
+<p>当此事件触发时，终端的某些部分可能已被移动或删除。简单的终端程序（不使用 <a href="/module/term/#v:setCursorPos" class="reference"><code>term.setCursorPos</code></a> 的程序）可以忽略此事件，但更复杂的 GUI 程序应该重绘整个屏幕。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+</ol>
+<h2>例子</h2>
+<p>每次调整终端大小时打印一条消息。</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+<a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent">  <span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;term_resize&quot;</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">w</span><span class="symbol">,</span> <span class="ident">h</span> <span class="symbol">=</span> <a title="Get the size of the terminal." href="/module/term/#v:getSize"><span class="ident">term</span><span class="symbol">.</span><span class="symbol">getSize</span></a><span class="symbol">(</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;The term was resized to (&quot;</span> <span class="symbol">..</span> <span class="ident">w</span> <span class="symbol">..</span> <span class="string">&quot;, &quot;</span> <span class="symbol">..</span> <span class="ident">h</span> <span class="symbol">..</span> <span class="string">&quot;)&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

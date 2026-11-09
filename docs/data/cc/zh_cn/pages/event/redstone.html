@@ -1,0 +1,15 @@
+<h1>redstone</h1><p><a href="/event/redstone/" class="reference"><code>redstone</code></a> 事件会在计算机或 <a href="/peripheral/redstone_relay/" class="reference">继电器</a> 上的任何红石输入发生变化时触发。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+</ol>
+<h2>例子</h2>
+<p>当红石输入更改时打印一条消息：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+<a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent">  <span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;redstone&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;A redstone input has changed!&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h2>另请参阅</h2>
+<ul>
+<li><a href="/module/redstone/" class="reference">计算机上的 <code>redstone</code> API</a></li>
+<li><a href="/peripheral/redstone_relay/" class="reference"><code>redstone_relay</code>外设</a></li>
+</ul>

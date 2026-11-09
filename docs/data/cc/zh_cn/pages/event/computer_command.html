@@ -1,0 +1,12 @@
+<h1>计算机命令</h1><p><a href="/event/computer_command/" class="reference"><code>computer_command</code></a> 事件会在为当前命令计算机运行 <a href="/reference/computercraft_command/#queue"><code>/computercraft queue</code> command</a> 时触发。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a><abbr title="Variable number of arguments">…</abbr>：传递给命令的参数。</li>
+</ol>
+<h2>例子</h2>
+<p>打印发送的消息的内容：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span> <span class="symbol">=</span> <span class="symbol">{</span><a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;computer_command&quot;</span><span class="symbol">)</span><span class="symbol">}</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Received message:&quot;</span><span class="symbol">,</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">unpack</span><span class="symbol">(</span><span class="ident">event</span><span class="symbol">,</span> <span class="number">2</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

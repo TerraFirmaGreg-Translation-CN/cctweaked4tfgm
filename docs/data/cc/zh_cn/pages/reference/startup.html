@@ -1,0 +1,12 @@
+<h1>计算机启动</h1><p>当计算机打开时，它会搜索要在启动过程中运行的文件。本页详细介绍了此过程。</p>
+<p>有关创建基本启动文件的信息，请参阅<a href="/guide/startup/" class="reference">在计算机启动时运行程序</a>。</p>
+<ol>
+<li><p><code>/rom/autorun</code>：计算机首先查找<code>/rom/autorun</code>文件夹，然后运行该文件夹中的每个文件。该文件夹默认为空，但可以通过数据包或其他 模组 进行扩展。有关详细信息，请参阅<a href="/reference/data_pack/" class="reference">数据包</a>。</p></li>
+<li><p>如果<code>shell.allow_disk_startup</code><a href="/module/settings/" class="reference">设置</a>为<code>true</code>，则在连接的磁盘驱动器中搜索<code>startup</code>文件、<code>startup.lua</code>文件或<code>startup/</code>目录。包含这些文件的第一个磁盘将用于启动。</p> <ol>
+<li>将运行 <code>startup</code>（<em> 或 </em> <code>startup.lua</code>）文件。</li>
+<li><code>startup/</code> 下的所有程序都将运行。</li>
+</ol> <p>迭代磁盘的顺序未定义，因此建议仅将一个包含启动文件的磁盘连接到计算机。</p></li>
+<li><p>如果磁盘上没有找到启动文件，并且<code>shell.allow_startup</code> <a href="/module/settings/" class="reference">设置</a>为<code>true</code>，则以相同的方式在根目录中搜索启动文件（<code>startup</code> <em>或</em> <code>startup.lua</code>，然后是<code>startup/</code>中的所有文件）。</p></li>
+</ol>
+<p>当列出目录（<code>startup/</code> 或 <code>rom/autorun</code>）中的文件时，直接使用 <a href="/module/fs/#v:list" class="reference"><code>fs.list</code></a> 的结果。这将始终按字典顺序返回文件。这意味着 <code>startup/a.lua</code> 将始终在 <code>startup/b.lua</code> 之前运行。</p>
+<h3>另请参阅</h3><ul><li><strong><a href="/guide/startup/" class="reference"><code>Running programs on computer startup</code></a></strong> </li></ul>

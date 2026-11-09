@@ -1,0 +1,55 @@
+<h1>允许访问本地IP</h1><p>默认情况下，出于安全考虑，ComputerCraft 会阻止对本地 IP 地址的访问。这意味着您无法正常访问计算机上运行的任何 HTTP 服务器。但是，这对于在没有远程服务器的情况下测试程序可能很有用。您可以在 ComputerCraft 配置中取消阻止这些 IP。</p>
+<ul>
+<li><a href="#cc-1.87.0">Minecraft 1.13 及更高版本、CC:T 1.87.0 及更高版本</a></li>
+<li><a href="#cc-1.86.2">Minecraft 1.13 及更高版本、CC:T 1.86.2 及更早版本</a></li>
+<li><a href="#mc-1.12">我的世界 1.12.2 及更早版本</a></li>
+</ul>
+<h2 id="cc-1.87.0"><a class="anchor" aria-hidden="true" href="#cc-1.87.0"></a>Minecraft 1.13 及更高版本、CC:T 1.87.0 及更高版本</h2>
+<p>无论是单人游戏还是多人游戏，配置文件都可以位于世界文件夹内的 <code>serverconfig/computercraft-server.toml</code> 中。寻找看起来像这样的行：</p>
+<pre class="highlight language-toml">#A list of rules which control behaviour of the &quot;http&quot; API for specific domains or IPs.
+#Each rule is an item with a 'host' to match against, and a series of properties. The host may be a domain name (&quot;pastebin.com&quot;),
+#wildcard (&quot;*.pastebin.com&quot;) or CIDR notation (&quot;127.0.0.0/8&quot;). If no rules, the domain is blocked.
+[[http.rules]]
+    host = &quot;$private&quot;
+    action = &quot;deny&quot;</pre><p>在 1.95.0 及更高版本中，这会是一个带有 <code>host = &quot;$private&quot;</code> 的条目。在更早的版本中，这会是一组带有不同 IP 地址的 <code>[[http.rules]]</code>。你需要删除所有带有 <code>[[http.rules]]</code> 的 <code>action = &quot;deny&quot;</code> 条目，然后保存文件并重新启动 Minecraft（服务器）。</p>
+<p>删除后应该是这样的：</p>
+<pre class="highlight language-toml">#A list of rules which control behaviour of the &quot;http&quot; API for specific domains or IPs.
+#Each rule is an item with a 'host' to match against, and a series of properties. The host may be a domain name (&quot;pastebin.com&quot;),
+#wildcard (&quot;*.pastebin.com&quot;) or CIDR notation (&quot;127.0.0.0/8&quot;). If no rules, the domain is blocked.
+[[http.rules]]
+    #The maximum size (in bytes) that a computer can send or receive in one websocket packet.
+    max_websocket_message = 131072
+    host = &quot;*&quot;
+    #The maximum size (in bytes) that a computer can upload in a single request. This includes headers and POST text.
+    max_upload = 4194304
+    action = &quot;allow&quot;
+    #The maximum size (in bytes) that a computer can download in a single request. Note that responses may receive more data than allowed, but this data will not be returned to the client.
+    max_download = 16777216
+    #The period of time (in milliseconds) to wait before a HTTP request times out. Set to 0 for unlimited.
+    timeout = 30000</pre><h2 id="cc-1.86.2"><a class="anchor" aria-hidden="true" href="#cc-1.86.2"></a>Minecraft 1.13 及更高版本、CC:T 1.86.2 及更早版本</h2>
+<p>单人游戏的配置文件位于<code>.minecraft/config/computercraft-common.toml</code>。寻找看起来像这样的行：</p>
+<pre class="highlight language-toml">#A list of wildcards for domains or IP ranges that cannot be accessed through the &quot;http&quot; API on Computers.
+#If this is empty then all whitelisted domains will be accessible. Example: &quot;*.github.com&quot; will block access to all subdomains of github.com.
+#You can use domain names (&quot;pastebin.com&quot;), wildcards (&quot;*.pastebin.com&quot;) or CIDR notation (&quot;127.0.0.0/8&quot;).
+blacklist = [&quot;127.0.0.0/8&quot;, &quot;10.0.0.0/8&quot;, &quot;172.16.0.0/12&quot;, &quot;192.168.0.0/16&quot;, &quot;fd00::/8&quot;]</pre><p>删除数组内的所有内容，将最后一行保留为 <code>blacklist = []</code>。然后保存文件并重新启动 Minecraft。</p>
+<p>删除后应该是这样的：</p>
+<pre class="highlight language-toml">#A list of wildcards for domains or IP ranges that cannot be accessed through the &quot;http&quot; API on Computers.
+#If this is empty then all whitelisted domains will be accessible. Example: &quot;*.github.com&quot; will block access to all subdomains of github.com.
+#You can use domain names (&quot;pastebin.com&quot;), wildcards (&quot;*.pastebin.com&quot;) or CIDR notation (&quot;127.0.0.0/8&quot;).
+blacklist = []</pre><h2 id="mc-1.12"><a class="anchor" aria-hidden="true" href="#mc-1.12"></a>我的世界 1.12.2 及更早版本</h2>
+<p>在单人游戏中，配置文件位于 <code>.minecraft\config\ComputerCraft.cfg</code>。在多人游戏中，配置文件位于 <code>&lt;server folder>\config\ComputerCraft.cfg</code>。寻找看起来像这样的行：</p>
+<pre class="highlight language-ini"># A list of wildcards for domains or IP ranges that cannot be accessed through the &quot;http&quot; API on Computers.
+# If this is empty then all explicitly allowed domains will be accessible. Example: &quot;*.github.com&quot; will block access to all subdomains of github.com.
+# You can use domain names (&quot;pastebin.com&quot;), wildcards (&quot;*.pastebin.com&quot;) or CIDR notation (&quot;127.0.0.0/8&quot;).
+S:blocked_domains &lt;
+    127.0.0.0/8
+    10.0.0.0/8
+    172.16.0.0/12
+    192.168.0.0/16
+    fd00::/8
+ ></pre><p>删除 <code>&lt;></code> 之间的所有内容，将最后一行保留为 <code>S:blocked_domains = &lt;></code>。然后保存文件并重新启动 Minecraft（服务器）。</p>
+<p>删除后应该是这样的：</p>
+<pre class="highlight language-ini"># A list of wildcards for domains or IP ranges that cannot be accessed through the &quot;http&quot; API on Computers.
+# If this is empty then all explicitly allowed domains will be accessible. Example: &quot;*.github.com&quot; will block access to all subdomains of github.com.
+# You can use domain names (&quot;pastebin.com&quot;), wildcards (&quot;*.pastebin.com&quot;) or CIDR notation (&quot;127.0.0.0/8&quot;).
+S:blocked_domains &lt;></pre>

@@ -20,6 +20,7 @@ are MIT licensed, © TerraFirmaGreg Translation CN.
 | `emi/icons/*`, `emi/items-lang/*`, `emi/lang/*`, `emi/tags/*` | same EMI bundle, pruned to the CC/AP recipe set | item textures and names remain the property of their mod authors |
 | `emi-map.json` | mapping from `recipes.json` rows to EMI layout ids | Modpack-Modern repository licence |
 | `cc/pages.json`, `cc/pages/**` | rendered page bodies from <https://tweaked.cc/mc-1.20.x/> | MPL-2.0, © CC: Tweaked contributors |
+| `cc/zh_cn/pages/**`, `cc/zh_cn/pages.json` | Simplified Chinese translations of the mirrored pages | derivative of the MPL-2.0 text above; machine-assisted |
 | `public/images/**` | item icons and screenshots referenced by those pages | item icons remain Mojang/mod authors' property |
 | `cc-index.json` | [CC: Tweaked](https://github.com/cc-tweaked/CC-Tweaked) generated site index | MPL-2.0 |
 

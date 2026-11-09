@@ -1,0 +1,12 @@
+<h1>设置更改</h1><p><a href="/event/setting_changed/" class="reference"><code>setting_changed</code></a> 事件会在使用 <a href="/module/settings/" class="reference"><code>settings</code></a> API 修改设置时触发。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：已更改的设置的名称。</li>
+<li><span class="reference reference-unresolved"><code>any</code></span>：设置的值。</li>
+<li><span class="reference reference-unresolved"><code>any</code></span>：设置的先前值。</li>
+</ol>
+<h2>例子</h2>
+<p><a href="/module/settings/#v:set" class="reference">更新设置</a>，然后等待相应的<code>setting_changed</code>事件。</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><a title="Set the value of a setting." href="/module/settings/#v:set"><span class="ident">settings</span><span class="symbol">.</span><span class="symbol">set</span></a><span class="symbol">(</span><span class="string">&quot;my.setting&quot;</span><span class="symbol">,</span> <span class="number">123</span><span class="symbol">)</span>
+<span class="ident">print</span><span class="symbol">(</span><a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;setting_changed&quot;</span><span class="symbol">)</span><span class="symbol">)</span><span class="symbol"></span></pre></div><h3>另请参阅</h3><ul><li><strong><a href="/module/settings/" class="reference"><code>settings</code></a></strong> </li></ul>

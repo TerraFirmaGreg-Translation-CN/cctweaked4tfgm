@@ -1,0 +1,14 @@
+<h1>监听触摸</h1><p><a href="/event/monitor_touch/" class="reference"><code>monitor_touch</code></a> 事件会在相邻或联网的 <a href="/peripheral/monitor/" class="reference">高级显示器</a> 被右键点击时触发。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：所触摸的显示器的侧面或网络 ID。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：触摸的 X 坐标，以字符为单位。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：触摸的 Y 坐标，以字符为单位。</li>
+</ol>
+<h2>例子</h2>
+<p>当触摸监视器时打印一条消息：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+  <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">side</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;monitor_touch&quot;</span><span class="symbol">)</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;The monitor on side &quot;</span> <span class="symbol">..</span> <span class="ident">side</span> <span class="symbol">..</span> <span class="string">&quot; was touched at (&quot;</span> <span class="symbol">..</span> <span class="ident">x</span> <span class="symbol">..</span> <span class="string">&quot;, &quot;</span> <span class="symbol">..</span> <span class="ident">y</span> <span class="symbol">..</span> <span class="string">&quot;)&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

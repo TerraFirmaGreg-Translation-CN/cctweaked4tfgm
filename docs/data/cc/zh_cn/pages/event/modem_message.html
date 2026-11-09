@@ -1,0 +1,21 @@
+<h1>调制解调器消息</h1><p><a href="/event/modem_message/" class="reference"><code>modem_message</code></a> 事件会在任意 <a href="/peripheral/modem/" class="reference"><code>modem</code></a> 的开放频道上收到消息时触发。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：接收消息的调制解调器一侧。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：发送消息的通道。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：发送方设置的回复通道。</li>
+<li><span class="reference reference-unresolved"><code>any</code></span>：发送者发送的消息。</li>
+<li><span class="type"><span class="reference reference-unresolved"><code>number</code></span>|<span class="reference reference-unresolved"><code>nil</code></span></span>：发送者和接收者之间的距离（以块为单位），如果消息在维度之间发送，则为 <span class="reference reference-unresolved"><code>nil</code></span>。</li>
+</ol>
+<h2>例子</h2>
+<p>包装 <a href="/peripheral/modem/" class="reference"><code>modem</code></a> 外设，打开通道 0 进行监听，并打印所有收到的消息。</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">modem</span> <span class="symbol">=</span> <a title="Find all peripherals of a specific type, and return the wrapped peripherals." href="/module/peripheral/#v:find"><span class="ident">peripheral</span><span class="symbol">.</span><span class="symbol">find</span></a><span class="symbol">(</span><span class="string">&quot;modem&quot;</span><span class="symbol">)</span> <span class="operator-kw">or</span> <span class="ident">error</span><span class="symbol">(</span><span class="string">&quot;No modem attached&quot;</span><span class="symbol">,</span> <span class="number">0</span><span class="symbol">)</span>
+<span class="ident">modem</span><span class="symbol">.</span><span class="symbol">open</span><span class="symbol">(</span><span class="number">0</span><span class="symbol">)</span>
+
+<span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+    <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">side</span><span class="symbol">,</span> <span class="ident">channel</span><span class="symbol">,</span> <span class="ident">replyChannel</span><span class="symbol">,</span> <span class="ident">message</span><span class="symbol">,</span> <span class="ident">distance</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;modem_message&quot;</span><span class="symbol">)</span>
+    <span class="ident">print</span><span class="symbol">(</span><span class="symbol">(</span><span class="string">&quot;Message received on side %s on channel %d (reply to %d) from %f blocks away with message %s&quot;</span><span class="symbol">)</span><span class="symbol">:</span><span class="symbol">format</span><span class="symbol">(</span>
+        <span class="ident">side</span><span class="symbol">,</span> <span class="ident">channel</span><span class="symbol">,</span> <span class="ident">replyChannel</span><span class="symbol">,</span> <span class="ident">distance</span><span class="symbol">,</span> <span class="ident">tostring</span><span class="symbol">(</span><span class="ident">message</span><span class="symbol">)</span>
+    <span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div>

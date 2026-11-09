@@ -1,0 +1,31 @@
+<h1>数据包</h1><p>CC：Tweaked 允许通过<a href="https://minecraft.wiki/w/Data_pack" title="Data pack on the Minecraft wiki">数据包</a>自定义和扩展其许多功能，例如向 ROM 添加新程序，或提供新的海龟工具。此页面用作 CC:T 数据包功能的参考。</p>
+<div class="admonition admonition-note"><h5 class="admonition-heading"><span aria-hidden="true">🛈</span> 数据包兼容性</h5><p></p>
+<p>与本文档的其他部分不同，数据包的格式在 Minecraft 版本之间发生变化。确保您使用适合您的 Minecraft 版本的正确文档。</p>
+<ul>
+<li><a href="/reference/data_pack/">我的世界 1.20.1</a></li>
+<li><a href="https://tweaked.cc/mc-1.21.x/reference/data_pack.html">我的世界 1.21.1</a></li>
+<li><a href="https://tweaked.cc/mc-26.3/reference/data_pack.html">我的世界 26.3</a></li>
+</ul>
+</div><p>除了本文档之外，我们还提供<a href="https://datapacks.madefor.cc/">在线数据包构建器</a>和<a href="https://github.com/cc-tweaked/datapack-example" title="An example data pack for CC: Tweaked">示例/模板数据包</a>。</p>
+<h2>CraftOS ROM</h2>
+<p>数据包可用于添加或覆盖 CraftOS ROM 中的文件，允许您添加新程序或模块，或调整现有程序或模块的行为。文件应放置在<code>data/computercraft/lua/rom</code>中。例如，包含<code>data/computercraft/lua/rom/programs/example.lua</code>的数据包将添加一个新程序<code>example</code>。</p>
+<div class="admonition admonition-warning"><h5 class="admonition-heading"><span aria-hidden="true">⚠</span> 文件命名</h5><p></p>
+<p>数据包<a href="https://minecraft.wiki/w/Tutorials/Creating_a_data_pack#Legal_characters">对文件名</a>施加了一些限制。因此，所有文件和目录名都必须小写。</p>
+</div><ul>
+<li><code>rom/autorun</code> 下的文件将在计算机启动时运行。</li>
+<li><code>rom/modules/main</code>下的文件可以通过<code>require</code>加载。</li>
+<li>位于 <code>rom/apis/</code> 中的文件将在启动时通过 <code>os.loadAPI</code> 加载。同样：<ul>
+<li>如果启用 HTTP API，将加载 <code>rom/apis/http</code> 下的文件。</li>
+<li><code>rom/apis/turtle</code> 下的文件将加载到所有海龟上。</li>
+<li><code>rom/apis/pocket</code> 下的文件将加载到所有袖珍计算机上。</li>
+<li><code>rom/apis/command</code> 下的文件将加载到所有命令计算机上。</li>
+</ul></li>
+</ul>
+<h2>标签</h2>
+<p>CC:T 提供了多个 <a href="https://tweaked.cc/javadoc/dan200/computercraft/api/ComputerCraftTags.Blocks.html" title="ComputerCraftTags.Blocks javadoc">block</a> 和 <a href="https://tweaked.cc/javadoc/dan200/computercraft/api/ComputerCraftTags.Items.html" title="ComputerCraftTags.Items javadoc">item</a> 标签。虽然大多数标签仅用于对相关块/项目进行分组（例如 <code>computercraft:turtles</code> 是所有海龟的列表），但有几个标签可以通过数据包进行扩展以调整功能：</p>
+<ul>
+<li><code>computercraft:turtle_can_place</code> 物品标签：此标签列出了海龟可以与 <a href="/module/turtle/#v:place" class="reference"><code>turtle.place</code></a> 一起使用的物品。默认情况下，其中包含玻璃瓶和船，</li>
+<li><code>computercraft:turtle_can_use</code> 块标签：此标签列出了海龟可以与 <a href="/module/turtle/#v:place" class="reference"><code>turtle.place</code></a> 交互的块。默认情况下，其中包含蜂箱、大锅和堆肥器。 <a href="https://datapacks.madefor.cc/">数据包构建器</a>具有将控制杆/按钮和调制解调器添加到此列表的选项，允许海龟切换它们。</li>
+<li><code>computercraft:always_breakable</code> 方块标签：所有海龟工具都能够破坏即时破坏方块，例如树苗。该标签指定可以被所有工具破坏的附加块。默认情况下，这包括树叶、竹子和竹树苗。</li>
+<li><code>computercraft:turtle_shovel_harvestable</code>、<code>computercraft:turtle_sword_harvestable</code>、<code>computercraft:turtle_hoe_harvestable</code>块标签：这些标签分别指定哪些块可以被铲子、剑和锄头打破。</li>
+</ul>

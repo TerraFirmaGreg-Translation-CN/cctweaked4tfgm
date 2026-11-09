@@ -13,6 +13,8 @@
     "data:api": "node scripts/build-cc-index.mjs",
     "data:cc": "node scripts/fetch-cc-docs.mjs",
     "data:emi": "node scripts/fetch-emi-bundle.mjs",
+    "cc:extract": "node scripts/cc-translate.mjs extract",
+    "cc:apply": "node scripts/cc-translate.mjs apply",
     "verify-data": "node scripts/verify-data.mjs",
     "validate:emi": "node scripts/verify-emi.mjs",
     "dev": "node scripts/build-site.mjs --serve",
@@ -24,5 +26,8 @@
     "highlight.js": "^11.11.1",
     "marked": "^16.4.2",
     "sharp": "^0.34.5"
+  },
+  "dependencies": {
+    "node-html-parser": "^7.1.0"
   }
 }

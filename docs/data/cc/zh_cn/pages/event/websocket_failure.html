@@ -1,0 +1,17 @@
+<h1>websocket_失败</h1><p><a href="/event/websocket_failure/" class="reference"><code>websocket_failure</code></a> 事件在 WebSocket 连接请求失败时触发。</p>
+<p>该事件通常在<a href="/module/http/#v:websocket" class="reference"><code>http.websocket</code></a>内部处理，但在使用<a href="/module/http/#v:websocketAsync" class="reference"><code>http.websocketAsync</code></a>时仍然可以看到。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：请求的站点的 URL。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：描述失败的错误。</li>
+</ol>
+<h2>例子</h2>
+<p>打印无法联系网站的错误：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">myURL</span> <span class="symbol">=</span> <span class="string">&quot;wss://example.tweaked.cc/not-a-websocket&quot;</span>
+<a title="Asynchronously open a websocket." href="/module/http/#v:websocketAsync"><span class="ident">http</span><span class="symbol">.</span><span class="symbol">websocketAsync</span></a><span class="symbol">(</span><span class="ident">myURL</span><span class="symbol">)</span>
+<span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">url</span><span class="symbol">,</span> <span class="ident">err</span>
+<span class="keyword">repeat</span>
+    <span class="ident">event</span><span class="symbol">,</span> <span class="ident">url</span><span class="symbol">,</span> <span class="ident">err</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;websocket_failure&quot;</span><span class="symbol">)</span>
+<span class="keyword">until</span> <span class="ident">url</span> <span class="symbol">==</span> <span class="ident">myURL</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;The URL &quot;</span> <span class="symbol">..</span> <span class="ident">url</span> <span class="symbol">..</span> <span class="string">&quot; could not be reached: &quot;</span> <span class="symbol">..</span> <span class="ident">err</span><span class="symbol">)</span><span class="symbol"></span></pre></div><h3>另请参阅</h3><ul><li><strong><a href="/module/http/#v:websocketAsync" class="reference"><code>http.websocketAsync</code></a></strong> 发送 HTTP 请求。</li></ul>

@@ -1,0 +1,31 @@
+<h1>设置 GPS</h1><p><a href="/module/gps/" class="reference"><code>gps</code></a> API 允许计算机使用 <a href="/peripheral/modem/" class="reference">无线调制解调器</a>找到其当前位置。其工作原理是与已经知道其位置的其他计算机（称为 <em>GPS 主机</em>）进行通信，找到到这些计算机的距离（使用 <a href="/event/modem_message/" class="reference"><code>modem_message</code></a>），并使用该距离从它们的位置推导出其位置（通过称为 <a href="https://en.wikipedia.org/wiki/Trilateration">三边测量</a> 的过程。</p>
+<p>为了实现这一点，我们需要以特定模式设置 GPS 主机，每个主机在至少一个轴上的位置不同。本指南将引导您完成设置 GPS 主机 <em> 星座 </em> 并使用它们确定计算机位置的过程。</p>
+<h2>先决条件</h2>
+<p>您将需要：</p>
+<ul>
+<li>四台计算机。</li>
+<li>四个安德调制解调器。可以使用普通的无线调制解调器，但 GPS 星座的范围将受到严重限制。</li>
+</ul>
+<p>此外，您还需要另一台计算机和无线调制解调器，以测试 GPS 是否正常工作！</p>
+<h2>选择一个区域</h2>
+<p>首先，选择一个地方来构建 GPS 星座。这应该是一个 10x10x10 的立方体，但如果需要，您可以将其缩小。星座越大，在长距离上就越准确，但即使是 5x5x5 的星座也应该服务于数千个区块半径。</p>
+<p>必须加载每台计算机才能让其他计算机使用 GPS，因此建议在始终加载的单个块中构建 GPS 星座。您可能想要选择基地中已加载区块的部分或 <a href="https://minecraft.wiki/w/Spawn_chunk" title="Spawn Chunk — Minecraft Wiki"> 生成区块 </a> 中的区域。如果需要，您可以使用 <kbd>F3+G</kbd> 查看块边界。</p>
+<p>这是我们将在其中构建星座的示例区域：</p>
+<img alt="An empty 10x10x10 area, with the axis marked with smooth stone." src="/gps-constellation-area-8f979d93.png" class="big-image"><h2>构建星座</h2>
+<ol>
+<li>将您的第一台计算机放在您所在区域的一个角落，并在上面放置一个调制解调器。</li>
+<li>前往您所在区域的两个相邻角落，放置另外两台计算机，并在每台计算机上放置一个调制解调器。</li>
+<li>将第一台计算机上方的支柱立到立方体的顶部，然后放置最后一台计算机。在计算机上放置调制解调器。</li>
+</ol>
+<p>你现在应该有这样的东西：</p>
+<img alt="The same area as before, but with a computer in each corner." src="/gps-constellation-built-171b5f8f.png" class="big-image"><h2>配置星座</h2>
+<p>现在星座的结构已经构建完成，我们需要配置其中的每个主机。</p>
+<ol>
+<li><p>按 <kbd>F3</kbd> 打开 Minecraft 的调试屏幕。</p></li>
+<li><p>回到第一台计算机并查看它。在屏幕右侧大约中间位置，您应该看到一个标记为 <code>Targeted Block</code> 的条目，这些数字对应于您正在查看的块的位置。写下这些数字。</p></li>
+<li><p>打开计算机的UI，然后运行<code>edit startup.lua</code>.</p></li>
+<li><p>在文件中键入以下代码，将 <code>x</code>、<code>y</code> 和 <code>z</code> 替换为您刚刚记下的坐标。</p> <div class="lua-example"><pre class="highlight" data-lua-kind="expr"><a title="Run a program with the supplied arguments." href="/module/shell/#v:run"><span class="ident">shell</span><span class="symbol">.</span><span class="symbol">run</span></a><span class="symbol">(</span><span class="string">&quot;gps&quot;</span><span class="symbol">,</span> <span class="string">&quot;host&quot;</span><span class="symbol">,</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span><span class="symbol">,</span> <span class="ident">z</span><span class="symbol">)</span><span class="symbol"></span></pre></div></li>
+<li><p>保存文件，然后重新启动计算机（按住<kbd>Ctrl+R</kbd>或运行<code>reboot</code>程序）以运行启动程序。</p></li>
+</ol>
+<p>对其他三台计算机重复此过程。</p>
+<p>恭喜你，你的星座现已完全建立！您可以通过在附近放置另一台计算机，在其上放置无线调制解调器并运行 <code>gps locate</code> 程序（或调用 <a href="/module/gps/#v:locate" class="reference"><code>gps.locate</code></a> 函数来测试它。</p>

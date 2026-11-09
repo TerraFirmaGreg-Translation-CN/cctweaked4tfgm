@@ -1,0 +1,21 @@
+<h1>任务完成</h1><p>异步任务完成时会触发 <a href="/event/task_complete/" class="reference"><code>task_complete</code></a> 事件。这通常在将任务排队的函数调用内部处理；然而，诸如 <a href="/module/commands/#v:execAsync" class="reference"><code>commands.execAsync</code></a> 之类的函数会立即返回，以便用户可以等待完成。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：已完成任务的 ID。</li>
+<li><span class="reference reference-unresolved"><code>boolean</code></span>：命令是否成功。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：如果命令失败，则显示一条解释失败的错误消息。 （如果命令成功，则不会出现该信息。）</li>
+<li><abbr title="Variable number of arguments">…</abbr>：从命令返回的任何参数。</li>
+</ol>
+<h2>例子</h2>
+<p>打印异步命令的结果：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">taskID</span> <span class="symbol">=</span> <a title="Asynchronously execute a command." href="/module/commands/#v:execAsync"><span class="ident">commands</span><span class="symbol">.</span><span class="symbol">execAsync</span></a><span class="symbol">(</span><span class="string">&quot;say Hello&quot;</span><span class="symbol">)</span>
+<span class="keyword">local</span> <span class="ident">event</span>
+<span class="keyword">repeat</span>
+    <span class="ident">event</span> <span class="symbol">=</span> <span class="symbol">{</span><a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;task_complete&quot;</span><span class="symbol">)</span><span class="symbol">}</span>
+<span class="keyword">until</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">2</span><span class="symbol">]</span> <span class="symbol">==</span> <span class="ident">taskID</span>
+<span class="keyword">if</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">3</span><span class="symbol">]</span> <span class="symbol">==</span> <span class="literal-kw">true</span> <span class="keyword">then</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Task &quot;</span> <span class="symbol">..</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">2</span><span class="symbol">]</span> <span class="symbol">..</span> <span class="string">&quot; succeeded:&quot;</span><span class="symbol">,</span> <span class="ident">table</span><span class="symbol">.</span><span class="symbol">unpack</span><span class="symbol">(</span><span class="ident">event</span><span class="symbol">,</span> <span class="number">4</span><span class="symbol">)</span><span class="symbol">)</span>
+<span class="keyword">else</span>
+  <span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Task &quot;</span> <span class="symbol">..</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">2</span><span class="symbol">]</span> <span class="symbol">..</span> <span class="string">&quot; failed: &quot;</span> <span class="symbol">..</span> <span class="ident">event</span><span class="symbol">[</span><span class="number">4</span><span class="symbol">]</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>另请参阅</h3><ul><li><strong><a href="/module/commands/#v:execAsync" class="reference"><code>commands.execAsync</code></a></strong> 运行触发 task_complete 事件的命令。</li></ul>

@@ -1,0 +1,13 @@
+<h1>字符</h1><p>当在键盘上输入字符时，会触发 <a href="/event/char/" class="reference"><code>char</code></a> 事件。</p>
+<p><a href="/event/char/" class="reference"><code>char</code></a> 事件与按键不同。有时，多次按键可能会导致输入一个字符（例如，在某些欧洲键盘上）。同样，有些键（例如<kbd>Ctrl</kbd>）没有任何对应的字符。如果您想监听按键本身，则应使用 <a href="/event/key/" class="reference"><code>key</code></a>。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：表示按下的字符的字符串。</li>
+</ol>
+<h2>例子</h2>
+<p>打印用户按下的每个字符：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">while</span> <span class="literal-kw">true</span> <span class="keyword">do</span>
+    <span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">character</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;char&quot;</span><span class="symbol">)</span>
+    <span class="ident">print</span><span class="symbol">(</span><span class="ident">character</span> <span class="symbol">..</span> <span class="string">&quot; was pressed.&quot;</span><span class="symbol">)</span>
+<span class="keyword">end</span><span class="symbol"></span></pre></div><h3>另请参阅</h3><ul><li><strong><a href="/event/key/" class="reference"><code>key</code></a></strong> 监听任意按键。</li></ul>

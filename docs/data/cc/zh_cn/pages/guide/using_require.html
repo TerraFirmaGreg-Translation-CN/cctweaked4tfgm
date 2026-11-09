@@ -1,0 +1,41 @@
+<h1>通过 require 重用代码</h1><p>库是有用函数和其他定义的集合，它们单独存储到主程序中。您可能想要创建一个库，因为您有一些在多个程序中使用的函数，或者只是将您的程序拆分为多个更模块化的文件。</p>
+<p>假设我们想要创建一个小型库，以便更轻松地使用 <a href="/module/term/" class="reference"> 终端 </a>。我们将提供两个函数：<code>reset</code>，它清除终端并将光标设置为 (1, 1)，以及 <code>write_center</code>，它在屏幕中间打印一些文本。</p>
+<p>首先创建一个名为 <code>more_term.lua</code> 的文件：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-snippet="more_term"><span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">reset</span><span class="symbol">(</span><span class="symbol">)</span>
+<a title="Clears the terminal, filling it with the current background colour." href="/module/term/#v:clear">  <span class="ident">term</span><span class="symbol">.</span><span class="symbol">clear</span></a><span class="symbol">(</span><span class="symbol">)</span>
+<a title="Set the position of the cursor." href="/module/term/#v:setCursorPos">  <span class="ident">term</span><span class="symbol">.</span><span class="symbol">setCursorPos</span></a><span class="symbol">(</span><span class="number">1</span><span class="symbol">,</span> <span class="number">1</span><span class="symbol">)</span>
+<span class="keyword">end</span>
+
+<span class="keyword">local</span> <span class="keyword">function</span> <span class="ident">write_center</span><span class="symbol">(</span><span class="ident">text</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">x</span><span class="symbol">,</span> <span class="ident">y</span> <span class="symbol">=</span> <a title="Get the position of the cursor." href="/module/term/#v:getCursorPos"><span class="ident">term</span><span class="symbol">.</span><span class="symbol">getCursorPos</span></a><span class="symbol">(</span><span class="symbol">)</span>
+  <span class="keyword">local</span> <span class="ident">width</span><span class="symbol">,</span> <span class="ident">height</span> <span class="symbol">=</span> <a title="Get the size of the terminal." href="/module/term/#v:getSize"><span class="ident">term</span><span class="symbol">.</span><span class="symbol">getSize</span></a><span class="symbol">(</span><span class="symbol">)</span>
+<a title="Set the position of the cursor." href="/module/term/#v:setCursorPos">  <span class="ident">term</span><span class="symbol">.</span><span class="symbol">setCursorPos</span></a><span class="symbol">(</span><span class="ident">math</span><span class="symbol">.</span><span class="symbol">floor</span><span class="symbol">(</span><span class="symbol">(</span><span class="ident">width</span> <span class="symbol">-</span> <span class="symbol">#</span><span class="ident">text</span><span class="symbol">)</span> <span class="symbol">/</span> <span class="number">2</span><span class="symbol">)</span> <span class="symbol">+</span> <span class="number">1</span><span class="symbol">,</span> <span class="ident">y</span><span class="symbol">)</span>
+<a title="Write text at the current cursor position, moving the cursor to the end of the text." href="/module/term/#v:write">  <span class="ident">term</span><span class="symbol">.</span><span class="symbol">write</span></a><span class="symbol">(</span><span class="ident">text</span><span class="symbol">)</span>
+<span class="keyword">end</span>
+
+<span class="keyword">return</span> <span class="symbol">{</span> <span class="ident">reset</span> <span class="symbol">=</span> <span class="ident">reset</span><span class="symbol">,</span> <span class="ident">write_center</span> <span class="symbol">=</span> <span class="ident">write_center</span> <span class="symbol">}</span><span class="symbol"></span></pre></div><p>现在，这是怎么回事？我们按照预期定义了两个函数，然后在底部返回一个包含这两个函数的表。当我们需要这个库时，就会返回这个表。这样，我们就可以调用原始函数了。现在创建一个新文件，其中包含以下内容：</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt" data-mount="more_term:more_term.lua"><span class="keyword">local</span> <span class="ident">more_term</span> <span class="symbol">=</span> <span class="ident">require</span><span class="symbol">(</span><span class="string">&quot;more_term&quot;</span><span class="symbol">)</span>
+<span class="ident">more_term</span><span class="symbol">.</span><span class="symbol">reset</span><span class="symbol">(</span><span class="symbol">)</span>
+<span class="ident">more_term</span><span class="symbol">.</span><span class="symbol">write_center</span><span class="symbol">(</span><span class="string">&quot;Hello, world!&quot;</span><span class="symbol">)</span><span class="symbol"></span></pre></div><p>运行时，这将清除屏幕并在第一行中间打印一些文本。</p>
+<h2>要求深入</h2>
+<p>虽然上一节很好地介绍了 <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> 的操作方式，但对于更高级的用法，还有一些剩余的要点值得一提。</p>
+<h3>图书馆可以返回任何东西</h3>
+<p>在上面的示例中，我们返回一个包含我们要公开的函数的表。然而，值得指出的是，您可以从库中返回“任何内容”——表、函数甚至只是一个字符串！ <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> 对它们一视同仁，只返回你的库提供的任何内容。</p>
+<h3>模块解析和包路径</h3>
+<p>在上面的示例中，我们在文件中定义了库，并 <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> 从中读取。虽然这是您大多数时间都会做的事情，但可以使 <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> 在其他地方查找您的库，例如从网站下载或从内存中的库存储加载。</p>
+<p>因此，<em>模块名</em>（传给 <a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a>）并不对应文件路径。一个常见错误是用 <code>require(&quot;folder/library&quot;)</code> 甚至 <code>require(&quot;folder/library.lua&quot;)</code> 从子目录加载代码，这两者都不会完全按预期工作。</p>
+<p>从文件加载库（也称为 <em>模块</em>）时，<a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> 沿着 <a href="https://www.lua.org/manual/5.1/manual.html#pdf-package.path" class="reference"><em>模块路径</em></a>搜索。默认情况下，这看起来像：</p>
+<ul>
+<li><code>?.lua</code></li>
+<li><code>?/init.lua</code></li>
+<li><code>/rom/modules/main/?.lua</code></li>
+<li>ETC...</li>
+</ul>
+<p>调用 <code>require(&quot;my_library&quot;)</code> 时，<a href="https://www.lua.org/manual/5.1/manual.html#pdf-require" class="reference"><code>require</code></a> 会把路径中每个元素的 <code>?</code> 替换为你的模块名，并检查文件是否存在。这里我们会查找 <code>my_library.lua</code>、<code>my_library/init.lua</code>、<code>/rom/modules/main/my_library.lua</code> 等。注意这<em>相对于当前程序</em>工作，所以如果你的程序实际名为 <code>folder/program</code>，我们就会查找 <code>folder/my_library.lua</code>，等等……</p>
+<p>另一个需要注意的是从子目录加载库。例如，假设我们有一个文件 <code>my/fancy/library.lua</code>。可以使用 <code>require(&quot;my.fancy.library&quot;)</code> 加载它 - 在我们开始查找库之前，将“.”替换为“/”。</p>
+<h2>外部链接</h2>
+<p>有几个外部资源可以更详细地进入 require ：</p>
+<ul>
+<li>Lua wiki 上的 <a href="http://lua-users.org/wiki/ModulesTutorial">Lua 模块教程</a>。</li>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#pdf-require">关于<code>require</code></a>的Lua手册部分。</li>
+</ul>

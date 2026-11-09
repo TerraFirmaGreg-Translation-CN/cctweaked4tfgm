@@ -1,0 +1,14 @@
+<h1>警报</h1><p><a href="/event/alarm/" class="reference"><code>alarm</code></a> 事件会在用 <a href="/module/os/#v:setAlarm" class="reference"><code>os.setAlarm</code></a> 启动的闹钟完成时触发。</p>
+<h2>返回值</h2>
+<ol>
+<li><a href="https://www.lua.org/manual/5.1/manual.html#5.4" class="reference"><code>string</code></a>：事件名称。</li>
+<li><span class="reference reference-unresolved"><code>number</code></span>：已完成的闹钟 ID。</li>
+</ol>
+<h2>例子</h2>
+<p>启动计时器，然后等待其完成。</p>
+<div class="lua-example"><pre class="highlight" data-lua-kind="stmt"><span class="keyword">local</span> <span class="ident">alarm_id</span> <span class="symbol">=</span> <a title="Sets an alarm that will fire at the specified in-game time." href="/module/os/#v:setAlarm"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">setAlarm</span></a><span class="symbol">(</span><a title="Returns the current time depending on the string passed in." href="/module/os/#v:time"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">time</span></a><span class="symbol">(</span><span class="symbol">)</span> <span class="symbol">+</span> <span class="number">0.05</span><span class="symbol">)</span>
+<span class="keyword">local</span> <span class="ident">event</span><span class="symbol">,</span> <span class="ident">id</span>
+<span class="keyword">repeat</span>
+    <span class="ident">event</span><span class="symbol">,</span> <span class="ident">id</span> <span class="symbol">=</span> <a title="Pause execution of the current thread and waits for any events matching filter." href="/module/os/#v:pullEvent"><span class="ident">os</span><span class="symbol">.</span><span class="symbol">pullEvent</span></a><span class="symbol">(</span><span class="string">&quot;alarm&quot;</span><span class="symbol">)</span>
+<span class="keyword">until</span> <span class="ident">id</span> <span class="symbol">==</span> <span class="ident">alarm_id</span>
+<span class="ident">print</span><span class="symbol">(</span><span class="string">&quot;Alarm with ID &quot;</span> <span class="symbol">..</span> <span class="ident">id</span> <span class="symbol">..</span> <span class="string">&quot; was fired&quot;</span><span class="symbol">)</span><span class="symbol"></span></pre></div><h3>另请参阅</h3><ul><li><strong><a href="/module/os/#v:setAlarm" class="reference"><code>os.setAlarm</code></a></strong> 启动警报。</li></ul>

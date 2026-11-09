@@ -15,7 +15,7 @@ This is not a fork of CC: Tweaked. It contains no Minecraft code, no mixins and 
 
 ## What it covers
 
-- **CC: Tweaked documentation** — all 95 upstream pages (Globals, modules, peripherals, generic peripherals, events, guides, reference) mirrored for the pinned version, with local search and the same navigation as tweaked.cc.
+- **CC: Tweaked documentation** — all 95 upstream pages (Globals, modules, peripherals, generic peripherals, events, guides, reference) mirrored for the pinned version, in English and Simplified Chinese, with local search and the same navigation as tweaked.cc.
 - **Recipes** — every CC:T recipe is deleted and rebuilt on GregTech machines (MV → LuV). Searchable, and rendered in place from a CC/AP-only EMI bundle extracted from the release.
 - **Turtle upgrades** — 20 GregTech materials × tool types = 73 `computercraft:tool` upgrades, derived from the shipped item registry.
 - **Quest mapping** — the 55-quest ComputerCraft chapter with its dependency graph.
@@ -46,6 +46,10 @@ node scripts/fetch-cc-docs.mjs --version 1.121.0
 
 # extract the CC/AP EMI layouts and icons for the same release
 node scripts/fetch-emi-bundle.mjs
+
+# translations are committed; after changing the mirrored pages, re-extract
+# units and apply the translation memory before building
+node scripts/cc-translate.mjs extract
 
 # gate + build (output: dist/)
 npm run build && npm run preview
