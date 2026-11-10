@@ -284,20 +284,6 @@ function renderNav(page) {
   const prefix = LOCALES[locale].prefix;
   const homepage = `/${prefix}`.replace(/\/+$/, '') || '/';
   const groups = groupPages(locale);
-  const toc = page.cc
-    ? page.toc || []
-    : page.toc?.filter((heading) => heading.level >= 2 && heading.level <= 3) || [];
-
-  const tocBlock = toc.length
-    ? `<h2 tabindex="0">${copy.contents}</h2><ul>${toc
-        .map(
-          (heading) =>
-            `<li><a href="#${escapeAttr(heading.id)}" class="sidebar-link${
-              heading.level === 3 ? ' sidebar-link--sub' : ''
-            }">${escapeHtml(heading.title)}</a></li>`,
-        )
-        .join('')}</ul>`
-    : '';
 
   const siteGroups = groups
     .map((group) => {
@@ -354,7 +340,6 @@ function renderNav(page) {
   <h1><a href="${BASE}${homepage.replace(/^\//, '')}"><img src="${BASE}${ccLogo.replace(/^\//, '')}" alt="CC: Tweaked for TerraFirmaGreg" /></a></h1>
   <div class="nav-lang"><a href="${switchHref}" data-lang="${LOCALES[locale].other === 'zh_cn' ? 'zh' : 'en'}">${escapeHtml(other.label)}</a></div>
   <div class="nav-links">
-    ${tocBlock}
     ${page.url.startsWith('/tfgm') ? `${siteGroups}${renderCcGroups(page)}` : `${renderCcGroups(page)}${siteGroups}`}
     <h2 tabindex="0">${copy.upstream}</h2>
     <ul>${upstream}</ul>
@@ -388,6 +373,25 @@ function absolutize(html, locale) {
     return `srcset="${rewritten}"`;
   });
   return html;
+}
+
+function renderPageToc(page) {
+  const copy = navCopy[page.locale];
+  const toc = page.cc
+    ? page.toc || []
+    : (page.toc || []).filter((heading) => heading.level >= 2 && heading.level <= 3);
+  if (!toc.length) return '';
+  return `<aside id="page-toc" aria-label="${escapeAttr(copy.contents)}">
+  <h2>${copy.contents}</h2>
+  <ul>${toc
+    .map(
+      (heading) =>
+        `<li><a href="#${escapeAttr(heading.id)}" class="toc-link${
+          heading.level === 3 ? ' toc-sub' : ''
+        }">${escapeHtml(heading.title)}</a></li>`,
+    )
+    .join('')}</ul>
+</aside>`;
 }
 
 function renderLayout(page, content) {
@@ -450,9 +454,12 @@ ${renderNav(page)}
     <input id="search-box" type="text" placeholder="${copy.search}" autocomplete="off" tabindex="0" aria-label="${copy.search}" />
     <div id="search-results"></div>
   </div>
-  <section id="content">
+  <div id="main-body">
+    <section id="content">
 ${content}
-  </section>
+    </section>
+    ${renderPageToc(page)}
+  </div>
   <footer>
     <p>${escapeHtml(copy.license)} · <a href="https://github.com/TerraFirmaGreg-Translation-CN/cctweaked4tfgm">GitHub</a>${
       page.cc

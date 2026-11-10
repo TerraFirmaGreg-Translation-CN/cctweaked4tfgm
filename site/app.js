@@ -22,6 +22,34 @@
     link.addEventListener('click', () => nav?.classList.remove('nav-links-visible'));
   }
 
+  // Keep the current page visible in the middle of the sidebar.
+  const selectedLink = document.querySelector('#nav .sidebar-link.selected');
+  if (selectedLink && nav) {
+    requestAnimationFrame(() => {
+      const navRect = nav.getBoundingClientRect();
+      const linkRect = selectedLink.getBoundingClientRect();
+      nav.scrollTop += linkRect.top - navRect.top - nav.clientHeight / 2 + linkRect.height / 2;
+    });
+  }
+
+  // Highlight the section currently in view in the right-hand TOC.
+  const tocLinks = [...document.querySelectorAll('#page-toc a')];
+  if (tocLinks.length) {
+    const targets = tocLinks.map((link) => {
+      const id = decodeURIComponent(link.hash.slice(1));
+      return document.getElementById(id) || document.getElementsByName(id)[0] || null;
+    });
+    const updateToc = () => {
+      let active = 0;
+      targets.forEach((target, index) => {
+        if (target && target.getBoundingClientRect().top <= 120) active = index;
+      });
+      tocLinks.forEach((link, index) => link.classList.toggle('active', index === active));
+    };
+    window.addEventListener('scroll', updateToc, { passive: true });
+    updateToc();
+  }
+
   for (const heading of document.querySelectorAll('#nav .nav-links > h2')) {
     heading.addEventListener('click', () => {
       heading.classList.toggle('collapsed');
